@@ -1,0 +1,94 @@
+{
+    "id": "ExtBox1-ext-gen2100",
+    "type": "formpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "cls": [
+            "whiteForm"
+        ],
+        "padding": 0,
+        "style": null,
+        "layout": "vbox",
+        "designer|userClassName": "MyFormPanel"
+    },
+    "customConfigs": [],
+    "designerId": "883a6b90-59f6-4f44-9ebd-2b7302dee485",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen39913",
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "toField"
+            },
+            "customConfigs": [],
+            "iconCls": "icon-linkedinstance",
+            "expanded": true,
+            "masterInstanceId": "ExtBox1-ext-gen25260"
+        },
+        {
+            "id": "ExtBox1-ext-gen19665",
+            "type": "textareafield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "bodyText",
+                "label": null,
+                "designer|userClassName": "MyTextArea"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen28657",
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onBodyTextFocus",
+                        "implHandler": [
+                            ""
+                        ],
+                        "name": "focus",
+                        "designer|userClassName": "onBodyTextFocus"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        },
+        {
+            "id": "ExtBox1-ext-gen4077",
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "minHeight": 100,
+                "designer|userClassName": "MyContainer5",
+                "layout|flex": 1
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

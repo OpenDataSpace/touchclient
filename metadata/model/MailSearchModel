@@ -1,0 +1,40 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MailSearchModel"
+    },
+    "designerId": "20874d06-4c5c-4fa7-b35c-57cc2269e370",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "text",
+                "designer|userClassName": "MyField"
+            },
+            "designerId": "1d94cdf0-8db6-42dc-bee2-a8ad0d1d44da"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "b890f25f-7557-497a-b8ed-046866c9ab85"
+        }
+    ]
+}

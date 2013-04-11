@@ -1,0 +1,53 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "hideAnimation": null,
+        "itemId": "",
+        "showAnimation": null,
+        "designer|userClassName": "DocumentListContainer",
+        "designer|userAlias": "DocumentListContainer",
+        "layout": null
+    },
+    "designerId": "17bbcff2-770e-425f-b8f5-e355b625ab67",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerDeactivate",
+                "fn": "onContainerDeactivate",
+                "implHandler": [
+                    "//this.down('#documentList').deselectAll();"
+                ],
+                "name": "deactivate"
+            },
+            "designerId": "080d4e5e-e3a2-420f-ac6d-4921029d61d3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "doubleTapCallback",
+                "fn": "doubleTapCallback",
+                "implHandler": [
+                    "MyGlobals.mainPanel.switchToRoot(this);\r",
+                    ""
+                ]
+            },
+            "designerId": "c8089574-9eb4-4cb8-966b-74aba72b011d"
+        }
+    ]
+}

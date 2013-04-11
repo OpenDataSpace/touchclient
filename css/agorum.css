@@ -1,0 +1,587 @@
+/*
+* fix for new chrome
+*/
+.x-title { padding:0 .3em; }
+.x-title .x-innerhtml { padding: 0; }
+
+/*
+.icon_folderobject {
+	width:20px;
+	height:20px;
+	background: url('../images/icons/folder2.png') no-repeat;
+	background-size: 20px auto;
+}
+
+.icon_fileobject {
+	width:20px;
+	height:20px;
+	background: url('../images/icons/doc2.png') no-repeat;
+	background-size: 20px auto;
+}
+*/
+
+/* Background of start and login screen */
+.logoBack {
+	background:#fff;
+	background-image:	url(../images/background.jpg);
+	background-repeat: no-repeat;
+	background-position: top left; 
+
+	background-size: cover; 
+	/* Firefox */
+	-moz-background-size: cover;
+	/* WebKit */
+	-webkit-background-size: cover;
+	/* Opera 9.5+, later Google Chrome */
+	background-size: cover;
+	
+}
+
+
+
+.receiverSearchListEntry {
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap;
+	font-size: 15px;
+}
+
+.receiverSearchListEntry_false {
+	color: #BEBEBE;
+}
+
+
+.receiverSearchContainer {
+	//-webkit-box-shadow: inset rgba(0, 0, 0, 0.3) 0 3px 3px;
+	//box-shadow: inset  rgba(0, 0, 0, 0.3) 0 3px 3px;
+	padding-top:6px;
+	//width:100px;
+	//overflow:hidden;
+}
+
+.receiverSearchContainer .x-inner {
+	//background: white;
+}
+
+.toLabel {
+	font-size: .8em;
+	font-weight: bold;
+	color: #516691;
+	padding-top:4px;
+	
+}
+
+.messageText textarea {
+	padding: 5px !important;
+}
+	
+.inputFieldSelected {
+	border: 1px solid orange;
+}
+
+.receiverInpFieldSmall {
+	width: 100px;
+}
+
+.receiverInpFieldLarge {
+	width: 100%;
+}
+
+.receiverInpFieldSmall .x-input-el{
+	padding: .1em;
+	min-height: 0em;
+}
+
+.receiverInpFieldLarge .x-input-el{
+	padding: .1em;
+	min-height: 0em;
+}
+
+.receiverInpFieldSmall.x-field{
+	min-height: 0em;
+}
+
+.receiverContainer {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 0px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0 1px 0px;
+}
+
+.searchInpFieldLarge.x-field{
+	min-height: 0em;
+}
+
+.receiverSearchList.x-list {
+	background:none;
+}
+
+.receiverSearchList .x-list-item-label {
+	min-height: 10px !important;
+	padding: 5px !important;
+	padding-right: 5px !important;
+}
+
+/* document list */
+.documentList .x-list-item-label {
+	min-height: 10px !important;
+	padding: 12px !important;
+	padding-right: 32px !important;
+	-webkit-text-size-adjust: auto;
+}
+
+/* document list */
+.searchList .x-list-item-label {
+	min-height: 10px !important;
+	padding: 12px !important;
+	padding-right: 32px !important;
+	-webkit-text-size-adjust: auto;
+}
+
+/* event assistance list */
+.eventList .x-list-item-label {
+	padding-left: 8px !important;
+	padding-right: 32px !important;
+	-webkit-text-size-adjust: auto;
+}
+
+/* entry in the ea list */
+.list_entry {
+	font-size:15px;
+	//padding-left:25px;
+	-webkit-text-size-adjust: auto;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.x-button-icon.doc {
+  -webkit-mask-image: url(../images/icons/doc.png);
+}
+ 
+.x-button-icon.settings5 {
+  -webkit-mask-image: url(../images/icons/settings5.png);
+}
+
+.x-button-icon.inbox2 {
+  -webkit-mask-image: url(../images/icons/inbox2.png);
+}
+
+.x-button-icon.inbox3 {
+  -webkit-mask-image: url(../images/icons/inbox3.png);
+}
+
+.x-button-icon.nodes1 {
+  -webkit-mask-image: url(../images/icons/nodes1.png);
+}
+
+.x-button-icon.stop1 {
+  -webkit-mask-image: url(../images/icons/stop1.png);
+}
+
+.x-button-icon.stop2 {
+  -webkit-mask-image: url(../images/icons/stop2.png);
+}
+
+.x-button-icon.gohome {
+  -webkit-mask-image: url(../images/icons/home.png);
+}
+
+.x-button-icon.compose {
+  -webkit-mask-image: url(../images/icons/compose.png);
+}
+
+.x-button-icon.right2 {
+  -webkit-mask-image: url(../images/icons/right2.png);
+}
+
+.x-button-icon.note_black {
+  -webkit-mask-image: url(../images/icons/note_black.png);
+}
+
+.x-button-icon.list {
+  -webkit-mask-image: url(../images/icons/list.png);
+}
+
+.x-button-icon.check_black2 {
+  -webkit-mask-image: url(../images/icons/check_black2.png);
+}
+
+.x-button-icon.delete1 {
+  -webkit-mask-image: url(../images/icons/delete1.png);
+}
+
+.x-button-icon.layout {
+  -webkit-mask-image: url(../images/icons/layout.png);
+}
+.x-button-icon.left2 {
+  -webkit-mask-image: url(../images/icons/left2.png);
+}
+
+.x-button-icon.chat {
+  -webkit-mask-image: url(../images/icons/chat.png);
+}
+
+.x-button-icon.info {
+  -webkit-mask-image: url(../images/icons/info.png);
+}
+
+.x-button-icon.action {
+  -webkit-mask-image: url(../images/icons/action.png);
+}
+
+/* Icons in the ea list */
+.list_icons {
+	width:26px;
+	min-height:1px;
+	float:left;
+}
+
+/* default icon in all lists */
+.list_icon {
+	width:25px;
+	height:24px;
+	background-image:	url(../images/icons/unknown.png);
+	background-repeat: no-repeat;
+	background-size: 20px auto;
+}
+
+/* icons for different object types */
+.list_icon_fileobject {
+	background-image:	url(../images/icons/doc2.png) !important;
+	background-repeat: no-repeat !important;
+}
+
+.list_icon_maildocumentobject {
+	background-image:	url(../images/icons/doc2.png) !important;
+	background-repeat: no-repeat !important;
+}
+
+.list_icon_folderobject {
+	background-image:	url(../images/icons/folder2.png) !important;
+	background-repeat: no-repeat !important;
+}
+
+.list_icon_mailobjectin {
+	background-image:	url(../images/icons/mail_received.png) !important;
+	background-repeat: no-repeat !important;
+}
+
+.list_icon_mailobject {
+	background-image:	url(../images/icons/mail_received.png) !important;
+	background-repeat: no-repeat !important;
+}
+
+.list_icon_mailobjectout {
+	background-image:	url(../images/icons/mail_send.png) !important;
+	background-repeat: no-repeat !important;
+}
+
+.list_icon_workflowinstance {
+	background-image:	url(../images/icons/workflow.png) !important;
+	background-repeat: no-repeat !important;
+}
+.list_icon_d4waddressbook {
+	background-image:	url(../images/icons/address_books.png) !important;
+	background-repeat: no-repeat !important;
+}
+
+.list_icon_noteobject {
+	width:25px;
+	height:24px;
+	background-image:	url(../images/icons/note.png) !important;
+	background-repeat: no-repeat !important;
+	background-size: 20px auto;
+}
+
+/* date in ea list */
+.list_date {
+	float: right;
+	color:#516691;
+	text-align: right;
+	font-size: 13px;
+	padding-top: 0px;
+}
+
+.x-item-selected .list_date {
+	color: white;
+}
+
+/* ea list */
+.list_style {
+	-webkit-text-size-adjust: auto;
+}
+
+/* ea list, when item is read */
+.list_read_true {
+}
+
+/* ea list, when item is not read */
+.list_read_false {
+	background-image:	url(../images/icons/universal.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+	background-size: 10px auto;
+}
+
+/* ea list read col */
+.list_read {
+	float: left;
+	width:18px;
+	height:10px;
+}
+
+.list_editcircle {
+	float: left;
+	width: 0px;
+	height: 10px;
+	visibility: hidden;
+}
+
+.listEditMode .list_editcircle {
+	visibility: visible;
+	width: 20px;
+}
+
+.listEditMode .list_editmode {
+	background-image:	url(../images/icons/selected_no.png);
+	background-repeat: no-repeat;
+	background-position: center left !important;
+	background-position-x: 5px !important;
+	
+	background-size: 20px auto !important;
+}
+
+.listEditMode .multi_select_list .list_editmode{
+	background-image:	url(../images/icons/selected_yes.png);
+	background-repeat: no-repeat;
+	background-position: center left !important;
+	background-position-x: 5px !important;
+
+	background-size: 20px auto !important;
+}
+
+.listEditMode .multi_select_list .x-list-item-label {
+	background-color:#e9f0fa !important;
+}
+
+.listEditMode .list_read_false {
+	background-position-x: 20px;
+}
+
+/* ea list content part */
+.list_content {
+	font-size:15px;
+	color: gray;
+	line-height:17px;
+	max-height: 34px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.x-item-selected .list_content {
+	color: lightgray;
+}
+
+
+/* headline in the ea list */
+.list_headline {
+	font-weight: bold;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* sub part in ea list */
+.list_subline {
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* border of menu */
+.MenuBorder {
+	border-right: 1px solid #000 !important;
+}
+
+/* from buttons in mail view */
+.mail_from_button {
+	display:inline-block;
+}
+
+.mail_from_button .x-button-label {
+	font-size: 13px;
+	line-height: 1.5em;
+}
+
+.mail_from_button.x-button {
+	min-height: 1.1em;
+	padding: 0.0em 0.3em !important;
+	margin-right: 5px;
+}
+
+.mail_label {
+	color: gray;
+}
+
+.mail_subject {
+	font-weight: bold;
+}
+
+.mail_date {
+	color: gray;
+	font-size: 12px;
+}
+
+.mail_frame {
+	border-bottom: 1px solid lightgray !important;
+}
+
+.scaled_content {
+//	-webkit-transform: scale(0.5);
+	//-webkit-transform: scale(.75);
+  //-webkit-transform-origin: 0 0;
+}
+
+.x-list .x-item-selected .x-list-disclosure {
+	//background: none !important;
+}
+
+.documentList .x-list-disclosure,
+.eventList .x-list-disclosure,
+.searchList .x-list-disclosure {
+	background: none !important;
+	width: 40px;
+	height: 100%;
+	bottom: 0px;
+	top: 0px;
+	right: 0px;
+	-webkit-mask: none;
+	
+	background-image: url(../images/icons/disclosure.png) !important;
+	background-repeat:	no-repeat !important;
+	background-position: center left !important;
+	background-position-x: 14px !important;
+	background-size: 20px auto !important;
+}
+
+.whiteForm .x-scroll-container {
+	background-color:white;
+}
+
+.shadowPanel {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.3) -10px 0px 10px;
+	box-shadow: rgba(0, 0, 0, 0.3) -10px 0px 10px;
+}
+
+.infoDescription {
+}
+
+.infoValue {
+}
+
+.infoContainer {
+}
+
+.infoContainer .x-form-label {
+	font-size: 15px;
+	line-height: 15px;
+	font-weight: bold;
+	background: none;
+	text-align: right;
+	color:#516691;
+}
+
+.infoContainer .x-input-el {
+	font-size: 15px;
+	line-height: 15px;
+}
+
+.infoContainer .x-form-fieldset {
+	font-size: 15px;
+	line-height: 15px;
+}
+
+.infoContainer .x-field-textarea textarea {
+	padding-top: 11px;
+}
+
+.myTextArea {
+	padding-bottom: 11px;
+}
+
+.infoContainer .x-form-fieldset {
+	margin: 0px 0 10px;
+}
+
+.notesContainer {
+	font-size: 15px;
+}
+
+.notesContainer .x-innerhtml {
+	border-bottom: 1px solid #DDD;
+	font-size: 15px;
+	padding: 11px;
+	line-height:15px;
+}
+
+.notesContainer .selectedNote {
+	background: #FFC;
+	border-radius: 0.4em !important;
+	-webkit-border-radius: 0.4em !important;
+}
+
+.notesContainer .selectedNote .x-form-fieldset-inner {
+	background: #FFC;
+}
+
+.notesContainer .notesHead {
+	//display: -webkit-box;
+	margin-bottom:10px !important;
+	
+	min-height: 60px;
+	padding: 0.65em 0.8em;
+}
+
+.notesContainer .notesUser {
+	//display: block;
+	//float:left;
+	width:70%;
+	font-weight: bold;
+	color:#516691;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap;
+}
+
+.notesContainer .notesDate {
+	//display: block;
+	font-size: 13px;
+	float:right;
+	color:#516691;
+	padding-top:2px;
+	text-align: right;
+	width: 30%;
+}
+
+.notesContainer .x-list-round,
+.notesContainer .x-list-container {
+	//padding: 5px 5px 0 5px;
+	padding: 10px 10px 0 10px;
+}
+
+.notesContainer .x-list-item-label {
+	border-radius: 0.4em !important;
+	-webkit-border-radius: 0.4em !important;
+	margin-bottom: 0  !important;
+	padding: 0px !important;
+}
+
+.notesContainer .x-form-fieldset {
+	margin: 0px 0 10px;
+}
+
+.notesContainer .notesText {
+	//float:left;
+}

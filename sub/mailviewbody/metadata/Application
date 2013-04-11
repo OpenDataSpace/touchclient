@@ -1,0 +1,25 @@
+{
+    "id": "ExtBox1-ext-gen10199",
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "stores": null,
+        "views": [
+            "MailViewPage",
+            "StartPanel"
+        ],
+        "name": "ACMobileClient",
+        "controllers": [
+            "MyController"
+        ]
+    },
+    "customConfigs": [],
+    "designerId": "application",
+    "$viewOrder": 0,
+    "iconCls": "icon-application",
+    "expanded": true
+}

@@ -1,0 +1,72 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "QuickSearchDataModel"
+    },
+    "designerId": "7ff49ddf-46be-4f3c-ade0-ffd62c93a721",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "text",
+                "name": "label",
+                "designer|userClassName": "MyField"
+            },
+            "designerId": "6a821a82-c3cf-4e6c-b959-169755e7c39a",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "var trans = ACMobileClient.Messages['quicksearch.'+v];\r",
+                            "if (trans) {\r",
+                            "    return trans;\r",
+                            "}\r",
+                            "else {\r",
+                            "    return v;\r",
+                            "}\r",
+                            ""
+                        ]
+                    },
+                    "designerId": "3c69c7a1-7bd7-45e7-8395-0269c96eebbe"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "query",
+                "name": "value",
+                "type": "string",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "16b06628-24c8-4579-8947-c9815c58de30"
+        }
+    ]
+}

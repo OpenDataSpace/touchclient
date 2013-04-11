@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "url": "css/agorum.css",
+        "id": "agorumcss"
+    },
+    "designerId": "4abe5c27-2e34-4f66-a9f4-80031b3b0257"
+}

@@ -1,0 +1,98 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ContentContainer",
+        "designer|userAlias": "contentContainer",
+        "layout": "fit"
+    },
+    "designerId": "2e7c0d30-af26-4b5a-95ae-ae93c4e893e5",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "doRepaint",
+                "fn": "doRepaint",
+                "implHandler": [
+                    "this.down('#titleBar').doRepaint();"
+                ]
+            },
+            "designerId": "a7a0d6d4-aae8-4c4a-9c57-b9b30c4f6ee0"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "titleBar"
+            },
+            "designerId": "f082084a-a978-415a-b3f1-e962458e9e95",
+            "masterInstanceId": "b06dd2a4-beac-4f30-aff2-107a30abfad3"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerInitialize",
+                "fn": "onContainerInitialize",
+                "implHandler": [
+                    ""
+                ],
+                "name": "initialize"
+            },
+            "designerId": "4b108a02-c340-4a1a-9de8-b63f0193c539"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerPainted",
+                "fn": "onContainerPainted",
+                "implHandler": [
+                    "if (!this.loaded) {\r",
+                    "    if (this.hasPrevious) {\r",
+                    "        this.down('#titleBar').down('#backButton').show();\r",
+                    "        console.log(\"nav: \"+this.navTitle);\r",
+                    "        \r",
+                    "        if (!this.navTitle || this.navTitle == \"Start\") {\r",
+                    "            this.down('#titleBar').down('#backButton').setText(\"\");\r",
+                    "            this.down('#titleBar').down('#backButton').setIconCls(\"gohome\");\r",
+                    "        }\r",
+                    "        else {\r",
+                    "            this.down('#titleBar').down('#backButton').setText(this.navTitle);\r",
+                    "            this.down('#titleBar').down('#backButton').setIconCls(null);\r",
+                    "\r",
+                    "        }\r",
+                    "    }\r",
+                    "    else {\r",
+                    "        this.down('#titleBar').down('#backButton').hide();\r",
+                    "    }\r",
+                    "    this.loaded = true;\r",
+                    "}"
+                ],
+                "name": "painted"
+            },
+            "designerId": "e9bf4699-073f-46c1-b803-e536117a4584"
+        }
+    ]
+}

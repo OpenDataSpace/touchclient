@@ -1,0 +1,12 @@
+{
+    data: [{
+	text: 'Oliver Schulze <oliver.schulze@agorum.com>',
+	value: 'oliver.schulze@agorum.com'
+    },{
+	text: 'Nina Schulze <nina.schulze@agorum.com>',
+	value: 'oliver.schulze@agorum.com'
+    },{
+	text: 'Test <oliver.schulze@agorum.com>',
+	value: 'test@agorum.com'
+    }]
+} 

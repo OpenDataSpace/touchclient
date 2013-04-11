@@ -1,0 +1,16 @@
+{
+    "id": "ExtBox1-ext-gen9420",
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "url": "../css/agorum.css"
+    },
+    "customConfigs": [],
+    "designerId": "2a5138c1-4e25-49e2-8648-b42cf78894a3",
+    "$viewOrder": 0,
+    "expanded": true
+}

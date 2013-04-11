@@ -1,0 +1,39 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "model": "PreviewModel",
+        "storeId": "PreviewStore",
+        "designer|userClassName": "PreviewStore"
+    },
+    "designerId": "1eb1979e-9ebc-4b01-b11d-8a67b6f83d77",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onStoreBeforeLoad",
+                "fn": "onStoreBeforeLoad",
+                "implHandler": [
+                    "operation.setParams({\r",
+                    "    source: store.source, \r",
+                    "    start: parseInt(store.page)-1,\r",
+                    "    limit: 1\r",
+                    "});\r",
+                    "addSessionIdToParams(operation);\r",
+                    ""
+                ],
+                "name": "beforeload"
+            },
+            "designerId": "4694c901-eecb-483b-a7f5-4c771da48dd2"
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "model": "SearchDataModel",
+        "storeId": "SearchDataStore",
+        "designer|userClassName": "SearchDataStore"
+    },
+    "designerId": "382d0c73-0668-42ba-a5da-4b81af4fb7eb",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyRestProxy2",
+                "extraParams": [
+                    "{\r",
+                    "\tprovider: 'search',\r",
+                    "\tparameters: Ext.encode({\r",
+                    "\t\t\tgetmainobject: true,\r",
+                    "\t\t\taccessibleonly: true\r",
+                    "\t}),\r",
+                    "\tproperties: [\r",
+                    "\t\t'id',\r",
+                    "\t\t'displayname',\r",
+                    "\t\t'classname',\r",
+                    "\t\t'read',\r",
+                    "\t\t'previewable',\r",
+                    "        'textavailable',\r",
+                    "\t\t'isfolder'\r",
+                    "\t]\r",
+                    "}"
+                ],
+                "url": "/api/rest/object",
+                "format": "json"
+            },
+            "designerId": "3f87b5ab-fb0d-4eb5-8bf6-9084f03f255e",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "idProperty": "id",
+                        "rootProperty": "data",
+                        "designer|userClassName": "MyJsonReader"
+                    },
+                    "designerId": "02e143d0-76d6-4a18-a9a9-1ed12708404d"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onJsonstoreBeforeLoad",
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "operation.setParams({query: store.searchQuery});\r",
+                    "addSessionIdToParams(operation);\r",
+                    ""
+                ],
+                "name": "beforeload"
+            },
+            "designerId": "cf46adcd-f849-46c1-8af7-336e24646645"
+        }
+    ]
+}

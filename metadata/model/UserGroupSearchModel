@@ -1,0 +1,138 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "UserGroupSearchModel"
+    },
+    "designerId": "a93f9b50-309e-4039-a422-36f5b6ba55e7",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id",
+                "designer|userClassName": "MyField85"
+            },
+            "designerId": "6735437d-f931-468e-910f-1665622b4fb0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "id",
+                "name": "value",
+                "designer|userClassName": "MyField85"
+            },
+            "designerId": "87f4f9b7-7b47-4128-b2c3-281a5e6b29fa"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name",
+                "designer|userClassName": "MyField85"
+            },
+            "designerId": "8d7eed62-b43b-44d6-a0aa-ce8760768141"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultValue": [
+                    "true"
+                ],
+                "name": "objectvisible",
+                "type": "boolean",
+                "designer|userClassName": "MyField85"
+            },
+            "designerId": "03c18943-9d24-479a-ad50-ab23662c796b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fullname",
+                "designer|userClassName": "MyField85"
+            },
+            "designerId": "198463bc-b7e6-4c8d-b1d8-3bfc0ae30338"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "classname",
+                "designer|userClassName": "MyField85"
+            },
+            "designerId": "b463bb9f-9e7d-4f29-8096-9e9fd19664e4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "text",
+                "designer|userClassName": "MyField85"
+            },
+            "designerId": "2c90e24e-6861-488f-8a5c-fa79a9cbd52b",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "if (rec.get(\"fullname\") != null) {\r",
+                            "    return rec.get(\"fullname\");\r",
+                            "}\r",
+                            "else {\r",
+                            "    return rec.get(\"name\");\r",
+                            "}"
+                        ]
+                    },
+                    "designerId": "0d390bee-85d2-4f0a-bd2a-63aaa9b7235c"
+                }
+            ]
+        }
+    ]
+}

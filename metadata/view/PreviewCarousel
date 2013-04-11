@@ -1,0 +1,197 @@
+{
+    "type": "Ext.carousel.Carousel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": "mycarousel",
+        "designer|userClassName": "PreviewCarousel",
+        "designer|userAlias": "mycarousel"
+    },
+    "designerId": "e36a093a-ef0e-4987-9ac5-eb49054a513b",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "initialize",
+                "fn": "initialize",
+                "implHandler": [
+                    "this.locked = true;\r",
+                    "this.onDragOrig = this.onDrag;\r",
+                    "this.onDrag = function (e) { \r",
+                    "    if(!this.locked) {\r",
+                    "        this.onDragOrig(e);  \r",
+                    "    } \r",
+                    "}"
+                ]
+            },
+            "designerId": "0c26890a-f8ea-4bca-864f-80cf1e056704"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadPreview",
+                "fn": "loadPreview",
+                "designer|params": [
+                    "objectId",
+                    "page",
+                    "parentContainer"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "    me.enableWipe(true);\r",
+                    "    me.removeAll(true, false);\r",
+                    "\r",
+                    "    //put in there the ImageViewer-Preview-Module\r",
+                    "    var imageViewerContainer = Ext.create(\"ACMobileClient.view.ImageViewerContainer\", {});\r",
+                    "\r",
+                    "    var imageViewer = Ext.create(\"ACMobileClient.view.ImageViewer\", {});\r",
+                    "    imageViewer.caller = me;\r",
+                    "    imageViewer.parentContainer = parentContainer;\r",
+                    "    imageViewer.imageViewerContainer = imageViewerContainer;\r",
+                    "    imageViewer.loadNext = true;\r",
+                    "\r",
+                    "    imageViewerContainer.imageViewer = imageViewer;\r",
+                    "    imageViewerContainer.add(imageViewer);\r",
+                    "    me.add(imageViewerContainer);\r",
+                    "    me.setActiveItem(imageViewerContainer);\r",
+                    "    var pageCount = 0;\r",
+                    "    var imageCarousel = me;\r",
+                    "\r",
+                    "    me.on('activeitemchange', me.onMycarouselActiveItemChange, me, {});\r",
+                    "    imageViewerContainer.showLoader();\r",
+                    "\r",
+                    "    //load first image\r",
+                    "    console.log('load preview 1: '+objectId+\", \"+page);\r",
+                    "\r",
+                    "\r",
+                    "    var previewStore = Ext.create('ACMobileClient.store.PreviewStore', {});\r",
+                    "    previewStore.source = objectId;\r",
+                    "    previewStore.page = page;\r",
+                    "\r",
+                    "    previewStore.on('load', function() {\r",
+                    "        console.log(\"preview 1 finished\");\r",
+                    "        var mdl = previewStore.getAt(0);\r",
+                    "        var ticket = +mdl.get('ticket');\r",
+                    "        var pageCount = previewStore.getTotalCount();\r",
+                    "\r",
+                    "        console.log('ticket: '+ticket+', '+pageCount);\r",
+                    "\r",
+                    "        parentContainer.setPageLabel(page, pageCount);\r",
+                    "\r",
+                    "        //all other images\r",
+                    "        var lastImageViewer = imageViewer;\r",
+                    "\r",
+                    "        for (var i=1;i<pageCount;i++) {\r",
+                    "            console.log(\"init next page: \"+i);\r",
+                    "            var imageViewerContainer2 = Ext.create(\"ACMobileClient.view.ImageViewerContainer\", {});\r",
+                    "\r",
+                    "            var imageViewer2 = Ext.create(\"ACMobileClient.view.ImageViewer\", {});\r",
+                    "            imageViewerContainer2.imageViewer = imageViewer2;\r",
+                    "            imageViewer2.imageViewerContainer = imageViewerContainer2;\r",
+                    "            imageViewer2.caller = imageCarousel;\r",
+                    "            lastImageViewer.nextImageViewer = imageViewer2;\r",
+                    "            lastImageViewer = imageViewer2;\r",
+                    "            imageViewer2.page = i+1;\r",
+                    "            imageViewer2.pageCount = pageCount;\r",
+                    "            imageViewer2.objectId = objectId;\r",
+                    "            imageViewerContainer2.showLoader();\r",
+                    "            imageViewer2.parentContainer = parentContainer;\r",
+                    "            imageViewerContainer2.add(imageViewer2);\r",
+                    "            imageCarousel.add(imageViewerContainer2);        \r",
+                    "        }\r",
+                    "\r",
+                    "        imageViewer.loadImageFromServer(ticket, pageCount, page, objectId);\r",
+                    "\r",
+                    "    });\r",
+                    "\r",
+                    "    //now load the preview\r",
+                    "    previewStore.load();\r",
+                    "\r",
+                    "});"
+                ]
+            },
+            "designerId": "c1a1e280-eb98-4a9f-8a88-83a708d21b3b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "enableWipe",
+                "fn": "enableWipe",
+                "designer|params": [
+                    "enabled"
+                ],
+                "implHandler": [
+                    "this.locked = !enabled;"
+                ]
+            },
+            "designerId": "f95139d4-6c42-491c-8182-a0537754bdda"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onMycarouselActiveItemChange",
+                "fn": "onMycarouselActiveItemChange",
+                "implHandler": [
+                    "var me = this;\r",
+                    "if (!this.isBeingRemoved) {\r",
+                    "    ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "        if (oldValue) {\r",
+                    "            oldValue.viewerHidden();\r",
+                    "        }\r",
+                    "        if (value) {\r",
+                    "            console.log(\"itemChange 1\");\r",
+                    "            if (me.secondTime) value.viewerShown();\r",
+                    "            me.secondTime = true;\r",
+                    "            console.log(\"itemChange 2\");\r",
+                    "        }\r",
+                    "    });\r",
+                    "}"
+                ],
+                "name": "activeitemchange"
+            },
+            "designerId": "60c2a8b2-f8a0-4300-9595-57c82c800b40"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onMycarouselRemove",
+                "fn": "onMycarouselRemove",
+                "implHandler": [
+                    "console.log(\"removing\");\r",
+                    "this.isBeingRemoved = true;"
+                ],
+                "name": "remove"
+            },
+            "designerId": "f7da01d9-a653-4d60-8365-f4f5d940bd71"
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "FolderObjectDataModel",
+            "QuickSearchDataModel",
+            "SearchDataModel",
+            "EventAssistanceDataModel",
+            "MailViewModel",
+            "MailAttachmentModel",
+            "LoginModel",
+            "PreviewModel",
+            "AreaDataModel",
+            "ObjectInfoModel",
+            "NoteModel",
+            "UserGroupSearchModel",
+            "TextViewModel"
+        ],
+        "stores": [
+            "FolderObjectDataStore",
+            "QuickSearchDataStore",
+            "SearchDataStore",
+            "EventAssistanceDataStore",
+            "MailViewStore",
+            "FolderObjectTreeStore",
+            "PreviewStore",
+            "MailAttachmentStore",
+            "AreaDataStore",
+            "ObjectInfoStore",
+            "NoteStore",
+            "UserGroupSearchStore",
+            "TextViewStore"
+        ],
+        "views": [
+            "MainPanel",
+            "MenuPanel",
+            "LoginPanel",
+            "PreviewContainer",
+            "LogoContainer",
+            "PreviewCarousel",
+            "ImageViewerContainer",
+            "MailViewContainer",
+            "MailButton",
+            "EventAssistanceContainerSub",
+            "SearchContainerSub",
+            "FolderListList",
+            "InfoPanel",
+            "FolderListContainer",
+            "ContentContainerBar",
+            "ContentContainer",
+            "EventAssistanceListList",
+            "EventAssistanceContainer",
+            "NoteEntry",
+            "NotesWriteContainer",
+            "ReceiverInputField",
+            "ReceiverField",
+            "NotesListList",
+            "ReceiverList",
+            "TextViewContainer",
+            "SettingsContainer"
+        ],
+        "controllers": [
+            "MyController"
+        ],
+        "name": "ACMobileClient"
+    },
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "launch",
+                "fn": "launch",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "a3abfae6-8cbd-428d-91e0-2e13eab488a1"
+        }
+    ]
+}

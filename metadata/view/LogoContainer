@@ -1,0 +1,52 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": [
+            "logoBack"
+        ],
+        "style": null,
+        "designer|userClassName": "LogoContainer"
+    },
+    "designerId": "3ae2f364-6240-4603-8dde-739af04b090d",
+    "cn": [
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerPainted",
+                "fn": "onContainerPainted",
+                "implHandler": [
+                    ""
+                ],
+                "name": "painted"
+            },
+            "designerId": "1e574de2-6089-4045-b8cc-cc0036f355dc"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerShow",
+                "fn": "onContainerShow",
+                "implHandler": [
+                    ""
+                ],
+                "name": "show"
+            },
+            "designerId": "59c653eb-f107-4b55-aa0b-e00d1fcfa146"
+        }
+    ]
+}

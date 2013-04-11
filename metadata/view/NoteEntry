@@ -1,0 +1,52 @@
+{
+    "type": "Ext.form.FieldSet",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "NoteEntry",
+        "designer|userAlias": "noteEntry",
+        "title": null
+    },
+    "designerId": "77a6fe9f-799c-46ce-98f5-f5a1a8bdcbac",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadNote",
+                "fn": "loadNote",
+                "designer|params": [
+                    "item",
+                    "noteId"
+                ],
+                "implHandler": [
+                    "if (noteId && noteId == item.get('id')) {\r",
+                    "    this.addCls(\"selectedNote\");\r",
+                    "}\r",
+                    "var content = item.get('content');\r",
+                    "content =  content.replace(/\\n/gi, \"<br>\");\r",
+                    "var html = '<div class=\"notesHead\">'+\r",
+                    "'<div class=\"notesUser\">'+item.get('creator')+'</div>'+\r",
+                    "'<div class=\"notesDate\">'+formatDate(item.get('createdate'))+'</div>'+\r",
+                    "'</div><div class=\"notesText\">'+content+'</div>';\r",
+                    "\r",
+                    "\r",
+                    "this.add({\r",
+                    "    xtype: 'label',\r",
+                    "    html: html,\r",
+                    "    flex: 0\r",
+                    "});\r",
+                    ""
+                ]
+            },
+            "designerId": "739ee000-25e6-4484-9d68-9f6f33d2b2da"
+        }
+    ]
+}

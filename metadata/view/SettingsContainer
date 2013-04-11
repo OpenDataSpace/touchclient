@@ -1,0 +1,125 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": null,
+        "padding": 10,
+        "designer|userClassName": "SettingsContainer",
+        "designer|userAlias": "SettingsContainer"
+    },
+    "designerId": "e45f39e9-8310-4feb-b0f1-677c45441336",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "designer|userClassName": "MyToolbar7",
+                "title": "Einstellungen"
+            },
+            "designerId": "b46d14cd-7372-428b-9536-4e2c2c58b421"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet1",
+                "title": "Einstellungen"
+            },
+            "designerId": "0c0b2324-59e3-4827-95af-bf7a0f1fc0f0",
+            "cn": [
+                {
+                    "type": "Ext.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "autoLogin",
+                        "designer|userClassName": "MyCheckbox1",
+                        "label": "Automatisch anmelden",
+                        "labelWidth": "70%"
+                    },
+                    "designerId": "eb048bd8-ae77-45b5-9518-484a00d097e2",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onAutoLoginCheck",
+                                "fn": "onAutoLoginCheck",
+                                "implHandler": [
+                                    "if (!this.initMode) {\r",
+                                    "    ACUtils.utils.saveLogin(ACUtils.utils.storedUser, ACUtils.utils.storedPassWord);\r",
+                                    "}"
+                                ],
+                                "name": "check"
+                            },
+                            "designerId": "718fb088-2018-4b28-a5cc-dfa9411fab1d"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onAutoLoginUncheck",
+                                "fn": "onAutoLoginUncheck",
+                                "implHandler": [
+                                    "if (!this.initMode) {\r",
+                                    "    ACUtils.utils.removeLogin();\r",
+                                    "}"
+                                ],
+                                "name": "uncheck"
+                            },
+                            "designerId": "548838df-7e1a-410c-90be-807986606445"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onSettingsContainerShow",
+                "fn": "onSettingsContainerShow",
+                "implHandler": [
+                    "this.initMode = true;\r",
+                    "if (ACUtils.utils.isAutoLogin()) {\r",
+                    "    this.down('#autoLogin').check();\r",
+                    "}\r",
+                    "else {\r",
+                    "    this.down('#autoLogin').uncheck();\r",
+                    "}\r",
+                    "this.initMode = false;"
+                ],
+                "name": "show"
+            },
+            "designerId": "785342c5-f6ed-4c16-8797-93e4755ceb00"
+        }
+    ]
+}

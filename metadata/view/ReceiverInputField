@@ -1,0 +1,566 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": null,
+        "margin": null,
+        "padding": "",
+        "designer|userClassName": "ReceiverInputField",
+        "designer|userAlias": "ReceiverInputField",
+        "layout": "vbox"
+    },
+    "designerId": "c90b719c-b695-4737-a327-5eedf7497106",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "search",
+                "fn": "search",
+                "designer|params": [
+                    "force"
+                ],
+                "implHandler": [
+                    "if (!this.inSearch || force) {\r",
+                    "\r",
+                    "    this.down('#receiverList').deselectAll();\r",
+                    "    var store = this.down('#receiverList').getStore();\r",
+                    "    this.handleInpField();\r",
+                    "    var value = this.down('#inputField').getValue();\r",
+                    "    this.lastInputValue = value;\r",
+                    "\r",
+                    "    if (value.length == 0) {\r",
+                    "        var me = this;\r",
+                    "        me.down('#inputField').setWidth(50);\r",
+                    "        setTimeout(function() {\r",
+                    "            me.setHeight(null);\r",
+                    "            me.down('#selectContainer').setHeight(0);\r",
+                    "            me.down('#receiverList').hide();\r",
+                    "            me.down('#selectContainer').removeCls('receiverSearchContainer');\r",
+                    "        },200);\r",
+                    "    }\r",
+                    "    else {\r",
+                    "        this.inSearch = true;\r",
+                    "        store.load({\r",
+                    "            params: {    \r",
+                    "                sessionId: MyGlobals.sessionId,\r",
+                    "                query: value\r",
+                    "            }\r",
+                    "        });\r",
+                    "    }\r",
+                    "}"
+                ]
+            },
+            "designerId": "9ad7a419-21c2-43e5-9fe5-2ccc7d1db05c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "focusField",
+                "fn": "focusField",
+                "implHandler": [
+                    "var me = this;\r",
+                    "var theInpId = me.down('#inputField').element.down('textarea').id;\r",
+                    "document.getElementById(theInpId).focus();\r",
+                    ""
+                ]
+            },
+            "designerId": "fb1197f9-220e-45c7-afc7-41777be1a510"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getReceivers",
+                "fn": "getReceivers",
+                "implHandler": [
+                    "var ret = new Array();\r",
+                    "\r",
+                    "for (var i=0;i<this.inputItems.length;i++) {\r",
+                    "    ret[i] = {\r",
+                    "        value: this.inputItems[i].value,\r",
+                    "        text: this.inputItems[i].text\r",
+                    "    };\r",
+                    "}\r",
+                    "\r",
+                    "return ret;\r",
+                    ""
+                ]
+            },
+            "designerId": "a2c16084-c496-4120-8d22-81d2572d391e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "handleInpField",
+                "fn": "handleInpField",
+                "implHandler": [
+                    "var value = this.down('#inputField').getValue();\r",
+                    "\r",
+                    "if (value.length > 7 || this.inputItems.length == 0) {\r",
+                    "    //resize the input field\r",
+                    "    this.down('#inputField').removeCls('receiverInpFieldSmall');\r",
+                    "    this.down('#inputField').addCls('receiverInpFieldLarge');\r",
+                    "}\r",
+                    "else {\r",
+                    "    this.down('#inputField').removeCls('receiverInpFieldLarge');\r",
+                    "    this.down('#inputField').addCls('receiverInpFieldSmall');\r",
+                    "}\r",
+                    ""
+                ]
+            },
+            "designerId": "7f7aea01-b27f-4dc1-a9aa-87c3070fe081"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "addField",
+                "fn": "addField",
+                "designer|params": [
+                    "text",
+                    "value"
+                ],
+                "implHandler": [
+                    "var inpC = this.down('#inputContainer');\r",
+                    "\r",
+                    "var selField = Ext.create('ACMobileClient.view.ReceiverField', {\r",
+                    "    html: text,\r",
+                    "    value: value\r",
+                    "});\r",
+                    "selField.theParent = this;\r",
+                    "\r",
+                    "inpC.insert(this.inputItems.length, selField);\r",
+                    "this.inputItems[this.inputItems.length] = selField;\r",
+                    "\r",
+                    "var me = this;\r",
+                    "if (me.theTextField) {\r",
+                    "    me.theTextField.focus();\r",
+                    "}\r",
+                    ""
+                ]
+            },
+            "designerId": "7e394d89-586c-4595-86d5-a6d1a25b1939"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "selectField",
+                "fn": "selectField",
+                "designer|params": [
+                    "field"
+                ],
+                "implHandler": [
+                    "if (this.selectedItem) {\r",
+                    "    this.deselectField();\r",
+                    "}\r",
+                    "field.addCls('inputFieldSelected');\r",
+                    "this.selectedItem = field;\r",
+                    "this.focusField();"
+                ]
+            },
+            "designerId": "33db2031-a05f-44b5-ba81-08360f2e41ec"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "deselectField",
+                "fn": "deselectField",
+                "implHandler": [
+                    "if (this.selectedItem != null) {\r",
+                    "    this.selectedItem.removeCls('inputFieldSelected');\r",
+                    "    this.selectedItem = null;\r",
+                    "}"
+                ]
+            },
+            "designerId": "23c76d01-f932-4ce4-bf21-f309b528c8f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "selectLastField",
+                "fn": "selectLastField",
+                "implHandler": [
+                    "if (this.inputItems.length > 0) {\r",
+                    "    var lastItem = this.inputItems[this.inputItems.length-1];\r",
+                    "    this.selectField(lastItem);\r",
+                    "}"
+                ]
+            },
+            "designerId": "eca201a7-9d50-417d-a3c9-7ecf232a0d3e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "deleteField",
+                "fn": "deleteField",
+                "implHandler": [
+                    "var inpC = this.down('#inputContainer');\r",
+                    "inpC.remove(this.selectedItem, true);\r",
+                    "var numb = -1;\r",
+                    "for (var i=0;i<this.inputItems.length;i++) {\r",
+                    "    if (this.inputItems[i] == this.selectedItem) {\r",
+                    "        numb = i;\r",
+                    "        break;\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "if (numb >= 0) {\r",
+                    "    this.inputItems.splice(numb, 1);\r",
+                    "}\r",
+                    "this.selectedItem = null;\r",
+                    ""
+                ]
+            },
+            "designerId": "c1cee713-8c38-4569-8fe2-12b64abbd666"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 0,
+                "cls": [
+                    "receiverContainer"
+                ],
+                "padding": 5,
+                "designer|userClassName": "MyContainer6",
+                "layout": "hbox"
+            },
+            "designerId": "b5bd6ce7-08fc-444c-b2e2-d6ad75ebefa6",
+            "cn": [
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 0,
+                        "cls": [
+                            "toLabel"
+                        ],
+                        "html": "An:",
+                        "itemId": "toLabel",
+                        "margin": "0 5 0 0",
+                        "style": "display:block",
+                        "width": null,
+                        "designer|userClassName": "MyLabel"
+                    },
+                    "designerId": "b4edbbe0-a8d7-4081-a40e-361bea9532f3"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "height": null,
+                        "html": null,
+                        "id": null,
+                        "itemId": "inputContainer",
+                        "margin": "0 0 0 0",
+                        "maxWidth": null,
+                        "minHeight": null,
+                        "padding": "",
+                        "ui": "",
+                        "width": null,
+                        "designer|userClassName": "MyContainer",
+                        "layout": "hbox"
+                    },
+                    "designerId": "e4b721a7-cae7-4da0-b763-fbed1c315423",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 0,
+                                "height": null,
+                                "itemId": "receiverContainer",
+                                "maxHeight": 25,
+                                "maxWidth": null,
+                                "minWidth": null,
+                                "style": "display:inline-block;",
+                                "width": null,
+                                "designer|userClassName": "MyContainer6"
+                            },
+                            "designerId": "32b4e72c-a658-4d92-9b64-3ec2bc877175",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.TextArea",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 25,
+                                        "html": null,
+                                        "id": null,
+                                        "itemId": "inputField",
+                                        "maxHeight": null,
+                                        "maxWidth": null,
+                                        "minWidth": null,
+                                        "style": null,
+                                        "width": 50,
+                                        "designer|userClassName": "MyTextArea1",
+                                        "label": null,
+                                        "labelWidth": 0
+                                    },
+                                    "designerId": "2a03bb4e-0ae8-4065-bf6a-2e115d40eb82",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|userClassName": "onInputFieldKeyup",
+                                                "fn": "onInputFieldKeyup",
+                                                "implHandler": [
+                                                    "this.theTextField = textfield;\r",
+                                                    "console.log(e.browserEvent.keyCode);\r",
+                                                    "\r",
+                                                    "if (textfield.getValue().length === 0) {\r",
+                                                    "    textfield.setWidth(50);\r",
+                                                    "    if (e.browserEvent.keyCode === 8 && this.lastInputValue.length === 0) {\r",
+                                                    "        //backspace on empty field\r",
+                                                    "        if (!this.selectedItem) {\r",
+                                                    "            //first time, select last item\r",
+                                                    "            console.log(\"sel\");\r",
+                                                    "            this.selectLastField();\r",
+                                                    "            this.deleteField();\r",
+                                                    "        }\r",
+                                                    "        else {\r",
+                                                    "            //delete last item\r",
+                                                    "            console.log(\"del\");\r",
+                                                    "            this.deleteField();\r",
+                                                    "        }\r",
+                                                    "    }\r",
+                                                    "    else {\r",
+                                                    "        this.deselectField();\r",
+                                                    "    }\r",
+                                                    "}\r",
+                                                    "else if (e.browserEvent.keyCode == 13) {\r",
+                                                    "    var eml = textfield.getValue();\r",
+                                                    "    eml = Ext.util.Format.trim(eml);\r",
+                                                    "    if (eml.length>0) {\r",
+                                                    "        if (this.config.entryCallback && this.config.entryCallback(eml)) {\r",
+                                                    "            textfield.setValue('');\r",
+                                                    "            this.search(true);\r",
+                                                    "            this.addField(eml, eml);\r",
+                                                    "            return false;\r",
+                                                    "        }\r",
+                                                    "        else {\r",
+                                                    "            textfield.setValue(eml);\r",
+                                                    "            return false;\r",
+                                                    "        }\r",
+                                                    "    }\r",
+                                                    "    else {\r",
+                                                    "        textfield.setValue('');\r",
+                                                    "        return false;\r",
+                                                    "    }\r",
+                                                    "}\r",
+                                                    "else {\r",
+                                                    "    this.deselectField();\r",
+                                                    "}\r",
+                                                    "\r",
+                                                    "if (textfield.getValue().length > 6) {\r",
+                                                    "    textfield.setWidth(150);\r",
+                                                    "}\r",
+                                                    "else if (textfield.getValue().length > 2) {\r",
+                                                    "    textfield.setWidth(100);\r",
+                                                    "}\r",
+                                                    "\r",
+                                                    "var me = this;\r",
+                                                    "if (this.timer) clearTimeout(this.timer);\r",
+                                                    "this.timer = setTimeout(\r",
+                                                    "function() {\r",
+                                                    "    me.search();\r",
+                                                    "}, 250);\r",
+                                                    "\r",
+                                                    "\r",
+                                                    ""
+                                                ],
+                                                "name": "keyup"
+                                            },
+                                            "designerId": "6c1796ff-e081-4a4a-b0b6-e2d574e2c2d7"
+                                        },
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|userClassName": "onInputFieldAction",
+                                                "fn": "onInputFieldAction",
+                                                "implHandler": [
+                                                    ""
+                                                ],
+                                                "name": "action"
+                                            },
+                                            "designerId": "ffcb8537-1005-440b-98b4-2e5aeeeda1b3"
+                                        },
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|userClassName": "onInputFieldClearicontap",
+                                                "fn": "onInputFieldClearicontap",
+                                                "implHandler": [
+                                                    "var me = this;\r",
+                                                    "setTimeout(function() {\r",
+                                                    "    me.search(true);\r",
+                                                    "}, 200);"
+                                                ],
+                                                "name": "clearicontap"
+                                            },
+                                            "designerId": "3cb62b4f-c8fc-4ed3-a404-72e88b2e4e1f"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1,
+                "height": null,
+                "itemId": "selectContainer",
+                "ui": "",
+                "width": null,
+                "designer|userClassName": "MyContainer7",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "designerId": "3a1d0f65-4527-4ce6-a48e-7321f584b53c"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerInitialize",
+                "fn": "onContainerInitialize",
+                "implHandler": [
+                    "var list = Ext.create('ACMobileClient.view.ReceiverList', {\r",
+                    "    itemId: 'receiverList',\r",
+                    "    flex: 1,\r",
+                    "    store: this.config.store,\r",
+                    "    caller: this\r",
+                    "});\r",
+                    "this.down('#selectContainer').add(list);\r",
+                    "\r",
+                    "\r",
+                    "this.inputEmptyCounter = 0;\r",
+                    "this.lastInputValue = \"\";\r",
+                    "this.inputItems = new Array();\r",
+                    "this.selectedItem = null;\r",
+                    "this.theTextField = null;\r",
+                    "this.hasSearchResults = false;\r",
+                    "\r",
+                    "var me = this;\r",
+                    "var store = this.down('#receiverList').getStore();\r",
+                    "\r",
+                    "store.on('load', function(store, records) {\r",
+                    "    me.inSearch = false;\r",
+                    "    var amnt = records.length;\r",
+                    "    setTimeout(function() {\r",
+                    "        me.down('#selectContainer').setHeight(4*31+10);\r",
+                    "        me.down('#receiverList').show();\r",
+                    "        me.down('#selectContainer').addCls('receiverSearchContainer');\r",
+                    "    },200);\r",
+                    "});\r",
+                    "\r",
+                    "this.handleInpField();\r",
+                    "\r",
+                    "this.down('#inputContainer').element.on('tap', function() {\r",
+                    "    var theInpId = me.down('#inputField').element.down('textarea').id;\r",
+                    "    document.getElementById(theInpId).focus();\r",
+                    "});\r",
+                    "me.down('#receiverList').hide();\r",
+                    ""
+                ],
+                "name": "initialize"
+            },
+            "designerId": "8a91d962-f57f-4de9-8886-ec2fa202e56c"
+        }
+    ]
+}

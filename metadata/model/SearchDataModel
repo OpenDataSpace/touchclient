@@ -1,0 +1,139 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SearchDataModel"
+    },
+    "designerId": "ddc948dd-31ff-4f41-b39c-4edbfde07df4",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "displayname",
+                "name": "name",
+                "type": "string",
+                "designer|userClassName": "MyField"
+            },
+            "designerId": "3ac227c7-ca3d-4105-8194-306558c1634c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id",
+                "type": "int",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "441dc85e-59dc-4b6e-8447-7395981e0ac0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "classname",
+                "designer|userClassName": "MyField2"
+            },
+            "designerId": "95277535-a751-4e23-8f30-0997eaa504f6",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "if (v) {\r",
+                            "    return v.toLowerCase();\r",
+                            "}\r",
+                            "else {\r",
+                            "    return v;\r",
+                            "}"
+                        ]
+                    },
+                    "designerId": "affa69fe-d505-4488-8e1a-0a4e72ca7803"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "previewable",
+                "type": "boolean",
+                "designer|userClassName": "MyField11"
+            },
+            "designerId": "2cdfdb56-f910-4b4e-890b-c83971f48791"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "read",
+                "type": "boolean",
+                "designer|userClassName": "MyField11"
+            },
+            "designerId": "6988d665-2459-4e5d-91dc-80dfe17c68b4"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "textavailable",
+                "type": "boolean",
+                "designer|userClassName": "MyField42"
+            },
+            "designerId": "6e9e819f-7b15-4102-b76f-66d6a18d610c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "isfolder",
+                "type": "boolean",
+                "designer|userClassName": "MyField42"
+            },
+            "designerId": "394c4cd5-94ae-49c1-a89a-6ffe1a7b5c0e"
+        }
+    ]
+}

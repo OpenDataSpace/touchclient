@@ -1,0 +1,20 @@
+{
+    "type": "Ext.Button",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": [
+            "mail_from_button"
+        ],
+        "style": null,
+        "ui": "action-round",
+        "width": 170,
+        "designer|userClassName": "MailButton",
+        "designer|userAlias": "MailButton",
+        "text": null
+    },
+    "designerId": "72264dc9-8718-4515-86a3-dcda44ec31ea"
+}

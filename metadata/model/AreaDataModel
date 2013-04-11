@@ -1,0 +1,251 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "AreaDataModel"
+    },
+    "designerId": "29581bec-0ace-4209-a14e-7aa99e2731ba",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "text",
+                "name": "name",
+                "type": "string",
+                "designer|userClassName": "MyField"
+            },
+            "designerId": "df3af54d-d9ae-45e6-b1d1-da9bc7a556b4",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "var trans = ACMobileClient.Messages['area.'+v];\r",
+                            "if (trans) {\r",
+                            "    return trans;\r",
+                            "}\r",
+                            "else {\r",
+                            "    return v;\r",
+                            "}\r",
+                            ""
+                        ]
+                    },
+                    "designerId": "d6a02c5a-069b-4295-938f-ae54cb378e77"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id",
+                "type": "int",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "5ab91c70-11a1-4368-a60e-78efb9270fe2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "classname",
+                "designer|userClassName": "MyField2"
+            },
+            "designerId": "f80a6480-6ec8-48bf-98e5-cc2fa2c6863e",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return 'folderobject';"
+                        ]
+                    },
+                    "designerId": "d9b75385-abe5-4f9d-bf14-c31569ba8525"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "read",
+                "type": "boolean",
+                "designer|userClassName": "MyField11"
+            },
+            "designerId": "add764d3-393d-4a77-b0b8-ab94ca52f725",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return true;"
+                        ]
+                    },
+                    "designerId": "4448d79d-904d-4d6c-90a8-d97dab9cc365"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "previewable",
+                "type": "boolean",
+                "designer|userClassName": "MyField11"
+            },
+            "designerId": "ea65a541-767b-42f7-bb4f-dbc2a36ea37b",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return false;"
+                        ]
+                    },
+                    "designerId": "6bf57826-838d-4e17-9ef6-67b2f5ed0175"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "previewable",
+                "type": "boolean",
+                "designer|userClassName": "MyField11"
+            },
+            "designerId": "95f69b05-5f4e-438c-bd71-38c14e4e37c3",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return false;"
+                        ]
+                    },
+                    "designerId": "e6ba8021-4ab5-4209-87d0-e6abfc88ecdb"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "isfolder",
+                "type": "boolean",
+                "designer|userClassName": "MyField42"
+            },
+            "designerId": "ec38c0c0-75c1-4a39-9e98-ff651a163235",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return true;"
+                        ]
+                    },
+                    "designerId": "e5eaf7af-d851-4112-8a64-0faec1c3fdcd"
+                }
+            ]
+        }
+    ]
+}

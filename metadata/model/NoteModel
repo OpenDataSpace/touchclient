@@ -1,0 +1,111 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "NoteModel"
+    },
+    "designerId": "6b62889e-383c-4a27-bb1c-6b4c40eb4501",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id",
+                "type": "string",
+                "designer|userClassName": "MyField70"
+            },
+            "designerId": "4e1eaaf8-8215-42bc-b47f-c97744d7ff0a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "content",
+                "type": "string",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "6b8899df-c104-4829-b585-32dda72d8bde"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "[\"creator.fullname\"]",
+                "name": "creator",
+                "type": "string",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "1c05cc36-1849-4999-a787-3e87a0acc4f6"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": null,
+                "mapping": null,
+                "name": "createdate",
+                "type": "date",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "c4d78487-4f98-49b9-b450-f9ae7737a598"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": null,
+                "mapping": null,
+                "name": "createdateFormated",
+                "type": "string",
+                "designer|userClassName": "MyField1"
+            },
+            "designerId": "6f3ceabc-7fa6-4480-b28b-7c09fd6c0d2d",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return formatDate(rec.get('createdate'));"
+                        ]
+                    },
+                    "designerId": "64735fbb-2d3b-4dac-86a2-d0f27989e787"
+                }
+            ]
+        }
+    ]
+}

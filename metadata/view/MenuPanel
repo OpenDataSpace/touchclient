@@ -1,0 +1,579 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "docked": null,
+        "height": null,
+        "hideAnimation": null,
+        "itemId": null,
+        "left": null,
+        "showAnimation": null,
+        "style": "",
+        "top": null,
+        "ui": null,
+        "width": null,
+        "zIndex": null,
+        "designer|userClassName": "MenuPanel",
+        "designer|userAlias": "menupanel",
+        "hideOnMaskTap": false,
+        "layout": "fit",
+        "modal": false
+    },
+    "designerId": "59f5b969-c28a-47fb-a1fd-0d59eef04ebc",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadEventAssistanceCount",
+                "fn": "loadEventAssistanceCount",
+                "implHandler": [
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "    Ext.Ajax.request({\r",
+                    "        url: '/api/rest/eventAssistance/count.json', //'../mobileclient_module/eventAssistanceLoadNewEventsAction.do',\r",
+                    "        method: 'get',\r",
+                    "        params: {\r",
+                    "            sessionId: MyGlobals.sessionId,\r",
+                    "\t\t\tnoCache: new Date().getTime()\r",
+                    "        },\r",
+                    "        success: function(response) {\r",
+                    "\r",
+                    "            if (response.responseText !== \"\") {\r",
+                    "                var jsonResp = Ext.decode(response.responseText);\r",
+                    "                var eventCount = jsonResp.count;\r",
+                    "                var eaContainer = me.down('#eventAssistanceContainer');\r",
+                    "\r",
+                    "                var badgeText = null;\r",
+                    "                if (eventCount === 0) {\r",
+                    "                    badgeText = '';\r",
+                    "                }\r",
+                    "                else {\r",
+                    "                    badgeText = ''+eventCount;\r",
+                    "                }\r",
+                    "                me.down('#tabPanel').getTabBar().getComponent(2).setBadgeText(badgeText);\r",
+                    "            }\r",
+                    "        },\r",
+                    "        scope: this\r",
+                    "    }); \r",
+                    "});\r",
+                    "\r",
+                    "setTimeout(function() {\r",
+                    "    me.loadEventAssistanceCount();\r",
+                    "}, 30000);"
+                ]
+            },
+            "designerId": "e9c06c92-c15a-436f-8b17-0533b108b3b4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "internInit",
+                "fn": "internInit",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "2813bb4a-2c84-426f-8716-2a46b8509345"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "search",
+                "fn": "search",
+                "designer|params": [
+                    "searchQuery"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "    me.down('#searchList').setMasked({\r",
+                    "        xtype: 'loadmask',\r",
+                    "        message: 'Suche...'\r",
+                    "    });\r",
+                    "    me.down('#searchList').getStore().searchQuery = searchQuery;\r",
+                    "    me.down('#searchList').getStore().load();\r",
+                    "});"
+                ]
+            },
+            "designerId": "97be3085-00d9-4ded-9b4b-2af3ff711150"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "deselectAllLists",
+                "fn": "deselectAllLists",
+                "implHandler": [
+                    "if (MyGlobals.currentDocumentList) {\r",
+                    "    console.log(\"desel 1\");\r",
+                    "    MyGlobals.currentDocumentList.deselectAll();\r",
+                    "}\r",
+                    "\r",
+                    "if (MyGlobals.currentSearchList) {\r",
+                    "    console.log(\"desel 2\");\r",
+                    "    MyGlobals.currentSearchList.deselectAll();\r",
+                    "}\r",
+                    "\r",
+                    "if (MyGlobals.currentEventAssistanceList) {\r",
+                    "    console.log(\"desel 3\");\r",
+                    "    MyGlobals.currentEventAssistanceList.deselectAll();\r",
+                    "}\r",
+                    ""
+                ]
+            },
+            "designerId": "eb4f73b4-0016-4790-ad0d-adabef43e6b1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "navigateToFolder",
+                "fn": "navigateToFolder",
+                "designer|params": [
+                    "fId",
+                    "name",
+                    "isRoot",
+                    "area"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "\r",
+                    "    var parentName = \"\";\r",
+                    "    if (!isRoot) {\r",
+                    "        console.log(area.getActiveItem().id);\r",
+                    "        parentName = area.getActiveItem().titleName;\r",
+                    "    }\r",
+                    "\r",
+                    "    //create a new FolderList view\r",
+                    "    var foldC = Ext.create(\"ACMobileClient.view.FolderListContainer\", {});\r",
+                    "    var store = null;\r",
+                    "\r",
+                    "    if (isRoot)  {\r",
+                    "        //when root, load the areas\r",
+                    "        store = Ext.create(\"ACMobileClient.store.AreaDataStore\", {});\r",
+                    "    }\r",
+                    "    else {\r",
+                    "        //if not root load a normal folder structure\r",
+                    "        store = Ext.create(\"ACMobileClient.store.FolderObjectDataStore\", {});\r",
+                    "    }\r",
+                    "\r",
+                    "    foldC.down('#documentList').setStore(store);\r",
+                    "\r",
+                    "    if (!isRoot) {\r",
+                    "        //activate back button\r",
+                    "        foldC.down('#backButton').setText(parentName);\r",
+                    "        foldC.down('#backButton').show();\r",
+                    "    }\r",
+                    "    else {\r",
+                    "        foldC.down('#backButton').hide();\r",
+                    "    }\r",
+                    "\r",
+                    "    foldC.down('#titleBar').setTitle(name);\r",
+                    "    foldC.titleName = name;\r",
+                    "\r",
+                    "    if (!isRoot) {\r",
+                    "        foldC.down('#documentList').getStore().folderId = fId;\r",
+                    "    }\r",
+                    "\r",
+                    "    foldC.down('#documentList').getStore().loadPage(1, {});\r",
+                    "\r",
+                    "    if (area.getLayout().setAnimation) {\r",
+                    "        area.getLayout().setAnimation({\r",
+                    "            type: 'slide',\r",
+                    "            direction: 'left'\r",
+                    "        });\r",
+                    "    }\r",
+                    "\r",
+                    "    area.setActiveItem(foldC);\r",
+                    "\r",
+                    "});"
+                ]
+            },
+            "designerId": "4ffe20b4-39d9-4d7e-9a10-9dae7c7a0024"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "navigateToParent",
+                "fn": "navigateToParent",
+                "implHandler": [
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "    if (me.pathList && me.pathList !== '') {\r",
+                    "        var fIds = me.pathList.split('|');\r",
+                    "        var names = me.pathNameList.split('|');\r",
+                    "        var parent = fIds[fIds.length-2];\r",
+                    "        var name = names[names.length-2];\r",
+                    "\r",
+                    "        me.pathList = \"\";\r",
+                    "        me.pathNameList = \"\";\r",
+                    "        var colon = \"\";\r",
+                    "        for (var i=0;i<fIds.length-2;i++) {\r",
+                    "            me.pathList += colon+fIds[i];\r",
+                    "            me.pathNameList += colon+names[i];\r",
+                    "            colon = \"|\";\r",
+                    "        }\r",
+                    "        me.navigateToFolder(parent, name);\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "designerId": "fd80cc32-15fb-4607-bcf2-71d5070e8f7a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "tabCallback",
+                "fn": "tabCallback",
+                "designer|params": [
+                    "tab"
+                ],
+                "implHandler": [
+                    "//check if a tab is tapped twice\r",
+                    "if (this.lastActiveItem) {\r",
+                    "    this.lastActiveItem = null;\r",
+                    "}\r",
+                    "else {\r",
+                    "    var activeItem = this.down('#tabPanel').getActiveItem();\r",
+                    "    if (activeItem.doubleTapCallback) {\r",
+                    "        activeItem.doubleTapCallback();\r",
+                    "    }\r",
+                    "}"
+                ]
+            },
+            "designerId": "a28ce6d0-d046-4843-b317-50618f99fe3e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "navigateToParent2",
+                "fn": "navigateToParent2",
+                "designer|params": [
+                    "container"
+                ],
+                "implHandler": [
+                    "var db = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();\r",
+                    "//var db = this.down('#documentsBar');\r",
+                    "\r",
+                    "db.getLayout().setAnimation({\r",
+                    "    type: 'slide',\r",
+                    "    direction: 'right'\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "var items = db.items;\r",
+                    "var actItem = db.getActiveItem();\r",
+                    "db.setActiveItem(items.length-2);\r",
+                    "setTimeout(function() {\r",
+                    "    db.remove(actItem, true);\r",
+                    "},500);\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "adfc3520-39e7-42e2-9321-789f735bd9ed"
+        },
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "tabPanel",
+                "designer|userClassName": "MyTabPanel"
+            },
+            "designerId": "9b3c6a02-ab91-4c7e-8325-65a3740932e3",
+            "cn": [
+                {
+                    "type": "Ext.tab.Bar",
+                    "reference": {
+                        "name": "tabBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": null,
+                        "itemId": "tabBar",
+                        "designer|userClassName": "MyTabBar"
+                    },
+                    "designerId": "0dcbf19f-d6ad-44c4-9782-152a6b9f1f53",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onTabBarActivate",
+                                "fn": "onTabBarActivate",
+                                "implHandler": [
+                                    ""
+                                ],
+                                "name": "activate"
+                            },
+                            "designerId": "e6d8be35-8824-433c-88e3-8141d89571c4"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hideAnimation": null,
+                        "itemId": "documentsBar",
+                        "showAnimation": null,
+                        "layout": "card",
+                        "title": "Dokumente",
+                        "iconCls": "doc"
+                    },
+                    "designerId": "0c56fa49-323a-4930-99f6-49aad9328b3e",
+                    "masterInstanceId": "17bbcff2-770e-425f-b8f5-e355b625ab67"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "titleName": null,
+                        "itemId": "searchContainer",
+                        "title": "Suche",
+                        "iconCls": "search"
+                    },
+                    "designerId": "0b36a9ed-098f-40e2-8c84-be7de03da8ab",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "titleName",
+                            "type": "string"
+                        }
+                    ],
+                    "masterInstanceId": "10abdd10-f6ce-4832-8dea-f0b9245a4ad9"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "titleName": null,
+                        "itemId": "eventAssistanceContainer",
+                        "title": "Mitteilungen",
+                        "iconCls": "inbox2"
+                    },
+                    "designerId": "7e940fee-f6a4-4860-ba02-32ac1f8e3fe4",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "titleName",
+                            "type": "string"
+                        }
+                    ],
+                    "masterInstanceId": "c77a1e7a-7f93-4bc4-8653-be42d5a1922f"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Workflow",
+                        "iconCls": "nodes1",
+                        "itemId": "workflowContainer",
+                        "designer|userClassName": "MyContainer3"
+                    },
+                    "designerId": "88e1469b-822d-41b2-af74-d86a0ed0d865",
+                    "cn": [
+                        {
+                            "type": "Ext.Toolbar",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "top",
+                                "designer|userClassName": "MyToolbar7",
+                                "title": "Workflow"
+                            },
+                            "designerId": "70caa09a-7e55-42c5-b828-8caac9478ceb"
+                        },
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "html": "Workflow-Funktion ist derzeit noch nicht implementiert. Hier soll eine Liste mit Workflow-Todos erscheinen.",
+                                "padding": 10,
+                                "designer|userClassName": "MyLabel6"
+                            },
+                            "designerId": "6a07d899-61b7-4b37-807d-1f656dacffe8"
+                        }
+                    ]
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "settingsContainer",
+                        "title": "Einstellungen",
+                        "iconCls": "settings5"
+                    },
+                    "designerId": "50e7569b-c240-49dd-890b-5cdda45fd169",
+                    "masterInstanceId": "e45f39e9-8310-4feb-b0f1-677c45441336"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "onTabPanelActivate",
+                        "fn": "onTabPanelActivate",
+                        "implHandler": [
+                            "var tabBar = this.down('#tabBar');\r",
+                            "\r",
+                            "var me = this;\r",
+                            "tabBar.on({\r",
+                            "    tap: 'tabCallback',\r",
+                            "    delegate: '> tab',\r",
+                            "    scope   : me\r",
+                            "});\r",
+                            ""
+                        ],
+                        "name": "activate"
+                    },
+                    "designerId": "612a6501-d4b5-48ef-ba43-0a6ddb144dec"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "onTabPanelActiveItemChange",
+                        "fn": "onTabPanelActiveItemChange",
+                        "implHandler": [
+                            "this.lastActiveItem = value.id;\r",
+                            ""
+                        ],
+                        "name": "activeitemchange"
+                    },
+                    "designerId": "1fe8786a-d1f8-40b8-a900-20a56521df39"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPanelShow",
+                "fn": "onPanelShow",
+                "implHandler": [
+                    "\r",
+                    "/*\r",
+                    "Ext.Anim.run(this, 'slide', {\r",
+                    "direction: 'down'\r",
+                    "});\r",
+                    "*/;"
+                ],
+                "name": "show"
+            },
+            "designerId": "8e122a14-90c2-4d40-87bd-0c0621feaf1f"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPanelHide",
+                "fn": "onPanelHide",
+                "implHandler": [
+                    "/*\r",
+                    "Ext.Anim.run(this, 'slide', {\r",
+                    "direction: 'up'\r",
+                    "});\r",
+                    "*/;"
+                ],
+                "name": "hide"
+            },
+            "designerId": "6935c443-2b4d-45f8-9261-2a78ac8f8e84"
+        }
+    ]
+}

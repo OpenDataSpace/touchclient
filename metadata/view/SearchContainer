@@ -1,0 +1,95 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SearchContainer",
+        "designer|userAlias": "searchcontainer",
+        "layout": "card"
+    },
+    "designerId": "10abdd10-f6ce-4832-8dea-f0b9245a4ad9",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "doubleTapCallback",
+                "fn": "doubleTapCallback",
+                "implHandler": [
+                    "MyGlobals.mainPanel.switchToRoot(this);\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "fecd0274-7227-49c8-891e-14132ff192a0"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "titleName": null,
+                "itemId": "searchContainerSub"
+            },
+            "designerId": "713e41d6-20ba-490c-966f-8e440cbb2bc5",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "titleName",
+                    "type": "string"
+                }
+            ],
+            "masterInstanceId": "54440f85-c344-48da-a5cf-2609b4ee125c"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerActivate",
+                "fn": "onContainerActivate",
+                "implHandler": [
+                    "var ai = this.getActiveItem();\r",
+                    "if (ai.activateCallback) {\r",
+                    "    ai.activateCallback();\r",
+                    "}"
+                ],
+                "name": "activate"
+            },
+            "designerId": "b1382b58-dcb5-4b39-9f09-db25464ddb01"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerDeactivate",
+                "fn": "onContainerDeactivate",
+                "implHandler": [
+                    "var ai = this.getActiveItem();\r",
+                    "if (ai.deactivateCallback) {\r",
+                    "    ai.deactivateCallback();\r",
+                    "}"
+                ],
+                "name": "deactivate"
+            },
+            "designerId": "9d74845a-b91c-46c4-bfea-844d6db8a642"
+        }
+    ]
+}

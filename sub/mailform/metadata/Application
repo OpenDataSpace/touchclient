@@ -1,0 +1,28 @@
+{
+    "id": "ExtBox1-ext-gen2042",
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "MailSearchModel"
+        ],
+        "stores": [
+            "MailSearchStore"
+        ],
+        "views": [
+            "MyFormPanel",
+            "SearchInputField",
+            "SelectedField"
+        ],
+        "name": "ACMobile"
+    },
+    "customConfigs": [],
+    "designerId": "application",
+    "$viewOrder": 0,
+    "iconCls": "icon-application",
+    "expanded": true
+}

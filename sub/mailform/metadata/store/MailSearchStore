@@ -1,0 +1,53 @@
+{
+    "id": "ExtBox1-ext-gen35316",
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "model": "MailSearchModel",
+        "storeId": "MailSearchStore",
+        "designer|userClassName": "MailSearchStore"
+    },
+    "customConfigs": [],
+    "designerId": "c8ed7010-4ecf-4f54-a2dd-bfe02afa7ae5",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen35323",
+            "type": "ajaxproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "http://212.185.58.29/roiwebui/mobileclient.app/data/mailsearch.json.jsp",
+                "designer|userClassName": "MyAjaxProxy"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen35330",
+                    "type": "jsonreader",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data",
+                        "designer|userClassName": "MyJsonReader"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        }
+    ]
+}

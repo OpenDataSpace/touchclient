@@ -1,0 +1,149 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyController"
+    },
+    "designerId": "1013c455-9d12-442a-abab-2117752209f6",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "callMe",
+                "fn": "callMe",
+                "implHandler": [
+                    "alert(\"I am called: \"+Ext.os);"
+                ]
+            },
+            "designerId": "f24fc979-8e3d-4686-839e-9bb7e82db72a"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "init",
+                "fn": "init",
+                "designer|params": [
+                    "application"
+                ],
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "23275c5d-09ee-496f-8faa-38df8206bc37"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "launch",
+                "fn": "launch",
+                "implHandler": [
+                    "//Ext.Ajax.defaultHeaders = {\"Accept\":\"application/json\"};\r",
+                    "//Ext.apply(Ext.lib.Ajax.defaultHeaders, {\"Accept\":\"application/json\"});\r",
+                    "\r",
+                    "Ext.JSON.encodeDate = function(d){\r",
+                    "    return Ext.Date.format(d, '\"YmdHisO\"');\r",
+                    "};\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "console.log(\"Ext: \"+Ext.Ajax.extraParams);\r",
+                    "Ext.Ajax.extraParams = {\r",
+                    "    \"Test\": \"123\"\r",
+                    "};\r",
+                    "\r",
+                    "Ext.define('MyGlobals', { \r",
+                    "    singleton: true, \r",
+                    "    app: this,\r",
+                    "    menuPanel: null,\r",
+                    "    imageViewer: null,\r",
+                    "    previewContrainer: null,\r",
+                    "    mainPanel : null,\r",
+                    "    contentContainer : null,\r",
+                    "    lastObjectInContentContainer : null,\r",
+                    "    isPhone : false\r",
+                    "});\r",
+                    "\r",
+                    "Ext.define('ACUtils', {\r",
+                    "    requires: [\r",
+                    "    'ACMobileClient.utils.ACUtils'\r",
+                    "    ],\r",
+                    "    singleton: true,\r",
+                    "    utils: null\r",
+                    "});\r",
+                    "\r",
+                    "var utils = Ext.create('ACMobileClient.utils.ACUtils', {});\r",
+                    "utils.init();\r",
+                    "ACUtils.utils = utils;\r",
+                    "\r",
+                    "var isPhone = false;\r",
+                    "if (Ext.os.is.Phone) isPhone = true;\r",
+                    "//isPhone = true;\r",
+                    "\r",
+                    "var urlVars = getUrlVars();\r",
+                    "if (urlVars['isPhone']) {\r",
+                    "    if (urlVars['isPhone'] === 'true') {\r",
+                    "        isPhone = true;\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "MyGlobals.isPhone = isPhone;\r",
+                    "\r",
+                    "Ext.define('ACMobileClient.view.ViewportLogin', {\r",
+                    "    extend: 'ACMobileClient.view.LoginPanel',\r",
+                    "    config: {\r",
+                    "        fullscreen: true\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "Ext.define('ACMobileClient.view.ViewportMain', {\r",
+                    "    extend: 'ACMobileClient.view.MainPanel',\r",
+                    "    config: {\r",
+                    "        fullscreen: true\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "Ext.define('ACMobileClient.view.ViewportTest', {\r",
+                    "    extend: 'ACMobileClient.view.MailViewContainer',\r",
+                    "    config: {\r",
+                    "        fullscreen: true\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "var globalViewPort = Ext.create(\"ACMobileClient.view.ViewportLogin\", {});\r",
+                    "globalViewPort.show();\r",
+                    "\r",
+                    "/*\r",
+                    "var profs = new Array();\r",
+                    "profs[0] = { portraitPhone: function() { return Ext.is.Phone && Ext.orientation == 'portrait'; } };\r",
+                    "profs[1] = { landscapePhone: function() { return Ext.is.Phone && Ext.orientation == 'landscape'; } };\r",
+                    "profs[2] = { portraitTablet: function() { return !Ext.is.Phone && Ext.orientation == 'portrait'; } };\r",
+                    "profs[3] = { landscapeTablet: function() { return !Ext.is.Phone && Ext.orientation == 'landscape'; } };\r",
+                    "this.getApplication().setProfiles(profs);\r",
+                    "*/;"
+                ]
+            },
+            "designerId": "176c1c84-3b4a-4738-af86-4d44e1455c9b"
+        }
+    ]
+}

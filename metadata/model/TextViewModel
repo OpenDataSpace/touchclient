@@ -1,0 +1,70 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TextViewModel"
+    },
+    "designerId": "29cb9380-a90f-44a0-ba03-d6ad765207d0",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id",
+                "type": "string",
+                "designer|userClassName": "MyField21"
+            },
+            "designerId": "a4e9d026-f88e-4e45-aca7-0365c748f216"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": null,
+                "name": "text",
+                "type": "string",
+                "designer|userClassName": "MyField21"
+            },
+            "designerId": "d865e575-2dc9-49e6-b9ac-541919e6ca53",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "if (v) {\r",
+                            "    return v.replace(/\\n/gi, \"<br>\");\r",
+                            "}\r",
+                            "else {\r",
+                            "    return \"\";\r",
+                            "}"
+                        ]
+                    },
+                    "designerId": "bdb4f6e9-d556-4c71-9bad-fd339404087b"
+                }
+            ]
+        }
+    ]
+}

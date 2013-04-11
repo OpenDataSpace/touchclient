@@ -1,0 +1,110 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "padding": null,
+        "designer|userClassName": "TextViewContainer",
+        "scrollable": "both"
+    },
+    "designerId": "77439847-8e5f-4741-8f3e-bb097c986ac0",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "load",
+                "fn": "load",
+                "designer|params": [
+                    "objectId"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "    me.dataStore = Ext.create('ACMobileClient.store.TextViewStore', {});\r",
+                    "\r",
+                    "    me.setMasked({\r",
+                    "        xtype: 'loadmask',\r",
+                    "        message: 'Loading text'\r",
+                    "    });\r",
+                    "\r",
+                    "    me.dataStore.on('load', function(store, records) {\r",
+                    "        me.loadMask(store.getAt(0), objectId);\r",
+                    "    });\r",
+                    "\r",
+                    "    //event, after store has been loaded\r",
+                    "    me.dataStore.load( {\r",
+                    "        params: {\t\r",
+                    "            sessionId: MyGlobals.sessionId,\r",
+                    "            id: objectId\r",
+                    "        }\r",
+                    "    });\r",
+                    "});"
+                ]
+            },
+            "designerId": "c227e217-1153-4cde-b684-75f018ec73d8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadMask",
+                "fn": "loadMask",
+                "designer|params": [
+                    "record",
+                    "objectId"
+                ],
+                "implHandler": [
+                    "var data = record.getData(true);\r",
+                    "this.down('#text').setData(data);\r",
+                    "this.setMasked(false);\r",
+                    ""
+                ]
+            },
+            "designerId": "45d2d811-eaef-4aaa-b13d-98ea671edcea"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "text",
+                "padding": 5,
+                "designer|userClassName": "MyContainer44"
+            },
+            "designerId": "2e2bc75f-9786-49bc-b8b8-1f49b68f5a58",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "tpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "tpl",
+                        "implHandler": [
+                            "{text}"
+                        ],
+                        "designer|displayName": "tpl"
+                    },
+                    "designerId": "5d8fe936-9502-47da-9f82-5c818cb7e7ed"
+                }
+            ]
+        }
+    ]
+}

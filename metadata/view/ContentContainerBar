@@ -1,0 +1,139 @@
+{
+    "type": "Ext.TitleBar",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "docked": "top",
+        "designer|userClassName": "ContentContainerBar",
+        "designer|userAlias": "contentContainerBar",
+        "title": null
+    },
+    "designerId": "b06dd2a4-beac-4f30-aff2-107a30abfad3",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "doRepaint",
+                "fn": "doRepaint",
+                "implHandler": [
+                    "if (MyGlobals.showListButton) {\r",
+                    "    this.down('#listButton').show();\r",
+                    "}\r",
+                    "else {\r",
+                    "    this.down('#listButton').hide();\r",
+                    "}"
+                ]
+            },
+            "designerId": "d7b3b050-b3d7-4aa9-b591-2942b93bbf48"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "listButton",
+                "ui": "plain",
+                "designer|userClassName": "MyButton",
+                "iconCls": "layout",
+                "iconMask": true,
+                "text": null
+            },
+            "designerId": "d695be5c-d47e-48d5-80e4-f6fe0d6f01b8",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "onListButtonNewTap",
+                        "fn": "onListButtonNewTap",
+                        "implHandler": [
+                            "var men = MyGlobals.menuPanel;\r",
+                            "if (men.isHidden()) {\r",
+                            "    //men.setModal(true);\r",
+                            "    men.showBy(button);\r",
+                            "}\r",
+                            "else {\r",
+                            "    men.hide();\r",
+                            "}"
+                        ],
+                        "name": "tap"
+                    },
+                    "designerId": "ecf47fe1-1347-4ac7-b8d0-11e2e7bd0845"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "backButton",
+                "ui": "back",
+                "designer|userClassName": "MyButton14",
+                "iconCls": null,
+                "iconMask": true,
+                "text": "xx"
+            },
+            "designerId": "7b18e9a7-a790-4186-ba5e-2ed1160ea5b4",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "onBackButtonTap",
+                        "fn": "onBackButtonTap",
+                        "implHandler": [
+                            "MyGlobals.mainPanel.contentContainerBack();"
+                        ],
+                        "name": "tap"
+                    },
+                    "designerId": "eda87b34-7575-4c5f-8401-552eb6c3ac63"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onTitlebarPainted",
+                "fn": "onTitlebarPainted",
+                "implHandler": [
+                    "if (MyGlobals.showListButton) {\r",
+                    "    this.down('#listButton').show();\r",
+                    "}\r",
+                    "else {\r",
+                    "    this.down('#listButton').hide();\r",
+                    "}"
+                ],
+                "name": "painted"
+            },
+            "designerId": "c50d4e35-364e-4435-bb93-e5ca7aa6d9bb"
+        }
+    ]
+}

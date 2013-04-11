@@ -1,0 +1,123 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PreviewModel"
+    },
+    "designerId": "655a1380-182f-485e-b041-d8bba6f14563",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ticket",
+                "type": "string",
+                "designer|userClassName": "MyField44"
+            },
+            "designerId": "d0fc240c-cfdc-4697-8f9c-7236213b481d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "width",
+                "type": "int",
+                "designer|userClassName": "MyField44"
+            },
+            "designerId": "5347034c-f149-4529-9a00-9ae774cdec8b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "height",
+                "type": "int",
+                "designer|userClassName": "MyField44"
+            },
+            "designerId": "8b8898b8-8ac8-41db-b2e5-09897bca30ed"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "masterWidth",
+                "type": "int",
+                "designer|userClassName": "MyField44"
+            },
+            "designerId": "cd276ea7-7088-4efd-9b08-b0c34dda8685"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "masterHeight",
+                "type": "int",
+                "designer|userClassName": "MyField44"
+            },
+            "designerId": "8ab42f82-4b1e-4379-9b5b-0e7cf6b82eb6"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyRestProxy4",
+                "extraParams": [
+                    "",
+                    "{",
+                    "    provider: 'preview',",
+                    "    parameters:  Ext.encode({",
+                    "\t\t\twidth: -1,",
+                    "\t\t\theight: -1",
+                    "\t\t})",
+                    "}"
+                ],
+                "url": "/api/rest/object",
+                "format": "json"
+            },
+            "designerId": "eed24e3b-b5ee-4fc2-bfa6-07aab02ec294",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data",
+                        "designer|userClassName": "MyJsonReader6"
+                    },
+                    "designerId": "c384d9e7-db26-47ff-927d-e58f60ab1fdf"
+                }
+            ]
+        }
+    ]
+}

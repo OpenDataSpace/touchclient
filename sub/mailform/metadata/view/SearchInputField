@@ -1,0 +1,647 @@
+{
+    "id": "ExtBox1-ext-gen25260",
+    "type": "container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "itemId": null,
+        "padding": "",
+        "layout": "vbox",
+        "designer|userClassName": "SearchInputField",
+        "designer|userAlias": "SearchInputField"
+    },
+    "customConfigs": [],
+    "designerId": "c90b719c-b695-4737-a327-5eedf7497106",
+    "$viewOrder": 1,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen39421",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "search",
+                "designer|params": [
+                    "force"
+                ],
+                "implHandler": [
+                    "if (!this.inSearch || force) {",
+                    "",
+                    "    var store = this.down('#searchList').getStore();",
+                    "    this.handleInpField();",
+                    "    var value = this.down('#inputField').getValue();",
+                    "    this.lastInputValue = value;",
+                    "",
+                    "    if (value.length == 0) {",
+                    "        var me = this;",
+                    "        setTimeout(function() {",
+                    "            me.down('#searchList').setHeight(0);",
+                    "        },200);",
+                    "    }",
+                    "    else {",
+                    "        this.inSearch = true;",
+                    "        store.load({",
+                    "            params: {    ",
+                    "                query: value",
+                    "            }",
+                    "        });",
+                    "    }",
+                    "}"
+                ],
+                "designer|userClassName": "search"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen21145",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "focusField",
+                "implHandler": [
+                    "var me = this;",
+                    "var theInpId = me.down('#inputField').element.down('textarea').id;",
+                    "document.getElementById(theInpId).focus();",
+                    ""
+                ],
+                "designer|userClassName": "focusField"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen17426",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "handleInpField",
+                "implHandler": [
+                    "var value = this.down('#inputField').getValue();",
+                    "",
+                    "if (value.length > 7 || this.inputItems.length == 0) {",
+                    "    //resize the input field",
+                    "    this.down('#inputField').removeCls('searchInpFieldSmall');",
+                    "    this.down('#inputField').addCls('searchInpFieldLarge');",
+                    "}",
+                    "else {",
+                    "    this.down('#inputField').removeCls('searchInpFieldLarge');",
+                    "    this.down('#inputField').addCls('searchInpFieldSmall');",
+                    "}",
+                    ""
+                ],
+                "designer|userClassName": "handleInpField"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen5833",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "addField",
+                "designer|params": [
+                    "text",
+                    "value"
+                ],
+                "implHandler": [
+                    "var inpC = this.down('#inputContainer');",
+                    "",
+                    "var selField = Ext.create('ACMobile.view.SelectedField', {",
+                    "    html: text",
+                    "});",
+                    "selField.theParent = this;",
+                    "",
+                    "inpC.insert(this.inputItems.length, selField);",
+                    "this.inputItems[this.inputItems.length] = selField;",
+                    "",
+                    "var me = this;",
+                    "me.theTextField.focus();",
+                    ""
+                ],
+                "designer|userClassName": "addField"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen13177",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "selectField",
+                "designer|params": [
+                    "field"
+                ],
+                "implHandler": [
+                    "if (this.selectedItem) {",
+                    "    this.deselectField();",
+                    "}",
+                    "field.addCls('inputFieldSelected');",
+                    "this.selectedItem = field;",
+                    "this.focusField();"
+                ],
+                "designer|userClassName": "selectField"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen15640",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "deselectField",
+                "implHandler": [
+                    "if (this.selectedItem != null) {",
+                    "    this.selectedItem.removeCls('inputFieldSelected');",
+                    "    this.selectedItem = null;",
+                    "}"
+                ],
+                "designer|userClassName": "deselectField"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen13506",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "selectLastField",
+                "implHandler": [
+                    "if (this.inputItems.length > 0) {",
+                    "    var lastItem = this.inputItems[this.inputItems.length-1];",
+                    "    this.selectField(lastItem);",
+                    "}"
+                ],
+                "designer|userClassName": "selectLastField"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen19222",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "deleteField",
+                "implHandler": [
+                    "var inpC = this.down('#inputContainer');",
+                    "inpC.remove(this.selectedItem, true);",
+                    "var numb = -1;",
+                    "for (var i=0;i<this.inputItems.length;i++) {",
+                    "    if (this.inputItems[i] == this.selectedItem) {",
+                    "        numb = i;",
+                    "        break;",
+                    "    }",
+                    "}",
+                    "",
+                    "if (numb >= 0) {",
+                    "    this.inputItems.splice(numb, 1);",
+                    "}",
+                    "this.selectedItem = null;",
+                    ""
+                ],
+                "designer|userClassName": "deleteField"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen8734",
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "addressContainer"
+                ],
+                "padding": 5,
+                "layout": "hbox",
+                "designer|userClassName": "MyContainer6",
+                "layout|flex": 0
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen25621",
+                    "type": "label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "An:",
+                        "margin": "0 10 0 0",
+                        "style": "display:block",
+                        "width": null,
+                        "designer|userClassName": "MyLabel",
+                        "layout|flex": 0
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                },
+                {
+                    "id": "ExtBox1-ext-gen2918",
+                    "type": "container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": null,
+                        "id": null,
+                        "itemId": "inputContainer",
+                        "margin": "0 5 0 0",
+                        "maxWidth": null,
+                        "padding": "",
+                        "ui": "",
+                        "width": null,
+                        "layout": "hbox",
+                        "designer|userClassName": "MyContainer",
+                        "layout|flex": 1
+                    },
+                    "customConfigs": [],
+                    "expanded": true,
+                    "cn": [
+                        {
+                            "id": "ExtBox1-ext-gen33529",
+                            "type": "container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "searchContainer",
+                                "maxWidth": null,
+                                "minWidth": null,
+                                "style": "display:inline-block;",
+                                "width": null,
+                                "designer|userClassName": "MyContainer6",
+                                "layout|flex": 0
+                            },
+                            "customConfigs": [],
+                            "expanded": true,
+                            "cn": [
+                                {
+                                    "id": "ExtBox1-ext-gen16200",
+                                    "type": "textareafield",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 25,
+                                        "html": null,
+                                        "id": null,
+                                        "itemId": "inputField",
+                                        "maxHeight": null,
+                                        "maxWidth": null,
+                                        "minWidth": null,
+                                        "style": null,
+                                        "width": null,
+                                        "label": null,
+                                        "labelWidth": 0,
+                                        "designer|userClassName": "MyTextArea1"
+                                    },
+                                    "customConfigs": [],
+                                    "expanded": true,
+                                    "cn": [
+                                        {
+                                            "id": "ExtBox1-ext-gen37312",
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onInputFieldKeyup",
+                                                "implHandler": [
+                                                    "this.theTextField = textfield;",
+                                                    "console.log(e.browserEvent.keyCode);",
+                                                    "",
+                                                    "if (textfield.getValue().length == 0) {",
+                                                    "    if (e.browserEvent.keyCode == 8 && this.lastInputValue.length == 0) {",
+                                                    "        //backspace on empty field",
+                                                    "        if (!this.selectedItem) {",
+                                                    "            //first time, select last item",
+                                                    "            console.log(\"sel\");",
+                                                    "            this.selectLastField();",
+                                                    "            this.deleteField();",
+                                                    "        }",
+                                                    "        else {",
+                                                    "            //delete last item",
+                                                    "            console.log(\"del\");",
+                                                    "            this.deleteField();",
+                                                    "        }",
+                                                    "    }",
+                                                    "    else {",
+                                                    "        this.deselectField();",
+                                                    "    }",
+                                                    "}",
+                                                    "else if (e.browserEvent.keyCode == 13) {",
+                                                    "    var eml = textfield.getValue();",
+                                                    "    if (Ext.util.Format.trim(eml).length>0) {",
+                                                    "        textfield.setValue('');",
+                                                    "        this.search(true);",
+                                                    "        this.addField(eml, eml);",
+                                                    "    }",
+                                                    "    else {",
+                                                    "        textfield.setValue('');",
+                                                    "        return false;",
+                                                    "    }",
+                                                    "}",
+                                                    "else {",
+                                                    "    this.deselectField();",
+                                                    "}",
+                                                    "",
+                                                    "this.search();",
+                                                    "",
+                                                    ""
+                                                ],
+                                                "name": "keyup",
+                                                "designer|userClassName": "onInputFieldKeyup"
+                                            },
+                                            "customConfigs": [],
+                                            "expanded": true
+                                        },
+                                        {
+                                            "id": "ExtBox1-ext-gen37970",
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onInputFieldAction",
+                                                "implHandler": [
+                                                    ""
+                                                ],
+                                                "name": "action",
+                                                "designer|userClassName": "onInputFieldAction"
+                                            },
+                                            "customConfigs": [],
+                                            "expanded": true
+                                        },
+                                        {
+                                            "id": "ExtBox1-ext-gen38901",
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onInputFieldClearicontap",
+                                                "implHandler": [
+                                                    "var me = this;",
+                                                    "setTimeout(function() {",
+                                                    "    me.search(true);",
+                                                    "}, 200);"
+                                                ],
+                                                "name": "clearicontap",
+                                                "designer|userClassName": "onInputFieldClearicontap"
+                                            },
+                                            "customConfigs": [],
+                                            "expanded": true
+                                        },
+                                        {
+                                            "id": "ExtBox1-ext-gen4049",
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onInputFieldBlur",
+                                                "implHandler": [
+                                                    "//textfield.focus();",
+                                                    "//textfield.focus();",
+                                                    "/*",
+                                                    "var theInpId = this.down('#inputField').element.down('input').id;",
+                                                    "document.getElementById(theInpId).focus();",
+                                                    "*/"
+                                                ],
+                                                "name": "blur",
+                                                "designer|userClassName": "onInputFieldBlur"
+                                            },
+                                            "customConfigs": [],
+                                            "expanded": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ExtBox1-ext-gen4314",
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onInputContainerTap",
+                                "designer|params": [
+                                    "container"
+                                ],
+                                "implHandler": [
+                                    "alert('tap');"
+                                ],
+                                "name": "tap",
+                                "designer|userClassName": "onInputContainerTap"
+                            },
+                            "customConfigs": [],
+                            "expanded": true
+                        }
+                    ]
+                },
+                {
+                    "id": "ExtBox1-ext-gen29666",
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 22,
+                        "hidden": true,
+                        "ui": "small",
+                        "width": 25,
+                        "icon": null,
+                        "iconCls": null,
+                        "iconMask": true,
+                        "text": "+",
+                        "designer|userClassName": "MyButton9",
+                        "layout|flex": 0
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        },
+        {
+            "id": "ExtBox1-ext-gen34050",
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": null,
+                "itemId": "selectContainer",
+                "ui": "",
+                "width": null,
+                "designer|userClassName": "MyContainer7",
+                "layout|flex": 0
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen34586",
+                    "type": "list",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "baseCls": null,
+                        "cls": [
+                            "mailSearchList"
+                        ],
+                        "height": 0,
+                        "itemId": "searchList",
+                        "ui": null,
+                        "scrollable": "false",
+                        "itemTpl": "<div class=\"mailSearchListEntry\">{text}</div>",
+                        "loadingText": " ",
+                        "store": "MailSearchStore",
+                        "designer|userClassName": "MyList"
+                    },
+                    "customConfigs": [],
+                    "expanded": true,
+                    "cn": [
+                        {
+                            "id": "ExtBox1-ext-gen43985",
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onSearchListSelect",
+                                "implHandler": [
+                                    "var eml = record.get(\"value\");",
+                                    "this.addField(eml, eml);",
+                                    "this.down('#inputField').setValue('');",
+                                    "this.search(true);",
+                                    "",
+                                    ""
+                                ],
+                                "name": "select",
+                                "designer|userClassName": "onSearchListSelect"
+                            },
+                            "customConfigs": [],
+                            "expanded": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ExtBox1-ext-gen7766",
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onContainerInitialize",
+                "implHandler": [
+                    "this.inputEmptyCounter = 0;",
+                    "this.lastInputValue = \"\";",
+                    "this.inputItems = new Array();",
+                    "this.selectedItem = null;",
+                    "this.theTextField = null;",
+                    "this.hasSearchResults = false;",
+                    "",
+                    "var me = this;",
+                    "var store = this.down('#searchList').getStore();",
+                    "",
+                    "store.on('load', function(store, records) {",
+                    "    me.inSearch = false;",
+                    "    var amnt = records.length;",
+                    "    setTimeout(function() {",
+                    "        me.down('#searchList').setHeight(amnt*30);",
+                    "    },200);",
+                    "});",
+                    "",
+                    "this.handleInpField();",
+                    "",
+                    "this.down('#inputContainer').element.on('tap', function() {",
+                    "    var theInpId = me.down('#inputField').element.down('textarea').id;",
+                    "    document.getElementById(theInpId).focus();",
+                    "});"
+                ],
+                "name": "initialize",
+                "designer|userClassName": "onContainerInitialize"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

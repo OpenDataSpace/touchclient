@@ -1,0 +1,149 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "FolderListContainer",
+        "designer|userAlias": "folderListContainer",
+        "layout": "fit"
+    },
+    "designerId": "b70670f1-d6c3-4adb-bd36-605b34208e19",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "docked": "top",
+                "itemId": "titleBar",
+                "width": null,
+                "designer|userClassName": "MyTitleBar",
+                "title": null
+            },
+            "designerId": "020cd265-ad5b-4c24-b9e8-f131b3aafcb1",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "itemId": "backButton",
+                        "maxWidth": 100,
+                        "ui": "back",
+                        "designer|userClassName": "MyButton1",
+                        "iconCls": null,
+                        "iconMask": true,
+                        "text": "Back"
+                    },
+                    "designerId": "bcad8206-bbc0-42ac-8807-838b5820ff04",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onBackButtonTap",
+                                "fn": "onBackButtonTap",
+                                "implHandler": [
+                                    "button.disable();\r",
+                                    "MyGlobals.menuPanel.navigateToParent2(this);\r",
+                                    "//MyGlobals.menuPanel.navigateToParent();"
+                                ],
+                                "name": "tap"
+                            },
+                            "designerId": "296b92b0-5d01-4b66-8b70-5073b54d7079"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "align": "right",
+                        "docked": null,
+                        "itemId": "actionButton",
+                        "designer|userClassName": "MyButton11",
+                        "iconCls": "list",
+                        "iconMask": true,
+                        "text": null
+                    },
+                    "designerId": "4afebd8e-f39a-456f-a47b-84b8f2703e93"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerActivate",
+                "fn": "onContainerActivate",
+                "implHandler": [
+                    "this.down('#documentList').deselectAll();"
+                ],
+                "name": "activate"
+            },
+            "designerId": "56f1163a-04d1-45b7-a2fa-843b2462ff07"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onContainerInitialize",
+                "fn": "onContainerInitialize",
+                "implHandler": [
+                    "myTpl = new Ext.XTemplate(\r",
+                    "'<div class=\"list_style\">',\r",
+                    "'<div class=\"list_icons\">',\r",
+                    "'<div class=\"list_icon list_icon_{classname}\"></div>',\r",
+                    "'</div>',\r",
+                    "'<div class=\"list_entry\">{[this.testing(name)]}{name}</div>',\r",
+                    "'</div>',\r",
+                    "{\r",
+                    "    // XTemplate configuration:\r",
+                    "    disableFormats: true,\r",
+                    "    // just a sample\r",
+                    "    testing: function(){\r",
+                    "        return '';\r",
+                    "    }\r",
+                    "}\r",
+                    ");\r",
+                    "\r",
+                    "var list = Ext.create('ACMobileClient.view.FolderListList', {\r",
+                    "    itemId: 'documentList',\r",
+                    "    itemTpl: myTpl\r",
+                    "});\r",
+                    "this.add(list);"
+                ],
+                "name": "initialize"
+            },
+            "designerId": "de29e9a6-8187-4897-a78e-b909e58e37c4"
+        }
+    ]
+}

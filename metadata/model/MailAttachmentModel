@@ -1,0 +1,216 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MailAttachmentModel",
+        "designer|userAlias": "MailAttachmentModel"
+    },
+    "designerId": "9e330e4a-1a49-45bc-91f9-1dbd935426d2",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "id",
+                "name": "objectId",
+                "type": "string",
+                "designer|userClassName": "MyField37"
+            },
+            "designerId": "46ea6332-e180-454b-9fab-62b29a532f42"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "displayname",
+                "name": "name",
+                "type": "string",
+                "designer|userClassName": "MyField38"
+            },
+            "designerId": "eb172a71-c8e9-4802-a859-95b63ad36ff7"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "size",
+                "type": "int",
+                "designer|userClassName": "MyField39"
+            },
+            "designerId": "6510710e-af37-4fde-9ed6-fb19cb8f8160"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "[\"<mailobject>id\"]",
+                "name": "isMailObject",
+                "type": "boolean",
+                "designer|userClassName": "MyField40"
+            },
+            "designerId": "5ac67a36-3cbb-445b-9dfc-a2142eb03300",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return v != null;"
+                        ]
+                    },
+                    "designerId": "a91ecbc5-81fc-47eb-b73c-3937518a17bf"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "classname",
+                "name": "className",
+                "type": "string",
+                "designer|userClassName": "MyField41"
+            },
+            "designerId": "bfb8c2f5-d814-4b6d-a171-003e0daf4bec",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "if (v) {\r",
+                            "    return v.toLowerCase();\r",
+                            "}\r",
+                            "else {\r",
+                            "    return v;\r",
+                            "}"
+                        ]
+                    },
+                    "designerId": "789909b9-202a-4787-9727-68020f85d318"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "extension",
+                "type": "string",
+                "designer|userClassName": "MyField42"
+            },
+            "designerId": "5c79d78b-18f0-421e-b2de-cf75abd0e936"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "previewable",
+                "type": "boolean",
+                "designer|userClassName": "MyField42"
+            },
+            "designerId": "bed7403b-5cd2-4dec-a35c-981989d111a2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "textavailable",
+                "type": "boolean",
+                "designer|userClassName": "MyField42"
+            },
+            "designerId": "ee85d465-8839-4483-8c5a-306e9ba6ad61"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "isfolder",
+                "type": "boolean",
+                "designer|userClassName": "MyField42"
+            },
+            "designerId": "b19d2efd-b589-4b6c-8e3f-5058669e8970",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return false;"
+                        ]
+                    },
+                    "designerId": "5cf93c52-4b09-4135-9193-057fda9e5fc5"
+                }
+            ]
+        }
+    ]
+}

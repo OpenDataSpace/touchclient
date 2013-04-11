@@ -1,0 +1,356 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": [
+            "logoBack"
+        ],
+        "fullscreen": true,
+        "showAnimation": null,
+        "style": null,
+        "designer|userClassName": "LoginPanel"
+    },
+    "designerId": "60e1e825-b07b-429f-819e-2dbf1e17c7b7",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "doLogin",
+                "fn": "doLogin",
+                "implHandler": [
+                    "this.down('#userName').blur();\r",
+                    "this.down('#passWord').blur();\r",
+                    "\r",
+                    "Ext.Viewport.setMasked({\r",
+                    "    xtype: 'loadmask',\r",
+                    "    message: 'Logging in'\r",
+                    "});\r",
+                    "\r",
+                    "var me = this;\r",
+                    "ACUtils.utils.login(this.down('#userName').getValue(), this.down('#passWord').getValue(),\r",
+                    "function(sessionId) {\r",
+                    "    console.log(\"SessionId: \"+MyGlobals.sessionId);\r",
+                    "    ACUtils.utils.storedUser=me.down('#userName').getValue();\r",
+                    "    ACUtils.utils.storedPassWord=me.down('#passWord').getValue();\r",
+                    "\r",
+                    "    if (me.down('#rememberLogin').getChecked()) {\r",
+                    "        //save login data for next reuse\r",
+                    "        ACUtils.utils.saveLogin(ACUtils.utils.storedUser, ACUtils.utils.storedPassWord);\r",
+                    "    }\r",
+                    "    else {\r",
+                    "        //save login data for next reuse\r",
+                    "        ACUtils.utils.removeLogin();\r",
+                    "    }\r",
+                    "\r",
+                    "\r",
+                    "    //load language\r",
+                    "    var lang = \"de\";\r",
+                    "    var url = \"app/languages/\"+lang+\"/Messages.js\";\r",
+                    "\r",
+                    "    Ext.Ajax.request({\r",
+                    "        url: url,\r",
+                    "        method: 'get',\r",
+                    "        params: { \r",
+                    "            noCache: new Date().getTime()\r",
+                    "        },\r",
+                    "        success: function(response) {\r",
+                    "            eval(response.responseText);\r",
+                    "\r",
+                    "            Ext.Viewport.setMasked(false);\r",
+                    "            me.hide();\r",
+                    "            me.remove();\r",
+                    "\r",
+                    "            //load main page\r",
+                    "            var vpMain = Ext.create(\"ACMobileClient.view.ViewportMain\", {});\r",
+                    "            vpMain.show();\r",
+                    "        },\r",
+                    "        scope: me\r",
+                    "    });\r",
+                    "}, \r",
+                    "function() {\r",
+                    "    Ext.Viewport.setMasked(false);\r",
+                    "    Ext.Msg.alert('Error', 'Login fehlgeschlagen, Benutzername/Kennwort nicht korrekt?', Ext.emptyFn);\r",
+                    "\r",
+                    "});\r",
+                    "/*\r",
+                    "this.down(\"#loginForm\").submit({\r",
+                    "headers: {'Accept':'application/json' }, \r",
+                    "success: function() {\r",
+                    "ACUtils.utils.storedUser=this.down('#userName').getValue();\r",
+                    "ACUtils.utils.storedPassWord=this.down('#passWord').getValue();\r",
+                    "\r",
+                    "if (me.down('#rememberLogin').getChecked()) {\r",
+                    "//save login data for next reuse\r",
+                    "ACUtils.utils.saveLogin(ACUtils.utils.storedUser, ACUtils.utils.storedPassWord);\r",
+                    "}\r",
+                    "else {\r",
+                    "//save login data for next reuse\r",
+                    "ACUtils.utils.removeLogin();\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "//load language\r",
+                    "var lang = \"de\";\r",
+                    "var url = \"app/languages/\"+lang+\"/Messages.js\";\r",
+                    "\r",
+                    "Ext.Ajax.request({\r",
+                    "url: url,\r",
+                    "success: function(response) {\r",
+                    "    eval(response.responseText);\r",
+                    "\r",
+                    "    Ext.Viewport.setMasked(false);\r",
+                    "    me.hide();\r",
+                    "    me.remove();\r",
+                    "\r",
+                    "    //load main page\r",
+                    "    var vpMain = Ext.create(\"ACMobileClient.view.ViewportMain\", {});\r",
+                    "    vpMain.show();\r",
+                    "},\r",
+                    "scope: this\r",
+                    "});\r",
+                    "\r",
+                    "},\r",
+                    "failure: function() {\r",
+                    "Ext.Viewport.setMasked(false);\r",
+                    "Ext.Msg.alert('Error', 'Login fehlgeschlagen, Benutzername/Kennwort nicht korrekt?', Ext.emptyFn);\r",
+                    "}\r",
+                    "\r",
+                    "});\r",
+                    "*/"
+                ]
+            },
+            "designerId": "a2b3ea37-b986-4b0a-9019-bfbe65161448"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "centered": true,
+                "height": 280,
+                "itemId": "loginForm",
+                "padding": 10,
+                "showAnimation": "slideIn",
+                "style": "",
+                "width": 280,
+                "designer|userClassName": "MyFormPanel",
+                "url": "/api/rest/session/login"
+            },
+            "designerId": "dad96ca0-db19-479d-a5f5-e0b51e74da0a",
+            "cn": [
+                {
+                    "type": "Ext.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "top",
+                        "designer|userClassName": "MyToolbar3",
+                        "title": "Login"
+                    },
+                    "designerId": "0cece261-c146-46ec-8592-5ff8a390a50e"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "loginFieldSet",
+                        "width": 250,
+                        "designer|userClassName": "MyFieldSet",
+                        "title": null
+                    },
+                    "designerId": "741505ab-3e1d-4ac8-a1f4-5c6d07887c2e",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "border": "",
+                                "itemId": "userName",
+                                "width": "",
+                                "designer|userClassName": "MyTextField",
+                                "label": "Benutzer:",
+                                "labelWidth": 100,
+                                "name": "username"
+                            },
+                            "designerId": "0eedb700-c90c-497a-921c-90c8550dd3da",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "onUserNameAction",
+                                        "fn": "onUserNameAction",
+                                        "implHandler": [
+                                            "this.doLogin();"
+                                        ],
+                                        "name": "action"
+                                    },
+                                    "designerId": "a1fe49b6-693a-4066-823a-b8e413e13024"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.field.Password",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "passWord",
+                                "designer|userClassName": "MyPasswordField",
+                                "label": "Passwort:",
+                                "labelWidth": 100,
+                                "name": "password"
+                            },
+                            "designerId": "d3fde362-d62d-4e28-823c-af9d6d1f390e",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "onPassWordAction",
+                                        "fn": "onPassWordAction",
+                                        "implHandler": [
+                                            "this.doLogin();"
+                                        ],
+                                        "name": "action"
+                                    },
+                                    "designerId": "67e27044-e16e-40b5-8bc3-3798cc4c679c"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "rememberLogin",
+                                "designer|userClassName": "MyCheckbox",
+                                "label": "Merken:",
+                                "labelWidth": 100,
+                                "name": "rememberLogin"
+                            },
+                            "designerId": "e85e6c54-ee7c-4cb6-bfab-ca5a03d2ea71"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "id": "",
+                        "itemId": "loginButton",
+                        "ui": "action-round",
+                        "width": 150,
+                        "designer|userClassName": "MyButton2",
+                        "text": "Anmelden"
+                    },
+                    "designerId": "8930eaf4-cf0e-459a-acc1-d3d4f740530d",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onLoginButtonTap",
+                                "fn": "onLoginButtonTap",
+                                "implHandler": [
+                                    "this.doLogin();"
+                                ],
+                                "element": null,
+                                "name": "tap"
+                            },
+                            "designerId": "5ed0164a-0fce-45fe-a36f-0a034380965e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPanelPainted",
+                "fn": "onPanelPainted",
+                "implHandler": [
+                    "if (ACUtils.utils.isAutoLogin()) {\r",
+                    "    var u = ACUtils.utils.getUserName();\r",
+                    "    var p = ACUtils.utils.getPassWord();\r",
+                    "\r",
+                    "\r",
+                    "    this.down('#userName').setValue(u);\r",
+                    "    this.down('#passWord').setValue(p);\r",
+                    "    this.down('#rememberLogin').check();\r",
+                    "    this.doLogin();\r",
+                    "}"
+                ],
+                "name": "painted"
+            },
+            "designerId": "31544a7c-9d80-48ce-8462-fda49f33aa53"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPanelShow",
+                "fn": "onPanelShow",
+                "implHandler": [
+                    ""
+                ],
+                "name": "show"
+            },
+            "designerId": "35b87088-098c-4848-b202-3842e1994211"
+        }
+    ]
+}
