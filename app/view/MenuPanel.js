@@ -45,7 +45,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                         layout: {
                             type: 'card'
                         },
-                        title: 'Dokumente',
+                        title: 'My folders',
                         iconCls: 'doc'
                     },
                     {
@@ -211,10 +211,13 @@ Ext.define('ACMobileClient.view.MenuPanel', {
             //create a new FolderList view
             var foldC = Ext.create("ACMobileClient.view.FolderListContainer", {});
             var store = null;
+            //var localStore = null;
 
             if (isRoot)  {
                 //when root, load the areas
-                store = Ext.create("ACMobileClient.store.AreaDataStore", {});
+                store = Ext.create("ACMobileClient.store.PrivateGlobalFolders", {});
+                //localStore = Ext.create("ACMobileClient.store.SharedGlobalFolders", {});
+                //store = Ext.create("ACMobileClient.store.AreaDataStore", {});
             }
             else {
                 //if not root load a normal folder structure
@@ -222,6 +225,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
             }
 
             foldC.down('#documentList').setStore(store);
+            //foldC.down('#').setStore(store);
 
             if (!isRoot) {
                 //activate back button

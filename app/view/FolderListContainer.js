@@ -47,6 +47,13 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                         iconMask: true
                     }
                 ]
+            },
+            {
+                xtype: 'container',
+                itemId: 'accordionContainer',
+                layout: {
+                    type: 'fit'
+                }
             }
         ],
         listeners: [
@@ -98,7 +105,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
             itemId: 'documentList',
             itemTpl: myTpl
         });
-        this.add(list);
+        this.getComponent('accordionContainer').add(list);
     }
 
 });

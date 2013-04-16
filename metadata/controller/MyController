@@ -56,8 +56,9 @@
                 "designer|userClassName": "launch",
                 "fn": "launch",
                 "implHandler": [
-                    "//Ext.Ajax.defaultHeaders = {\"Accept\":\"application/json\"};\r",
+                    "Ext.Ajax.setDefaultHeaders( {\"Accept\":\"application/json\"});\r",
                     "//Ext.apply(Ext.lib.Ajax.defaultHeaders, {\"Accept\":\"application/json\"});\r",
+                    "Ext.getStore(\"GlobalFolderStore\").load();\r",
                     "\r",
                     "Ext.JSON.encodeDate = function(d){\r",
                     "    return Ext.Date.format(d, '\"YmdHisO\"');\r",

@@ -19,7 +19,8 @@
             "ObjectInfoModel",
             "NoteModel",
             "UserGroupSearchModel",
-            "TextViewModel"
+            "TextViewModel",
+            "PrivateGlobalFolders"
         ],
         "stores": [
             "FolderObjectDataStore",
@@ -34,7 +35,8 @@
             "ObjectInfoStore",
             "NoteStore",
             "UserGroupSearchStore",
-            "TextViewStore"
+            "TextViewStore",
+            "PrivateGlobalFolders"
         ],
         "views": [
             "MainPanel",

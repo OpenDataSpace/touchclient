@@ -28,8 +28,9 @@ Ext.define('ACMobileClient.controller.MyController', {
     },
 
     launch: function() {
-        //Ext.Ajax.defaultHeaders = {"Accept":"application/json"};
+        Ext.Ajax.setDefaultHeaders( {"Accept":"application/json"});
         //Ext.apply(Ext.lib.Ajax.defaultHeaders, {"Accept":"application/json"});
+
 
         Ext.JSON.encodeDate = function(d){
             return Ext.Date.format(d, '"YmdHisO"');

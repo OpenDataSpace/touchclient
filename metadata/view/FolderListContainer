@@ -139,11 +139,25 @@
                     "    itemId: 'documentList',\r",
                     "    itemTpl: myTpl\r",
                     "});\r",
-                    "this.add(list);"
+                    "this.getComponent('accordionContainer').add(list);"
                 ],
                 "name": "initialize"
             },
             "designerId": "de29e9a6-8187-4897-a78e-b909e58e37c4"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "accordionContainer",
+                "designer|userClassName": "MyContainer14",
+                "layout": "fit"
+            },
+            "designerId": "3d1bb034-0361-4fe6-a4c9-56e9e7f3c56b"
         }
     ]
 }
