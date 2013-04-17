@@ -597,6 +597,7 @@
                     "me.add(men);\r",
                     "\r",
                     "men.navigateToFolder('', \"Start\", true, this.down('#documentsBar'));\r",
+                    "men.navigateToFolder('', \"Start\", true, this.down('#sharedFolders'));\r",
                     "\r",
                     "if (MyGlobals.isPhone) {\r",
                     "    men.setStyle(\"font-size:1.25em\");\r",

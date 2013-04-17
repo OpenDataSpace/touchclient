@@ -33,7 +33,8 @@ Ext.application({
         'NoteModel',
         'UserGroupSearchModel',
         'TextViewModel',
-        'PrivateGlobalFolders'
+        'PrivateGlobalFolders',
+        'SharedGlobalFolders'
     ],
     stores: [
         'FolderObjectDataStore',
@@ -49,7 +50,8 @@ Ext.application({
         'NoteStore',
         'UserGroupSearchStore',
         'TextViewStore',
-        'PrivateGlobalFolders'
+        'PrivateGlobalFoldersStore',
+        'SharedGlobalFoldersStore'
     ],
     views: [
         'MainPanel',

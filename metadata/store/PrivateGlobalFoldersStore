@@ -1,0 +1,17 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "groupField": "category",
+        "model": "PrivateGlobalFolders",
+        "pageSize": 50,
+        "remoteSort": true,
+        "storeId": "GlobalFolderStore",
+        "designer|userClassName": "PrivateGlobalFoldersStore"
+    },
+    "designerId": "8a71dbf2-0301-4769-91c9-a2967e86636f"
+}

@@ -87,6 +87,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         me.add(men);
 
         men.navigateToFolder('', "Start", true, this.down('#documentsBar'));
+        men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
 
         if (MyGlobals.isPhone) {
             men.setStyle("font-size:1.25em");

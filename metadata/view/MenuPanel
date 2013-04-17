@@ -170,6 +170,7 @@
                     "    if (!isRoot) {\r",
                     "        console.log(area.getActiveItem().id);\r",
                     "        parentName = area.getActiveItem().titleName;\r",
+                    "        console.log(area.getItemId());\r",
                     "    }\r",
                     "\r",
                     "    //create a new FolderList view\r",
@@ -179,11 +180,12 @@
                     "\r",
                     "    if (isRoot)  {\r",
                     "        //when root, load the areas\r",
-                    "        store = Ext.create(\"ACMobileClient.store.PrivateGlobalFolders\", {});\r",
-                    "        //localStore = Ext.create(\"ACMobileClient.store.SharedGlobalFolders\", {});\r",
-                    "        //store = Ext.create(\"ACMobileClient.store.AreaDataStore\", {});\r",
-                    "    }\r",
-                    "    else {\r",
+                    "        if (area.getItemId()=='documentsBar'){\r",
+                    "            store = Ext.create(\"ACMobileClient.store.PrivateGlobalFoldersStore\", {});\r",
+                    "        } else {\r",
+                    "            store = Ext.create(\"ACMobileClient.store.SharedGlobalFoldersStore\", {});\r",
+                    "        }\r",
+                    "    } else {\r",
                     "        //if not root load a normal folder structure\r",
                     "        store = Ext.create(\"ACMobileClient.store.FolderObjectDataStore\", {});\r",
                     "    }\r",
@@ -383,6 +385,24 @@
                         "iconCls": "doc"
                     },
                     "designerId": "0c56fa49-323a-4930-99f6-49aad9328b3e",
+                    "masterInstanceId": "17bbcff2-770e-425f-b8f5-e355b625ab67"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hideAnimation": null,
+                        "itemId": "sharedFolders",
+                        "showAnimation": null,
+                        "layout": "card",
+                        "title": "Shared folders",
+                        "iconCls": "team"
+                    },
+                    "designerId": "653c40d9-f714-4946-9de4-992306e2d7c4",
                     "masterInstanceId": "17bbcff2-770e-425f-b8f5-e355b625ab67"
                 },
                 {

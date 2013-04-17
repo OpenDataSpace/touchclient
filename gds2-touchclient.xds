@@ -507,11 +507,27 @@
         },
         "8a71dbf2-0301-4769-91c9-a2967e86636f": {
             "paths": [
-                "metadata/store/PrivateGlobalFolders",
-                "app/store/override/PrivateGlobalFolders.js",
-                "app/store/PrivateGlobalFolders.js"
+                "metadata/store/PrivateGlobalFoldersStore",
+                "app/store/override/PrivateGlobalFoldersStore.js",
+                "app/store/PrivateGlobalFoldersStore.js"
             ],
-            "className": "PrivateGlobalFolders"
+            "className": "PrivateGlobalFoldersStore"
+        },
+        "96cfc6cb-0828-4ae6-8ced-c95d360e522b": {
+            "paths": [
+                "metadata/model/SharedGlobalFolders",
+                "app/model/override/SharedGlobalFolders.js",
+                "app/model/SharedGlobalFolders.js"
+            ],
+            "className": "SharedGlobalFolders"
+        },
+        "2d5ec4a7-5a53-4590-a50d-c1a5e32c74d9": {
+            "paths": [
+                "metadata/store/SharedGlobalFoldersStore",
+                "app/store/override/SharedGlobalFoldersStore.js",
+                "app/store/SharedGlobalFoldersStore.js"
+            ],
+            "className": "SharedGlobalFoldersStore"
         }
     },
     "viewOrderMap": {
@@ -560,7 +576,8 @@
             "1204f1ea-9d27-46c2-9e7a-3e0b0e019d86",
             "9bbe8b25-2e88-4c6a-81db-b17f16f8554e",
             "c2c99279-4c51-4264-a3ae-ed89ff4af689",
-            "8a71dbf2-0301-4769-91c9-a2967e86636f"
+            "8a71dbf2-0301-4769-91c9-a2967e86636f",
+            "2d5ec4a7-5a53-4590-a50d-c1a5e32c74d9"
         ],
         "controller": [
             "1013c455-9d12-442a-abab-2117752209f6"
@@ -580,7 +597,8 @@
             "5586bd1a-65d5-4a18-96f8-650e4b2d9534",
             "6b62889e-383c-4a27-bb1c-6b4c40eb4501",
             "a93f9b50-309e-4039-a422-36f5b6ba55e7",
-            "392d511c-de30-4aa3-938e-0f43dcc023ee"
+            "392d511c-de30-4aa3-938e-0f43dcc023ee",
+            "96cfc6cb-0828-4ae6-8ced-c95d360e522b"
         ],
         "resource": [
             "57f9ba6c-2325-4d50-99e2-af82c689b571",

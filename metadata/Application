@@ -20,7 +20,8 @@
             "NoteModel",
             "UserGroupSearchModel",
             "TextViewModel",
-            "PrivateGlobalFolders"
+            "PrivateGlobalFolders",
+            "SharedGlobalFolders"
         ],
         "stores": [
             "FolderObjectDataStore",
@@ -36,7 +37,8 @@
             "NoteStore",
             "UserGroupSearchStore",
             "TextViewStore",
-            "PrivateGlobalFolders"
+            "PrivateGlobalFoldersStore",
+            "SharedGlobalFoldersStore"
         ],
         "views": [
             "MainPanel",

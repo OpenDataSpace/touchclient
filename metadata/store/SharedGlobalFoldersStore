@@ -7,11 +7,11 @@
     "codeClass": null,
     "userConfig": {
         "groupField": "category",
-        "model": "PrivateGlobalFolders",
+        "model": "SharedGlobalFolders",
         "pageSize": 50,
         "remoteSort": true,
-        "storeId": "GlobalFolderStore",
-        "designer|userClassName": "PrivateGlobalFolders"
+        "storeId": "SharedFolderStore",
+        "designer|userClassName": "SharedGlobalFoldersStore"
     },
-    "designerId": "8a71dbf2-0301-4769-91c9-a2967e86636f"
+    "designerId": "2d5ec4a7-5a53-4590-a50d-c1a5e32c74d9"
 }

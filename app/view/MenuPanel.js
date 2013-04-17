@@ -49,6 +49,15 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                         iconCls: 'doc'
                     },
                     {
+                        xtype: 'DocumentListContainer',
+                        itemId: 'sharedFolders',
+                        layout: {
+                            type: 'card'
+                        },
+                        title: 'Shared folders',
+                        iconCls: 'team'
+                    },
+                    {
                         xtype: 'searchcontainer',
                         itemId: 'searchContainer',
                         title: 'Suche',
@@ -206,6 +215,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
             if (!isRoot) {
                 console.log(area.getActiveItem().id);
                 parentName = area.getActiveItem().titleName;
+                console.log(area.getItemId());
             }
 
             //create a new FolderList view
@@ -215,11 +225,12 @@ Ext.define('ACMobileClient.view.MenuPanel', {
 
             if (isRoot)  {
                 //when root, load the areas
-                store = Ext.create("ACMobileClient.store.PrivateGlobalFolders", {});
-                //localStore = Ext.create("ACMobileClient.store.SharedGlobalFolders", {});
-                //store = Ext.create("ACMobileClient.store.AreaDataStore", {});
-            }
-            else {
+                if (area.getItemId()=='documentsBar'){
+                    store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
+                } else {
+                    store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
+                }
+            } else {
                 //if not root load a normal folder structure
                 store = Ext.create("ACMobileClient.store.FolderObjectDataStore", {});
             }

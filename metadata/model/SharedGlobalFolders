@@ -1,0 +1,207 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SharedGlobalFolders"
+    },
+    "designerId": "96cfc6cb-0828-4ae6-8ced-c95d360e522b",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id",
+                "designer|userClassName": "field26"
+            },
+            "designerId": "23e9cc7a-792f-4d43-aeca-a9da2171ee3b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name",
+                "designer|userClassName": "field27"
+            },
+            "designerId": "3f1629e4-f971-4426-ae98-311e3d1d77ad"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mapping": "gdscategory",
+                "name": "category",
+                "designer|userClassName": "field28"
+            },
+            "designerId": "79e24a86-3e28-4363-8f85-1883ad1b2085"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "isfolder",
+                "designer|userClassName": "field29"
+            },
+            "designerId": "04dcb766-2b2f-48d7-9661-eefaf380cb0b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "shared",
+                "designer|userClassName": "field30"
+            },
+            "designerId": "d623902c-ecc5-4dd4-bce7-952f2d41e30f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ownobject",
+                "designer|userClassName": "field31"
+            },
+            "designerId": "2b7ffe24-5623-45d3-a5b2-c4e18d104d25"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sharedowner",
+                "designer|userClassName": "field32"
+            },
+            "designerId": "69cef91b-602a-456b-9a82-ce32743ad7ff"
+        },
+        {
+            "type": "Ext.data.proxy.Rest",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyRestProxy4",
+                "extraParams": [
+                    "{\r",
+                    " provider: 'dataspaceglobalfolder',\r",
+                    "            handler: 'dataspaceobject',\r",
+                    "            source: 'shared',\r",
+                    "            query: '',\r",
+                    "            properties: [\r",
+                    "                'id',\r",
+                    "                'name',\r",
+                    "                'isfolder',\r",
+                    "                'shared',\r",
+                    "                'ownobject',\r",
+                    "                'sharedowner'\r",
+                    "            ],\r",
+                    "            filter: [\r",
+                    "                Ext.encode({\r",
+                    "                    property: 'class',\r",
+                    "                    value: 'folder'\r",
+                    "                })\r",
+                    "            ]\r",
+                    "}"
+                ],
+                "url": "/api/rest/object"
+            },
+            "designerId": "f3ba0e74-cc92-48d5-9f32-c939b4b5f5ce",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data",
+                        "designer|userClassName": "MyJsonReader5",
+                        "useSimpleAccessors": true
+                    },
+                    "designerId": "4ff2a42c-aa90-4e1c-bf82-8704597108bc"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "nameProperty": "mapping",
+                        "designer|userClassName": "MyJsonWriter",
+                        "encode": true,
+                        "rootProperty": "data"
+                    },
+                    "designerId": "4ef0a470-800b-424d-a45e-4a716928a49d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "classname",
+                "designer|userClassName": "field47"
+            },
+            "designerId": "3ea389d4-b616-4ee4-a4cc-3a7fe90a9492",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "convert",
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "return 'folderobject';"
+                        ]
+                    },
+                    "designerId": "048ec78b-0ae9-4c1f-8e2f-a223e74c37c1"
+                }
+            ]
+        }
+    ]
+}
