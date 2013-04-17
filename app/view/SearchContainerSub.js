@@ -31,13 +31,13 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                     {
                         xtype: 'searchfield',
                         itemId: 'mysearchfield',
-                        width: '50%'
+                        width: '95%'
                     },
                     {
                         xtype: 'selectfield',
                         height: 29,
                         itemId: 'searchFilter',
-                        width: '40%',
+                        width: '0%',
                         displayField: 'label',
                         store: 'QuickSearchDataStore'
                     }

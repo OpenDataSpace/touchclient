@@ -322,7 +322,7 @@
                                         "designer|userClassName": "MyButton17",
                                         "iconCls": "chat",
                                         "iconMask": true,
-                                        "text": "Notizen"
+                                        "text": "Notes"
                                     },
                                     "designerId": "5277a73c-2338-430a-abb1-5607404e38e8",
                                     "cn": [
@@ -475,7 +475,7 @@
                                                 "itemId": "description",
                                                 "designer|userClassName": "MyTextArea1",
                                                 "clearIcon": false,
-                                                "label": "Beschreibung",
+                                                "label": "Description",
                                                 "labelWidth": 100,
                                                 "value": [
                                                     "Eine kleine schöne Beschreibung der Datei ...ere ger goherger uiew rhg ieuhr guiehr wuigwhe iurgh weiruhg ehr"
@@ -529,7 +529,7 @@
                                                 "itemId": "creator",
                                                 "designer|userClassName": "MyTextField1",
                                                 "clearIcon": false,
-                                                "label": "Ersteller",
+                                                "label": "Creator",
                                                 "labelAlign": null,
                                                 "labelWidth": 100,
                                                 "value": [
@@ -550,7 +550,7 @@
                                                 "itemId": "owner",
                                                 "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
-                                                "label": "Besitzer",
+                                                "label": "Owner",
                                                 "labelWidth": 100,
                                                 "value": [
                                                     "Rolf Lang"
@@ -570,7 +570,7 @@
                                                 "itemId": "lastModifier",
                                                 "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
-                                                "label": "Geändert",
+                                                "label": "Changed by",
                                                 "labelWidth": 100,
                                                 "value": [
                                                     "Rolf Lang"
@@ -606,7 +606,7 @@
                                                 "itemId": "createDate",
                                                 "designer|userClassName": "MyTextField1",
                                                 "clearIcon": false,
-                                                "label": "Erstellt",
+                                                "label": "Creation Time",
                                                 "labelWidth": 100,
                                                 "value": [
                                                     "17.09.1978 13:52"
@@ -626,7 +626,7 @@
                                                 "itemId": "lastModifyDate",
                                                 "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
-                                                "label": "Geändert",
+                                                "label": "Last Modification",
                                                 "labelWidth": 100,
                                                 "value": [
                                                     "12.06.2012 17:52"
@@ -646,7 +646,7 @@
                                                 "itemId": "accessDate",
                                                 "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
-                                                "label": "Zugriff",
+                                                "label": "Last Access",
                                                 "labelWidth": 100,
                                                 "value": [
                                                     "12.06.2012 18:00"
@@ -733,7 +733,7 @@
                                                         "designer|userClassName": "MyButton11",
                                                         "iconCls": "compose",
                                                         "iconMask": true,
-                                                        "text": "Notiz erstellen"
+                                                        "text": "Create  Note"
                                                     },
                                                     "designerId": "c71e365b-1e3b-49aa-9aef-eb01eda6c612",
                                                     "cn": [

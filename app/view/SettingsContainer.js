@@ -23,16 +23,16 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Einstellungen'
+                title: 'Settings'
             },
             {
                 xtype: 'fieldset',
-                title: 'Einstellungen',
+                title: 'Settings',
                 items: [
                     {
                         xtype: 'checkboxfield',
                         itemId: 'autoLogin',
-                        label: 'Automatisch anmelden',
+                        label: 'Keep me logged in',
                         labelWidth: '70%'
                     }
                 ]

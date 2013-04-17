@@ -23,7 +23,7 @@
             "userConfig": {
                 "docked": "top",
                 "designer|userClassName": "MyToolbar7",
-                "title": "Einstellungen"
+                "title": "Settings"
             },
             "designerId": "b46d14cd-7372-428b-9536-4e2c2c58b421"
         },
@@ -36,7 +36,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "MyFieldSet1",
-                "title": "Einstellungen"
+                "title": "Settings"
             },
             "designerId": "0c0b2324-59e3-4827-95af-bf7a0f1fc0f0",
             "cn": [
@@ -50,7 +50,7 @@
                     "userConfig": {
                         "itemId": "autoLogin",
                         "designer|userClassName": "MyCheckbox1",
-                        "label": "Automatisch anmelden",
+                        "label": "Keep me logged in",
                         "labelWidth": "70%"
                     },
                     "designerId": "eb048bd8-ae77-45b5-9518-484a00d097e2",

@@ -144,7 +144,7 @@
                 "padding": 10,
                 "showAnimation": "slideIn",
                 "style": "",
-                "width": 280,
+                "width": 300,
                 "designer|userClassName": "MyFormPanel",
                 "url": "/api/rest/session/login"
             },
@@ -191,7 +191,7 @@
                                 "itemId": "userName",
                                 "width": "",
                                 "designer|userClassName": "MyTextField",
-                                "label": "Benutzer:",
+                                "label": "Username:",
                                 "labelWidth": 100,
                                 "name": "username"
                             },
@@ -226,7 +226,7 @@
                             "userConfig": {
                                 "itemId": "passWord",
                                 "designer|userClassName": "MyPasswordField",
-                                "label": "Passwort:",
+                                "label": "Password:",
                                 "labelWidth": 100,
                                 "name": "password"
                             },
@@ -261,8 +261,8 @@
                             "userConfig": {
                                 "itemId": "rememberLogin",
                                 "designer|userClassName": "MyCheckbox",
-                                "label": "Merken:",
-                                "labelWidth": 100,
+                                "label": "Remember Me:",
+                                "labelWidth": 180,
                                 "name": "rememberLogin"
                             },
                             "designerId": "e85e6c54-ee7c-4cb6-bfab-ca5a03d2ea71"
@@ -283,7 +283,7 @@
                         "ui": "action-round",
                         "width": 150,
                         "designer|userClassName": "MyButton2",
-                        "text": "Anmelden"
+                        "text": "Login"
                     },
                     "designerId": "8930eaf4-cf0e-459a-acc1-d3d4f740530d",
                     "cn": [

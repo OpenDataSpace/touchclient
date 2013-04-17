@@ -58,7 +58,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                         itemId: 'notesButton',
                                         iconCls: 'chat',
                                         iconMask: true,
-                                        text: 'Notizen'
+                                        text: 'Notes'
                                     }
                                 ]
                             },
@@ -103,7 +103,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 cls: 'myTextArea',
                                                 itemId: 'description',
                                                 clearIcon: false,
-                                                label: 'Beschreibung',
+                                                label: 'Description',
                                                 labelWidth: 100,
                                                 value: 'Eine kleine schöne Beschreibung der Datei ...ere ger goherger uiew rhg ieuhr guiehr wuigwhe iurgh weiruhg ehr',
                                                 readOnly: true
@@ -125,7 +125,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 xtype: 'textfield',
                                                 itemId: 'creator',
                                                 clearIcon: false,
-                                                label: 'Ersteller',
+                                                label: 'Creator',
                                                 labelWidth: 100,
                                                 value: 'Oliver Schulze',
                                                 readOnly: true
@@ -134,7 +134,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 xtype: 'textfield',
                                                 itemId: 'owner',
                                                 clearIcon: false,
-                                                label: 'Besitzer',
+                                                label: 'Owner',
                                                 labelWidth: 100,
                                                 value: 'Rolf Lang',
                                                 readOnly: true
@@ -143,7 +143,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 xtype: 'textfield',
                                                 itemId: 'lastModifier',
                                                 clearIcon: false,
-                                                label: 'Geändert',
+                                                label: 'Changed by',
                                                 labelWidth: 100,
                                                 value: 'Rolf Lang',
                                                 readOnly: true
@@ -157,7 +157,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 xtype: 'textfield',
                                                 itemId: 'createDate',
                                                 clearIcon: false,
-                                                label: 'Erstellt',
+                                                label: 'Creation Time',
                                                 labelWidth: 100,
                                                 value: '17.09.1978 13:52',
                                                 readOnly: true
@@ -166,7 +166,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 xtype: 'textfield',
                                                 itemId: 'lastModifyDate',
                                                 clearIcon: false,
-                                                label: 'Geändert',
+                                                label: 'Last Modification',
                                                 labelWidth: 100,
                                                 value: '12.06.2012 17:52',
                                                 readOnly: true
@@ -175,7 +175,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 xtype: 'textfield',
                                                 itemId: 'accessDate',
                                                 clearIcon: false,
-                                                label: 'Zugriff',
+                                                label: 'Last Access',
                                                 labelWidth: 100,
                                                 value: '12.06.2012 18:00',
                                                 readOnly: true
@@ -215,7 +215,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                         itemId: 'createNote',
                                                         iconCls: 'compose',
                                                         iconMask: true,
-                                                        text: 'Notiz erstellen'
+                                                        text: 'Create  Note'
                                                     }
                                                 ]
                                             }

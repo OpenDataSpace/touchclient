@@ -60,13 +60,13 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     {
                         xtype: 'searchcontainer',
                         itemId: 'searchContainer',
-                        title: 'Suche',
+                        title: 'Search',
                         iconCls: 'search'
                     },
                     {
                         xtype: 'SettingsContainer',
                         itemId: 'settingsContainer',
-                        title: 'Einstellungen',
+                        title: 'Settings',
                         iconCls: 'settings5'
                     }
                 ]

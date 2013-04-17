@@ -72,7 +72,7 @@
                         "layout|flex": null,
                         "height": null,
                         "itemId": "mysearchfield",
-                        "width": "50%",
+                        "width": "95%",
                         "designer|userClassName": "MySearchField",
                         "label": null
                     },
@@ -116,7 +116,7 @@
                     "userConfig": {
                         "height": 29,
                         "itemId": "searchFilter",
-                        "width": "40%",
+                        "width": "0%",
                         "zIndex": null,
                         "designer|userClassName": "MySelectField",
                         "label": null,

@@ -68,25 +68,6 @@
                             "designerId": "296b92b0-5d01-4b66-8b70-5073b54d7079"
                         }
                     ]
-                },
-                {
-                    "type": "Ext.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": null,
-                        "align": "right",
-                        "docked": null,
-                        "itemId": "actionButton",
-                        "designer|userClassName": "MyButton11",
-                        "iconCls": "list",
-                        "iconMask": true,
-                        "text": null
-                    },
-                    "designerId": "4afebd8e-f39a-456f-a47b-84b8f2703e93"
                 }
             ]
         },

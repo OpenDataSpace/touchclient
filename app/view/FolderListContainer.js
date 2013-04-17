@@ -38,13 +38,6 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                         ui: 'back',
                         iconMask: true,
                         text: 'Back'
-                    },
-                    {
-                        xtype: 'button',
-                        align: 'right',
-                        itemId: 'actionButton',
-                        iconCls: 'list',
-                        iconMask: true
                     }
                 ]
             },

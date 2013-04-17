@@ -415,7 +415,7 @@
                     "userConfig": {
                         "titleName": null,
                         "itemId": "searchContainer",
-                        "title": "Suche",
+                        "title": "Search",
                         "iconCls": "search"
                     },
                     "designerId": "0b36a9ed-098f-40e2-8c84-be7de03da8ab",
@@ -437,7 +437,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "settingsContainer",
-                        "title": "Einstellungen",
+                        "title": "Settings",
                         "iconCls": "settings5"
                     },
                     "designerId": "50e7569b-c240-49dd-890b-5cdda45fd169",

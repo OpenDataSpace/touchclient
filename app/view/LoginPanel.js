@@ -28,7 +28,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                 padding: 10,
                 showAnimation: 'slideIn',
                 style: '',
-                width: 280,
+                width: 300,
                 url: '/api/rest/session/login',
                 items: [
                     {
@@ -46,22 +46,22 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                                 border: '',
                                 itemId: 'userName',
                                 width: '',
-                                label: 'Benutzer:',
+                                label: 'Username:',
                                 labelWidth: 100,
                                 name: 'username'
                             },
                             {
                                 xtype: 'passwordfield',
                                 itemId: 'passWord',
-                                label: 'Passwort:',
+                                label: 'Password:',
                                 labelWidth: 100,
                                 name: 'password'
                             },
                             {
                                 xtype: 'checkboxfield',
                                 itemId: 'rememberLogin',
-                                label: 'Merken:',
-                                labelWidth: 100,
+                                label: 'Remember Me:',
+                                labelWidth: 180,
                                 name: 'rememberLogin'
                             }
                         ]
@@ -72,7 +72,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         itemId: 'loginButton',
                         ui: 'action-round',
                         width: 150,
-                        text: 'Anmelden'
+                        text: 'Login'
                     }
                 ]
             }
