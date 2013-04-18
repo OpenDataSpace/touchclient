@@ -23,7 +23,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
         listeners: [
             {
                 fn: 'onDocumentListSelect',
-                event: 'select'
+                event: 'itemsingletap'
             },
             {
                 fn: 'onDocumentListRefresh',
@@ -32,6 +32,10 @@ Ext.define('ACMobileClient.view.FolderListList', {
             {
                 fn: 'onDocumentListDisclose',
                 event: 'disclose'
+            },
+            {
+                fn: 'onListItemTaphold',
+                event: 'itemtaphold'
             }
         ],
         plugins: [
@@ -61,7 +65,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
         ]
     },
 
-    onDocumentListSelect: function(dataview, record, eOpts) {
+    onDocumentListSelect: function(dataview, index, target, record, e, eOpts) {
         var classObject = record.get("classname");
         var objectId = record.get("id");
         var name = record.get("name");
@@ -75,6 +79,22 @@ Ext.define('ACMobileClient.view.FolderListList', {
 
     onDocumentListDisclose: function(list, record, target, index, e, eOpts) {
         MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'));
+    },
+
+    onListItemTaphold: function(dataview, index, target, record, e, eOpts) {
+        var objectId = record.get("id");
+        var url = '/api/rest/object/download/' + objectId;
+
+        var ifr = document.createElement('iframe');
+        ifr.style.display = 'none';
+        document.body.appendChild(ifr);
+        ifr.src = url;
+        ifr.onload = function(e){
+            document.body.removeChild(ifr);
+            ifr = null;
+        };
+        this.deselectAll();
+
     }
 
 });

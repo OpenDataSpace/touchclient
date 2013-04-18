@@ -41,7 +41,7 @@
                     "MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);\r",
                     "MyGlobals.currentDocumentList = this;"
                 ],
-                "name": "select"
+                "name": "itemsingletap"
             },
             "designerId": "031f0568-41b9-4534-9408-e21860e5da4d"
         },
@@ -137,6 +137,35 @@
                 "name": "disclose"
             },
             "designerId": "fa552598-a23b-4b4a-8308-b7e3fc97705c"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onListItemTaphold",
+                "fn": "onListItemTaphold",
+                "implHandler": [
+                    "var objectId = record.get(\"id\");\r",
+                    "var url = '/api/rest/object/download/' + objectId;\r",
+                    "\r",
+                    "    var ifr = document.createElement('iframe');\r",
+                    "    ifr.style.display = 'none';\r",
+                    "    document.body.appendChild(ifr);\r",
+                    "    ifr.src = url;\r",
+                    "    ifr.onload = function(e){\r",
+                    "        document.body.removeChild(ifr);\r",
+                    "        ifr = null;\r",
+                    "    };\r",
+                    "this.deselectAll();\r",
+                    ""
+                ],
+                "name": "itemtaphold"
+            },
+            "designerId": "43c51228-a477-42d8-8518-80a9f4b79d8f"
         }
     ]
 }
