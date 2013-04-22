@@ -58,8 +58,7 @@ Ext.define('ACMobileClient.view.ContentContainerBar', {
         if (men.isHidden()) {
             //men.setModal(true);
             men.showBy(button);
-        }
-        else {
+        } else {
             men.hide();
         }
     },

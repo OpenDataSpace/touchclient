@@ -73,7 +73,7 @@
                     "    if (this.hasPrevious) {\r",
                     "        this.down('#titleBar').down('#backButton').show();\r",
                     "        console.log(\"nav: \"+this.navTitle);\r",
-                    "        \r",
+                    "\r",
                     "        if (!this.navTitle || this.navTitle == \"Start\") {\r",
                     "            this.down('#titleBar').down('#backButton').setText(\"\");\r",
                     "            this.down('#titleBar').down('#backButton').setIconCls(\"gohome\");\r",

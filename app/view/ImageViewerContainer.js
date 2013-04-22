@@ -40,7 +40,6 @@ Ext.define('ACMobileClient.view.ImageViewerContainer', {
 
     hideLoader: function() {
         this.setMasked(false);
-
     }
 
 });

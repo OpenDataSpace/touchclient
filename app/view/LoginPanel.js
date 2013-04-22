@@ -96,10 +96,6 @@ Ext.define('ACMobileClient.view.LoginPanel', {
             {
                 fn: 'onPanelPainted',
                 event: 'painted'
-            },
-            {
-                fn: 'onPanelShow',
-                event: 'show'
             }
         ]
     },
@@ -118,32 +114,27 @@ Ext.define('ACMobileClient.view.LoginPanel', {
 
     onPanelPainted: function(component, eOpts) {
         if (ACUtils.utils.isAutoLogin()) {
-            var u = ACUtils.utils.getUserName();
-            var p = ACUtils.utils.getPassWord();
-
-
-            this.down('#userName').setValue(u);
-            this.down('#passWord').setValue(p);
+            this.down('#userName').setValue(ACUtils.utils.getUserName());
+            this.down('#passWord').setValue(ACUtils.utils.getPassWord());
             this.down('#rememberLogin').check();
             this.doLogin();
         }
     },
 
-    onPanelShow: function(component, eOpts) {
-
-    },
-
     doLogin: function() {
-        this.down('#userName').blur();
-        this.down('#passWord').blur();
+        var me = this;
+
+        me.down('#userName').blur();
+        me.down('#passWord').blur();
 
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
             message: 'Logging in'
         });
 
-        var me = this;
-        ACUtils.utils.login(this.down('#userName').getValue(), this.down('#passWord').getValue(),
+        ACUtils.utils.login(
+        me.down('#userName').getValue(),
+        me.down('#passWord').getValue(),
         function(sessionId) {
             console.log("SessionId: "+MyGlobals.sessionId);
             ACUtils.utils.storedUser=me.down('#userName').getValue();
@@ -191,52 +182,8 @@ Ext.define('ACMobileClient.view.LoginPanel', {
             Ext.Viewport.setMasked(false);
             Ext.Msg.alert('Error', 'Login fehlgeschlagen, Benutzername/Kennwort nicht korrekt?', Ext.emptyFn);
 
-        });
-        /*
-        this.down("#loginForm").submit({
-        headers: {'Accept':'application/json' }, 
-        success: function() {
-        ACUtils.utils.storedUser=this.down('#userName').getValue();
-        ACUtils.utils.storedPassWord=this.down('#passWord').getValue();
-
-        if (me.down('#rememberLogin').getChecked()) {
-        //save login data for next reuse
-        ACUtils.utils.saveLogin(ACUtils.utils.storedUser, ACUtils.utils.storedPassWord);
-    }
-    else {
-        //save login data for next reuse
-        ACUtils.utils.removeLogin();
-    }
-
-
-    //load language
-    var lang = "de";
-    var url = "app/languages/"+lang+"/Messages.js";
-
-    Ext.Ajax.request({
-        url: url,
-        success: function(response) {
-            eval(response.responseText);
-
-            Ext.Viewport.setMasked(false);
-            me.hide();
-            me.remove();
-
-            //load main page
-            var vpMain = Ext.create("ACMobileClient.view.ViewportMain", {});
-            vpMain.show();
-        },
-        scope: this
-    });
-
-        },
-        failure: function() {
-    Ext.Viewport.setMasked(false);
-    Ext.Msg.alert('Error', 'Login fehlgeschlagen, Benutzername/Kennwort nicht korrekt?', Ext.emptyFn);
         }
-
-});
-*/
+        );
     }
 
 });

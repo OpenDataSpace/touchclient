@@ -77,26 +77,24 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
     },
 
     onContainerInitialize: function(component, eOpts) {
-        myTpl = new Ext.XTemplate(
-        '<div class="list_style">',
-        '<div class="list_icons">',
-        '<div class="list_icon list_icon_{classname}"></div>',
-        '</div>',
-        '<div class="list_entry">{[this.testing(name)]}{name}</div>',
-        '</div>',
-        {
-            // XTemplate configuration:
-            disableFormats: true,
-            // just a sample
-            testing: function(){
-                return '';
-            }
-        }
-        );
-
         var list = Ext.create('ACMobileClient.view.FolderListList', {
-            itemId: 'documentList',
-            itemTpl: myTpl
+            'itemId': 'documentList',
+            'itemTpl': new Ext.XTemplate(
+            '<div class="list_style">',
+            '<div class="list_icons">',
+            '<div class="list_icon list_icon_{classname}"></div>',
+            '</div>',
+            '<div class="list_entry">{[this.testing(name)]}{name}</div>',
+            '</div>',
+            {
+                // XTemplate configuration:
+                'disableFormats': true,
+                // just a sample
+                'testing': function(){
+                    return '';
+                }
+            }
+            )
         });
         this.getComponent('accordionContainer').add(list);
     }

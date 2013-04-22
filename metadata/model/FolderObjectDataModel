@@ -40,9 +40,10 @@
                             "rec"
                         ],
                         "implHandler": [
-                            "var objTextKey = rec.get('objecttextkey');\r",
-                            "if (objTextKey && objTextKey != \"\") {\r",
-                            "    var trans = ACMobileClient.Messages[objTextKey];\r",
+                            "var objTextKey = rec.get('objecttextkey'),\r",
+                            "    trans;\r",
+                            "if (objTextKey && objTextKey !== \"\") {\r",
+                            "    trans = ACMobileClient.Messages[objTextKey];\r",
                             "    if (trans) {\r",
                             "        return trans;\r",
                             "    }\r",

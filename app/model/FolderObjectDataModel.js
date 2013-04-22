@@ -20,9 +20,10 @@ Ext.define('ACMobileClient.model.FolderObjectDataModel', {
         fields: [
             {
                 convert: function(v, rec) {
-                    var objTextKey = rec.get('objecttextkey');
-                    if (objTextKey && objTextKey != "") {
-                        var trans = ACMobileClient.Messages[objTextKey];
+                    var objTextKey = rec.get('objecttextkey'),
+                        trans;
+                    if (objTextKey && objTextKey !== "") {
+                        trans = ACMobileClient.Messages[objTextKey];
                         if (trans) {
                             return trans;
                         }

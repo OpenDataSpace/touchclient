@@ -21,25 +21,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "init",
-                "fn": "init",
-                "designer|params": [
-                    "application"
-                ],
-                "implHandler": [
-                    ""
-                ]
-            },
-            "designerId": "23275c5d-09ee-496f-8faa-38df8206bc37"
-        },
-        {
-            "type": "fixedfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "designer|userClassName": "launch",
                 "fn": "launch",
                 "implHandler": [

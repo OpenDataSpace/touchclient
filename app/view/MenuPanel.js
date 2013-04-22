@@ -104,13 +104,13 @@ Ext.define('ACMobileClient.view.MenuPanel', {
     },
 
     onTabPanelActivate: function(container, newActiveItem, oldActiveItem, eOpts) {
-        var tabBar = this.down('#tabBar');
+        var me = this,
+            tabBar = me.down('#tabBar');
 
-        var me = this;
         tabBar.on({
-            tap: 'tabCallback',
-            delegate: '> tab',
-            scope   : me
+            'tap': 'tabCallback',
+            'delegate': '> tab',
+            'scope': me
         });
 
     },
@@ -126,7 +126,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         Ext.Anim.run(this, 'slide', {
         direction: 'down'
         });
-        */;
+        */
     },
 
     onPanelHide: function(component, eOpts) {
@@ -134,7 +134,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         Ext.Anim.run(this, 'slide', {
         direction: 'up'
         });
-        */;
+        */
     },
 
     internInit: function() {
@@ -172,34 +172,31 @@ Ext.define('ACMobileClient.view.MenuPanel', {
     },
 
     navigateToFolder: function(fId, name, isRoot, area) {
-        var me = this;
         ACUtils.utils.checkConnectionWithFunction(function() {
 
-            var parentName = "";
-            if (!isRoot) {
-                console.log(area.getActiveItem().id);
-                parentName = area.getActiveItem().titleName;
-                console.log(area.getItemId());
-            }
-
-            //create a new FolderList view
-            var foldC = Ext.create("ACMobileClient.view.FolderListContainer", {});
-            var store = null;
-            //var localStore = null;
+            var parentName = '',
+            // create a new FolderList view
+                foldC = Ext.create("ACMobileClient.view.FolderListContainer", {}),
+                store = null;
 
             if (isRoot)  {
-                //when root, load the areas
+                // If root, load the areas
                 if (area.getItemId()=='documentsBar'){
                     store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
                 } else {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
                 }
             } else {
-                //if not root load a normal folder structure
+                console.log(area.getActiveItem().id);
+                parentName = area.getActiveItem().titleName;
+                console.log(area.getItemId());
+
+                // if not root load a normal folder structure
                 store = Ext.create("ACMobileClient.store.FolderObjectDataStore", {});
             }
 
             foldC.down('#documentList').setStore(store);
+
             //foldC.down('#').setStore(store);
 
             if (!isRoot) {
@@ -235,18 +232,20 @@ Ext.define('ACMobileClient.view.MenuPanel', {
     navigateToParent: function() {
         var me = this;
         ACUtils.utils.checkConnectionWithFunction(function() {
+            var fIds, names, parent, name, colon, i;
+
             if (me.pathList && me.pathList !== '') {
-                var fIds = me.pathList.split('|');
-                var names = me.pathNameList.split('|');
-                var parent = fIds[fIds.length-2];
-                var name = names[names.length-2];
+                fIds = me.pathList.split('|');
+                names = me.pathNameList.split('|');
+                parent = fIds[fIds.length-2];
+                name = names[names.length-2];
 
                 me.pathList = "";
                 me.pathNameList = "";
-                var colon = "";
-                for (var i=0;i<fIds.length-2;i++) {
-                    me.pathList += colon+fIds[i];
-                    me.pathNameList += colon+names[i];
+                colon = "";
+                for (i = 0; i < fIds.length-2; ++i) {
+                    me.pathList += colon + fIds[i];
+                    me.pathNameList += colon + names[i];
                     colon = "|";
                 }
                 me.navigateToFolder(parent, name);
@@ -268,8 +267,9 @@ Ext.define('ACMobileClient.view.MenuPanel', {
     },
 
     navigateToParent2: function(container) {
-        var db = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();
-        //var db = this.down('#documentsBar');
+        var db = MyGlobals.menuPanel.down('#tabPanel').getActiveItem(),
+            items = db.items,
+            actItem = db.getActiveItem();
 
         db.getLayout().setAnimation({
             type: 'slide',
@@ -277,12 +277,10 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         });
 
 
-        var items = db.items;
-        var actItem = db.getActiveItem();
-        db.setActiveItem(items.length-2);
+        db.setActiveItem(items.length - 2);
         setTimeout(function() {
             db.remove(actItem, true);
-        },500);
+        }, 500);
 
 
     }

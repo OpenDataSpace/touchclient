@@ -30,7 +30,6 @@ Ext.define('ACMobileClient.view.NotesListList', {
             },
             {
                 refreshFn: function(plugin) {
-                    var me = this;
                     ACUtils.utils.checkConnectionWithFunction(function() {
                         plugin.up().setMasked({
                             xtype: 'loadmask',

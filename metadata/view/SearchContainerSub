@@ -93,7 +93,7 @@
                                     "ACUtils.utils.checkConnectionWithFunction(function() {\r",
                                     "    var query = me.down('#searchFilter').getValue();\r",
                                     "    query = query.replace(/\\$\\{query\\}/gi, me.down('#mysearchfield').getValue());\r",
-                                    "    if (MyGlobals.areaIds != \"\") {\r",
+                                    "    if (MyGlobals.areaIds !== \"\") {\r",
                                     "        query += \" AND (\"+MyGlobals.areaIds+\")\";\r",
                                     "    }\r",
                                     "    console.log(\"searching for: \"+query);\r",
@@ -161,9 +161,9 @@
                         "designer|userClassName": "onSearchListSelect",
                         "fn": "onSearchListSelect",
                         "implHandler": [
-                            "var classObject = record.get(\"classname\");\r",
-                            "var objectId = record.get(\"id\");\r",
-                            "var name = record.get(\"name\");\r",
+                            "var classObject = record.get(\"classname\"),\r",
+                            "    objectId = record.get(\"id\"),\r",
+                            "    name = record.get(\"name\");\r",
                             "\r",
                             "MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);\r",
                             "MyGlobals.currentSearchList = this.down('#searchList');"
@@ -198,7 +198,6 @@
                                     "plugin"
                                 ],
                                 "implHandler": [
-                                    "var me = this;\r",
                                     "ACUtils.utils.checkConnectionWithFunction(function() {\r",
                                     "    plugin.up().setMasked({\r",
                                     "        xtype: 'loadmask',\r",

@@ -75,8 +75,7 @@
                 "designer|userClassName": "hideLoader",
                 "fn": "hideLoader",
                 "implHandler": [
-                    "this.setMasked(false);\r",
-                    ""
+                    "this.setMasked(false);"
                 ]
             },
             "designerId": "7ff8ded7-8f1c-476a-bc91-200eadaba073"

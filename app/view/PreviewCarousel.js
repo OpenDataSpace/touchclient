@@ -17,6 +17,10 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
     extend: 'Ext.carousel.Carousel',
     alias: 'widget.mycarousel',
 
+    requires: [
+        'ACMobileClient.view.ImageViewer'
+    ],
+
     config: {
         itemId: 'mycarousel',
         listeners: [
@@ -40,7 +44,9 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
                 }
                 if (value) {
                     console.log("itemChange 1");
-                    if (me.secondTime) value.viewerShown();
+                    if (me.secondTime) {
+                        value.viewerShown();
+                    }
                     me.secondTime = true;
                     console.log("itemChange 2");
                 }
@@ -60,19 +66,25 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
             if(!this.locked) {
                 this.onDragOrig(e);  
             } 
-        }
+        };
     },
 
     loadPreview: function(objectId, page, parentContainer) {
         var me = this;
         ACUtils.utils.checkConnectionWithFunction(function() {
+            var imageViewerContainer,
+                imageViewer,
+                pageCount = 0,
+                imageCarousel = me,
+                previewStore;
+
             me.enableWipe(true);
             me.removeAll(true, false);
 
             //put in there the ImageViewer-Preview-Module
-            var imageViewerContainer = Ext.create("ACMobileClient.view.ImageViewerContainer", {});
+            imageViewerContainer = Ext.create("ACMobileClient.view.ImageViewerContainer", {});
+            imageViewer = Ext.create("ACMobileClient.view.ImageViewer", {});
 
-            var imageViewer = Ext.create("ACMobileClient.view.ImageViewer", {});
             imageViewer.caller = me;
             imageViewer.parentContainer = parentContainer;
             imageViewer.imageViewerContainer = imageViewerContainer;
@@ -82,8 +94,6 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
             imageViewerContainer.add(imageViewer);
             me.add(imageViewerContainer);
             me.setActiveItem(imageViewerContainer);
-            var pageCount = 0;
-            var imageCarousel = me;
 
             me.on('activeitemchange', me.onMycarouselActiveItemChange, me, {});
             imageViewerContainer.showLoader();
@@ -92,28 +102,31 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
             console.log('load preview 1: '+objectId+", "+page);
 
 
-            var previewStore = Ext.create('ACMobileClient.store.PreviewStore', {});
+            previewStore = Ext.create('ACMobileClient.store.PreviewStore', {});
             previewStore.source = objectId;
             previewStore.page = page;
 
             previewStore.on('load', function() {
-                console.log("preview 1 finished");
-                var mdl = previewStore.getAt(0);
-                var ticket = +mdl.get('ticket');
-                var pageCount = previewStore.getTotalCount();
+                var mdl = previewStore.getAt(0),
+                    ticket = + mdl.get('ticket'),
+                    pageCount = previewStore.getTotalCount(),
+                    lastImageViewer  = imageViewer,
+                    i,
+                    imageViewerContainer2,
+                    imageViewer2;
 
-                console.log('ticket: '+ticket+', '+pageCount);
+                console.log("preview 1 finished");
+                console.log('ticket: ' + ticket + ', ' + pageCount);
 
                 parentContainer.setPageLabel(page, pageCount);
 
                 //all other images
-                var lastImageViewer = imageViewer;
+                for (i = 1; i < pageCount; ++i) {
+                    console.log("init next page: ", i);
 
-                for (var i=1;i<pageCount;i++) {
-                    console.log("init next page: "+i);
-                    var imageViewerContainer2 = Ext.create("ACMobileClient.view.ImageViewerContainer", {});
+                    imageViewerContainer2 = Ext.create("ACMobileClient.view.ImageViewerContainer", {});
+                    imageViewer2 = Ext.create("ACMobileClient.view.ImageViewer", {});
 
-                    var imageViewer2 = Ext.create("ACMobileClient.view.ImageViewer", {});
                     imageViewerContainer2.imageViewer = imageViewer2;
                     imageViewer2.imageViewerContainer = imageViewerContainer2;
                     imageViewer2.caller = imageCarousel;

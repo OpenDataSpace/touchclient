@@ -55,7 +55,6 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         });
                         plugin.up().getStore().loadPage(1);
                     });
-
                 },
                 loadingText: 'Lade...',
                 pullRefreshText: 'Zum Aktualisieren ziehen',
@@ -66,9 +65,16 @@ Ext.define('ACMobileClient.view.FolderListList', {
     },
 
     onDocumentListSelect: function(dataview, index, target, record, e, eOpts) {
-        var classObject = record.get("classname");
-        var objectId = record.get("id");
-        var name = record.get("name");
+        var classObject, objectId, name;
+
+        if (dataview.lastTapHold && dataview.lastTapHold > Date.now() - 1000) {
+            // Don't select element if the user just wanted a download
+            return;
+        }
+
+        classObject = record.get("classname");
+        objectId = record.get("id");
+        name = record.get("name");
         MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);
         MyGlobals.currentDocumentList = this;
     },
@@ -82,13 +88,21 @@ Ext.define('ACMobileClient.view.FolderListList', {
     },
 
     onListItemTaphold: function(dataview, index, target, record, e, eOpts) {
-        var objectId = record.get("id");
-        var url = '/api/rest/object/download/' + objectId;
+        var objectId, ifr, url;
 
-        var ifr = document.createElement('iframe');
+        // This is checked in onDocumentListSelect and
+        // prevents triggering the preview if we are
+        // starting a download.
+        dataview.lastTapHold = Date.now();
+
+        objectId = record.get("id");
+        ifr = document.createElement('iframe');
+        url = '/api/rest/object/download/' + objectId;
+
         ifr.style.display = 'none';
         document.body.appendChild(ifr);
         ifr.src = url;
+        console.debug('start download ', record.getData());
         ifr.onload = function(e){
             document.body.removeChild(ifr);
             ifr = null;

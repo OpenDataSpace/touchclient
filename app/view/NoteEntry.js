@@ -21,23 +21,19 @@ Ext.define('ACMobileClient.view.NoteEntry', {
     },
 
     loadNote: function(item, noteId) {
+        var content = item.get('content').replace(/\n/gi, "<br>");
+
         if (noteId && noteId == item.get('id')) {
             this.addCls("selectedNote");
         }
-        var content = item.get('content');
-        content =  content.replace(/\n/gi, "<br>");
-        var html = '<div class="notesHead">'+
-        '<div class="notesUser">'+item.get('creator')+'</div>'+
-        '<div class="notesDate">'+formatDate(item.get('createdate'))+'</div>'+
-        '</div><div class="notesText">'+content+'</div>';
-
-
         this.add({
-            xtype: 'label',
-            html: html,
-            flex: 0
+            'xtype': 'label',
+            'html': '<div class="notesHead">' +
+            '<div class="notesUser">' + item.get('creator') + '</div>'+
+            '<div class="notesDate">' + formatDate(item.get('createdate')) + '</div>' +
+            '</div><div class="notesText">' + content + '</div>',
+            'flex': 0
         });
-
     }
 
 });

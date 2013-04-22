@@ -27,23 +27,19 @@
                     "noteId"
                 ],
                 "implHandler": [
+                    "var content = item.get('content').replace(/\\n/gi, \"<br>\");\r",
+                    "\r",
                     "if (noteId && noteId == item.get('id')) {\r",
                     "    this.addCls(\"selectedNote\");\r",
                     "}\r",
-                    "var content = item.get('content');\r",
-                    "content =  content.replace(/\\n/gi, \"<br>\");\r",
-                    "var html = '<div class=\"notesHead\">'+\r",
-                    "'<div class=\"notesUser\">'+item.get('creator')+'</div>'+\r",
-                    "'<div class=\"notesDate\">'+formatDate(item.get('createdate'))+'</div>'+\r",
-                    "'</div><div class=\"notesText\">'+content+'</div>';\r",
-                    "\r",
-                    "\r",
                     "this.add({\r",
-                    "    xtype: 'label',\r",
-                    "    html: html,\r",
-                    "    flex: 0\r",
-                    "});\r",
-                    ""
+                    "    'xtype': 'label',\r",
+                    "    'html': '<div class=\"notesHead\">' +\r",
+                    "        '<div class=\"notesUser\">' + item.get('creator') + '</div>'+\r",
+                    "        '<div class=\"notesDate\">' + formatDate(item.get('createdate')) + '</div>' +\r",
+                    "        '</div><div class=\"notesText\">' + content + '</div>',\r",
+                    "    'flex': 0\r",
+                    "});"
                 ]
             },
             "designerId": "739ee000-25e6-4484-9d68-9f6f33d2b2da"

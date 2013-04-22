@@ -23,10 +23,6 @@ Ext.define('ACMobileClient.controller.MyController', {
     config: {
     },
 
-    init: function(application) {
-
-    },
-
     launch: function() {
         var isPhone = false, utils, urlvars;
 

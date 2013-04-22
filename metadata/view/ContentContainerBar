@@ -66,8 +66,7 @@
                             "if (men.isHidden()) {\r",
                             "    //men.setModal(true);\r",
                             "    men.showBy(button);\r",
-                            "}\r",
-                            "else {\r",
+                            "} else {\r",
                             "    men.hide();\r",
                             "}"
                         ],

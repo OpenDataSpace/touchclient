@@ -65,12 +65,11 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     onPanelShow: function(component, eOpts) {
-        var me = this;
+        var me = this, men = null, contentContainer;
 
         MyGlobals.mainPanel = me;
 
         //create the menu panel
-        var men = null;
         if (MyGlobals.isPhone) {
             men = Ext.create("ACMobileClient.view.MenuPanel", {});
         }
@@ -98,7 +97,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });
 
         //get the preview container
-        var contentContainer = me.down('#contentContainer');
+        contentContainer = me.down('#contentContainer');
         MyGlobals.contentContainer = contentContainer;
 
         if (!MyGlobals.isPhone) {
@@ -125,9 +124,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     contentContainerBack: function() {
-        var cont = MyGlobals.contentContainer.down('#content');
-
-        var lastObj = MyGlobals.lastObjectInContentContainer;
+        var cont = MyGlobals.contentContainer.down('#content'),
+            lastObj = MyGlobals.lastObjectInContentContainer,
+            items;
 
         //MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);
 
@@ -137,7 +136,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         });
 
 
-        var items = cont.items;
+        items = cont.items;
         MyGlobals.lastObjectInContentContainer = cont.getAt(items.length - 2);
 
         if (items.length == 1 && MyGlobals.isPhone) {
@@ -166,9 +165,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
     handleObject: function(classObject, objectId, name, persistent, record) {
         var me = this;
         ACUtils.utils.checkConnectionWithFunction(function() {
-            var previewAble = record.get("previewable");
-            var textAvailable = record.get("textavailable");
-            var isFolder = record.get("isfolder");
+            var previewAble = record.get("previewable"),
+                textAvailable = record.get("textavailable"),
+                isFolder = record.get("isfolder");
 
             if (classObject==="mailobject") {
                 me.showMail(objectId, persistent);
@@ -197,11 +196,17 @@ Ext.define('ACMobileClient.view.MainPanel', {
         ACUtils.utils.checkConnectionWithFunction(function() {
             //alert("Orient change: "+Ext.Viewport.getOrientation());
 
-            var men = MyGlobals.menuPanel;
+            var men = MyGlobals.menuPanel,
+                isAndroidTablet = false,
+                cont = me.down('#content'),
+                items = cont.items,
+                itemLen = items.length,
+                height, i, el;
+
             //var listButton = me.down('#listButton');
             //var backButton = me.down('#backButton');
             //men.hide();
-            var isAndroidTablet = false;
+
             if (Ext.os.deviceType === 'Tablet' && !Ext.os.is.iOS) {
                 isAndroidTablet = true;
             }
@@ -214,7 +219,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 MyGlobals.showListButton = false;
             }
             else if ((Ext.Viewport.getOrientation() == 'portrait' && !isAndroidTablet) || (Ext.Viewport.getOrientation() != 'portrait' && isAndroidTablet)) {
-                var height=me.element.getHeight();
+                height = me.element.getHeight();
                 men.setDocked(null);
                 men.setTop(5);
                 men.setLeft(5);
@@ -251,30 +256,23 @@ Ext.define('ACMobileClient.view.MainPanel', {
             }
 
             //reload content elements
-            var cont = me.down('#content');
-            var items = cont.items;
-            var itemLen = items.length;
-            for (var i=0;i<itemLen;i++) {
-                var el = cont.getAt(i);
+            for (i=0; i<itemLen; ++i) {
+                el = cont.getAt(i);
                 if (el.doRepaint) {
                     el.doRepaint();
                 }
             }
-
             me.restoreSidePanel();
-
-
             Ext.repaint();
         });
     },
 
     hideInfoPanel: function() {
+        var items = this.getInnerItems();
         this.getLayout().setAnimation({
             type: 'slide',
             direction: 'right'
         });
-
-        var items = this.getInnerItems();
 
         this.setActiveItem(items.length-2);
         //is remove, when info is shown next time
@@ -287,11 +285,11 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     loadContentContainer: function(container, persistent, hasPrevious, navTitle) {
-        var cont = MyGlobals.contentContainer.down('#content');
-        var lastObj = MyGlobals.lastObjectInContentContainer;
-
-        var items = cont.items;
-        var itemLen = items.length;
+        var cont = MyGlobals.contentContainer.down('#content'),
+            lastObj = MyGlobals.lastObjectInContentContainer,
+            items = cont.items,
+            itemLen = items.length,
+            contCon;
 
         if (!persistent && lastObj != null && !lastObj.persistent) {
             itemLen--;
@@ -308,7 +306,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
             });
         }
 
-        var contCon = Ext.create('ACMobileClient.view.ContentContainer', {});
+        contCon = Ext.create('ACMobileClient.view.ContentContainer', {});
         contCon.hasPrevious = hasPrevious;
         if (hasPrevious) {
             if (itemLen > 0) {
@@ -329,8 +327,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         //hide menu panel when showing something in container
         setTimeout(function() {
+            var men;
             if (MyGlobals.showListButton)  {
-                var men = MyGlobals.menuPanel;
+                men = MyGlobals.menuPanel;
                 men.deselectAllLists();
                 men.hide();
             }
@@ -343,8 +342,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     loadQuickSearchAreas: function() {
-        MyGlobals.areaIds = "";
-        var theOr = "";
+        var theOr = '';
+
+        MyGlobals.areaIds = '';
 
         Ext.Ajax.request({
             url: '/api/rest/object.json',
@@ -359,10 +359,11 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 noCache: new Date().getTime()
             },
             success: function(response) {
-                var jsonResp = Ext.decode(response.responseText);
-                var areas = jsonResp.data;
-                for (var i=0;i<areas.length;i++) {
-                    MyGlobals.areaIds += theOr+"inpath:"+areas[i].id;
+                var jsonResp = Ext.decode(response.responseText),
+                    areas = jsonResp.data,
+                    i;
+                for (i = 0; i < areas.length; ++i) {
+                    MyGlobals.areaIds += theOr + "inpath:" + areas[i].id;
                     theOr = " OR ";
                 }
             },
@@ -370,27 +371,27 @@ Ext.define('ACMobileClient.view.MainPanel', {
             },
             scope: this
         });
-
     },
 
     loadNextPage: function() {
-        if (MyGlobals.imageViewer.pageCount > MyGlobals.imageViewer.pageNumber)
-        this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber+1);
-
+        if (MyGlobals.imageViewer.pageCount > MyGlobals.imageViewer.pageNumber) {
+            this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber+1);
+        }
     },
 
     loadPrevPage: function() {
-        if (MyGlobals.imageViewer.pageNumber > 1)
-        this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber-1);
-
+        if (MyGlobals.imageViewer.pageNumber > 1) {
+            this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber-1);
+        }
     },
 
     restoreSidePanel: function() {
+        var iPanel, height, width;
         if (MyGlobals.infoPanel) {
             if (!MyGlobals.isPhone) {
-                var iPanel = MyGlobals.infoPanel;
-                var height=this.element.getHeight();
-                var width = this.down('#contentContainer').element.getWidth();
+                iPanel = MyGlobals.infoPanel;
+                height = this.element.getHeight();
+                width = this.down('#contentContainer').element.getWidth();
                 iPanel.setDocked(null);
                 iPanel.setShowAnimation("slideIn");
                 iPanel.setHideAnimation({
@@ -423,19 +424,22 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     showInfoPanel: function(button) {
-        var iPanel = Ext.create('ACMobileClient.view.InfoPanel', {});
-        this.add(iPanel);
+        var me = this,
+            iPanel = Ext.create('ACMobileClient.view.InfoPanel', {}),
+            height;
+
+        me.add(iPanel);
         iPanel.hide();
 
         if (MyGlobals.isPhone) {
-            this.getLayout().setAnimation({
+            me.getLayout().setAnimation({
                 type: 'slide',
                 direction: 'left'
             });
-            this.setActiveItem(iPanel);    
+            me.setActiveItem(iPanel);    
         }
         else {
-            var height=this.element.getHeight();
+            height = me.element.getHeight();
             iPanel.setDocked(null);
             iPanel.setTop(5);
             iPanel.setLeft(5);
@@ -450,13 +454,16 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     showInfoPanelSlided: function(objectId, noteId, className) {
+        var me = this,
+            iPanel;
+
         if (MyGlobals.infoPanel) {
             //MyGlobals.infoPanel.hide();
-            this.remove(MyGlobals.infoPanel, true);
+            me.remove(MyGlobals.infoPanel, true);
             MyGlobals.infoPanel = null;
         }
 
-        var iPanel = Ext.create('ACMobileClient.view.InfoPanel', {});
+        iPanel = Ext.create('ACMobileClient.view.InfoPanel', {});
         iPanel.load(objectId);
 
 
@@ -465,11 +472,12 @@ Ext.define('ACMobileClient.view.MainPanel', {
             iPanel.showNote(noteId);
         }
 
-        this.add(iPanel);
+        me.add(iPanel);
         iPanel.hide();
-        var me = this;
 
         iPanel.loadCallback = function() {
+            var height, width;
+
             if (MyGlobals.isPhone) {
                 me.getLayout().setAnimation({
                     type: 'slide',
@@ -478,8 +486,8 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 me.setActiveItem(iPanel);    
             }
             else {
-                var height=me.element.getHeight();
-                var width = me.down('#contentContainer').element.getWidth();
+                height = me.element.getHeight();
+                width = me.down('#contentContainer').element.getWidth();
                 iPanel.setDocked(null);
                 iPanel.setShowAnimation("slideIn");
                 iPanel.setHideAnimation({
@@ -495,7 +503,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 //iPanel.showBy(button);
                 iPanel.show();
             }
-        }
+        };
 
         MyGlobals.infoPanel = iPanel;
 
@@ -552,31 +560,24 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     switchToRoot: function(obj) {
-        console.log("switch to root");
-
         //reset to root
         //remove all other items
-        obj.getLayout().setAnimation({
+        var me = obj,
+            toRemove = me.getInnerItems().slice(1);
+
+        console.log("switch to root");
+
+        me.getLayout().setAnimation({
             type: 'slide',
             direction: 'right'
         });
 
-
-        var items = obj.getInnerItems();
-        var itArr = new Array();
-        var len = items.length;
-        for (var i=0;i<len-1;i++) {
-            itArr[i] = items[i+1];
-        }
-
-        obj.setActiveItem(0);
-        var me = obj;
+        me.setActiveItem(0);
         setTimeout(function() {
-            var len = itArr.length;
-            for (var i=0;i<len;i++) {
-                me.remove(itArr[i], true);
-            }
-        },500);
+            toRemove.forEach(function (el) {
+                me.remove(el, true);
+            });
+        }, 500);
 
     }
 

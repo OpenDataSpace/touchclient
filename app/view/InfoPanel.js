@@ -353,10 +353,6 @@ Ext.define('ACMobileClient.view.InfoPanel', {
         else {
             this.down('#closeButtonLeft').hide();
         }
-
-
-
-
     },
 
     onContainerActivate: function(container, newActiveItem, oldActiveItem, eOpts) {
@@ -372,9 +368,9 @@ Ext.define('ACMobileClient.view.InfoPanel', {
     },
 
     reload: function() {
+        var me = this;
         if (MyGlobals.performReload) {
             MyGlobals.performReload = false;
-            var me = this;
             ACUtils.utils.checkConnectionWithFunction(function() {
                 me.down('#notesListList').setMasked({
                     xtype: 'loadmask',
@@ -386,10 +382,38 @@ Ext.define('ACMobileClient.view.InfoPanel', {
     },
 
     load: function(objectId) {
+        var me = this,
+            store = Ext.create('ACMobileClient.store.ObjectInfoStore', {}),
+            noteStore = Ext.create('ACMobileClient.store.NoteStore', {
+                'objectId': objectId
+            }),
+            notesList = Ext.create('ACMobileClient.view.NotesListList', {
+                'itemTpl': new Ext.XTemplate(
+                '<div class="notesHead {[this.selectedNote(values.id)]}">',
+                '	<div class="notesDate">{createdate:date("d.m.y")}<br>{createdate:date("H:i")}</div>',
+                '	<div class="notesUser">{creator}</div>',
+                '	<div class="notesText">{[this.convertContent(values.content)]}</div>',
+                '</div>',
+                {
+                    // XTemplate configuration:
+                    'disableFormats': false,
+                    'selectedNote': function(theId) {
+                        if (me.noteId && me.noteId == theId) {
+                            return "selectedNote";
+                    }
+                    else return "";
+                },
+                'convertContent': function(content) {
+                    return content.replace(/\n/gi, "<br>");
+                }
+            }
+            ),
+            'store': noteStore,
+            'itemId': 'notesListList'
+        });
+
         //load objectInfo
-        this.objectId = objectId;
-        var store = Ext.create('ACMobileClient.store.ObjectInfoStore', {});
-        var me = this;
+        me.objectId = objectId;
 
         store.on('load', function(store, records) {
             var rec = store.getAt(0);
@@ -414,39 +438,15 @@ Ext.define('ACMobileClient.view.InfoPanel', {
             }
         });
 
-
-        //load notes
-        var me = this;
-
-        myTpl = new Ext.XTemplate(
-        '<div class="notesHead {[this.selectedNote(values.id)]}">',
-        '	<div class="notesDate">{createdate:date("d.m.y")}<br>{createdate:date("H:i")}</div>',
-        '	<div class="notesUser">{creator}</div>',
-        '	<div class="notesText">{[this.convertContent(values.content)]}</div>',
-        '</div>',
-        {
-            // XTemplate configuration:
-            disableFormats: false,
-            selectedNote: function(theId){
-                if (me.noteId && me.noteId == theId) {
-                    return "selectedNote";
-                }
-                else return "";
-            },
-            convertContent: function(content) {
-                return content.replace(/\n/gi, "<br>");
-            }
-        }
-        );
-
-
+        /*
         var noteStore = Ext.create('ACMobileClient.store.NoteStore', {});
-        noteStore.objectId = this.objectId;
+        noteStore.objectId = me.objectId;
         var notesList = Ext.create('ACMobileClient.view.NotesListList', {
-            itemTpl: myTpl,
-            store: noteStore,
-            itemId: 'notesListList'
+        itemTpl: myTpl,
+        store: noteStore,
+        itemId: 'notesListList'
         });
+        */
 
         noteStore.on('load', function(store, records) {
             /*
@@ -461,7 +461,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
             */
 
             //show after load
-            if(me.notesFirst) {
+            if (me.notesFirst) {
                 me.loadCallback();
             }
 
@@ -473,30 +473,27 @@ Ext.define('ACMobileClient.view.InfoPanel', {
     },
 
     writeNote: function() {
-        var nwc = Ext.create('ACMobileClient.view.NotesWriteContainer', {
-            entryCallback: function(text) {
-                console.log("callback: "+text);
+        var me = this,
+            nwc = Ext.create('ACMobileClient.view.NotesWriteContainer', {
+                entryCallback: function(text) {
+                    console.log("callback: "+text);
                 return false;
             },
-            objectId: this.objectId
+            objectId: me.objectId
         });
 
-
-        this.add(nwc);
+        me.add(nwc);
         nwc.hide();
-        var me = this;
-
         me.getLayout().setAnimation({
             type: 'slide',
             direction: 'left'
         });
-        me.setActiveItem(nwc);  
+        me.setActiveItem(nwc);
     },
 
     showNote: function(noteId) {
+        var arr = [this.down('#notesButton')];
         this.down('#cardContainer').setActiveItem(1);
-        var arr = new Array();
-        arr[0] = this.down('#notesButton');
         this.down('#buttonSegment').setPressedButtons(arr);
         this.notesFirst = true;
         this.noteId = noteId;

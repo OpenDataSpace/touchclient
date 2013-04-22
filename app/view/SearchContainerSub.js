@@ -62,7 +62,6 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                 plugins: [
                     {
                         refreshFn: function(plugin) {
-                            var me = this;
                             ACUtils.utils.checkConnectionWithFunction(function() {
                                 plugin.up().setMasked({
                                     xtype: 'loadmask',
@@ -119,7 +118,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
         ACUtils.utils.checkConnectionWithFunction(function() {
             var query = me.down('#searchFilter').getValue();
             query = query.replace(/\$\{query\}/gi, me.down('#mysearchfield').getValue());
-            if (MyGlobals.areaIds != "") {
+            if (MyGlobals.areaIds !== "") {
                 query += " AND ("+MyGlobals.areaIds+")";
             }
             console.log("searching for: "+query);
@@ -128,9 +127,9 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
     },
 
     onSearchListSelect: function(dataview, record, eOpts) {
-        var classObject = record.get("classname");
-        var objectId = record.get("id");
-        var name = record.get("name");
+        var classObject = record.get("classname"),
+            objectId = record.get("id"),
+            name = record.get("name");
 
         MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);
         MyGlobals.currentSearchList = this.down('#searchList');

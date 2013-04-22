@@ -113,7 +113,7 @@ Ext.define('ACMobileClient.view.NotesWriteContainer', {
     onMessageTextKeyup: function(textfield, e, eOpts) {
         console.log('keyup');
         return;
-
+        /*
         var theId = this.down('#messageText').id;
         console.log(""+theId);
         var obj = document.getElementById(theId);
@@ -131,17 +131,19 @@ Ext.define('ACMobileClient.view.NotesWriteContainer', {
         var currentHeight = textArea.clientHeight;
 
         if (newHeight > currentHeight) {
-            var h = newHeight + 5 * TEXTAREA_LINE_HEIGHT;
-            //textArea.style.height = h + 'px';
-            this.down('#messageContainer').setHeight(this.down('#messageContainer').getHeight());
-            this.down('#messageText').setHeight(h);
-        }
+        var h = newHeight + 5 * TEXTAREA_LINE_HEIGHT;
+        //textArea.style.height = h + 'px';
+        this.down('#messageContainer').setHeight(this.down('#messageContainer').getHeight());
+        this.down('#messageText').setHeight(h);
+    }
+    */
     },
 
     onContainerInitialize: function(component, eOpts) {
+        var store = Ext.create('ACMobileClient.store.UserGroupSearchStore', {});
+
         this.objectId = this.config.objectId;
         console.log("check obj: "+this.objectId);
-        var store = Ext.create('ACMobileClient.store.UserGroupSearchStore', {});
         store.getProxy().config.extraParams.parameters = Ext.encode({
             prefixSort: true,
             prefixKey: 'name',
@@ -170,22 +172,26 @@ Ext.define('ACMobileClient.view.NotesWriteContainer', {
     },
 
     saveNote: function() {
-        var receivers = this.to.getReceivers();
-        var content = this.down('#messageText').getValue();
+        var me = this,
+            receivers = me.to.getReceivers(),
+            content = me.down('#messageText').getValue(),
+            recList, colon, i;
+
         if (content.trim().length === 0) {
             Ext.Msg.alert('Warnung', 'Bitte geben Sie einen Text ein', Ext.emptyFn);
         }
         else {
             //save the note...
-            var recList = null;
-            var colon = "";
-            var me = this;
+            recList = null;
+            colon = "";
 
             console.log(receivers);
-            for (var i=0;i<receivers.length;i++) {
+            for (i = 0; i < receivers.length; ++i) {
                 console.log(receivers[i].value);
                 console.log(receivers[i]);
-                if (recList == null) recList = "";
+                if (recList === null) {
+                    recList = "";
+                }
                 recList += colon + receivers[i].value;
                 colon = ";";
             }
