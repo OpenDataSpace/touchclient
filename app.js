@@ -79,7 +79,8 @@ Ext.application({
         'NotesListList',
         'ReceiverList',
         'TextViewContainer',
-        'SettingsContainer'
+        'SettingsContainer',
+        'SearchContainer'
     ],
     controllers: [
         'MyController'

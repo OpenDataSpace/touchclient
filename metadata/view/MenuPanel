@@ -33,54 +33,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadEventAssistanceCount",
-                "fn": "loadEventAssistanceCount",
-                "implHandler": [
-                    "var me = this;\r",
-                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
-                    "    Ext.Ajax.request({\r",
-                    "        url: '/api/rest/eventAssistance/count.json', //'../mobileclient_module/eventAssistanceLoadNewEventsAction.do',\r",
-                    "        method: 'get',\r",
-                    "        params: {\r",
-                    "            sessionId: MyGlobals.sessionId,\r",
-                    "\t\t\tnoCache: new Date().getTime()\r",
-                    "        },\r",
-                    "        success: function(response) {\r",
-                    "\r",
-                    "            if (response.responseText !== \"\") {\r",
-                    "                var jsonResp = Ext.decode(response.responseText);\r",
-                    "                var eventCount = jsonResp.count;\r",
-                    "                var eaContainer = me.down('#eventAssistanceContainer');\r",
-                    "\r",
-                    "                var badgeText = null;\r",
-                    "                if (eventCount === 0) {\r",
-                    "                    badgeText = '';\r",
-                    "                }\r",
-                    "                else {\r",
-                    "                    badgeText = ''+eventCount;\r",
-                    "                }\r",
-                    "                me.down('#tabPanel').getTabBar().getComponent(2).setBadgeText(badgeText);\r",
-                    "            }\r",
-                    "        },\r",
-                    "        scope: this\r",
-                    "    }); \r",
-                    "});\r",
-                    "\r",
-                    "setTimeout(function() {\r",
-                    "    me.loadEventAssistanceCount();\r",
-                    "}, 30000);"
-                ]
-            },
-            "designerId": "e9c06c92-c15a-436f-8b17-0533b108b3b4"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "designer|userClassName": "internInit",
                 "fn": "internInit",
                 "implHandler": [

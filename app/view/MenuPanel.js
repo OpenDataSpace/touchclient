@@ -137,42 +137,6 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         */;
     },
 
-    loadEventAssistanceCount: function() {
-        var me = this;
-        ACUtils.utils.checkConnectionWithFunction(function() {
-            Ext.Ajax.request({
-                url: '/api/rest/eventAssistance/count.json', //'../mobileclient_module/eventAssistanceLoadNewEventsAction.do',
-                method: 'get',
-                params: {
-                    sessionId: MyGlobals.sessionId,
-                    noCache: new Date().getTime()
-                },
-                success: function(response) {
-
-                    if (response.responseText !== "") {
-                        var jsonResp = Ext.decode(response.responseText);
-                        var eventCount = jsonResp.count;
-                        var eaContainer = me.down('#eventAssistanceContainer');
-
-                        var badgeText = null;
-                        if (eventCount === 0) {
-                            badgeText = '';
-                        }
-                        else {
-                            badgeText = ''+eventCount;
-                        }
-                        me.down('#tabPanel').getTabBar().getComponent(2).setBadgeText(badgeText);
-                    }
-                },
-                scope: this
-            }); 
-        });
-
-        setTimeout(function() {
-            me.loadEventAssistanceCount();
-        }, 30000);
-    },
-
     internInit: function() {
 
     },

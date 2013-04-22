@@ -32,6 +32,105 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "contentContainerBack",
+                "fn": "contentContainerBack",
+                "implHandler": [
+                    "var cont = MyGlobals.contentContainer.down('#content');\r",
+                    "\r",
+                    "var lastObj = MyGlobals.lastObjectInContentContainer;\r",
+                    "\r",
+                    "//MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);\r",
+                    "\r",
+                    "cont.getLayout().setAnimation({\r",
+                    "    type: 'slide',\r",
+                    "    direction: 'right'\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "var items = cont.items;\r",
+                    "MyGlobals.lastObjectInContentContainer = cont.getAt(items.length - 2);\r",
+                    "\r",
+                    "if (items.length == 1 && MyGlobals.isPhone) {\r",
+                    "    this.showMenuPanel();\r",
+                    "\r",
+                    "    setTimeout(function() {\r",
+                    "        cont.remove(cont.getActiveItem(), true);\r",
+                    "    }, 1000);    \r",
+                    "\r",
+                    "\r",
+                    "    MyGlobals.menuPanel.deselectAllLists();\r",
+                    "}\r",
+                    "else {\r",
+                    "    cont.remove(cont.getActiveItem(), true);\r",
+                    "    if (items.length > 1) {\r",
+                    "        if (items.length == 2) {\r",
+                    "            if (MyGlobals.menuPanel) {\r",
+                    "                MyGlobals.menuPanel.deselectAllLists();\r",
+                    "            }\r",
+                    "        }\r",
+                    "        cont.setActiveItem(items.length-2);\r",
+                    "    }\r",
+                    "}"
+                ]
+            },
+            "designerId": "bef983fe-b826-4bef-83ac-de47fe3ae454"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "handleObject",
+                "fn": "handleObject",
+                "designer|params": [
+                    "classObject",
+                    "objectId",
+                    "name",
+                    "persistent",
+                    "record"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "    var previewAble = record.get(\"previewable\");\r",
+                    "    var textAvailable = record.get(\"textavailable\");\r",
+                    "    var isFolder = record.get(\"isfolder\");\r",
+                    "\r",
+                    "    if (classObject===\"mailobject\") {\r",
+                    "        me.showMail(objectId, persistent);\r",
+                    "    }\r",
+                    "    else if (previewAble) {\r",
+                    "        me.showPreview(objectId,1,persistent);\r",
+                    "    }\r",
+                    "    else if (textAvailable) {\r",
+                    "        me.showText(objectId,persistent);\r",
+                    "    }\r",
+                    "    else if (isFolder) {\r",
+                    "        var tab = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();\r",
+                    "        //MyGlobals.menuPanel.down('#tabPanel').setActiveItem(me.down('#documentsBar'));\r",
+                    "\r",
+                    "        MyGlobals.menuPanel.navigateToFolder(objectId, name, false, tab);\r",
+                    "    }\r",
+                    "    else {\r",
+                    "        Ext.Msg.alert('Error', 'Für dieses Objekt ist derzeit noch keine Anzeige erstellt: '+classObject, Ext.emptyFn);   \r",
+                    "    }\r",
+                    "\r",
+                    "});"
+                ]
+            },
+            "designerId": "0e9afee8-a12c-42d8-a98a-f6f6f1be3ff7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "designer|userClassName": "handleOrientationChange",
                 "fn": "handleOrientationChange",
                 "implHandler": [
@@ -120,6 +219,274 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|userClassName": "hideInfoPanel",
+                "fn": "hideInfoPanel",
+                "implHandler": [
+                    "this.getLayout().setAnimation({\r",
+                    "    type: 'slide',\r",
+                    "    direction: 'right'\r",
+                    "});\r",
+                    "\r",
+                    "var items = this.getInnerItems();\r",
+                    "\r",
+                    "this.setActiveItem(items.length-2);\r",
+                    "//is remove, when info is shown next time\r",
+                    "//this.remove(MyGlobals.infoPanel, true);    \r",
+                    ""
+                ]
+            },
+            "designerId": "3828e1ca-f4ab-4141-8568-40bc1964d49f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "hideLoader",
+                "fn": "hideLoader",
+                "implHandler": [
+                    "this.down('#contentContainer').setMasked(false);"
+                ]
+            },
+            "designerId": "a47e4b86-dc5d-475c-88c6-124ea6342eb1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadContentContainer",
+                "fn": "loadContentContainer",
+                "designer|params": [
+                    "container",
+                    "persistent",
+                    "hasPrevious",
+                    "navTitle"
+                ],
+                "implHandler": [
+                    "var cont = MyGlobals.contentContainer.down('#content');\r",
+                    "var lastObj = MyGlobals.lastObjectInContentContainer;\r",
+                    "\r",
+                    "var items = cont.items;\r",
+                    "var itemLen = items.length;\r",
+                    "\r",
+                    "if (!persistent && lastObj != null && !lastObj.persistent) {\r",
+                    "    itemLen--;\r",
+                    "    setTimeout(function() {\r",
+                    "        console.log(\"removing last: \"+lastObj);\r",
+                    "        cont.remove(lastObj, true);\r",
+                    "    }, 1000);\r",
+                    "}\r",
+                    "\r",
+                    "if (cont.getLayout && cont.getLayout().setAnimation) {\r",
+                    "    cont.getLayout().setAnimation({\r",
+                    "        type: 'slide',\r",
+                    "        direction: 'left'\r",
+                    "    });\r",
+                    "}\r",
+                    "\r",
+                    "var contCon = Ext.create('ACMobileClient.view.ContentContainer', {});\r",
+                    "contCon.hasPrevious = hasPrevious;\r",
+                    "if (hasPrevious) {\r",
+                    "    if (itemLen > 0) {\r",
+                    "        contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "contCon.persistent = container.persistent;\r",
+                    "contCon.add(container);\r",
+                    "\r",
+                    "\r",
+                    "//MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);\r",
+                    "cont.add(contCon);\r",
+                    "cont.setActiveItem(contCon);\r",
+                    "contCon.prevNavTitle = navTitle;\r",
+                    "MyGlobals.lastObjectInContentContainer = contCon;\r",
+                    "this.showInContentContainer();\r",
+                    "\r",
+                    "//hide menu panel when showing something in container\r",
+                    "setTimeout(function() {\r",
+                    "    if (MyGlobals.showListButton)  {\r",
+                    "        var men = MyGlobals.menuPanel;\r",
+                    "        men.deselectAllLists();\r",
+                    "        men.hide();\r",
+                    "    }\r",
+                    "}, 20);\r",
+                    ""
+                ]
+            },
+            "designerId": "c6832764-11e8-4637-9d64-5a527640100e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadLanguage",
+                "fn": "loadLanguage",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "2cbb697f-d155-4f3a-a372-25141b4f9901"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadQuickSearchAreas",
+                "fn": "loadQuickSearchAreas",
+                "implHandler": [
+                    "MyGlobals.areaIds = \"\";\r",
+                    "var theOr = \"\";\r",
+                    "\r",
+                    "Ext.Ajax.request({\r",
+                    "    url: '/api/rest/object.json',\r",
+                    "    method: 'get',\r",
+                    "    params: { \r",
+                    "        sessionId: MyGlobals.sessionId,\r",
+                    "        provider: 'area',\r",
+                    "        source: 'MAIN_MODULE_MANAGEMENT/mobileclient/control/areas',\r",
+                    "        page: 1,\r",
+                    "        start: 0,\r",
+                    "        limit: 2000,\r",
+                    "        noCache: new Date().getTime()\r",
+                    "    },\r",
+                    "    success: function(response) {\r",
+                    "        var jsonResp = Ext.decode(response.responseText);\r",
+                    "        var areas = jsonResp.data;\r",
+                    "        for (var i=0;i<areas.length;i++) {\r",
+                    "            MyGlobals.areaIds += theOr+\"inpath:\"+areas[i].id;\r",
+                    "            theOr = \" OR \";\r",
+                    "        }\r",
+                    "    },\r",
+                    "    failure: function() {\r",
+                    "    },\r",
+                    "    scope: this\r",
+                    "});\r",
+                    ""
+                ]
+            },
+            "designerId": "12cf3867-d942-4763-8244-d2ab793d22c2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadNextPage",
+                "fn": "loadNextPage",
+                "implHandler": [
+                    "if (MyGlobals.imageViewer.pageCount > MyGlobals.imageViewer.pageNumber)\r",
+                    "this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber+1);\r",
+                    ""
+                ]
+            },
+            "designerId": "deac31eb-2bc6-4287-b83f-864a95874e45"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loadPrevPage",
+                "fn": "loadPrevPage",
+                "implHandler": [
+                    "if (MyGlobals.imageViewer.pageNumber > 1)\r",
+                    "this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber-1);\r",
+                    ""
+                ]
+            },
+            "designerId": "a4386d7e-1858-4572-9405-b2b4532afbe3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "restoreSidePanel",
+                "fn": "restoreSidePanel",
+                "implHandler": [
+                    "if (MyGlobals.infoPanel) {\r",
+                    "    if (!MyGlobals.isPhone) {\r",
+                    "        var iPanel = MyGlobals.infoPanel;\r",
+                    "        var height=this.element.getHeight();\r",
+                    "        var width = this.down('#contentContainer').element.getWidth();\r",
+                    "        iPanel.setDocked(null);\r",
+                    "        iPanel.setShowAnimation(\"slideIn\");\r",
+                    "        iPanel.setHideAnimation({\r",
+                    "            type: 'slideOut',\r",
+                    "            direction: 'right'\r",
+                    "        });\r",
+                    "        iPanel.setTop(0);\r",
+                    "        iPanel.setLeft(width-320);\r",
+                    "        iPanel.setHeight(height);\r",
+                    "        iPanel.setWidth(320);\r",
+                    "\r",
+                    "        //iPanel.showBy(button);\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "a27be711-125c-4ffa-9698-11bf7b29f553"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "showInContentContainer",
+                "fn": "showInContentContainer",
+                "implHandler": [
+                    "if (MyGlobals.isPhone) {\r",
+                    "\r",
+                    "    //MyGlobals.contentContainer.setShowAnimation(\"slideIn\");\r",
+                    "    this.getLayout().setAnimation({\r",
+                    "        type: 'slide',\r",
+                    "        direction: 'left'\r",
+                    "    });\r",
+                    "\r",
+                    "    this.setActiveItem(MyGlobals.contentContainer);\r",
+                    "}"
+                ]
+            },
+            "designerId": "95c8b0be-1109-4318-894f-c3c02063e071"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "designer|userClassName": "showInfoPanel",
                 "fn": "showInfoPanel",
                 "designer|params": [
@@ -153,32 +520,6 @@
                 ]
             },
             "designerId": "33369f60-aad2-476d-83f5-34c32943f533"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "hideInfoPanel",
-                "fn": "hideInfoPanel",
-                "implHandler": [
-                    "this.getLayout().setAnimation({\r",
-                    "    type: 'slide',\r",
-                    "    direction: 'right'\r",
-                    "});\r",
-                    "\r",
-                    "var items = this.getInnerItems();\r",
-                    "\r",
-                    "this.setActiveItem(items.length-2);\r",
-                    "//is remove, when info is shown next time\r",
-                    "//this.remove(MyGlobals.infoPanel, true);    \r",
-                    ""
-                ]
-            },
-            "designerId": "3828e1ca-f4ab-4141-8568-40bc1964d49f"
         },
         {
             "type": "basicfunction",
@@ -257,33 +598,16 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "restoreSidePanel",
-                "fn": "restoreSidePanel",
+                "designer|userClassName": "showLoader",
+                "fn": "showLoader",
                 "implHandler": [
-                    "if (MyGlobals.infoPanel) {\r",
-                    "    if (!MyGlobals.isPhone) {\r",
-                    "        var iPanel = MyGlobals.infoPanel;\r",
-                    "        var height=this.element.getHeight();\r",
-                    "        var width = this.down('#contentContainer').element.getWidth();\r",
-                    "        iPanel.setDocked(null);\r",
-                    "        iPanel.setShowAnimation(\"slideIn\");\r",
-                    "        iPanel.setHideAnimation({\r",
-                    "            type: 'slideOut',\r",
-                    "            direction: 'right'\r",
-                    "        });\r",
-                    "        iPanel.setTop(0);\r",
-                    "        iPanel.setLeft(width-320);\r",
-                    "        iPanel.setHeight(height);\r",
-                    "        iPanel.setWidth(320);\r",
-                    "\r",
-                    "        //iPanel.showBy(button);\r",
-                    "    }\r",
-                    "}\r",
-                    "\r",
-                    ""
+                    "this.down('#contentContainer').setMasked({ \r",
+                    "    xtype: 'loadmask', \r",
+                    "    message: 'loading' \r",
+                    "});"
                 ]
             },
-            "designerId": "a27be711-125c-4ffa-9698-11bf7b29f553"
+            "designerId": "de39e6c9-3fd8-4f94-95e0-b5f70007a434"
         },
         {
             "type": "basicfunction",
@@ -293,40 +617,22 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadQuickSearchAreas",
-                "fn": "loadQuickSearchAreas",
+                "designer|userClassName": "showMail",
+                "fn": "showMail",
+                "designer|params": [
+                    "objectId",
+                    "persistent"
+                ],
                 "implHandler": [
-                    "MyGlobals.areaIds = \"\";\r",
-                    "var theOr = \"\";\r",
-                    "\r",
-                    "Ext.Ajax.request({\r",
-                    "    url: '/api/rest/object.json',\r",
-                    "    method: 'get',\r",
-                    "    params: { \r",
-                    "        sessionId: MyGlobals.sessionId,\r",
-                    "        provider: 'area',\r",
-                    "        source: 'MAIN_MODULE_MANAGEMENT/mobileclient/control/areas',\r",
-                    "        page: 1,\r",
-                    "        start: 0,\r",
-                    "        limit: 2000,\r",
-                    "        noCache: new Date().getTime()\r",
-                    "    },\r",
-                    "    success: function(response) {\r",
-                    "        var jsonResp = Ext.decode(response.responseText);\r",
-                    "        var areas = jsonResp.data;\r",
-                    "        for (var i=0;i<areas.length;i++) {\r",
-                    "            MyGlobals.areaIds += theOr+\"inpath:\"+areas[i].id;\r",
-                    "            theOr = \" OR \";\r",
-                    "        }\r",
-                    "    },\r",
-                    "    failure: function() {\r",
-                    "    },\r",
-                    "    scope: this\r",
-                    "});\r",
-                    ""
+                    "var me = this;\r",
+                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
+                    "    var mailView = Ext.create(\"ACMobileClient.view.MailViewContainer\", {});\r",
+                    "    mailView.load(objectId);\r",
+                    "    me.loadContentContainer(mailView,persistent,true,\"Mail\");\r",
+                    "});"
                 ]
             },
-            "designerId": "12cf3867-d942-4763-8244-d2ab793d22c2"
+            "designerId": "6a95c9fb-a362-4bd4-961b-ffbbef555cb3"
         },
         {
             "type": "basicfunction",
@@ -352,188 +658,6 @@
                 ]
             },
             "designerId": "34ded362-c0e3-4f4b-ad05-279e358a8770"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "showInContentContainer",
-                "fn": "showInContentContainer",
-                "implHandler": [
-                    "if (MyGlobals.isPhone) {\r",
-                    "\r",
-                    "    //MyGlobals.contentContainer.setShowAnimation(\"slideIn\");\r",
-                    "    this.getLayout().setAnimation({\r",
-                    "        type: 'slide',\r",
-                    "        direction: 'left'\r",
-                    "    });\r",
-                    "\r",
-                    "    this.setActiveItem(MyGlobals.contentContainer);\r",
-                    "}"
-                ]
-            },
-            "designerId": "95c8b0be-1109-4318-894f-c3c02063e071"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "loadLanguage",
-                "fn": "loadLanguage",
-                "implHandler": [
-                    ""
-                ]
-            },
-            "designerId": "2cbb697f-d155-4f3a-a372-25141b4f9901"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "showLoader",
-                "fn": "showLoader",
-                "implHandler": [
-                    "this.down('#contentContainer').setMasked({ \r",
-                    "    xtype: 'loadmask', \r",
-                    "    message: 'loading' \r",
-                    "});"
-                ]
-            },
-            "designerId": "de39e6c9-3fd8-4f94-95e0-b5f70007a434"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "hideLoader",
-                "fn": "hideLoader",
-                "implHandler": [
-                    "this.down('#contentContainer').setMasked(false);"
-                ]
-            },
-            "designerId": "a47e4b86-dc5d-475c-88c6-124ea6342eb1"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "loadPrevPage",
-                "fn": "loadPrevPage",
-                "implHandler": [
-                    "if (MyGlobals.imageViewer.pageNumber > 1)\r",
-                    "this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber-1);\r",
-                    ""
-                ]
-            },
-            "designerId": "a4386d7e-1858-4572-9405-b2b4532afbe3"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "loadNextPage",
-                "fn": "loadNextPage",
-                "implHandler": [
-                    "if (MyGlobals.imageViewer.pageCount > MyGlobals.imageViewer.pageNumber)\r",
-                    "this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber+1);\r",
-                    ""
-                ]
-            },
-            "designerId": "deac31eb-2bc6-4287-b83f-864a95874e45"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "loadContentContainer",
-                "fn": "loadContentContainer",
-                "designer|params": [
-                    "container",
-                    "persistent",
-                    "hasPrevious",
-                    "navTitle"
-                ],
-                "implHandler": [
-                    "var cont = MyGlobals.contentContainer.down('#content');\r",
-                    "var lastObj = MyGlobals.lastObjectInContentContainer;\r",
-                    "\r",
-                    "var items = cont.items;\r",
-                    "var itemLen = items.length;\r",
-                    "\r",
-                    "if (!persistent && lastObj != null && !lastObj.persistent) {\r",
-                    "    itemLen--;\r",
-                    "    setTimeout(function() {\r",
-                    "        console.log(\"removing last: \"+lastObj);\r",
-                    "        cont.remove(lastObj, true);\r",
-                    "    }, 1000);\r",
-                    "}\r",
-                    "\r",
-                    "if (cont.getLayout && cont.getLayout().setAnimation) {\r",
-                    "    cont.getLayout().setAnimation({\r",
-                    "        type: 'slide',\r",
-                    "        direction: 'left'\r",
-                    "    });\r",
-                    "}\r",
-                    "\r",
-                    "var contCon = Ext.create('ACMobileClient.view.ContentContainer', {});\r",
-                    "contCon.hasPrevious = hasPrevious;\r",
-                    "if (hasPrevious) {\r",
-                    "    if (itemLen > 0) {\r",
-                    "        contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;\r",
-                    "    }\r",
-                    "}\r",
-                    "\r",
-                    "contCon.persistent = container.persistent;\r",
-                    "contCon.add(container);\r",
-                    "\r",
-                    "\r",
-                    "//MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);\r",
-                    "cont.add(contCon);\r",
-                    "cont.setActiveItem(contCon);\r",
-                    "contCon.prevNavTitle = navTitle;\r",
-                    "MyGlobals.lastObjectInContentContainer = contCon;\r",
-                    "this.showInContentContainer();\r",
-                    "\r",
-                    "//hide menu panel when showing something in container\r",
-                    "setTimeout(function() {\r",
-                    "    if (MyGlobals.showListButton)  {\r",
-                    "        var men = MyGlobals.menuPanel;\r",
-                    "        men.deselectAllLists();\r",
-                    "        men.hide();\r",
-                    "    }\r",
-                    "}, 20);\r",
-                    ""
-                ]
-            },
-            "designerId": "c6832764-11e8-4637-9d64-5a527640100e"
         },
         {
             "type": "basicfunction",
@@ -626,8 +750,6 @@
                     "\r",
                     "me.showMenuPanel();\r",
                     "\r",
-                    "MyGlobals.menuPanel.loadEventAssistanceCount();\r",
-                    "\r",
                     "me.loadQuickSearchAreas();\r",
                     ""
                 ],
@@ -703,130 +825,6 @@
                 ]
             },
             "designerId": "ac28d0bb-6415-4021-af6a-85f5361f4476"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "showMail",
-                "fn": "showMail",
-                "designer|params": [
-                    "objectId",
-                    "persistent"
-                ],
-                "implHandler": [
-                    "var me = this;\r",
-                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
-                    "    var mailView = Ext.create(\"ACMobileClient.view.MailViewContainer\", {});\r",
-                    "    mailView.load(objectId);\r",
-                    "    me.loadContentContainer(mailView,persistent,true,\"Mail\");\r",
-                    "});"
-                ]
-            },
-            "designerId": "6a95c9fb-a362-4bd4-961b-ffbbef555cb3"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "handleObject",
-                "fn": "handleObject",
-                "designer|params": [
-                    "classObject",
-                    "objectId",
-                    "name",
-                    "persistent",
-                    "record"
-                ],
-                "implHandler": [
-                    "var me = this;\r",
-                    "ACUtils.utils.checkConnectionWithFunction(function() {\r",
-                    "    var previewAble = record.get(\"previewable\");\r",
-                    "    var textAvailable = record.get(\"textavailable\");\r",
-                    "    var isFolder = record.get(\"isfolder\");\r",
-                    "\r",
-                    "    if (classObject===\"mailobject\") {\r",
-                    "        me.showMail(objectId, persistent);\r",
-                    "    }\r",
-                    "    else if (previewAble) {\r",
-                    "        me.showPreview(objectId,1,persistent);\r",
-                    "    }\r",
-                    "    else if (textAvailable) {\r",
-                    "        me.showText(objectId,persistent);\r",
-                    "    }\r",
-                    "    else if (isFolder) {\r",
-                    "        var tab = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();\r",
-                    "        //MyGlobals.menuPanel.down('#tabPanel').setActiveItem(me.down('#documentsBar'));\r",
-                    "\r",
-                    "        MyGlobals.menuPanel.navigateToFolder(objectId, name, false, tab);\r",
-                    "    }\r",
-                    "    else {\r",
-                    "        Ext.Msg.alert('Error', 'Für dieses Objekt ist derzeit noch keine Anzeige erstellt: '+classObject, Ext.emptyFn);   \r",
-                    "    }\r",
-                    "\r",
-                    "});"
-                ]
-            },
-            "designerId": "0e9afee8-a12c-42d8-a98a-f6f6f1be3ff7"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "contentContainerBack",
-                "fn": "contentContainerBack",
-                "implHandler": [
-                    "var cont = MyGlobals.contentContainer.down('#content');\r",
-                    "\r",
-                    "var lastObj = MyGlobals.lastObjectInContentContainer;\r",
-                    "\r",
-                    "//MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);\r",
-                    "\r",
-                    "cont.getLayout().setAnimation({\r",
-                    "    type: 'slide',\r",
-                    "    direction: 'right'\r",
-                    "});\r",
-                    "\r",
-                    "\r",
-                    "var items = cont.items;\r",
-                    "MyGlobals.lastObjectInContentContainer = cont.getAt(items.length - 2);\r",
-                    "\r",
-                    "if (items.length == 1 && MyGlobals.isPhone) {\r",
-                    "    this.showMenuPanel();\r",
-                    "\r",
-                    "    setTimeout(function() {\r",
-                    "        cont.remove(cont.getActiveItem(), true);\r",
-                    "    }, 1000);    \r",
-                    "\r",
-                    "\r",
-                    "    MyGlobals.menuPanel.deselectAllLists();\r",
-                    "}\r",
-                    "else {\r",
-                    "    cont.remove(cont.getActiveItem(), true);\r",
-                    "    if (items.length > 1) {\r",
-                    "        if (items.length == 2) {\r",
-                    "            if (MyGlobals.menuPanel) {\r",
-                    "                MyGlobals.menuPanel.deselectAllLists();\r",
-                    "            }\r",
-                    "        }\r",
-                    "        cont.setActiveItem(items.length-2);\r",
-                    "    }\r",
-                    "}"
-                ]
-            },
-            "designerId": "bef983fe-b826-4bef-83ac-de47fe3ae454"
         },
         {
             "type": "Ext.Container",

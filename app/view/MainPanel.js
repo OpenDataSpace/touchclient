@@ -116,14 +116,80 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         me.showMenuPanel();
 
-        MyGlobals.menuPanel.loadEventAssistanceCount();
-
         me.loadQuickSearchAreas();
 
     },
 
     onContentContainerAdd: function(container, item, index, eOpts) {
         this.down('#contentContainer').setMasked(false);
+    },
+
+    contentContainerBack: function() {
+        var cont = MyGlobals.contentContainer.down('#content');
+
+        var lastObj = MyGlobals.lastObjectInContentContainer;
+
+        //MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);
+
+        cont.getLayout().setAnimation({
+            type: 'slide',
+            direction: 'right'
+        });
+
+
+        var items = cont.items;
+        MyGlobals.lastObjectInContentContainer = cont.getAt(items.length - 2);
+
+        if (items.length == 1 && MyGlobals.isPhone) {
+            this.showMenuPanel();
+
+            setTimeout(function() {
+                cont.remove(cont.getActiveItem(), true);
+            }, 1000);    
+
+
+            MyGlobals.menuPanel.deselectAllLists();
+        }
+        else {
+            cont.remove(cont.getActiveItem(), true);
+            if (items.length > 1) {
+                if (items.length == 2) {
+                    if (MyGlobals.menuPanel) {
+                        MyGlobals.menuPanel.deselectAllLists();
+                    }
+                }
+                cont.setActiveItem(items.length-2);
+            }
+        }
+    },
+
+    handleObject: function(classObject, objectId, name, persistent, record) {
+        var me = this;
+        ACUtils.utils.checkConnectionWithFunction(function() {
+            var previewAble = record.get("previewable");
+            var textAvailable = record.get("textavailable");
+            var isFolder = record.get("isfolder");
+
+            if (classObject==="mailobject") {
+                me.showMail(objectId, persistent);
+            }
+            else if (previewAble) {
+                me.showPreview(objectId,1,persistent);
+            }
+            else if (textAvailable) {
+                me.showText(objectId,persistent);
+            }
+            else if (isFolder) {
+                var tab = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();
+                //MyGlobals.menuPanel.down('#tabPanel').setActiveItem(me.down('#documentsBar'));
+
+                MyGlobals.menuPanel.navigateToFolder(objectId, name, false, tab);
+            }
+            else {
+                Ext.Msg.alert('Error', 'Für dieses Objekt ist derzeit noch keine Anzeige erstellt: '+classObject, Ext.emptyFn);   
+            }
+
+        });
     },
 
     handleOrientationChange: function() {
@@ -202,6 +268,160 @@ Ext.define('ACMobileClient.view.MainPanel', {
         });
     },
 
+    hideInfoPanel: function() {
+        this.getLayout().setAnimation({
+            type: 'slide',
+            direction: 'right'
+        });
+
+        var items = this.getInnerItems();
+
+        this.setActiveItem(items.length-2);
+        //is remove, when info is shown next time
+        //this.remove(MyGlobals.infoPanel, true);    
+
+    },
+
+    hideLoader: function() {
+        this.down('#contentContainer').setMasked(false);
+    },
+
+    loadContentContainer: function(container, persistent, hasPrevious, navTitle) {
+        var cont = MyGlobals.contentContainer.down('#content');
+        var lastObj = MyGlobals.lastObjectInContentContainer;
+
+        var items = cont.items;
+        var itemLen = items.length;
+
+        if (!persistent && lastObj != null && !lastObj.persistent) {
+            itemLen--;
+            setTimeout(function() {
+                console.log("removing last: "+lastObj);
+                cont.remove(lastObj, true);
+            }, 1000);
+        }
+
+        if (cont.getLayout && cont.getLayout().setAnimation) {
+            cont.getLayout().setAnimation({
+                type: 'slide',
+                direction: 'left'
+            });
+        }
+
+        var contCon = Ext.create('ACMobileClient.view.ContentContainer', {});
+        contCon.hasPrevious = hasPrevious;
+        if (hasPrevious) {
+            if (itemLen > 0) {
+                contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;
+            }
+        }
+
+        contCon.persistent = container.persistent;
+        contCon.add(container);
+
+
+        //MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);
+        cont.add(contCon);
+        cont.setActiveItem(contCon);
+        contCon.prevNavTitle = navTitle;
+        MyGlobals.lastObjectInContentContainer = contCon;
+        this.showInContentContainer();
+
+        //hide menu panel when showing something in container
+        setTimeout(function() {
+            if (MyGlobals.showListButton)  {
+                var men = MyGlobals.menuPanel;
+                men.deselectAllLists();
+                men.hide();
+            }
+        }, 20);
+
+    },
+
+    loadLanguage: function() {
+
+    },
+
+    loadQuickSearchAreas: function() {
+        MyGlobals.areaIds = "";
+        var theOr = "";
+
+        Ext.Ajax.request({
+            url: '/api/rest/object.json',
+            method: 'get',
+            params: { 
+                sessionId: MyGlobals.sessionId,
+                provider: 'area',
+                source: 'MAIN_MODULE_MANAGEMENT/mobileclient/control/areas',
+                page: 1,
+                start: 0,
+                limit: 2000,
+                noCache: new Date().getTime()
+            },
+            success: function(response) {
+                var jsonResp = Ext.decode(response.responseText);
+                var areas = jsonResp.data;
+                for (var i=0;i<areas.length;i++) {
+                    MyGlobals.areaIds += theOr+"inpath:"+areas[i].id;
+                    theOr = " OR ";
+                }
+            },
+            failure: function() {
+            },
+            scope: this
+        });
+
+    },
+
+    loadNextPage: function() {
+        if (MyGlobals.imageViewer.pageCount > MyGlobals.imageViewer.pageNumber)
+        this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber+1);
+
+    },
+
+    loadPrevPage: function() {
+        if (MyGlobals.imageViewer.pageNumber > 1)
+        this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber-1);
+
+    },
+
+    restoreSidePanel: function() {
+        if (MyGlobals.infoPanel) {
+            if (!MyGlobals.isPhone) {
+                var iPanel = MyGlobals.infoPanel;
+                var height=this.element.getHeight();
+                var width = this.down('#contentContainer').element.getWidth();
+                iPanel.setDocked(null);
+                iPanel.setShowAnimation("slideIn");
+                iPanel.setHideAnimation({
+                    type: 'slideOut',
+                    direction: 'right'
+                });
+                iPanel.setTop(0);
+                iPanel.setLeft(width-320);
+                iPanel.setHeight(height);
+                iPanel.setWidth(320);
+
+                //iPanel.showBy(button);
+            }
+        }
+
+
+    },
+
+    showInContentContainer: function() {
+        if (MyGlobals.isPhone) {
+
+            //MyGlobals.contentContainer.setShowAnimation("slideIn");
+            this.getLayout().setAnimation({
+                type: 'slide',
+                direction: 'left'
+            });
+
+            this.setActiveItem(MyGlobals.contentContainer);
+        }
+    },
+
     showInfoPanel: function(button) {
         var iPanel = Ext.create('ACMobileClient.view.InfoPanel', {});
         this.add(iPanel);
@@ -226,20 +446,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
         }
 
         MyGlobals.infoPanel = iPanel;
-
-    },
-
-    hideInfoPanel: function() {
-        this.getLayout().setAnimation({
-            type: 'slide',
-            direction: 'right'
-        });
-
-        var items = this.getInnerItems();
-
-        this.setActiveItem(items.length-2);
-        //is remove, when info is shown next time
-        //this.remove(MyGlobals.infoPanel, true);    
 
     },
 
@@ -295,59 +501,20 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
     },
 
-    restoreSidePanel: function() {
-        if (MyGlobals.infoPanel) {
-            if (!MyGlobals.isPhone) {
-                var iPanel = MyGlobals.infoPanel;
-                var height=this.element.getHeight();
-                var width = this.down('#contentContainer').element.getWidth();
-                iPanel.setDocked(null);
-                iPanel.setShowAnimation("slideIn");
-                iPanel.setHideAnimation({
-                    type: 'slideOut',
-                    direction: 'right'
-                });
-                iPanel.setTop(0);
-                iPanel.setLeft(width-320);
-                iPanel.setHeight(height);
-                iPanel.setWidth(320);
-
-                //iPanel.showBy(button);
-            }
-        }
-
-
+    showLoader: function() {
+        this.down('#contentContainer').setMasked({ 
+            xtype: 'loadmask', 
+            message: 'loading' 
+        });
     },
 
-    loadQuickSearchAreas: function() {
-        MyGlobals.areaIds = "";
-        var theOr = "";
-
-        Ext.Ajax.request({
-            url: '/api/rest/object.json',
-            method: 'get',
-            params: { 
-                sessionId: MyGlobals.sessionId,
-                provider: 'area',
-                source: 'MAIN_MODULE_MANAGEMENT/mobileclient/control/areas',
-                page: 1,
-                start: 0,
-                limit: 2000,
-                noCache: new Date().getTime()
-            },
-            success: function(response) {
-                var jsonResp = Ext.decode(response.responseText);
-                var areas = jsonResp.data;
-                for (var i=0;i<areas.length;i++) {
-                    MyGlobals.areaIds += theOr+"inpath:"+areas[i].id;
-                    theOr = " OR ";
-                }
-            },
-            failure: function() {
-            },
-            scope: this
+    showMail: function(objectId, persistent) {
+        var me = this;
+        ACUtils.utils.checkConnectionWithFunction(function() {
+            var mailView = Ext.create("ACMobileClient.view.MailViewContainer", {});
+            mailView.load(objectId);
+            me.loadContentContainer(mailView,persistent,true,"Mail");
         });
-
     },
 
     showMenuPanel: function() {
@@ -361,98 +528,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
             });
             this.setActiveItem(MyGlobals.menuPanel);
         }
-    },
-
-    showInContentContainer: function() {
-        if (MyGlobals.isPhone) {
-
-            //MyGlobals.contentContainer.setShowAnimation("slideIn");
-            this.getLayout().setAnimation({
-                type: 'slide',
-                direction: 'left'
-            });
-
-            this.setActiveItem(MyGlobals.contentContainer);
-        }
-    },
-
-    loadLanguage: function() {
-
-    },
-
-    showLoader: function() {
-        this.down('#contentContainer').setMasked({ 
-            xtype: 'loadmask', 
-            message: 'loading' 
-        });
-    },
-
-    hideLoader: function() {
-        this.down('#contentContainer').setMasked(false);
-    },
-
-    loadPrevPage: function() {
-        if (MyGlobals.imageViewer.pageNumber > 1)
-        this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber-1);
-
-    },
-
-    loadNextPage: function() {
-        if (MyGlobals.imageViewer.pageCount > MyGlobals.imageViewer.pageNumber)
-        this.showPreview(MyGlobals.imageViewer.objectId,  MyGlobals.imageViewer.pageNumber+1);
-
-    },
-
-    loadContentContainer: function(container, persistent, hasPrevious, navTitle) {
-        var cont = MyGlobals.contentContainer.down('#content');
-        var lastObj = MyGlobals.lastObjectInContentContainer;
-
-        var items = cont.items;
-        var itemLen = items.length;
-
-        if (!persistent && lastObj != null && !lastObj.persistent) {
-            itemLen--;
-            setTimeout(function() {
-                console.log("removing last: "+lastObj);
-                cont.remove(lastObj, true);
-            }, 1000);
-        }
-
-        if (cont.getLayout && cont.getLayout().setAnimation) {
-            cont.getLayout().setAnimation({
-                type: 'slide',
-                direction: 'left'
-            });
-        }
-
-        var contCon = Ext.create('ACMobileClient.view.ContentContainer', {});
-        contCon.hasPrevious = hasPrevious;
-        if (hasPrevious) {
-            if (itemLen > 0) {
-                contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;
-            }
-        }
-
-        contCon.persistent = container.persistent;
-        contCon.add(container);
-
-
-        //MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);
-        cont.add(contCon);
-        cont.setActiveItem(contCon);
-        contCon.prevNavTitle = navTitle;
-        MyGlobals.lastObjectInContentContainer = contCon;
-        this.showInContentContainer();
-
-        //hide menu panel when showing something in container
-        setTimeout(function() {
-            if (MyGlobals.showListButton)  {
-                var men = MyGlobals.menuPanel;
-                men.deselectAllLists();
-                men.hide();
-            }
-        }, 20);
-
     },
 
     showPreview: function(objectId, page, persistent) {
@@ -503,83 +578,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
             }
         },500);
 
-    },
-
-    showMail: function(objectId, persistent) {
-        var me = this;
-        ACUtils.utils.checkConnectionWithFunction(function() {
-            var mailView = Ext.create("ACMobileClient.view.MailViewContainer", {});
-            mailView.load(objectId);
-            me.loadContentContainer(mailView,persistent,true,"Mail");
-        });
-    },
-
-    handleObject: function(classObject, objectId, name, persistent, record) {
-        var me = this;
-        ACUtils.utils.checkConnectionWithFunction(function() {
-            var previewAble = record.get("previewable");
-            var textAvailable = record.get("textavailable");
-            var isFolder = record.get("isfolder");
-
-            if (classObject==="mailobject") {
-                me.showMail(objectId, persistent);
-            }
-            else if (previewAble) {
-                me.showPreview(objectId,1,persistent);
-            }
-            else if (textAvailable) {
-                me.showText(objectId,persistent);
-            }
-            else if (isFolder) {
-                var tab = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();
-                //MyGlobals.menuPanel.down('#tabPanel').setActiveItem(me.down('#documentsBar'));
-
-                MyGlobals.menuPanel.navigateToFolder(objectId, name, false, tab);
-            }
-            else {
-                Ext.Msg.alert('Error', 'Für dieses Objekt ist derzeit noch keine Anzeige erstellt: '+classObject, Ext.emptyFn);   
-            }
-
-        });
-    },
-
-    contentContainerBack: function() {
-        var cont = MyGlobals.contentContainer.down('#content');
-
-        var lastObj = MyGlobals.lastObjectInContentContainer;
-
-        //MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);
-
-        cont.getLayout().setAnimation({
-            type: 'slide',
-            direction: 'right'
-        });
-
-
-        var items = cont.items;
-        MyGlobals.lastObjectInContentContainer = cont.getAt(items.length - 2);
-
-        if (items.length == 1 && MyGlobals.isPhone) {
-            this.showMenuPanel();
-
-            setTimeout(function() {
-                cont.remove(cont.getActiveItem(), true);
-            }, 1000);    
-
-
-            MyGlobals.menuPanel.deselectAllLists();
-        }
-        else {
-            cont.remove(cont.getActiveItem(), true);
-            if (items.length > 1) {
-                if (items.length == 2) {
-                    if (MyGlobals.menuPanel) {
-                        MyGlobals.menuPanel.deselectAllLists();
-                    }
-                }
-                cont.setActiveItem(items.length-2);
-            }
-        }
     }
 
 });
