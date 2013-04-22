@@ -16,11 +16,11 @@
 Ext.define('ACMobileClient.controller.MyController', {
     extend: 'Ext.app.Controller',
 
-    config: {
-    },
+    requires: [
+        'ACMobileClient.utils.ACUtils'
+    ],
 
-    callMe: function() {
-        alert("I am called: "+Ext.os);
+    config: {
     },
 
     init: function(application) {
@@ -28,17 +28,16 @@ Ext.define('ACMobileClient.controller.MyController', {
     },
 
     launch: function() {
+        var isPhone = false, utils, urlvars;
+
         Ext.Ajax.setDefaultHeaders( {"Accept":"application/json"});
-        //Ext.apply(Ext.lib.Ajax.defaultHeaders, {"Accept":"application/json"});
         Ext.getStore("GlobalFolderStore").load();
 
         Ext.JSON.encodeDate = function(d){
             return Ext.Date.format(d, '"YmdHisO"');
         };
 
-
-
-        console.log("Ext: "+Ext.Ajax.extraParams);
+        console.log("Ext.Ajax.extraParams: " + Ext.Ajax.extraParams);
         Ext.Ajax.extraParams = {
             "Test": "123"
         };
@@ -63,21 +62,18 @@ Ext.define('ACMobileClient.controller.MyController', {
             utils: null
         });
 
-        var utils = Ext.create('ACMobileClient.utils.ACUtils', {});
+        utils = Ext.create('ACMobileClient.utils.ACUtils', {});
         utils.init();
         ACUtils.utils = utils;
 
-        var isPhone = false;
-        if (Ext.os.is.Phone) isPhone = true;
-        //isPhone = true;
-
-        var urlVars = getUrlVars();
-        if (urlVars['isPhone']) {
-            if (urlVars['isPhone'] === 'true') {
+        if (Ext.os.is.Phone) {
+            isPhone = true;
+        } else {
+            urlVars = getUrlVars();
+            if (urlVars.isPhone && urlVars.isPhone === 'true') {
                 isPhone = true;
             }
         }
-
         MyGlobals.isPhone = isPhone;
 
         Ext.define('ACMobileClient.view.ViewportLogin', {
@@ -113,7 +109,7 @@ Ext.define('ACMobileClient.controller.MyController', {
         profs[2] = { portraitTablet: function() { return !Ext.is.Phone && Ext.orientation == 'portrait'; } };
         profs[3] = { landscapeTablet: function() { return !Ext.is.Phone && Ext.orientation == 'landscape'; } };
         this.getApplication().setProfiles(profs);
-        */;
+        */
     }
 
 });

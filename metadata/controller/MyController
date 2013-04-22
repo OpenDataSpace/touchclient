@@ -6,26 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "MyController"
+        "designer|userClassName": "MyController",
+        "requires": [
+            "ACMobileClient.utils.ACUtils"
+        ]
     },
     "designerId": "1013c455-9d12-442a-abab-2117752209f6",
     "cn": [
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "callMe",
-                "fn": "callMe",
-                "implHandler": [
-                    "alert(\"I am called: \"+Ext.os);"
-                ]
-            },
-            "designerId": "f24fc979-8e3d-4686-839e-9bb7e82db72a"
-        },
         {
             "type": "fixedfunction",
             "reference": {
@@ -56,17 +43,16 @@
                 "designer|userClassName": "launch",
                 "fn": "launch",
                 "implHandler": [
+                    "var isPhone = false, utils, urlvars;\r",
+                    "\r",
                     "Ext.Ajax.setDefaultHeaders( {\"Accept\":\"application/json\"});\r",
-                    "//Ext.apply(Ext.lib.Ajax.defaultHeaders, {\"Accept\":\"application/json\"});\r",
                     "Ext.getStore(\"GlobalFolderStore\").load();\r",
                     "\r",
                     "Ext.JSON.encodeDate = function(d){\r",
                     "    return Ext.Date.format(d, '\"YmdHisO\"');\r",
                     "};\r",
                     "\r",
-                    "\r",
-                    "\r",
-                    "console.log(\"Ext: \"+Ext.Ajax.extraParams);\r",
+                    "console.log(\"Ext.Ajax.extraParams: \" + Ext.Ajax.extraParams);\r",
                     "Ext.Ajax.extraParams = {\r",
                     "    \"Test\": \"123\"\r",
                     "};\r",
@@ -91,21 +77,18 @@
                     "    utils: null\r",
                     "});\r",
                     "\r",
-                    "var utils = Ext.create('ACMobileClient.utils.ACUtils', {});\r",
+                    "utils = Ext.create('ACMobileClient.utils.ACUtils', {});\r",
                     "utils.init();\r",
                     "ACUtils.utils = utils;\r",
                     "\r",
-                    "var isPhone = false;\r",
-                    "if (Ext.os.is.Phone) isPhone = true;\r",
-                    "//isPhone = true;\r",
-                    "\r",
-                    "var urlVars = getUrlVars();\r",
-                    "if (urlVars['isPhone']) {\r",
-                    "    if (urlVars['isPhone'] === 'true') {\r",
+                    "if (Ext.os.is.Phone) {\r",
+                    "    isPhone = true;\r",
+                    "} else {\r",
+                    "    urlVars = getUrlVars();\r",
+                    "    if (urlVars.isPhone && urlVars.isPhone === 'true') {\r",
                     "        isPhone = true;\r",
                     "    }\r",
                     "}\r",
-                    "\r",
                     "MyGlobals.isPhone = isPhone;\r",
                     "\r",
                     "Ext.define('ACMobileClient.view.ViewportLogin', {\r",
@@ -141,7 +124,7 @@
                     "profs[2] = { portraitTablet: function() { return !Ext.is.Phone && Ext.orientation == 'portrait'; } };\r",
                     "profs[3] = { landscapeTablet: function() { return !Ext.is.Phone && Ext.orientation == 'landscape'; } };\r",
                     "this.getApplication().setProfiles(profs);\r",
-                    "*/;"
+                    "*/"
                 ]
             },
             "designerId": "176c1c84-3b4a-4738-af86-4d44e1455c9b"
