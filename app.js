@@ -51,7 +51,8 @@ Ext.application({
         'UserGroupSearchStore',
         'TextViewStore',
         'PrivateGlobalFoldersStore',
-        'SharedGlobalFoldersStore'
+        'SharedGlobalFoldersStore',
+        'MailSearchStore'
     ],
     views: [
         'MainPanel',
