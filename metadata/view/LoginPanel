@@ -63,6 +63,10 @@
                     "            noCache: new Date().getTime()\r",
                     "        },\r",
                     "        success: function(response) {\r",
+                    "            /* On success, the response contains a\r",
+                    "            * Language definition class which is the reason\r",
+                    "            * for the eval here.\r",
+                    "            */\r",
                     "            eval(response.responseText);\r",
                     "\r",
                     "            Ext.Viewport.setMasked(false);\r",
@@ -208,11 +212,11 @@
                                         "designer|userClassName": "onUserNameAction",
                                         "fn": "onUserNameAction",
                                         "implHandler": [
-                                            "this.doLogin();"
+                                            "this.down('#passWord').focus();"
                                         ],
                                         "name": "action"
                                     },
-                                    "designerId": "a1fe49b6-693a-4066-823a-b8e413e13024"
+                                    "designerId": "1883cbd8-820b-4ff4-819d-40e890312925"
                                 }
                             ]
                         },

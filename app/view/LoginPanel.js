@@ -105,7 +105,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
     },
 
     onUserNameAction: function(textfield, e, eOpts) {
-        this.doLogin();
+        this.down('#passWord').focus();
     },
 
     onPassWordAction: function(textfield, e, eOpts) {
@@ -170,6 +170,10 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                     noCache: new Date().getTime()
                 },
                 success: function(response) {
+                    /* On success, the response contains a
+                    * Language definition class which is the reason
+                    * for the eval here.
+                    */
                     eval(response.responseText);
 
                     Ext.Viewport.setMasked(false);
