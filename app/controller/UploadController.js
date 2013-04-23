@@ -89,22 +89,6 @@ Ext.define('ACMobileClient.controller.UploadController', {
 
     launch: function() {
         MyGlobals.uploadController = this;
-
-        this.uploader = new plupload.Uploader({
-            'runtimes': 'html5',
-            'browse_button': null,
-            'drop_element': null,
-            'max_file_size': '100gb',
-            'chunk_size': '8192kb',
-            'autostart': true,
-            'url': '/api/rest/object/upload?renameifrequired=true&target='
-        });
-
-        // disable by default
-        this.uploader.bind('PostInit', function(up) {
-            up.disableBrowse(true);
-            uploader.settings.cancel = false;
-        });
     },
 
     onUploadCancelTapped: function() {

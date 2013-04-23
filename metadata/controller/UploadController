@@ -124,23 +124,7 @@
                 "designer|userClassName": "launch",
                 "fn": "launch",
                 "implHandler": [
-                    "MyGlobals.uploadController = this;\r",
-                    "\r",
-                    "this.uploader = new plupload.Uploader({\r",
-                    "    'runtimes': 'html5',\r",
-                    "    'browse_button': null,\r",
-                    "    'drop_element': null,\r",
-                    "    'max_file_size': '100gb',\r",
-                    "    'chunk_size': '8192kb',\r",
-                    "    'autostart': true,\r",
-                    "    'url': '/api/rest/object/upload?renameifrequired=true&target='\r",
-                    "});\r",
-                    "\r",
-                    "// disable by default\r",
-                    "this.uploader.bind('PostInit', function(up) {\r",
-                    "    up.disableBrowse(true);\r",
-                    "    uploader.settings.cancel = false;\r",
-                    "});"
+                    "MyGlobals.uploadController = this;"
                 ]
             },
             "designerId": "58698dd7-1cf8-497d-bef7-68525c14aa9c"
