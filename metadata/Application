@@ -38,8 +38,7 @@
             "UserGroupSearchStore",
             "TextViewStore",
             "PrivateGlobalFoldersStore",
-            "SharedGlobalFoldersStore",
-            "MailSearchStore"
+            "SharedGlobalFoldersStore"
         ],
         "views": [
             "MainPanel",
@@ -76,23 +75,5 @@
         ],
         "name": "ACMobileClient"
     },
-    "designerId": "application",
-    "cn": [
-        {
-            "type": "fixedfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "launch",
-                "fn": "launch",
-                "implHandler": [
-                    ""
-                ]
-            },
-            "designerId": "a3abfae6-8cbd-428d-91e0-2e13eab488a1"
-        }
-    ]
+    "designerId": "application"
 }

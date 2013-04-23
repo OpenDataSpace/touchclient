@@ -43,6 +43,7 @@
                     "// the respective Handlers which is checkt below. If one of those events\r",
                     "// fired less than a 2 seconds ago, we ignore the singletap.\r",
                     "if (this.lastAction && this.lastAction > Date.now() - 2000) {\r",
+                    "\tthis.deselectAll();\r",
                     "    return;\r",
                     "}\r",
                     "\r",

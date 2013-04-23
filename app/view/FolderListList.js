@@ -73,6 +73,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
         // the respective Handlers which is checkt below. If one of those events
         // fired less than a 2 seconds ago, we ignore the singletap.
         if (this.lastAction && this.lastAction > Date.now() - 2000) {
+            this.deselectAll();
             return;
         }
 

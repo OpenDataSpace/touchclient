@@ -33,21 +33,24 @@ Ext.define('ACMobileClient.controller.MyController', {
             return Ext.Date.format(d, '"YmdHisO"');
         };
 
+        /*
         console.log("Ext.Ajax.extraParams: " + Ext.Ajax.extraParams);
         Ext.Ajax.extraParams = {
-            "Test": "123"
+        "Test": "123"
         };
+        */
 
         Ext.define('MyGlobals', { 
-            singleton: true, 
-            app: this,
-            menuPanel: null,
-            imageViewer: null,
-            previewContrainer: null,
-            mainPanel : null,
-            contentContainer : null,
-            lastObjectInContentContainer : null,
-            isPhone : false
+            'singleton': true, 
+            'app': this,
+            'menuPanel': null,
+            'imageViewer': null,
+            'previewContrainer': null,
+            'mainPanel': null,
+            'contentContainer': null,
+            'lastObjectInContentContainer': null,
+            'isPhone': false,
+            'uploadController' : null
         });
 
         Ext.define('ACUtils', {

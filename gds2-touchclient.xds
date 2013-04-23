@@ -415,22 +415,6 @@
             ],
             "className": "UserGroupSearchModel"
         },
-        "c8ed7010-4ecf-4f54-a2dd-bfe02afa7ae5": {
-            "paths": [
-                "metadata/store/MailSearchStore",
-                "app/store/override/MailSearchStore.js",
-                "app/store/MailSearchStore.js"
-            ],
-            "className": "MailSearchStore"
-        },
-        "20874d06-4c5c-4fa7-b35c-57cc2269e370": {
-            "paths": [
-                "metadata/model/MailSearchModel",
-                "app/model/override/MailSearchModel.js",
-                "app/model/MailSearchModel.js"
-            ],
-            "className": "MailSearchModel"
-        },
         "2bf93ec7-00c7-4969-be7e-c73b0e7bbbbf": {
             "paths": [
                 "metadata/view/NotesListList",
@@ -574,7 +558,6 @@
             "ec796bca-6c5e-473f-bf79-34b0bb477815",
             "67dfce51-2a64-4c36-b16b-05352947f87d",
             "658195d5-df8b-429e-841f-2d05cbd12469",
-            "c8ed7010-4ecf-4f54-a2dd-bfe02afa7ae5",
             "3864fbeb-a5f5-4463-b9f3-437c833ddbbf",
             "a19b8f4e-6323-4456-b288-9cd5ffe1e7c1",
             "9bbe8b25-2e88-4c6a-81db-b17f16f8554e",
@@ -598,7 +581,6 @@
             "6c2099c2-9fbf-4497-9d52-50226e2451ee",
             "9e330e4a-1a49-45bc-91f9-1dbd935426d2",
             "3d9a754d-6da2-46b1-b848-db7aa574c89a",
-            "20874d06-4c5c-4fa7-b35c-57cc2269e370",
             "6b62889e-383c-4a27-bb1c-6b4c40eb4501",
             "5586bd1a-65d5-4a18-96f8-650e4b2d9534",
             "655a1380-182f-485e-b041-d8bba6f14563",

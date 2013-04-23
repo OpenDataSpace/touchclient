@@ -64,7 +64,6 @@
                         "implHandler": [
                             "var men = MyGlobals.menuPanel;\r",
                             "if (men.isHidden()) {\r",
-                            "    //men.setModal(true);\r",
                             "    men.showBy(button);\r",
                             "} else {\r",
                             "    men.hide();\r",

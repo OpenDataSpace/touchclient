@@ -181,7 +181,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
 
             if (isRoot)  {
                 // If root, load the areas
-                if (area.getItemId()=='documentsBar'){
+                if (area.getItemId() === 'documentsBar') {
                     store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
                 } else {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
@@ -213,6 +213,18 @@ Ext.define('ACMobileClient.view.MenuPanel', {
 
             if (!isRoot) {
                 foldC.down('#documentList').getStore().folderId = fId;
+                MyGlobals.uploadController.checkAccessLevel(
+                fId, 'protected',
+                function() { // onGranted
+                    foldC.down('#uploadButton').enable();
+                },
+                function() { // onDenied
+                    foldC.down('#uploadButton').disable();
+                },
+                function() { // onFailure
+                    foldC.down('#uploadButton').disable();
+                    Ext.Msg.alert('Could not fetch permissions');
+                });
             }
 
             foldC.down('#documentList').getStore().loadPage(1, {});

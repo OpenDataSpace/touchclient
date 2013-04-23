@@ -31,11 +31,15 @@
                     "var me = this,\r",
                     "    ids = [];\r",
                     "\r",
-                    "if (items && Ext.isArray(items)) {\r",
-                    "    \r",
-                    "    items.forEach(function(el) {\r",
-                    "        ids.push(el.get('id'));\r",
-                    "    });\r",
+                    "if (items && (Ext.isNumber(items) || Ext.isArray(items))) {\r",
+                    "\r",
+                    "    if (Ext.isArray(items)) {\r",
+                    "        items.forEach(function(el) {\r",
+                    "            ids.push(el.get('id'));\r",
+                    "        });\r",
+                    "    } else {\r",
+                    "        ids = [items];\r",
+                    "    }\r",
                     "\r",
                     "    Ext.Ajax.request({\r",
                     "        method: 'GET',\r",
@@ -71,6 +75,23 @@
                 ]
             },
             "designerId": "e9b99a19-7c84-4ac0-90e3-186d08229ecf"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "launch",
+                "fn": "launch",
+                "implHandler": [
+                    "MyGlobals.uploadController = this;\r",
+                    ""
+                ]
+            },
+            "designerId": "58698dd7-1cf8-497d-bef7-68525c14aa9c"
         }
     ]
 }

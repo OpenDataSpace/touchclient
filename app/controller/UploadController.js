@@ -23,11 +23,15 @@ Ext.define('ACMobileClient.controller.UploadController', {
         var me = this,
             ids = [];
 
-        if (items && Ext.isArray(items)) {
+        if (items && (Ext.isNumber(items) || Ext.isArray(items))) {
 
-            items.forEach(function(el) {
-                ids.push(el.get('id'));
-            });
+            if (Ext.isArray(items)) {
+                items.forEach(function(el) {
+                    ids.push(el.get('id'));
+                });
+            } else {
+                ids = [items];
+            }
 
             Ext.Ajax.request({
                 method: 'GET',
@@ -60,6 +64,11 @@ Ext.define('ACMobileClient.controller.UploadController', {
                 }
             }
         }
+    },
+
+    launch: function() {
+        MyGlobals.uploadController = this;
+
     }
 
 });

@@ -51,8 +51,7 @@ Ext.application({
         'UserGroupSearchStore',
         'TextViewStore',
         'PrivateGlobalFoldersStore',
-        'SharedGlobalFoldersStore',
-        'MailSearchStore'
+        'SharedGlobalFoldersStore'
     ],
     views: [
         'MainPanel',
@@ -87,10 +86,5 @@ Ext.application({
         'MyController',
         'UploadController'
     ],
-    name: 'ACMobileClient',
-
-    launch: function() {
-
-    }
-
+    name: 'ACMobileClient'
 });

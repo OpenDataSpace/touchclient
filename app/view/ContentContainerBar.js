@@ -56,7 +56,6 @@ Ext.define('ACMobileClient.view.ContentContainerBar', {
     onListButtonNewTap: function(button, e, eOpts) {
         var men = MyGlobals.menuPanel;
         if (men.isHidden()) {
-            //men.setModal(true);
             men.showBy(button);
         } else {
             men.hide();
