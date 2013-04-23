@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "hideAnimation": null,
-        "itemId": "",
+        "itemId": null,
         "showAnimation": null,
         "designer|userClassName": "DocumentListContainer",
         "designer|userAlias": "DocumentListContainer",

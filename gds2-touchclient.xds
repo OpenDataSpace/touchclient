@@ -520,6 +520,20 @@
                 "app/controller/UploadController.js"
             ],
             "className": "UploadController"
+        },
+        "5beba24d-d17b-4fb2-98b5-1b4564f8c0f3": {
+            "paths": [
+                "metadata/resource/js1"
+            ],
+            "className": "js1"
+        },
+        "10efebf4-5d35-4379-a52e-5cb3911f9a8b": {
+            "paths": [
+                "metadata/view/UploadQueueContainer",
+                "app/view/override/UploadQueueContainer.js",
+                "app/view/UploadQueueContainer.js"
+            ],
+            "className": "UploadQueueContainer"
         }
     },
     "viewOrderMap": {
@@ -551,7 +565,8 @@
             "10abdd10-f6ce-4832-8dea-f0b9245a4ad9",
             "54440f85-c344-48da-a5cf-2609b4ee125c",
             "e45f39e9-8310-4feb-b0f1-677c45441336",
-            "77439847-8e5f-4741-8f3e-bb097c986ac0"
+            "77439847-8e5f-4741-8f3e-bb097c986ac0",
+            "10efebf4-5d35-4379-a52e-5cb3911f9a8b"
         ],
         "store": [
             "d8b4b151-d658-42d1-b015-0da7428af062",
@@ -594,7 +609,8 @@
         "resource": [
             "57f9ba6c-2325-4d50-99e2-af82c689b571",
             "4abe5c27-2e34-4f66-a9f4-80031b3b0257",
-            "0a79637a-195b-4b1c-a70e-706b6d0e6380"
+            "0a79637a-195b-4b1c-a70e-706b6d0e6380",
+            "5beba24d-d17b-4fb2-98b5-1b4564f8c0f3"
         ],
         "app": [
             "application"

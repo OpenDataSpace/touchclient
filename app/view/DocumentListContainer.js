@@ -18,7 +18,6 @@ Ext.define('ACMobileClient.view.DocumentListContainer', {
     alias: 'widget.DocumentListContainer',
 
     config: {
-        itemId: '',
         listeners: [
             {
                 fn: 'onContainerDeactivate',

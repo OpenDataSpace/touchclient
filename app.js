@@ -80,7 +80,8 @@ Ext.application({
         'ReceiverList',
         'TextViewContainer',
         'SettingsContainer',
-        'SearchContainer'
+        'SearchContainer',
+        'UploadQueueContainer'
     ],
     controllers: [
         'MyController',

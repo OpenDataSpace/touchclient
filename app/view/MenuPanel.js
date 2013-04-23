@@ -217,6 +217,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 fId, 'protected',
                 function() { // onGranted
                     foldC.down('#uploadButton').enable();
+                    foldC.on('upload', MyGlobals.uploadController.onUploadTapped, MyGlobals.uploadController);
                 },
                 function() { // onDenied
                     foldC.down('#uploadButton').disable();

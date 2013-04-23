@@ -94,7 +94,7 @@
                                 "designer|userClassName": "onUploadButtonTap",
                                 "fn": "onUploadButtonTap",
                                 "implHandler": [
-                                    "this.fireEvent('upload');"
+                                    "this.fireEvent('upload', this.down('#documentList').getStore());"
                                 ],
                                 "name": "tap"
                             },
@@ -180,7 +180,10 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "CustomEvent",
-                "name": "upload"
+                "name": "upload",
+                "params": [
+                    "dstFolderStore"
+                ]
             },
             "designerId": "a41c29f1-8c77-404e-be04-c50f2f4b4fcc"
         }

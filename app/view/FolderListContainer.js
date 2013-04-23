@@ -83,7 +83,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
     },
 
     onUploadButtonTap: function(button, e, eOpts) {
-        this.fireEvent('upload');
+        this.fireEvent('upload', this.down('#documentList').getStore());
     },
 
     onContainerActivate: function(container, newActiveItem, oldActiveItem, eOpts) {

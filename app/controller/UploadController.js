@@ -66,9 +66,67 @@ Ext.define('ACMobileClient.controller.UploadController', {
         }
     },
 
+    initUploader: function(button, container) {
+        /* not just yet
+        this.uploader = new plupload.Uploader({
+        'runtimes': 'html5',
+        'browse_button': null,
+        'drop_element': null,
+        'max_file_size': '100gb',
+        'chunk_size': '8192kb',
+        'autostart': true,
+        'url': '/api/rest/object/upload?renameifrequired=true&target='
+        });
+
+        // disable by default
+        this.uploader.bind('PostInit', function(up) {
+            up.disableBrowse(true);
+            uploader.settings.cancel = false;
+        });
+
+        */
+    },
+
     launch: function() {
         MyGlobals.uploadController = this;
 
+        this.uploader = new plupload.Uploader({
+            'runtimes': 'html5',
+            'browse_button': null,
+            'drop_element': null,
+            'max_file_size': '100gb',
+            'chunk_size': '8192kb',
+            'autostart': true,
+            'url': '/api/rest/object/upload?renameifrequired=true&target='
+        });
+
+        // disable by default
+        this.uploader.bind('PostInit', function(up) {
+            up.disableBrowse(true);
+            uploader.settings.cancel = false;
+        });
+    },
+
+    onUploadCancelTapped: function() {
+        var me = this, tp = MyGlobals.menuPanel.getComponent('tabPanel');
+
+        tp.remove(me.uploadQueue, true);
+        me.uploadQueue = null;
+    },
+
+    onUploadTapped: function(dstFolderStore) {
+        var me = this;
+        if (!me.uploadQueue) {
+            me.uploadQueue = MyGlobals.menuPanel.getComponent('tabPanel').add({
+                'xtype': 'uploadqueue',
+                'listeners': {
+                    'cancel': {
+                        'fn': me.onUploadCancelTapped,
+                        'scope': me
+                    }
+                }
+            });
+        }
     }
 
 });

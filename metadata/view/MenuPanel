@@ -160,6 +160,7 @@
                     "            fId, 'protected',\r",
                     "            function() { // onGranted\r",
                     "                foldC.down('#uploadButton').enable();\r",
+                    "                foldC.on('upload', MyGlobals.uploadController.onUploadTapped, MyGlobals.uploadController);\r",
                     "            },\r",
                     "            function() { // onDenied\r",
                     "                foldC.down('#uploadButton').disable();\r",
