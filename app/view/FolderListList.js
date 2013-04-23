@@ -67,8 +67,12 @@ Ext.define('ACMobileClient.view.FolderListList', {
     onDocumentListSelect: function(dataview, index, target, record, e, eOpts) {
         var classObject, objectId, name;
 
-        if (dataview.lastTapHold && dataview.lastTapHold > Date.now() - 1000) {
-            // Don't select element if the user just wanted a download
+        // For both 'taphold' and 'disclose' events, sencha fires an additional
+        // 'singletap' afterwards. Since we trigger actions for both events and
+        // only want *ONE* action to happen at any time, we set a timestamp in
+        // the respective Handlers which is checkt below. If one of those events
+        // fired less than a 2 seconds ago, we ignore the singletap.
+        if (this.lastAction && this.lastAction > Date.now() - 2000) {
             return;
         }
 
@@ -84,16 +88,24 @@ Ext.define('ACMobileClient.view.FolderListList', {
     },
 
     onDocumentListDisclose: function(list, record, target, index, e, eOpts) {
+        // See comment in onDocumentListSelect()
+        this.lastAction = Date.now();
+
+        this.deselectAll();
         MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'));
+
     },
 
     onListItemTaphold: function(dataview, index, target, record, e, eOpts) {
         var objectId, ifr, url;
 
-        // This is checked in onDocumentListSelect and
-        // prevents triggering the preview if we are
-        // starting a download.
-        dataview.lastTapHold = Date.now();
+        // See comment in onDocumentListSelect()
+        this.lastAction = Date.now();
+
+        if (record.get('isfolder')) {
+            Ext.Msg.alert('Can not dowload folders yet.');
+            return;
+        }
 
         objectId = record.get("id");
         ifr = document.createElement('iframe');
@@ -102,8 +114,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
         ifr.style.display = 'none';
         document.body.appendChild(ifr);
         ifr.src = url;
-        console.debug('start download ', record.getData());
-        ifr.onload = function(e){
+        ifr.onload = function(e) {
             document.body.removeChild(ifr);
             ifr = null;
         };

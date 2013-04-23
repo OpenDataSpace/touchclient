@@ -1,0 +1,76 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "UploadController"
+    },
+    "designerId": "0d54e10f-ec26-43e9-94af-bf7f30365974",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "checkAccessLevel",
+                "fn": "checkAccessLevel",
+                "designer|params": [
+                    "items",
+                    "accessLevel",
+                    "grantCallback",
+                    "denyCallback",
+                    "failedCallback"
+                ],
+                "implHandler": [
+                    "var me = this,\r",
+                    "    ids = [];\r",
+                    "\r",
+                    "if (items && Ext.isArray(items)) {\r",
+                    "    \r",
+                    "    items.forEach(function(el) {\r",
+                    "        ids.push(el.get('id'));\r",
+                    "    });\r",
+                    "\r",
+                    "    Ext.Ajax.request({\r",
+                    "        method: 'GET',\r",
+                    "        url: '/api/rest/dataspace/hasAccessLevel.json',\r",
+                    "        params: {\r",
+                    "            objectIds: ids,\r",
+                    "            accessLevel: accessLevel\r",
+                    "        },\r",
+                    "        success: function (response) {\r",
+                    "            var ok = Ext.decode(response.responseText).hasAccessLevel;\r",
+                    "            if (ok) {\r",
+                    "                grantCallback();\r",
+                    "            } else {\r",
+                    "                if (denyCallback) {\r",
+                    "                    denyCallback();\r",
+                    "                }\r",
+                    "            }\r",
+                    "        },\r",
+                    "        failure: function(response) { \r",
+                    "            if (failedCallback) {\r",
+                    "                failedCallback(Ext.decode(response.responseText));\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
+                    "\r",
+                    "} else {\r",
+                    "    if (!Ext.isEmpty(items)) {\r",
+                    "        if (failedCallback) {\r",
+                    "            failedCallback(\"invalid argument\");\r",
+                    "        }\r",
+                    "    }\r",
+                    "}"
+                ]
+            },
+            "designerId": "e9b99a19-7c84-4ac0-90e3-186d08229ecf"
+        }
+    ]
+}

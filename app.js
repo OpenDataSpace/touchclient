@@ -84,7 +84,8 @@ Ext.application({
         'SearchContainer'
     ],
     controllers: [
-        'MyController'
+        'MyController',
+        'UploadController'
     ],
     name: 'ACMobileClient',
 

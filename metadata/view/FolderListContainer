@@ -60,12 +60,45 @@
                                 "fn": "onBackButtonTap",
                                 "implHandler": [
                                     "button.disable();\r",
-                                    "MyGlobals.menuPanel.navigateToParent2(this);\r",
-                                    "//MyGlobals.menuPanel.navigateToParent();"
+                                    "MyGlobals.menuPanel.navigateToParent2(this);"
                                 ],
                                 "name": "tap"
                             },
                             "designerId": "296b92b0-5d01-4b66-8b70-5073b54d7079"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "itemId": "uploadButton",
+                        "designer|userClassName": "MyButton3",
+                        "text": "Upload"
+                    },
+                    "designerId": "9160e58d-f8a8-452d-97cd-2f1c725ab62a",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onUploadButtonTap",
+                                "fn": "onUploadButtonTap",
+                                "implHandler": [
+                                    "this.fireEvent('upload');"
+                                ],
+                                "name": "tap"
+                            },
+                            "designerId": "efa7cadd-9b93-4575-9b7c-3be643936336"
                         }
                     ]
                 }
@@ -102,20 +135,20 @@
                     "var list = Ext.create('ACMobileClient.view.FolderListList', {\r",
                     "    'itemId': 'documentList',\r",
                     "    'itemTpl': new Ext.XTemplate(\r",
-                    "        '<div class=\"list_style\">',\r",
-                    "        '<div class=\"list_icons\">',\r",
-                    "        '<div class=\"list_icon list_icon_{classname}\"></div>',\r",
-                    "        '</div>',\r",
-                    "        '<div class=\"list_entry\">{[this.testing(name)]}{name}</div>',\r",
-                    "        '</div>',\r",
-                    "        {\r",
-                    "            // XTemplate configuration:\r",
-                    "            'disableFormats': true,\r",
-                    "            // just a sample\r",
-                    "            'testing': function(){\r",
-                    "                return '';\r",
-                    "            }\r",
+                    "    '<div class=\"list_style\">',\r",
+                    "    '<div class=\"list_icons\">',\r",
+                    "    '<div class=\"list_icon list_icon_{classname}\"></div>',\r",
+                    "    '</div>',\r",
+                    "    '<div class=\"list_entry\">{[this.testing(name)]}{name}</div>',\r",
+                    "    '</div>',\r",
+                    "    {\r",
+                    "        // XTemplate configuration:\r",
+                    "        'disableFormats': true,\r",
+                    "        // just a sample\r",
+                    "        'testing': function(){\r",
+                    "            return '';\r",
                     "        }\r",
+                    "    }\r",
                     "    )\r",
                     "});\r",
                     "this.getComponent('accordionContainer').add(list);"
@@ -137,6 +170,19 @@
                 "layout": "fit"
             },
             "designerId": "3d1bb034-0361-4fe6-a4c9-56e9e7f3c56b"
+        },
+        {
+            "type": "customevent",
+            "reference": {
+                "name": "customEvents",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "CustomEvent",
+                "name": "upload"
+            },
+            "designerId": "a41c29f1-8c77-404e-be04-c50f2f4b4fcc"
         }
     ]
 }

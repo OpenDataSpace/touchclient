@@ -528,6 +528,14 @@
                 "app/store/SharedGlobalFoldersStore.js"
             ],
             "className": "SharedGlobalFoldersStore"
+        },
+        "0d54e10f-ec26-43e9-94af-bf7f30365974": {
+            "paths": [
+                "metadata/controller/UploadController",
+                "app/controller/override/UploadController.js",
+                "app/controller/UploadController.js"
+            ],
+            "className": "UploadController"
         }
     },
     "viewOrderMap": {
@@ -580,7 +588,8 @@
             "c2c99279-4c51-4264-a3ae-ed89ff4af689"
         ],
         "controller": [
-            "1013c455-9d12-442a-abab-2117752209f6"
+            "1013c455-9d12-442a-abab-2117752209f6",
+            "0d54e10f-ec26-43e9-94af-bf7f30365974"
         ],
         "model": [
             "29581bec-0ace-4209-a14e-7aa99e2731ba",

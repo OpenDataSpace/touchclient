@@ -38,6 +38,12 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                         ui: 'back',
                         iconMask: true,
                         text: 'Back'
+                    },
+                    {
+                        xtype: 'button',
+                        disabled: true,
+                        itemId: 'uploadButton',
+                        text: 'Upload'
                     }
                 ]
             },
@@ -56,6 +62,11 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                 delegate: '#backButton'
             },
             {
+                fn: 'onUploadButtonTap',
+                event: 'tap',
+                delegate: '#uploadButton'
+            },
+            {
                 fn: 'onContainerActivate',
                 event: 'activate'
             },
@@ -69,7 +80,10 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
     onBackButtonTap: function(button, e, eOpts) {
         button.disable();
         MyGlobals.menuPanel.navigateToParent2(this);
-        //MyGlobals.menuPanel.navigateToParent();
+    },
+
+    onUploadButtonTap: function(button, e, eOpts) {
+        this.fireEvent('upload');
     },
 
     onContainerActivate: function(container, newActiveItem, oldActiveItem, eOpts) {
