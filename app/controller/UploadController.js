@@ -66,25 +66,63 @@ Ext.define('ACMobileClient.controller.UploadController', {
         }
     },
 
-    initUploader: function(button, container) {
-        /* not just yet
-        this.uploader = new plupload.Uploader({
-        'runtimes': 'html5',
-        'browse_button': null,
-        'drop_element': null,
-        'max_file_size': '100gb',
-        'chunk_size': '8192kb',
-        'autostart': true,
-        'url': '/api/rest/object/upload?renameifrequired=true&target='
-        });
+    initUploader: function(container) {
+        var me = this,
+            folderStore = container.down('#documentList').getStore(),
+            folderId = folderStore.folderId,
+            uploader = new plupload.Uploader({
+                'runtimes': 'html5',
+                'browse_button': container.down('#uploadButton').getId(),
+                'max_file_size': '100gb',
+                'chunk_size': '8192kb',
+                'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
+            });
 
-        // disable by default
-        this.uploader.bind('PostInit', function(up) {
-            up.disableBrowse(true);
-            uploader.settings.cancel = false;
-        });
+        container.uploader = uploader;
 
-        */
+        uploader.init();
+
+        uploader.bind('FilesAdded', function(up, files) {
+            if (!me.uploadQueue) {
+                me.uploadQueue = MyGlobals.menuPanel.getComponent('tabPanel').add({
+                    'xtype': 'uploadqueue',
+                    'listeners': {
+                        'cancel': {
+                            'fn': me.onUploadCancelTapped,
+                            'scope': me
+                        }
+                    }
+                });
+            }
+            files.forEach(function(el) {
+                console.debug('ul_added: ', el.name);
+            });
+            up.start();
+        });
+        uploader.bind('UploadProgress', function(up, file) {
+            console.debug('ul_progress: ', file.name, file.percent);
+        });
+        uploader.bind('FileUploaded', function(up, file) {
+            console.debug('ul_uploaded: ', file.name);
+        });
+        uploader.bind('UploadComplete', function(up, files) {
+            console.debug('ul_complete');
+            folderStore.load();
+        });
+        uploader.bind('UploadComplete', function(up, files) {
+            console.debug('ul_complete');
+        });
+        uploader.bind('Error', function(up, err) {
+            console.debug('ul_error', err.code, err.message);
+            /*
+            $('#filelist').append("<div>Error: " + err.code +
+            ", Message: " + err.message +
+            (err.file ? ", File: " + err.file.name : "") +
+            "</div>"
+            );
+            */
+            up.refresh();
+        });
     },
 
     launch: function() {

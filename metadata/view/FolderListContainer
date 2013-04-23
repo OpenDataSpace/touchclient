@@ -81,26 +81,7 @@
                         "designer|userClassName": "MyButton3",
                         "text": "Upload"
                     },
-                    "designerId": "9160e58d-f8a8-452d-97cd-2f1c725ab62a",
-                    "cn": [
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|userClassName": "onUploadButtonTap",
-                                "fn": "onUploadButtonTap",
-                                "implHandler": [
-                                    "this.fireEvent('upload', this.down('#documentList').getStore());"
-                                ],
-                                "name": "tap"
-                            },
-                            "designerId": "efa7cadd-9b93-4575-9b7c-3be643936336"
-                        }
-                    ]
+                    "designerId": "9160e58d-f8a8-452d-97cd-2f1c725ab62a"
                 }
             ]
         },
@@ -170,22 +151,6 @@
                 "layout": "fit"
             },
             "designerId": "3d1bb034-0361-4fe6-a4c9-56e9e7f3c56b"
-        },
-        {
-            "type": "customevent",
-            "reference": {
-                "name": "customEvents",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "CustomEvent",
-                "name": "upload",
-                "params": [
-                    "dstFolderStore"
-                ]
-            },
-            "designerId": "a41c29f1-8c77-404e-be04-c50f2f4b4fcc"
         }
     ]
 }
