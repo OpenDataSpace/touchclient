@@ -202,7 +202,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
                     me.uploaders.forEach(function(up) {
                         var f = up.getFile(rec.get('id'));
                         if (f) {
-                            up.removeFile();
+                            up.removeFile(f);
                         }
                     });
                 }
