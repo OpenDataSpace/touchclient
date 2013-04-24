@@ -585,3 +585,25 @@
 .notesContainer .notesText {
 	//float:left;
 }
+
+/* Upload queue icons */
+.upload_status1 { /* queued */
+	background-image:	url(../images/icons/doc2.png) !important;
+	background-repeat: no-repeat !important;
+}
+.upload_status2 { /* uploading */
+	background-image:	url(../images/icons/upload/throbber.gif) !important;
+	background-repeat: no-repeat !important;
+}
+.upload_status4 { /* failed */
+	background-image:	url(../images/icons/upload/error.gif) !important;
+	background-repeat: no-repeat !important;
+}
+.upload_status5 { /* done */
+	background-image:	url(../images/icons/upload/done.gif) !important;
+	background-repeat: no-repeat !important;
+}
+/* Possible error message */
+.list_entry .msg {
+    margin-left: 10px;
+}

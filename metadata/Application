@@ -21,7 +21,8 @@
             "UserGroupSearchModel",
             "TextViewModel",
             "PrivateGlobalFolders",
-            "SharedGlobalFolders"
+            "SharedGlobalFolders",
+            "UploadQueueElement"
         ],
         "stores": [
             "FolderObjectDataStore",
@@ -38,7 +39,8 @@
             "UserGroupSearchStore",
             "TextViewStore",
             "PrivateGlobalFoldersStore",
-            "SharedGlobalFoldersStore"
+            "SharedGlobalFoldersStore",
+            "UploadQueue"
         ],
         "views": [
             "MainPanel",

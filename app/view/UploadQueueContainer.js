@@ -18,16 +18,23 @@ Ext.define('ACMobileClient.view.UploadQueueContainer', {
     alias: 'widget.uploadqueue',
 
     config: {
-        title: 'Uploads',
         iconCls: 'list',
+        title: 'Uploads',
         hidden: false,
         itemId: 'Uploads',
         padding: 10,
+        layout: {
+            type: 'fit'
+        },
         items: [
             {
                 xtype: 'toolbar',
                 docked: 'top',
                 title: 'Uploads',
+                layout: {
+                    align: 'center',
+                    type: 'hbox'
+                },
                 items: [
                     {
                         xtype: 'button',
@@ -36,15 +43,43 @@ Ext.define('ACMobileClient.view.UploadQueueContainer', {
                         },
                         itemId: 'Cancel',
                         text: 'Cancel'
+                    },
+                    {
+                        xtype: 'spacer'
+                    },
+                    {
+                        xtype: 'button',
+                        handler: function(button, event) {
+                            this.up('uploadqueue').fireEvent('start');
+                        },
+                        itemId: 'Start',
+                        text: 'Start'
+                    },
+                    {
+                        xtype: 'button',
+                        handler: function(button, event) {
+                            this.up('uploadqueue').fireEvent('stop');
+                        },
+                        hidden: true,
+                        itemId: 'Stop',
+                        text: 'Stop'
                     }
                 ]
             },
             {
                 xtype: 'list',
                 itemId: 'Queue',
+                mode: 'SIMPLE',
                 itemTpl: [
-                    '<div>List Item {string}</div>'
-                ]
+                    '<div class="list_style">',
+                    '    <div class="list_icons">',
+                    '        <div class="list_icon upload_status{status}"></div>',
+                    '    </div>',
+                    '    <div class="list_entry">{name}</div>',
+                    '    <div class="list_entry">{percent}%<span class="msg">{message}</span></div>',
+                    '</div>'
+                ],
+                store: 'UploadQueue'
             }
         ]
     }

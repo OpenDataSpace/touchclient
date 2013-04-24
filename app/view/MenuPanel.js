@@ -187,10 +187,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
                 }
             } else {
-                console.log(area.getActiveItem().id);
                 parentName = area.getActiveItem().titleName;
-                console.log(area.getItemId());
-
                 // if not root load a normal folder structure
                 store = Ext.create("ACMobileClient.store.FolderObjectDataStore", {});
             }

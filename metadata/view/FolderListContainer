@@ -76,6 +76,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "align": "right",
                         "disabled": true,
                         "itemId": "uploadButton",
                         "designer|userClassName": "MyButton3",

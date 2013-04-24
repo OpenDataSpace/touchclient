@@ -41,6 +41,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                     },
                     {
                         xtype: 'button',
+                        align: 'right',
                         disabled: true,
                         itemId: 'uploadButton',
                         text: 'Upload'

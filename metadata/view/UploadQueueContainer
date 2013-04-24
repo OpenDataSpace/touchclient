@@ -6,13 +6,14 @@
     },
     "codeClass": null,
     "userConfig": {
-        "title": "Uploads",
         "iconCls": "list",
+        "title": "Uploads",
         "hidden": false,
         "itemId": "Uploads",
         "padding": 10,
         "designer|userClassName": "UploadQueueContainer",
-        "designer|userAlias": "uploadqueue"
+        "designer|userAlias": "uploadqueue",
+        "layout": "fit"
     },
     "designerId": "10efebf4-5d35-4379-a52e-5cb3911f9a8b",
     "customConfigs": [
@@ -36,7 +37,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "container|align": "center",
                 "docked": "top",
+                "itemId": null,
                 "designer|userClassName": "MyToolbar",
                 "title": "Uploads"
             },
@@ -79,6 +82,91 @@
                             "designerId": "0b0e1349-aa38-4fcf-abe4-93544899b05b"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySpacer"
+                    },
+                    "designerId": "5748da3e-c0b7-4c69-9b94-3cf6437fe72f"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "Start",
+                        "designer|userClassName": "MyButton5",
+                        "text": "Start"
+                    },
+                    "designerId": "a34bb0b8-550b-481f-b5c6-501aca7e728a",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "handler",
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "this.up('uploadqueue').fireEvent('start');"
+                                ]
+                            },
+                            "designerId": "7f87227e-b2fe-4554-b04d-b97b064b3a9a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "itemId": "Stop",
+                        "designer|userClassName": "MyButton10",
+                        "text": "Stop"
+                    },
+                    "designerId": "0074d1f5-acec-4118-b312-4e67782b00e7",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "handler",
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "this.up('uploadqueue').fireEvent('stop');"
+                                ]
+                            },
+                            "designerId": "d11eb41a-d57d-453b-bb94-c95af1b9519b"
+                        }
+                    ]
                 }
             ]
         },
@@ -91,7 +179,10 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "Queue",
-                "designer|userClassName": "MyList5"
+                "designer|userClassName": "MyList5",
+                "mode": "SIMPLE",
+                "itemCls": null,
+                "store": "UploadQueue"
             },
             "designerId": "cefe2db2-b373-440e-bc0c-020161a540d4",
             "cn": [
@@ -105,7 +196,13 @@
                     "userConfig": {
                         "designer|userClassName": "itemTpl",
                         "implHandler": [
-                            "<div>List Item {string}</div>"
+                            "<div class=\"list_style\">\r",
+                            "    <div class=\"list_icons\">\r",
+                            "        <div class=\"list_icon upload_status{status}\"></div>\r",
+                            "    </div>\r",
+                            "    <div class=\"list_entry\">{name}</div>\r",
+                            "    <div class=\"list_entry\">{percent}%<span class=\"msg\">{message}</span></div>\r",
+                            "</div>"
                         ],
                         "designer|displayName": "itemTpl"
                     },
@@ -125,6 +222,32 @@
                 "name": "cancel"
             },
             "designerId": "ea4ecc55-4e78-4873-91ce-23a5b0fd2ada"
+        },
+        {
+            "type": "customevent",
+            "reference": {
+                "name": "customEvents",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "CustomEvent",
+                "name": "start"
+            },
+            "designerId": "cadd373f-9e09-411d-a007-41101a12e993"
+        },
+        {
+            "type": "customevent",
+            "reference": {
+                "name": "customEvents",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "CustomEvent1",
+                "name": "stop"
+            },
+            "designerId": "4760c0ca-6652-4c3f-92df-ed97c45dff5d"
         }
     ]
 }

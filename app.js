@@ -34,7 +34,8 @@ Ext.application({
         'UserGroupSearchModel',
         'TextViewModel',
         'PrivateGlobalFolders',
-        'SharedGlobalFolders'
+        'SharedGlobalFolders',
+        'UploadQueueElement'
     ],
     stores: [
         'FolderObjectDataStore',
@@ -51,7 +52,8 @@ Ext.application({
         'UserGroupSearchStore',
         'TextViewStore',
         'PrivateGlobalFoldersStore',
-        'SharedGlobalFoldersStore'
+        'SharedGlobalFoldersStore',
+        'UploadQueue'
     ],
     views: [
         'MainPanel',

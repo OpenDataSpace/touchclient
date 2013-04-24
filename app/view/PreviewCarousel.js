@@ -108,12 +108,15 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
 
             previewStore.on('load', function() {
                 var mdl = previewStore.getAt(0),
-                    ticket = + mdl.get('ticket'),
-                    pageCount = previewStore.getTotalCount(),
-                    lastImageViewer  = imageViewer,
-                    i,
-                    imageViewerContainer2,
-                    imageViewer2;
+                    ticket, pageCount, lastImageViewer, i, imageViewerContainer2, imageViewer2;
+
+                if (!mdl) {
+                    console.log("preview 1 failed");
+                    return;
+                }
+                ticket = mdl.get('ticket');
+                pageCount = previewStore.getTotalCount();
+                lastImageViewer = imageViewer;
 
                 console.log("preview 1 finished");
                 console.log('ticket: ' + ticket + ', ' + pageCount);
