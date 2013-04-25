@@ -24,7 +24,7 @@ Ext.define('ACMobileClient.controller.MyController', {
     },
 
     launch: function() {
-        var isPhone = false, utils, urlvars;
+        var isPhone, utils, urlVars = getUrlVars();
 
         Ext.Ajax.setDefaultHeaders( {"Accept":"application/json"});
         Ext.getStore("GlobalFolderStore").load();
@@ -32,13 +32,6 @@ Ext.define('ACMobileClient.controller.MyController', {
         Ext.JSON.encodeDate = function(d){
             return Ext.Date.format(d, '"YmdHisO"');
         };
-
-        /*
-        console.log("Ext.Ajax.extraParams: " + Ext.Ajax.extraParams);
-        Ext.Ajax.extraParams = {
-        "Test": "123"
-        };
-        */
 
         Ext.define('MyGlobals', { 
             'singleton': true, 
@@ -65,14 +58,13 @@ Ext.define('ACMobileClient.controller.MyController', {
         utils.init();
         ACUtils.utils = utils;
 
-        if (Ext.os.is.Phone) {
-            isPhone = true;
-        } else {
-            urlVars = getUrlVars();
-            if (urlVars.isPhone && urlVars.isPhone === 'true') {
-                isPhone = true;
-            }
+        if (urlVars.isPhone) {
+            isPhone = (urlVars.isPhone === 'true');
         }
+        if (typeof isPhone === 'undefined') {
+            isPhone = Ext.os.is.Phone;
+        }
+
         MyGlobals.isPhone = isPhone;
 
         Ext.define('ACMobileClient.view.ViewportLogin', {
