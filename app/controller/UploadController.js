@@ -84,6 +84,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
         uploader.init();
 
         uploader.bind('FilesAdded', function(up, files) {
+            var autoStart = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');
             if (!me.uploadQueue) {
                 me.uploadQueue = MyGlobals.menuPanel.getComponent('tabPanel').add({
                     'xtype': 'uploadqueue',
@@ -115,6 +116,9 @@ Ext.define('ACMobileClient.controller.UploadController', {
                 qStore.add(record);
             });
             qStore.sync();
+            if (autoStart && autoStart.get('value') === 'true') {
+                me.onQueueStartTapped();
+            }
         });
         uploader.bind('UploadProgress', function(up, file) {
             var rec;
@@ -147,16 +151,13 @@ Ext.define('ACMobileClient.controller.UploadController', {
                 tp.remove(me.uploadQueue, true);
                 me.uploadQueue = null;
             }
-            console.debug('ul_uploaded: ', file.name);
             folderStore.load();
         });
         uploader.bind('UploadComplete', function(up, files) {
-            console.debug('ul_complete');
             folderStore.load();
         });
         uploader.bind('Error', function(up, err) {
             var rec, msg = '';
-            console.debug('ul_error', err);
             if (err.file) {
                 rec = qStore.findRecord('id', err.file.id);
                 if (rec) {

@@ -94,6 +94,61 @@
                             "designerId": "548838df-7e1a-410c-90be-807986606445"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "autoStartUpload",
+                        "designer|userClassName": "MyCheckbox1",
+                        "label": "Autostart Upload",
+                        "labelWidth": "70%"
+                    },
+                    "designerId": "09e1b9cd-a79b-4e77-99fe-c121ae0b5c87",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onAutoStartUploadCheck",
+                                "fn": "onAutoStartUploadCheck",
+                                "implHandler": [
+                                    "if (!this.initMode) {\r",
+                                    "    ACUtils.utils.setConfigValue('ACMobile.config.autoStartUpload', 'true');\r",
+                                    "}"
+                                ],
+                                "name": "check"
+                            },
+                            "designerId": "cb3b0b2d-a17c-4b69-8dd1-dbc4c300378b"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onAutoStartUploadUncheck",
+                                "fn": "onAutoStartUploadUncheck",
+                                "implHandler": [
+                                    "if (!this.initMode) {\r",
+                                    "    ACUtils.utils.setConfigValue('ACMobile.config.autoStartUpload', 'false');\r",
+                                    "}"
+                                ],
+                                "name": "uncheck"
+                            },
+                            "designerId": "8fe0d3a2-76c8-405e-b930-aafede527932"
+                        }
+                    ]
                 }
             ]
         },
@@ -108,12 +163,20 @@
                 "designer|userClassName": "onSettingsContainerShow",
                 "fn": "onSettingsContainerShow",
                 "implHandler": [
+                    "var autoStartUpload = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');\r",
+                    "\r",
                     "this.initMode = true;\r",
                     "if (ACUtils.utils.isAutoLogin()) {\r",
                     "    this.down('#autoLogin').check();\r",
                     "}\r",
                     "else {\r",
                     "    this.down('#autoLogin').uncheck();\r",
+                    "}\r",
+                    "if (autoStartUpload &&  autoStartUpload.get('value') === 'true') {\r",
+                    "    this.down('#autoStartUpload').check();\r",
+                    "}\r",
+                    "else {\r",
+                    "    this.down('#autoStartUpload').uncheck();\r",
                     "}\r",
                     "this.initMode = false;"
                 ],

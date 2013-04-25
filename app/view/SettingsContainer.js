@@ -34,6 +34,12 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
                         itemId: 'autoLogin',
                         label: 'Keep me logged in',
                         labelWidth: '70%'
+                    },
+                    {
+                        xtype: 'checkboxfield',
+                        itemId: 'autoStartUpload',
+                        label: 'Autostart Upload',
+                        labelWidth: '70%'
                     }
                 ]
             }
@@ -48,6 +54,16 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
                 fn: 'onAutoLoginUncheck',
                 event: 'uncheck',
                 delegate: '#autoLogin'
+            },
+            {
+                fn: 'onAutoStartUploadCheck',
+                event: 'check',
+                delegate: '#autoStartUpload'
+            },
+            {
+                fn: 'onAutoStartUploadUncheck',
+                event: 'uncheck',
+                delegate: '#autoStartUpload'
             },
             {
                 fn: 'onSettingsContainerShow',
@@ -68,13 +84,33 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
         }
     },
 
+    onAutoStartUploadCheck: function(checkboxfield, e, eOpts) {
+        if (!this.initMode) {
+            ACUtils.utils.setConfigValue('ACMobile.config.autoStartUpload', 'true');
+        }
+    },
+
+    onAutoStartUploadUncheck: function(checkboxfield, e, eOpts) {
+        if (!this.initMode) {
+            ACUtils.utils.setConfigValue('ACMobile.config.autoStartUpload', 'false');
+        }
+    },
+
     onSettingsContainerShow: function(component, eOpts) {
+        var autoStartUpload = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');
+
         this.initMode = true;
         if (ACUtils.utils.isAutoLogin()) {
             this.down('#autoLogin').check();
         }
         else {
             this.down('#autoLogin').uncheck();
+        }
+        if (autoStartUpload &&  autoStartUpload.get('value') === 'true') {
+            this.down('#autoStartUpload').check();
+        }
+        else {
+            this.down('#autoStartUpload').uncheck();
         }
         this.initMode = false;
     }
