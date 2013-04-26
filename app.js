@@ -15,7 +15,12 @@
 
 //@require @packageOverrides
 Ext.Loader.setConfig({
-
+    disableCaching: false,
+    paths: {
+        Ext: '.',
+        ACMobileClient: 'app',
+        generated: 'generated'
+    }
 });
 
 Ext.application({

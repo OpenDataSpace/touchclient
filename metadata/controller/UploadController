@@ -98,7 +98,7 @@
                     "        'runtimes': 'html5',\r",
                     "        'browse_button': container.down('#uploadButton').getId(),\r",
                     "        'max_file_size': '100gb',\r",
-                    "        'chunk_size': '8192kb',\r",
+                    "        'chunk_size': '256kb',\r",
                     "        'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId\r",
                     "    });\r",
                     "\r",

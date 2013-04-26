@@ -607,3 +607,9 @@
 .list_entry .msg {
     margin-left: 10px;
 }
+
+/* Verion info */
+.appversion {
+    font-size: .6em;
+    white-space: nowrap;
+}

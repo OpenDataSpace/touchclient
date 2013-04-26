@@ -78,5 +78,23 @@
         ],
         "name": "ACMobileClient"
     },
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disableCaching": false,
+                "paths": [
+                    "{\"Ext\":\".\",'ACMobileClient':'app','generated':'generated'}"
+                ],
+                "designer|userClassName": "Loader60"
+            },
+            "designerId": "e9ef397f-febe-4847-a96e-ae46400d2723"
+        }
+    ]
 }

@@ -17,8 +17,15 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
     extend: 'Ext.Container',
     alias: 'widget.SettingsContainer',
 
+    requires: [
+        'generated.AppVersion'
+    ],
+
     config: {
         padding: 10,
+        layout: {
+            type: 'vbox'
+        },
         items: [
             {
                 xtype: 'toolbar',
@@ -40,6 +47,25 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
                         itemId: 'autoStartUpload',
                         label: 'Autostart Upload',
                         labelWidth: '70%'
+                    }
+                ]
+            },
+            {
+                xtype: 'spacer'
+            },
+            {
+                xtype: 'label',
+                html: 'x',
+                itemId: 'Version',
+                styleHtmlCls: 'x-html appversion',
+                styleHtmlContent: true,
+                listeners: [
+                    {
+                        fn: function(component, eOpts) {
+                            var v = Ext.create('generated.AppVersion');
+                            component.setHtml('touchui v' + v.version + '<br/>Build: ' + v.build + '<br />Git-Rev: ' + v.gitrev);
+                        },
+                        event: 'initialize'
                     }
                 ]
             }

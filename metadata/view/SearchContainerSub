@@ -115,6 +115,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "height": 29,
+                        "hidden": true,
                         "itemId": "searchFilter",
                         "width": "0%",
                         "zIndex": null,

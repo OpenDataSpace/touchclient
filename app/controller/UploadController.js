@@ -75,7 +75,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
                 'runtimes': 'html5',
                 'browse_button': container.down('#uploadButton').getId(),
                 'max_file_size': '100gb',
-                'chunk_size': '8192kb',
+                'chunk_size': '256kb',
                 'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
             });
 

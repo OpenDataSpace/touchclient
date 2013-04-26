@@ -36,6 +36,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                     {
                         xtype: 'selectfield',
                         height: 29,
+                        hidden: true,
                         itemId: 'searchFilter',
                         width: '0%',
                         displayField: 'label',
