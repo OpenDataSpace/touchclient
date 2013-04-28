@@ -41,7 +41,7 @@ debug:
 	$(MAKE) DEBUG=1 all
 
 dist: clean all
-	tar -cz -C build -f $(PROJECT)-$(VERSION).tar.gz $(PROJECT)
+	tar -cz -C build -f $(PROJECT).tar.gz $(PROJECT)
 
 missing: generated/AppVersion.js
 
