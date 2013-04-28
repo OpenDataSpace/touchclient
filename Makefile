@@ -1,5 +1,5 @@
 PROJECT=touchui
-VERSION=0.99.2
+VERSION=0.99.3
 BUILD=local@$(shell hostname) $(shell date)
 GITREV=$(shell git show-ref --heads --hash)
 DSTDIR=build/$(PROJECT)
