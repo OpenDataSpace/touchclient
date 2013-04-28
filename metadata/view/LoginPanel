@@ -293,6 +293,23 @@
                 "name": "painted"
             },
             "designerId": "31544a7c-9d80-48ce-8462-fda49f33aa53"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "dslogo"
+                ],
+                "height": 150,
+                "designer|userClassName": "MyImg1",
+                "src": "images/logo.png"
+            },
+            "designerId": "2d6e32fd-05c5-4932-a6bb-b095039502cb"
         }
     ]
 }

@@ -75,6 +75,12 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         text: 'Login'
                     }
                 ]
+            },
+            {
+                xtype: 'image',
+                cls: 'dslogo',
+                height: 150,
+                src: 'images/logo.png'
             }
         ],
         listeners: [

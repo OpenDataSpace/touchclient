@@ -20,24 +20,22 @@
 }
 */
 
-/* Background of start and login screen */
 .logoBack {
-	background:#fff;
-	background-image:	url(../images/background.png);
-	background-repeat: no-repeat;
-	background-position: top left; 
-
-	background-size: cover; 
-	/* Firefox */
-	-moz-background-size: cover;
-	/* WebKit */
-	-webkit-background-size: cover;
-	/* Opera 9.5+, later Google Chrome */
-	background-size: cover;
-	
+  background-color: #E9F4FC;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2E4E66), color-stop(100%, #E9F4FC));
+  background-image: -webkit-linear-gradient(top, #2E4E66, #E9F4FC);
+  background-image: -moz-linear-gradient(top, #2E4E66, #E9F4FC);
+  background-image: -o-linear-gradient(top, #2E4E66, #E9F4FC);
+  background-image: -ms-linear-gradient(top, #2E4E66, #E9F4FC);
+  background-image: linear-gradient(top, #2E4E66, #E9F4FC);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2E4E66', endColorstr='#E9F4FC');
 }
 
-
+.dslogo {
+    margin: 20px;
+	background-repeat: no-repeat;
+	background-position: center 20px; 
+}
 
 .receiverSearchListEntry {
 	overflow: hidden !important;

@@ -27,6 +27,14 @@ Ext.define('ACMobileClient.view.LogoContainer', {
                 fn: 'onContainerShow',
                 event: 'show'
             }
+        ],
+        items: [
+            {
+                xtype: 'image',
+                cls: 'dslogo',
+                height: 150,
+                src: 'images/logo.png'
+            }
         ]
     },
 
