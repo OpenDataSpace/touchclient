@@ -57,7 +57,8 @@ dstdir:
 	mkdir -p $(DSTDIR)
 
 resources: dstdir $(DSTDIR)/css/app.css
-	rsync -r images $(SDK)/resources/images $(SDK)/resources/css $(DSTDIR)
+	rsync -rl images $(DSTDIR)
+	rsync -r $(SDK)/resources/images $(SDK)/resources/css $(DSTDIR)
 
 $(DSTDIR)/css/app.css: css/*.css
 	mkdir -p $(DSTDIR)/css
