@@ -18,8 +18,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "id",
-                "designer|userClassName": "MyField85"
+                "name": "id"
             },
             "designerId": "6735437d-f931-468e-910f-1665622b4fb0"
         },
@@ -32,8 +31,7 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": "id",
-                "name": "value",
-                "designer|userClassName": "MyField85"
+                "name": "value"
             },
             "designerId": "87f4f9b7-7b47-4128-b2c3-281a5e6b29fa"
         },
@@ -45,8 +43,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "name",
-                "designer|userClassName": "MyField85"
+                "name": "name"
             },
             "designerId": "8d7eed62-b43b-44d6-a0aa-ce8760768141"
         },
@@ -62,8 +59,7 @@
                     "true"
                 ],
                 "name": "objectvisible",
-                "type": "boolean",
-                "designer|userClassName": "MyField85"
+                "type": "boolean"
             },
             "designerId": "03c18943-9d24-479a-ad50-ab23662c796b"
         },
@@ -75,8 +71,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "fullname",
-                "designer|userClassName": "MyField85"
+                "name": "fullname"
             },
             "designerId": "198463bc-b7e6-4c8d-b1d8-3bfc0ae30338"
         },
@@ -88,8 +83,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "classname",
-                "designer|userClassName": "MyField85"
+                "name": "classname"
             },
             "designerId": "b463bb9f-9e7d-4f29-8096-9e9fd19664e4"
         },
@@ -102,8 +96,7 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": null,
-                "name": "text",
-                "designer|userClassName": "MyField85"
+                "name": "text"
             },
             "designerId": "2c90e24e-6861-488f-8a5c-fa79a9cbd52b",
             "cn": [
@@ -115,7 +108,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",

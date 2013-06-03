@@ -18,7 +18,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "checkAccessLevel",
                 "fn": "checkAccessLevel",
                 "designer|params": [
                     "items",
@@ -84,7 +83,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "initUploader",
                 "fn": "initUploader",
                 "designer|params": [
                     "container"
@@ -211,7 +209,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "launch",
                 "fn": "launch",
                 "implHandler": [
                     "MyGlobals.uploadController = this;\r",
@@ -228,7 +225,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onQueueCancelTapped",
                 "fn": "onQueueCancelTapped",
                 "implHandler": [
                     "var me = this,\r",
@@ -285,7 +281,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onQueueStartTapped",
                 "fn": "onQueueStartTapped",
                 "implHandler": [
                     "var me = this,\r",
@@ -308,7 +303,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onQueueStopTapped",
                 "fn": "onQueueStopTapped",
                 "implHandler": [
                     "var me = this,\r",

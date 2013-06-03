@@ -11,7 +11,7 @@
         "ui": null,
         "designer|userClassName": "FolderListList",
         "designer|userAlias": "folderlistlist",
-        "itemCls": "documentList",
+        "itemCls": null,
         "store": null,
         "onItemDisclosure": true
     },
@@ -32,7 +32,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onDocumentListSelect",
                 "fn": "onDocumentListSelect",
                 "implHandler": [
                     "var classObject, objectId, name;\r",
@@ -65,7 +64,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onDocumentListRefresh",
                 "fn": "onDocumentListRefresh",
                 "implHandler": [
                     "this.deselectAll();"
@@ -82,7 +80,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyListPagingPlugin",
                 "autoPaging": true,
                 "loadMoreText": "Mehr laden...",
                 "noMoreRecordsText": " "
@@ -97,7 +94,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyPullRefreshPlugin",
                 "loadingText": "Lade...",
                 "pullRefreshText": "Zum Aktualisieren ziehen",
                 "releaseRefreshText": "Zum Aktualisieren loslassen"
@@ -112,7 +108,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "refreshFn",
                         "fn": "refreshFn",
                         "designer|params": [
                             "plugin"
@@ -140,7 +135,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onDocumentListDisclose",
                 "fn": "onDocumentListDisclose",
                 "implHandler": [
                     "// See comment in onDocumentListSelect()\r",
@@ -162,7 +156,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onListItemTaphold",
                 "fn": "onListItemTaphold",
                 "implHandler": [
                     "var objectId, ifr, url;\r",

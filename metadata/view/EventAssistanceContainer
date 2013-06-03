@@ -20,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "doubleTapCallback",
                 "fn": "doubleTapCallback",
                 "implHandler": [
                     "MyGlobals.mainPanel.switchToRoot(this);\r",
@@ -58,7 +57,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerActivate",
                 "fn": "onContainerActivate",
                 "implHandler": [
                     "var ai = this.getActiveItem();\r",
@@ -78,7 +76,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerDeactivate",
                 "fn": "onContainerDeactivate",
                 "implHandler": [
                     "var ai = this.getActiveItem();\r",

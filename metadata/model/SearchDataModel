@@ -20,8 +20,7 @@
             "userConfig": {
                 "mapping": "displayname",
                 "name": "name",
-                "type": "string",
-                "designer|userClassName": "MyField"
+                "type": "string"
             },
             "designerId": "3ac227c7-ca3d-4105-8194-306558c1634c"
         },
@@ -34,8 +33,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "id",
-                "type": "int",
-                "designer|userClassName": "MyField1"
+                "type": "int"
             },
             "designerId": "441dc85e-59dc-4b6e-8447-7395981e0ac0"
         },
@@ -47,8 +45,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "classname",
-                "designer|userClassName": "MyField2"
+                "name": "classname"
             },
             "designerId": "95277535-a751-4e23-8f30-0997eaa504f6",
             "cn": [
@@ -60,7 +57,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -88,8 +84,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "previewable",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "2cdfdb56-f910-4b4e-890b-c83971f48791"
         },
@@ -102,8 +97,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "read",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "6988d665-2459-4e5d-91dc-80dfe17c68b4"
         },
@@ -116,8 +110,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "textavailable",
-                "type": "boolean",
-                "designer|userClassName": "MyField42"
+                "type": "boolean"
             },
             "designerId": "6e9e819f-7b15-4102-b76f-66d6a18d610c"
         },
@@ -130,8 +123,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "isfolder",
-                "type": "boolean",
-                "designer|userClassName": "MyField42"
+                "type": "boolean"
             },
             "designerId": "394c4cd5-94ae-49c1-a89a-6ffe1a7b5c0e"
         }

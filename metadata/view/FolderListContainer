@@ -24,7 +24,6 @@
                 "docked": "top",
                 "itemId": "titleBar",
                 "width": null,
-                "designer|userClassName": "MyTitleBar",
                 "title": null
             },
             "designerId": "020cd265-ad5b-4c24-b9e8-f131b3aafcb1",
@@ -41,9 +40,7 @@
                         "itemId": "backButton",
                         "maxWidth": 100,
                         "ui": "back",
-                        "designer|userClassName": "MyButton1",
                         "iconCls": null,
-                        "iconMask": true,
                         "text": "Back"
                     },
                     "designerId": "bcad8206-bbc0-42ac-8807-838b5820ff04",
@@ -56,7 +53,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onBackButtonTap",
                                 "fn": "onBackButtonTap",
                                 "implHandler": [
                                     "button.disable();\r",
@@ -79,7 +75,6 @@
                         "align": "right",
                         "disabled": true,
                         "itemId": "uploadButton",
-                        "designer|userClassName": "MyButton3",
                         "text": "Upload"
                     },
                     "designerId": "9160e58d-f8a8-452d-97cd-2f1c725ab62a"
@@ -94,7 +89,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerActivate",
                 "fn": "onContainerActivate",
                 "implHandler": [
                     "this.down('#documentList').deselectAll();"
@@ -111,7 +105,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerInitialize",
                 "fn": "onContainerInitialize",
                 "implHandler": [
                     "var list = Ext.create('ACMobileClient.view.FolderListList', {\r",
@@ -148,7 +141,6 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "accordionContainer",
-                "designer|userClassName": "MyContainer14",
                 "layout": "fit"
             },
             "designerId": "3d1bb034-0361-4fe6-a4c9-56e9e7f3c56b"

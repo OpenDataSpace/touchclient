@@ -26,7 +26,6 @@
             "codeClass": null,
             "userConfig": {
                 "docked": "top",
-                "designer|userClassName": "MyToolbar7",
                 "title": "Settings"
             },
             "designerId": "b46d14cd-7372-428b-9536-4e2c2c58b421"
@@ -40,7 +39,6 @@
             "codeClass": null,
             "userConfig": {
                 "layout|flex": null,
-                "designer|userClassName": "MyFieldSet1",
                 "title": "Settings"
             },
             "designerId": "0c0b2324-59e3-4827-95af-bf7a0f1fc0f0",
@@ -54,7 +52,6 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "autoLogin",
-                        "designer|userClassName": "MyCheckbox1",
                         "label": "Keep me logged in",
                         "labelWidth": "70%"
                     },
@@ -68,7 +65,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onAutoLoginCheck",
                                 "fn": "onAutoLoginCheck",
                                 "implHandler": [
                                     "if (!this.initMode) {\r",
@@ -87,7 +83,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onAutoLoginUncheck",
                                 "fn": "onAutoLoginUncheck",
                                 "implHandler": [
                                     "if (!this.initMode) {\r",
@@ -109,7 +104,6 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "autoStartUpload",
-                        "designer|userClassName": "MyCheckbox1",
                         "label": "Autostart Upload",
                         "labelWidth": "70%"
                     },
@@ -123,7 +117,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onAutoStartUploadCheck",
                                 "fn": "onAutoStartUploadCheck",
                                 "implHandler": [
                                     "if (!this.initMode) {\r",
@@ -142,7 +135,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onAutoStartUploadUncheck",
                                 "fn": "onAutoStartUploadUncheck",
                                 "implHandler": [
                                     "if (!this.initMode) {\r",
@@ -165,7 +157,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onSettingsContainerShow",
                 "fn": "onSettingsContainerShow",
                 "implHandler": [
                     "var autoStartUpload = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');\r",
@@ -196,9 +187,6 @@
                 "type": "array"
             },
             "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "MySpacer1"
-            },
             "designerId": "587a95d5-02f3-4a6e-962b-d3e63d768bf1"
         },
         {
@@ -212,8 +200,7 @@
                 "html": "x",
                 "itemId": "Version",
                 "styleHtmlCls": "x-html appversion",
-                "styleHtmlContent": true,
-                "designer|userClassName": "MyLabel"
+                "styleHtmlContent": true
             },
             "designerId": "41486cda-05ba-477e-8541-a3e7184a0ea0",
             "cn": [
@@ -225,7 +212,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onVersionInitialize",
                         "fn": "onVersionInitialize",
                         "implHandler": [
                             "var v = Ext.create('generated.AppVersion');\r",

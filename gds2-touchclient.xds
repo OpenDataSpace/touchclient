@@ -17,11 +17,11 @@
         "cssPath": "",
         "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.2.1",
-    "xdsBuild": 951,
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
     "schemaVersion": 1,
-    "upgradeVersion": 210000000500,
-    "framework": "touch20",
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
     "topInstanceFileMap": {
         "c60fc65a-8086-4b8c-ae5c-953734c36aa0": {
             "paths": [

@@ -17,9 +17,6 @@
                 "type": "object"
             },
             "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "MyRestProxy"
-            },
             "designerId": "0874e30f-483a-432b-9297-50cc0566b359",
             "cn": [
                 {
@@ -30,7 +27,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "MyJsonWriter",
                         "encode": true
                     },
                     "designerId": "a46257e8-fd6a-4be9-846d-7b4d798246db"
@@ -46,8 +42,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "sessionId",
-                "type": "string",
-                "designer|userClassName": "field99"
+                "type": "string"
             },
             "designerId": "524ee640-5073-4b27-b094-81c021b398af"
         }

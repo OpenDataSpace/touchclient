@@ -20,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "load",
                 "fn": "load",
                 "designer|params": [
                     "objectId"
@@ -59,7 +58,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadMask",
                 "fn": "loadMask",
                 "designer|params": [
                     "record",
@@ -83,8 +81,7 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "text",
-                "padding": 5,
-                "designer|userClassName": "MyContainer44"
+                "padding": 5
             },
             "designerId": "2e2bc75f-9786-49bc-b8b8-1f49b68f5a58",
             "cn": [
@@ -96,7 +93,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "tpl",
                         "implHandler": [
                             "{text}"
                         ],

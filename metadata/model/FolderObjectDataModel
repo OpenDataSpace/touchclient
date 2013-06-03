@@ -20,8 +20,7 @@
             "userConfig": {
                 "mapping": "displayname",
                 "name": "name",
-                "type": "string",
-                "designer|userClassName": "MyField"
+                "type": "string"
             },
             "designerId": "d745551c-926b-4db6-b2e0-70a8a909df42",
             "cn": [
@@ -33,7 +32,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -69,8 +67,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "objecttextkey",
-                "type": "string",
-                "designer|userClassName": "MyField1"
+                "type": "string"
             },
             "designerId": "a7ddaae5-ce98-42b0-b563-5294834c1dd6"
         },
@@ -83,8 +80,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "id",
-                "type": "int",
-                "designer|userClassName": "MyField1"
+                "type": "int"
             },
             "designerId": "7b999490-43a6-44d6-8922-1371aaf9c1ba"
         },
@@ -96,8 +92,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "classname",
-                "designer|userClassName": "MyField2"
+                "name": "classname"
             },
             "designerId": "12be2c97-b21d-4895-858e-a26aee17a03d",
             "cn": [
@@ -109,7 +104,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -137,8 +131,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "read",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "7c4d5f71-7cd1-4e55-81cb-071a6d063777"
         },
@@ -151,8 +144,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "previewable",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "855bb3b8-2d8f-4cc7-a719-0a5d105fe0c3"
         },
@@ -165,8 +157,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "textavailable",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "33ec31fd-8e2a-4f7f-b223-04c9575e032d"
         },
@@ -179,8 +170,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "isfolder",
-                "type": "boolean",
-                "designer|userClassName": "MyField42"
+                "type": "boolean"
             },
             "designerId": "51aed6ec-4616-4e89-8254-65efce39b6a8"
         }

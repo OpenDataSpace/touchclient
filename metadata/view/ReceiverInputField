@@ -23,7 +23,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "search",
                 "fn": "search",
                 "designer|params": [
                     "force"
@@ -69,7 +68,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "focusField",
                 "fn": "focusField",
                 "implHandler": [
                     "var me = this;\r",
@@ -88,7 +86,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "getReceivers",
                 "fn": "getReceivers",
                 "implHandler": [
                     "var ret = new Array();\r",
@@ -114,7 +111,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "handleInpField",
                 "fn": "handleInpField",
                 "implHandler": [
                     "var value = this.down('#inputField').getValue();\r",
@@ -141,7 +137,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "addField",
                 "fn": "addField",
                 "designer|params": [
                     "text",
@@ -176,7 +171,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "selectField",
                 "fn": "selectField",
                 "designer|params": [
                     "field"
@@ -200,7 +194,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "deselectField",
                 "fn": "deselectField",
                 "implHandler": [
                     "if (this.selectedItem != null) {\r",
@@ -219,7 +212,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "selectLastField",
                 "fn": "selectLastField",
                 "implHandler": [
                     "if (this.inputItems.length > 0) {\r",
@@ -238,7 +230,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "deleteField",
                 "fn": "deleteField",
                 "implHandler": [
                     "var inpC = this.down('#inputContainer');\r",
@@ -273,7 +264,6 @@
                     "receiverContainer"
                 ],
                 "padding": 5,
-                "designer|userClassName": "MyContainer6",
                 "layout": "hbox"
             },
             "designerId": "b5bd6ce7-08fc-444c-b2e2-d6ad75ebefa6",
@@ -294,8 +284,7 @@
                         "itemId": "toLabel",
                         "margin": "0 5 0 0",
                         "style": "display:block",
-                        "width": null,
-                        "designer|userClassName": "MyLabel"
+                        "width": null
                     },
                     "designerId": "b4edbbe0-a8d7-4081-a40e-361bea9532f3"
                 },
@@ -318,7 +307,6 @@
                         "padding": "",
                         "ui": "",
                         "width": null,
-                        "designer|userClassName": "MyContainer",
                         "layout": "hbox"
                     },
                     "designerId": "e4b721a7-cae7-4da0-b763-fbed1c315423",
@@ -338,8 +326,7 @@
                                 "maxWidth": null,
                                 "minWidth": null,
                                 "style": "display:inline-block;",
-                                "width": null,
-                                "designer|userClassName": "MyContainer6"
+                                "width": null
                             },
                             "designerId": "32b4e72c-a658-4d92-9b64-3ec2bc877175",
                             "cn": [
@@ -360,7 +347,6 @@
                                         "minWidth": null,
                                         "style": null,
                                         "width": 50,
-                                        "designer|userClassName": "MyTextArea1",
                                         "label": null,
                                         "labelWidth": 0
                                     },
@@ -374,7 +360,6 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "designer|userClassName": "onInputFieldKeyup",
                                                 "fn": "onInputFieldKeyup",
                                                 "implHandler": [
                                                     "this.theTextField = textfield;\r",
@@ -453,7 +438,6 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "designer|userClassName": "onInputFieldAction",
                                                 "fn": "onInputFieldAction",
                                                 "implHandler": [
                                                     ""
@@ -470,7 +454,6 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "designer|userClassName": "onInputFieldClearicontap",
                                                 "fn": "onInputFieldClearicontap",
                                                 "implHandler": [
                                                     "var me = this;\r",
@@ -503,7 +486,6 @@
                 "itemId": "selectContainer",
                 "ui": "",
                 "width": null,
-                "designer|userClassName": "MyContainer7",
                 "layout": "vbox",
                 "scrollable": false
             },
@@ -517,7 +499,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerInitialize",
                 "fn": "onContainerInitialize",
                 "implHandler": [
                     "var list = Ext.create('ACMobileClient.view.ReceiverList', {\r",

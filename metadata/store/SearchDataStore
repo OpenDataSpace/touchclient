@@ -20,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy2",
                 "extraParams": [
                     "{\r",
                     "\tprovider: 'search',\r",
@@ -53,8 +52,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "id",
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader"
+                        "rootProperty": "data"
                     },
                     "designerId": "02e143d0-76d6-4a18-a9a9-1ed12708404d"
                 }
@@ -68,7 +66,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onJsonstoreBeforeLoad",
                 "fn": "onJsonstoreBeforeLoad",
                 "implHandler": [
                     "operation.setParams({query: store.searchQuery});\r",

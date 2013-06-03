@@ -18,8 +18,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "id",
-                "designer|userClassName": "field26"
+                "name": "id"
             },
             "designerId": "21e741fa-a6b5-4a26-8b6c-5b7f81ae6037"
         },
@@ -31,8 +30,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "name",
-                "designer|userClassName": "field27"
+                "name": "name"
             },
             "designerId": "7ecf3a82-41d4-4c66-acb7-d6a1c2810d85"
         },
@@ -45,8 +43,7 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": "gdscategory",
-                "name": "category",
-                "designer|userClassName": "field28"
+                "name": "category"
             },
             "designerId": "cf5fdcbb-8261-44da-8a45-5161b55130a0"
         },
@@ -58,8 +55,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "isfolder",
-                "designer|userClassName": "field29"
+                "name": "isfolder"
             },
             "designerId": "b04ea116-9dc9-4eff-b642-c954a53a7995"
         },
@@ -71,8 +67,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "shared",
-                "designer|userClassName": "field30"
+                "name": "shared"
             },
             "designerId": "366db974-f2fa-405b-899f-a9fbf2f95f45"
         },
@@ -84,8 +79,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "ownobject",
-                "designer|userClassName": "field31"
+                "name": "ownobject"
             },
             "designerId": "134d5da6-c95e-4971-82bc-5dc945a205ff"
         },
@@ -97,8 +91,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "sharedowner",
-                "designer|userClassName": "field32"
+                "name": "sharedowner"
             },
             "designerId": "6de32c1c-4dba-4429-8cca-bc35ac858a7c"
         },
@@ -110,7 +103,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy4",
                 "extraParams": [
                     "{\r",
                     " provider: 'dataspaceglobalfolder',\r",
@@ -146,7 +138,6 @@
                     "codeClass": null,
                     "userConfig": {
                         "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader5",
                         "useSimpleAccessors": true
                     },
                     "designerId": "6bba4fc1-6d12-4a3a-aa1c-33d74f385e13"
@@ -160,7 +151,6 @@
                     "codeClass": null,
                     "userConfig": {
                         "nameProperty": "mapping",
-                        "designer|userClassName": "MyJsonWriter",
                         "encode": true,
                         "rootProperty": "data"
                     },
@@ -176,8 +166,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "classname",
-                "designer|userClassName": "field47"
+                "name": "classname"
             },
             "designerId": "71f7f17d-3ac0-46d6-aeb8-55d7529fdf71",
             "cn": [
@@ -189,7 +178,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",

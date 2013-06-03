@@ -19,8 +19,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "id",
-                "type": "string",
-                "designer|userClassName": "MyField21"
+                "type": "string"
             },
             "designerId": "adae8db1-1720-4f00-8e95-f962322eed0b"
         },
@@ -33,8 +32,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "subject",
-                "type": "string",
-                "designer|userClassName": "MyField21"
+                "type": "string"
             },
             "designerId": "f8988aa0-73f3-40ca-a079-3375c721a6b9"
         },
@@ -48,8 +46,7 @@
             "userConfig": {
                 "mapping": "htmlbody",
                 "name": "text",
-                "type": "string",
-                "designer|userClassName": "MyField21"
+                "type": "string"
             },
             "designerId": "ecf4a9c6-cf69-4ef6-a7e3-01a9295d758e"
         },
@@ -62,8 +59,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "answered",
-                "type": "boolean",
-                "designer|userClassName": "MyField21"
+                "type": "boolean"
             },
             "designerId": "ced2e7bb-bb04-4294-9964-2738b53e070b"
         },
@@ -76,8 +72,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "flagged",
-                "type": "boolean",
-                "designer|userClassName": "MyField21"
+                "type": "boolean"
             },
             "designerId": "b34b7358-2683-478c-a9b0-c1c6afffaad0"
         },
@@ -90,8 +85,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "draft",
-                "type": "boolean",
-                "designer|userClassName": "MyField21"
+                "type": "boolean"
             },
             "designerId": "e94bbb86-47c9-469c-94fa-4519a129945d"
         },
@@ -104,8 +98,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "deleted",
-                "type": "boolean",
-                "designer|userClassName": "MyField21"
+                "type": "boolean"
             },
             "designerId": "57923914-dfce-40c1-be6f-c6b0ff6e8690"
         },
@@ -118,8 +111,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "seen",
-                "type": "boolean",
-                "designer|userClassName": "MyField21"
+                "type": "boolean"
             },
             "designerId": "16f853c7-7f51-4c25-8a46-16ab3dcede21"
         },
@@ -133,8 +125,7 @@
             "userConfig": {
                 "mapping": "fromaddress",
                 "name": "from",
-                "type": "string",
-                "designer|userClassName": "MyField21"
+                "type": "string"
             },
             "designerId": "f3de8de0-3d57-49f6-9d4c-c0706ad9f3a7"
         },
@@ -147,8 +138,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "priority",
-                "type": "string",
-                "designer|userClassName": "MyField21"
+                "type": "string"
             },
             "designerId": "748b2bae-5e8a-47ce-aec7-bb81f2232c63"
         },
@@ -161,8 +151,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "priority",
-                "type": "string",
-                "designer|userClassName": "MyField21"
+                "type": "string"
             },
             "designerId": "31ca48db-a5c8-4ae5-a731-cbaf37d6640a"
         },
@@ -176,8 +165,7 @@
             "userConfig": {
                 "mapping": "toaddress",
                 "name": "to",
-                "type": "auto",
-                "designer|userClassName": "MyField21"
+                "type": "auto"
             },
             "designerId": "8314ed2b-76f3-4cd9-9b99-e50d9f7ad79c"
         },
@@ -191,8 +179,7 @@
             "userConfig": {
                 "mapping": "ccaddress",
                 "name": "cc",
-                "type": "auto",
-                "designer|userClassName": "MyField21"
+                "type": "auto"
             },
             "designerId": "3ef9d86e-4104-4f24-92d5-762c8c1cee57"
         },
@@ -206,8 +193,7 @@
             "userConfig": {
                 "mapping": "bccaddress",
                 "name": "bcc",
-                "type": "auto",
-                "designer|userClassName": "MyField21"
+                "type": "auto"
             },
             "designerId": "12ba507c-112c-4a1d-9634-4648f3fd115a"
         },
@@ -222,8 +208,7 @@
                 "dateFormat": null,
                 "mapping": "rfc822date",
                 "name": "mailDate",
-                "type": "date",
-                "designer|userClassName": "MyField21"
+                "type": "date"
             },
             "designerId": "765e2967-d931-44f1-8113-6b5ba826cffe"
         },
@@ -236,8 +221,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "attachments",
-                "type": "auto",
-                "designer|userClassName": "MyField43"
+                "type": "auto"
             },
             "designerId": "5c4ff070-7000-4943-87a5-59643b25adde"
         }

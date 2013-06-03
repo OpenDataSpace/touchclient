@@ -20,8 +20,7 @@
             "userConfig": {
                 "mapping": "text",
                 "name": "name",
-                "type": "string",
-                "designer|userClassName": "MyField"
+                "type": "string"
             },
             "designerId": "df3af54d-d9ae-45e6-b1d1-da9bc7a556b4",
             "cn": [
@@ -33,7 +32,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -63,8 +61,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "id",
-                "type": "int",
-                "designer|userClassName": "MyField1"
+                "type": "int"
             },
             "designerId": "5ab91c70-11a1-4368-a60e-78efb9270fe2"
         },
@@ -76,8 +73,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "classname",
-                "designer|userClassName": "MyField2"
+                "name": "classname"
             },
             "designerId": "f80a6480-6ec8-48bf-98e5-cc2fa2c6863e",
             "cn": [
@@ -89,7 +85,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -112,8 +107,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "read",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "add764d3-393d-4a77-b0b8-ab94ca52f725",
             "cn": [
@@ -125,7 +119,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -148,8 +141,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "previewable",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "ea65a541-767b-42f7-bb4f-dbc2a36ea37b",
             "cn": [
@@ -161,7 +153,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -184,8 +175,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "previewable",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "95f69b05-5f4e-438c-bd71-38c14e4e37c3",
             "cn": [
@@ -197,7 +187,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -220,8 +209,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "isfolder",
-                "type": "boolean",
-                "designer|userClassName": "MyField42"
+                "type": "boolean"
             },
             "designerId": "ec38c0c0-75c1-4a39-9e98-ff651a163235",
             "cn": [
@@ -233,7 +221,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",

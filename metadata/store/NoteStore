@@ -21,7 +21,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy9",
                 "extraParams": [
                     "{",
                     "\tprovider: 'note',",
@@ -47,8 +46,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "id",
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader9"
+                        "rootProperty": "data"
                     },
                     "designerId": "08aa879a-48a0-4577-ac94-52ac1e91de91"
                 }
@@ -64,8 +62,7 @@
             "userConfig": {
                 "direction": "DESC",
                 "property": "createdate",
-                "root": "data",
-                "designer|userClassName": "MySorter2"
+                "root": "data"
             },
             "designerId": "75456204-2d4a-46bb-80a3-7d383ddc4f33"
         },
@@ -77,7 +74,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onStoreBeforeLoad",
                 "fn": "onStoreBeforeLoad",
                 "implHandler": [
                     "operation.setParams({source: store.objectId});\r",

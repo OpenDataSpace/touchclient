@@ -23,7 +23,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "initialize",
                 "fn": "initialize",
                 "implHandler": [
                     "this.locked = true;\r",
@@ -45,7 +44,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadPreview",
                 "fn": "loadPreview",
                 "designer|params": [
                     "objectId",
@@ -147,7 +145,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "enableWipe",
                 "fn": "enableWipe",
                 "designer|params": [
                     "enabled"
@@ -166,7 +163,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onMycarouselActiveItemChange",
                 "fn": "onMycarouselActiveItemChange",
                 "implHandler": [
                     "var me = this;\r",
@@ -198,7 +194,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onMycarouselRemove",
                 "fn": "onMycarouselRemove",
                 "implHandler": [
                     "console.log(\"removing\");\r",

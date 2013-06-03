@@ -21,7 +21,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyAjaxProxy5",
                 "url": "../mobileclient_module/FolderTreeList.jsp"
             },
             "designerId": "49ee165d-bf74-46e5-b60c-950bc45ae1a5",
@@ -34,8 +33,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "rootProperty": "folders",
-                        "designer|userClassName": "MyJsonReader5"
+                        "rootProperty": "folders"
                     },
                     "designerId": "0e879e5f-a050-4c2a-a02e-98bc8090e529"
                 }
@@ -49,7 +47,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onTreestoreBeforeLoad",
                 "fn": "onTreestoreBeforeLoad",
                 "implHandler": [
                     "addSessionIdToParams(operation);\r",

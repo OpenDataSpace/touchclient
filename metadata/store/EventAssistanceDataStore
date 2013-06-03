@@ -6,7 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": false,
         "model": "EventAssistanceDataModel",
         "storeId": "EventAssistanceDataStore",
         "designer|userClassName": "EventAssistanceDataStore"
@@ -21,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy3",
                 "extraParams": [
                     "{\r",
                     "\tprovider: 'ea',\r",
@@ -66,8 +64,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "id",
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader"
+                        "rootProperty": "data"
                     },
                     "designerId": "f5486bf8-0671-4422-a037-da3cfa69bedb"
                 }
@@ -81,7 +78,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onJsonstoreBeforeLoad",
                 "fn": "onJsonstoreBeforeLoad",
                 "implHandler": [
                     "addSessionIdToParams(operation);\r",

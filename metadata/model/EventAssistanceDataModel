@@ -19,8 +19,7 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": "name",
-                "name": "name",
-                "designer|userClassName": "MyField"
+                "name": "name"
             },
             "designerId": "9115683c-f7c9-4ff8-b424-f22aba716143"
         },
@@ -33,8 +32,7 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": "displayname",
-                "name": "displayname",
-                "designer|userClassName": "MyField"
+                "name": "displayname"
             },
             "designerId": "4fd50598-9105-4950-9416-e8bde46c305a"
         },
@@ -48,8 +46,7 @@
             "userConfig": {
                 "mapping": "[\"mainobject.id\"]",
                 "name": "id",
-                "type": "int",
-                "designer|userClassName": "MyField1"
+                "type": "int"
             },
             "designerId": "db40ab1c-438c-454f-9566-c6df3c704cd6"
         },
@@ -63,8 +60,7 @@
             "userConfig": {
                 "mapping": "id",
                 "name": "eaId",
-                "type": "int",
-                "designer|userClassName": "MyField1"
+                "type": "int"
             },
             "designerId": "d4810f3f-4c85-463a-8f24-66f390d58740"
         },
@@ -78,8 +74,7 @@
             "userConfig": {
                 "mapping": "classname",
                 "name": "classname",
-                "type": "string",
-                "designer|userClassName": "MyField2"
+                "type": "string"
             },
             "designerId": "d390bb4a-04f9-4def-869c-bb9b6fc2cffa",
             "cn": [
@@ -91,7 +86,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -120,8 +114,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.classname\"]",
                 "name": "mainobject_classname",
-                "type": "string",
-                "designer|userClassName": "MyField2"
+                "type": "string"
             },
             "designerId": "707558c1-8bd4-4b2b-b2bb-909e6b5555e6",
             "cn": [
@@ -133,7 +126,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -162,8 +154,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.name\"]",
                 "name": "mainobject_name",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "9ada56fb-ab85-4f94-a95a-13802ab8d04c"
         },
@@ -177,8 +168,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.displayname\"]",
                 "name": "mainobject_displayname",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "04c17572-d5f7-4fee-ad50-c01c64706da6"
         },
@@ -192,8 +182,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.id\"]",
                 "name": "mainobject_id",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "32f3d158-d136-4b43-8ba9-f8c22427e608"
         },
@@ -207,8 +196,7 @@
             "userConfig": {
                 "mapping": "[\"<noteobject>content\"]",
                 "name": "noteobject_content",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "1142982f-f35b-45a8-87c8-2ee3867e0a29"
         },
@@ -222,8 +210,7 @@
             "userConfig": {
                 "dateFormat": null,
                 "name": "lastmodifydate",
-                "type": "date",
-                "designer|userClassName": "MyField11"
+                "type": "date"
             },
             "designerId": "a41d0c74-15f0-49bd-a23f-0165f38fda75"
         },
@@ -236,8 +223,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "read",
-                "type": "boolean",
-                "designer|userClassName": "MyField11"
+                "type": "boolean"
             },
             "designerId": "8b1673cf-8f16-4e37-b04e-8bd1d2c2d7d4"
         },
@@ -251,8 +237,7 @@
             "userConfig": {
                 "mapping": "[\"lastmodifier.fullname\"]",
                 "name": "lastmodifier_fullname",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "9485f02b-647f-45dd-9a65-e8ffcde77509"
         },
@@ -266,8 +251,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.<mailobject>senderorreceiver\"]",
                 "name": "mail_senderorreceiver",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "f7b4ec98-aa2d-4157-a88b-eef1a3aeb12c"
         },
@@ -281,8 +265,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.<mailobject>maildirection\"]",
                 "name": "mail_direction",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "1db16db9-f511-44ec-ab69-7fcedf47f074"
         },
@@ -296,8 +279,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.<mailobject>hasattachments\"]",
                 "name": "mail_hasattachments",
-                "type": "string",
-                "designer|userClassName": "MyField11"
+                "type": "string"
             },
             "designerId": "afbf9d6d-2072-4503-a339-a827f9cc7cf1"
         },
@@ -311,8 +293,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.previewable\"]",
                 "name": "previewable",
-                "type": "boolean",
-                "designer|userClassName": "MyField42"
+                "type": "boolean"
             },
             "designerId": "9d5e5cbc-a854-4bf7-8903-576ae22ffdb3"
         },
@@ -326,8 +307,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.textavailable\"]",
                 "name": "textavailable",
-                "type": "boolean",
-                "designer|userClassName": "MyField42"
+                "type": "boolean"
             },
             "designerId": "f4a9c2df-b785-4749-8501-7ee042694b3a"
         },
@@ -341,8 +321,7 @@
             "userConfig": {
                 "mapping": "[\"mainobj.isfolder\"]",
                 "name": "isfolder",
-                "type": "boolean",
-                "designer|userClassName": "MyField42"
+                "type": "boolean"
             },
             "designerId": "1028bfc5-ddc6-4693-88ec-086a8cb367e9"
         }

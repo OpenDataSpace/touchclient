@@ -28,7 +28,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onReceiverListSelect",
                 "fn": "onReceiverListSelect",
                 "implHandler": [
                     "var text = record.get(\"text\");\r",
@@ -51,7 +50,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "itemTpl",
                 "implHandler": [
                     "<div class=\"receiverSearchListEntry receiverSearchListEntry_{objectvisible}\">{text}</div>"
                 ],

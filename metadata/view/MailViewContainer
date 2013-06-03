@@ -20,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "load",
                 "fn": "load",
                 "designer|params": [
                     "objectId"
@@ -58,7 +57,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onDoubleTap",
                 "fn": "onDoubleTap",
                 "designer|params": [
                     "ev",
@@ -95,7 +93,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadMask",
                 "fn": "loadMask",
                 "designer|params": [
                     "record",
@@ -240,7 +237,6 @@
                 "itemId": "fromLine",
                 "minHeight": 30,
                 "padding": 10,
-                "designer|userClassName": "MyContainer13",
                 "layout": "hbox"
             },
             "designerId": "4887a77c-7e3e-480d-bdfa-3fdbbd9303e1",
@@ -261,8 +257,7 @@
                         "itemId": "fromLabel",
                         "padding": "0 5 0 0",
                         "style": null,
-                        "width": null,
-                        "designer|userClassName": "MyLabel2"
+                        "width": null
                     },
                     "designerId": "415702d4-5199-4c2d-942e-6eb5b68af591"
                 },
@@ -276,8 +271,7 @@
                     "userConfig": {
                         "layout|flex": 1,
                         "itemId": "fromButtons",
-                        "style": null,
-                        "designer|userClassName": "MyContainer14"
+                        "style": null
                     },
                     "designerId": "bc714b33-f8fb-4dbd-a78c-29f7da4f839b"
                 }
@@ -297,7 +291,6 @@
                 "itemId": "toLine",
                 "minHeight": 30,
                 "padding": 10,
-                "designer|userClassName": "MyContainer13",
                 "layout": "hbox"
             },
             "designerId": "29e456f3-8bc3-4c83-b149-1241471bd71e",
@@ -318,8 +311,7 @@
                         "itemId": "fromLabel",
                         "padding": "0 5 0 0",
                         "style": null,
-                        "width": null,
-                        "designer|userClassName": "MyLabel2"
+                        "width": null
                     },
                     "designerId": "376c57b8-76c5-4bc2-a3c6-f6c3b178353f"
                 },
@@ -333,8 +325,7 @@
                     "userConfig": {
                         "layout|flex": 1,
                         "itemId": "toButtons",
-                        "style": null,
-                        "designer|userClassName": "MyContainer14"
+                        "style": null
                     },
                     "designerId": "bda98bca-2fc7-4eaa-9ef2-382b804cb089"
                 }
@@ -353,8 +344,7 @@
                 ],
                 "itemId": "subjectLine",
                 "minHeight": 30,
-                "padding": 10,
-                "designer|userClassName": "MyContainer13"
+                "padding": 10
             },
             "designerId": "4600835c-0772-48f7-9910-ad8495709b67",
             "cn": [
@@ -373,8 +363,7 @@
                         "itemId": "subjectLabel",
                         "padding": "0 5 0 0",
                         "style": null,
-                        "width": null,
-                        "designer|userClassName": "MyLabel2"
+                        "width": null
                     },
                     "designerId": "c732f56e-9121-475d-97c6-e35218db4f5b",
                     "cn": [
@@ -386,7 +375,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "tpl",
                                 "implHandler": [
                                     "{subject}"
                                 ],
@@ -411,8 +399,7 @@
                         "itemId": "dateLabel",
                         "padding": "0 5 0 0",
                         "style": null,
-                        "width": null,
-                        "designer|userClassName": "MyLabel2"
+                        "width": null
                     },
                     "designerId": "3ee35f4b-71e2-437e-b405-72a6d06228d8",
                     "cn": [
@@ -424,7 +411,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "tpl",
                                 "implHandler": [
                                     "{mailDate:date(\"m.d.Y h:i\")}"
                                 ],
@@ -444,8 +430,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "bodyContainer",
-                "designer|userClassName": "MyContainer27"
+                "itemId": "bodyContainer"
             },
             "designerId": "ad11444d-312e-42a6-b99b-ef41abdfb104"
         },
@@ -465,8 +450,7 @@
                 "id": "",
                 "itemId": "bodyTextOld",
                 "padding": 10,
-                "ui": "light",
-                "designer|userClassName": "MyContainer16"
+                "ui": "light"
             },
             "designerId": "98e38290-7c4c-43c0-a303-87fa37bc5d8b",
             "cn": [
@@ -478,7 +462,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "tpl",
                         "implHandler": [
                             "{text}"
                         ],
@@ -502,7 +485,6 @@
                 "margin": null,
                 "maxHeight": null,
                 "padding": null,
-                "designer|userClassName": "MyContainer28",
                 "layout": "hbox",
                 "scrollable": false
             },
@@ -521,7 +503,6 @@
                         "itemId": "attachmentList",
                         "padding": "0 0 10 0 ",
                         "ui": "round",
-                        "designer|userClassName": "MyList4",
                         "deselectOnContainerClick": false,
                         "store": null
                     },
@@ -535,7 +516,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onAttachmentListSelect",
                                 "fn": "onAttachmentListSelect",
                                 "implHandler": [
                                     "var classObject = record.get(\"className\");\r",
@@ -561,7 +541,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "itemTpl",
                                 "implHandler": [
                                     "<div class=\"list_style\">",
                                     "<div class=\"list_icons\">",
@@ -587,8 +566,7 @@
             "codeClass": null,
             "userConfig": {
                 "docked": "bottom",
-                "hidden": true,
-                "designer|userClassName": "MyToolbar8"
+                "hidden": true
             },
             "designerId": "987ab6bd-1cc7-4136-9c87-077f6483360d",
             "cn": [
@@ -599,9 +577,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MySpacer3"
-                    },
                     "designerId": "9256e0c9-0dab-4338-b152-15292f70f06b"
                 },
                 {
@@ -612,9 +587,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "MyButton12",
                         "iconCls": "reply",
-                        "iconMask": true,
                         "text": null
                     },
                     "designerId": "95a0296b-8b4a-4d89-ac68-1978964401fe"
@@ -627,10 +600,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "MyButton12",
                         "iconAlign": "right",
                         "iconCls": "compose",
-                        "iconMask": true,
                         "text": null
                     },
                     "designerId": "9c6e9b8b-63d8-46b6-939d-2354a55274c6"

@@ -21,7 +21,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "deactivateCallback",
                 "fn": "deactivateCallback",
                 "implHandler": [
                     "this.down('#eventAssistanceList').deselectAll();"
@@ -37,7 +36,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadEA",
                 "fn": "loadEA",
                 "implHandler": [
                     "var me = this;\r",
@@ -63,7 +61,6 @@
             "userConfig": {
                 "docked": "top",
                 "itemId": "eventAssistanceToolbar",
-                "designer|userClassName": "MyToolbar5",
                 "title": "Mitteilungen"
             },
             "designerId": "a6d2e0c7-6a11-4456-9c54-b1f75062cd17",
@@ -75,9 +72,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MySpacer2"
-                    },
                     "designerId": "9a04770f-6117-4c7d-b00e-85fbdabddf47"
                 },
                 {
@@ -89,9 +83,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "editButton",
-                        "designer|userClassName": "MyButton8",
                         "iconCls": "list",
-                        "iconMask": true,
                         "text": null
                     },
                     "designerId": "141edd0e-c0ee-4b7b-90c0-61d4e23d44da",
@@ -104,7 +96,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onEditButtonTap",
                                 "fn": "onEditButtonTap",
                                 "implHandler": [
                                     "if (!this.inEditMode) {\r",
@@ -130,7 +121,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "switchEditMode",
                 "fn": "switchEditMode",
                 "designer|params": [
                     "editMode"
@@ -173,7 +163,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "activateCallback",
                 "fn": "activateCallback",
                 "implHandler": [
                     "//this.down('#eventAssistanceContainer').setBadgeText(\"4\");\r",
@@ -194,8 +183,7 @@
                 "docked": "bottom",
                 "hidden": true,
                 "itemId": "editTools",
-                "ui": "light",
-                "designer|userClassName": "MyToolbar7"
+                "ui": "light"
             },
             "designerId": "39691672-81f9-4e00-b70d-280f1e44a0e7",
             "cn": [
@@ -209,9 +197,7 @@
                     "userConfig": {
                         "itemId": "readButton",
                         "ui": "action",
-                        "designer|userClassName": "MyButton9",
                         "iconCls": "check_black2",
-                        "iconMask": true,
                         "text": "Gelesen"
                     },
                     "designerId": "d2f4a21b-0e3b-461d-ba26-b3f336a1cff8",
@@ -224,7 +210,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onReadButtonTap",
                                 "fn": "onReadButtonTap",
                                 "implHandler": [
                                     "var me = this;\r",
@@ -279,9 +264,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MySpacer3"
-                    },
                     "designerId": "dd101fa9-937a-46d8-bc87-3141713a26f0"
                 },
                 {
@@ -295,7 +277,6 @@
                         "hidden": true,
                         "itemId": "deleteButton",
                         "ui": "decline",
-                        "designer|userClassName": "MyButton10",
                         "text": "Löschen"
                     },
                     "designerId": "8ae8b0c1-ebad-4e70-b9cb-3911175fea32"
@@ -310,7 +291,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerInitialize",
                 "fn": "onContainerInitialize",
                 "implHandler": [
                     "myTpl = new Ext.XTemplate(\r",
@@ -384,7 +364,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerDeactivate",
                 "fn": "onContainerDeactivate",
                 "implHandler": [
                     "this.deactivateCallback();"
@@ -401,7 +380,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerActivate",
                 "fn": "onContainerActivate",
                 "implHandler": [
                     "//prevent loading the first time\r",
@@ -422,7 +400,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerShow",
                 "fn": "onContainerShow",
                 "implHandler": [
                     "console.log(\"EA show\");"

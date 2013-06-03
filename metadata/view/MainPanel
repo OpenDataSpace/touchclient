@@ -32,7 +32,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "contentContainerBack",
                 "fn": "contentContainerBack",
                 "implHandler": [
                     "var cont = MyGlobals.contentContainer.down('#content'),\r",
@@ -83,7 +82,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "handleObject",
                 "fn": "handleObject",
                 "designer|params": [
                     "classObject",
@@ -131,7 +129,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "handleOrientationChange",
                 "fn": "handleOrientationChange",
                 "implHandler": [
                     "var me = this;\r",
@@ -219,7 +216,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "hideInfoPanel",
                 "fn": "hideInfoPanel",
                 "implHandler": [
                     "var items = this.getInnerItems();\r",
@@ -244,7 +240,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "hideLoader",
                 "fn": "hideLoader",
                 "implHandler": [
                     "this.down('#contentContainer').setMasked(false);"
@@ -260,7 +255,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadContentContainer",
                 "fn": "loadContentContainer",
                 "designer|params": [
                     "container",
@@ -331,7 +325,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadLanguage",
                 "fn": "loadLanguage",
                 "implHandler": [
                     ""
@@ -347,7 +340,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadQuickSearchAreas",
                 "fn": "loadQuickSearchAreas",
                 "implHandler": [
                     "var theOr = '';\r",
@@ -391,7 +383,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadNextPage",
                 "fn": "loadNextPage",
                 "implHandler": [
                     "if (MyGlobals.imageViewer.pageCount > MyGlobals.imageViewer.pageNumber) {\r",
@@ -409,7 +400,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "loadPrevPage",
                 "fn": "loadPrevPage",
                 "implHandler": [
                     "if (MyGlobals.imageViewer.pageNumber > 1) {\r",
@@ -427,7 +417,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "restoreSidePanel",
                 "fn": "restoreSidePanel",
                 "implHandler": [
                     "var iPanel, height, width;\r",
@@ -464,7 +453,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showInContentContainer",
                 "fn": "showInContentContainer",
                 "implHandler": [
                     "if (MyGlobals.isPhone) {\r",
@@ -489,7 +477,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showInfoPanel",
                 "fn": "showInfoPanel",
                 "designer|params": [
                     "button"
@@ -534,7 +521,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showInfoPanelSlided",
                 "fn": "showInfoPanelSlided",
                 "designer|params": [
                     "objectId",
@@ -607,7 +593,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showLoader",
                 "fn": "showLoader",
                 "implHandler": [
                     "this.down('#contentContainer').setMasked({ \r",
@@ -626,7 +611,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showMail",
                 "fn": "showMail",
                 "designer|params": [
                     "objectId",
@@ -651,7 +635,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showMenuPanel",
                 "fn": "showMenuPanel",
                 "implHandler": [
                     "if (MyGlobals.isPhone) {\r",
@@ -676,7 +659,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showPreview",
                 "fn": "showPreview",
                 "designer|params": [
                     "objectId",
@@ -705,7 +687,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onPanelShow",
                 "fn": "onPanelShow",
                 "implHandler": [
                     "var me = this, men = null, contentContainer;\r",
@@ -773,7 +754,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showText",
                 "fn": "showText",
                 "designer|params": [
                     "objectId",
@@ -798,7 +778,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "switchToRoot",
                 "fn": "switchToRoot",
                 "designer|params": [
                     "obj"
@@ -839,7 +818,6 @@
                 "showAnimation": null,
                 "style": "font-size:1.25em",
                 "ui": "light",
-                "designer|userClassName": "MyContainer18",
                 "layout": "fit"
             },
             "designerId": "36f9cb69-46e5-45fd-a8d8-bf97c8ad0fcc",
@@ -852,7 +830,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onContentContainerAdd",
                         "fn": "onContentContainerAdd",
                         "implHandler": [
                             "this.down('#contentContainer').setMasked(false);"
@@ -871,7 +848,6 @@
                     "userConfig": {
                         "container|animation": "slide",
                         "itemId": "content",
-                        "designer|userClassName": "MyContainer29",
                         "layout": "card"
                     },
                     "designerId": "5486c1f4-e09d-4859-82cb-a05e22c219ab"
@@ -886,7 +862,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "tpl",
                 "implHandler": [
                     "<h2>Test</h2>",
                     "blablabla"

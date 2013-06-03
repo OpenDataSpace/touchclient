@@ -28,7 +28,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyListPagingPlugin3",
                 "autoPaging": true,
                 "loadMoreText": "Mehr laden...",
                 "noMoreRecordsText": ""
@@ -43,7 +42,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyPullRefreshPlugin3",
                 "loadingText": "Lade...",
                 "pullRefreshText": "Zum Aktualisieren ziehen",
                 "releaseRefreshText": "Zum Aktualisieren loslassen"
@@ -58,7 +56,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "refreshFn",
                         "fn": "refreshFn",
                         "designer|params": [
                             "plugin"

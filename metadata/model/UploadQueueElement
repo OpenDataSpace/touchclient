@@ -22,8 +22,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "name",
-                "type": "string",
-                "designer|userClassName": "field9"
+                "type": "string"
             },
             "designerId": "fe04446b-24d1-4bf1-9798-b45b835a9f46"
         },
@@ -39,8 +38,7 @@
                     "0"
                 ],
                 "name": "percent",
-                "type": "int",
-                "designer|userClassName": "field10"
+                "type": "int"
             },
             "designerId": "bbd87c5d-6725-40cb-8700-7b8f61af2bfb"
         },
@@ -53,8 +51,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "status",
-                "type": "int",
-                "designer|userClassName": "field11"
+                "type": "int"
             },
             "designerId": "fd5baece-104c-4c14-b08d-fa9888a6aaa0"
         },
@@ -67,8 +64,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "target",
-                "type": "int",
-                "designer|userClassName": "field25"
+                "type": "int"
             },
             "designerId": "14044e1a-3128-4140-b10e-08fe831e1846"
         },
@@ -81,8 +77,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "id",
-                "type": "string",
-                "designer|userClassName": "field43"
+                "type": "string"
             },
             "designerId": "a100a0a6-d28d-42fd-908d-c7ec0e42bd79"
         },
@@ -93,9 +88,6 @@
                 "type": "object"
             },
             "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "MyMemoryProxy"
-            },
             "designerId": "324c4053-ebf7-4e89-8657-bba39118172a"
         },
         {
@@ -110,8 +102,7 @@
                     "\"\""
                 ],
                 "name": "message",
-                "type": "string",
-                "designer|userClassName": "field52"
+                "type": "string"
             },
             "designerId": "d407c01b-ef0c-4363-9e88-cb4cd5fa71a3"
         }

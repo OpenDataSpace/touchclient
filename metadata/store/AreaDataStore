@@ -22,7 +22,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy1",
                 "extraParams": [
                     "{",
                     "\tprovider: 'area',",
@@ -44,8 +43,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "id",
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader"
+                        "rootProperty": "data"
                     },
                     "designerId": "bb0efeb2-aafc-4880-84e2-bdb4e351ec82"
                 }
@@ -59,7 +57,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onJsonstoreBeforeLoad",
                 "fn": "onJsonstoreBeforeLoad",
                 "implHandler": [
                     "addSessionIdToParams(operation);\r",
@@ -77,8 +74,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "property": "name",
-                "designer|userClassName": "MySorter"
+                "property": "name"
             },
             "designerId": "7a094ec6-ab0f-40e8-9fab-3655929094e7"
         }

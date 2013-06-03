@@ -20,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy5",
                 "extraParams": [
                     "{\r",
                     "\thandler: 'object',\r",
@@ -45,8 +44,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "idProperty": "id",
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader4"
+                        "rootProperty": "data"
                     },
                     "designerId": "984cba2e-90a6-41df-899a-35c6ca66e522"
                 }
@@ -60,7 +58,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onJsonstoreBeforeLoad",
                 "fn": "onJsonstoreBeforeLoad",
                 "implHandler": [
                     "addSessionIdToParams(operation);\r",

@@ -23,7 +23,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerDeactivate",
                 "fn": "onContainerDeactivate",
                 "implHandler": [
                     "//this.down('#documentList').deselectAll();"
@@ -40,7 +39,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "doubleTapCallback",
                 "fn": "doubleTapCallback",
                 "implHandler": [
                     "MyGlobals.mainPanel.switchToRoot(this);\r",

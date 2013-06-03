@@ -21,7 +21,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "doRepaint",
                 "fn": "doRepaint",
                 "implHandler": [
                     "if (MyGlobals.showListButton) {\r",
@@ -44,9 +43,7 @@
             "userConfig": {
                 "itemId": "listButton",
                 "ui": "plain",
-                "designer|userClassName": "MyButton",
                 "iconCls": "layout",
-                "iconMask": true,
                 "text": null
             },
             "designerId": "d695be5c-d47e-48d5-80e4-f6fe0d6f01b8",
@@ -59,7 +56,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onListButtonNewTap",
                         "fn": "onListButtonNewTap",
                         "implHandler": [
                             "var men = MyGlobals.menuPanel;\r",
@@ -85,9 +81,7 @@
             "userConfig": {
                 "itemId": "backButton",
                 "ui": "back",
-                "designer|userClassName": "MyButton14",
                 "iconCls": null,
-                "iconMask": true,
                 "text": "xx"
             },
             "designerId": "7b18e9a7-a790-4186-ba5e-2ed1160ea5b4",
@@ -100,7 +94,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onBackButtonTap",
                         "fn": "onBackButtonTap",
                         "implHandler": [
                             "MyGlobals.mainPanel.contentContainerBack();"
@@ -119,7 +112,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onTitlebarPainted",
                 "fn": "onTitlebarPainted",
                 "implHandler": [
                     "if (MyGlobals.showListButton) {\r",

@@ -29,7 +29,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onEventAssistanceListSelect",
                 "fn": "onEventAssistanceListSelect",
                 "implHandler": [
                     "if (this.parentClass.inEditMode) {\r",
@@ -66,7 +65,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onEventAssistanceListSelectionChange",
                 "fn": "onEventAssistanceListSelectionChange",
                 "implHandler": [
                     "var me = this;\r",
@@ -89,7 +87,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyListPagingPlugin1",
                 "autoPaging": true,
                 "loadMoreText": "Mehr laden...",
                 "noMoreRecordsText": " "
@@ -103,9 +100,6 @@
                 "type": "array"
             },
             "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "MyPullRefreshPlugin1"
-            },
             "designerId": "fa21acf5-9225-4244-8cf7-8af48fdaae0e",
             "cn": [
                 {
@@ -116,7 +110,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "refreshFn",
                         "fn": "refreshFn",
                         "designer|params": [
                             "plugin"
@@ -145,7 +138,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onEventAssistanceListDisclose",
                 "fn": "onEventAssistanceListDisclose",
                 "implHandler": [
                     "MyGlobals.mainPanel.showInfoPanelSlided(record.get('mainobject_id'),record.get('eaId'),record.get('classname'));"
@@ -162,7 +154,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "itemTpl",
                 "implHandler": [
                     "<div id=\"eaitem_{eaId}\" class=\"list_style list_read_{read} list_editmode\">",
                     "<div class=\"list_editcircle\"></div>",

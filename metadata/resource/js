@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userClassName": "js",
         "url": "agorum.js"
     },
     "designerId": "0a79637a-195b-4b1c-a70e-706b6d0e6380"

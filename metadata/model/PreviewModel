@@ -19,8 +19,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "ticket",
-                "type": "string",
-                "designer|userClassName": "MyField44"
+                "type": "string"
             },
             "designerId": "d0fc240c-cfdc-4697-8f9c-7236213b481d"
         },
@@ -33,8 +32,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "width",
-                "type": "int",
-                "designer|userClassName": "MyField44"
+                "type": "int"
             },
             "designerId": "5347034c-f149-4529-9a00-9ae774cdec8b"
         },
@@ -47,8 +45,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "height",
-                "type": "int",
-                "designer|userClassName": "MyField44"
+                "type": "int"
             },
             "designerId": "8b8898b8-8ac8-41db-b2e5-09897bca30ed"
         },
@@ -61,8 +58,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "masterWidth",
-                "type": "int",
-                "designer|userClassName": "MyField44"
+                "type": "int"
             },
             "designerId": "cd276ea7-7088-4efd-9b08-b0c34dda8685"
         },
@@ -75,8 +71,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "masterHeight",
-                "type": "int",
-                "designer|userClassName": "MyField44"
+                "type": "int"
             },
             "designerId": "8ab42f82-4b1e-4379-9b5b-0e7cf6b82eb6"
         },
@@ -88,7 +83,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy4",
                 "extraParams": [
                     "",
                     "{",
@@ -112,8 +106,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader6"
+                        "rootProperty": "data"
                     },
                     "designerId": "c384d9e7-db26-47ff-927d-e58f60ab1fdf"
                 }

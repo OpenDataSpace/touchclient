@@ -3,9 +3,9 @@ VERSION=0.99.3
 BUILD=local@$(shell hostname) $(shell date)
 GITREV=$(shell git show-ref --heads --hash)
 DSTDIR=build/$(PROJECT)
-SDK = /home/felfert/Projects/GRAU/sencha/touch-2.0.3
+SDK = /home/felfert/Projects/GRAU/sencha/touch-2.2.0
 YUIJAR = tools/yuicompressor-2.4.7.jar
-SENCHA_CDN=https://extjs.cachefly.net/touch/sencha-touch-2.0.1/
+SENCHA_CDN=https://extjs.cachefly.net/touch/sencha-touch-2.2.0/
 
 SOURCES=$(shell find app 3rdparty -name "*.js") generated/AppVersion.js agorum.js app.js
 

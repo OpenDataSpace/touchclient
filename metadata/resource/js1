@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userClassName": "js1",
         "url": "3rdparty/plupload.full.min.js"
     },
     "designerId": "5beba24d-d17b-4fb2-98b5-1b4564f8c0f3"

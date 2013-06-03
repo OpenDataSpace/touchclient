@@ -20,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "doRepaint",
                 "fn": "doRepaint",
                 "implHandler": [
                     "this.down('#titleBar').doRepaint();"
@@ -49,7 +48,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerInitialize",
                 "fn": "onContainerInitialize",
                 "implHandler": [
                     ""
@@ -66,7 +64,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerPainted",
                 "fn": "onContainerPainted",
                 "implHandler": [
                     "if (!this.loaded) {\r",
@@ -76,7 +73,7 @@
                     "\r",
                     "        if (!this.navTitle || this.navTitle == \"Start\") {\r",
                     "            this.down('#titleBar').down('#backButton').setText(\"\");\r",
-                    "            this.down('#titleBar').down('#backButton').setIconCls(\"gohome\");\r",
+                    "            this.down('#titleBar').down('#backButton').setIconCls(\"home\");\r",
                     "        }\r",
                     "        else {\r",
                     "            this.down('#titleBar').down('#backButton').setText(this.navTitle);\r",

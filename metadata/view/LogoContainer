@@ -22,7 +22,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerPainted",
                 "fn": "onContainerPainted",
                 "implHandler": [
                     ""
@@ -39,7 +38,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerShow",
                 "fn": "onContainerShow",
                 "implHandler": [
                     ""
@@ -62,7 +60,6 @@
                     "dslogo"
                 ],
                 "height": 150,
-                "designer|userClassName": "MyImg",
                 "src": "images/logo.png"
             },
             "designerId": "6ad2899a-34ce-41fc-8b46-eb94cefbbf25"

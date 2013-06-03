@@ -33,7 +33,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "internInit",
                 "fn": "internInit",
                 "implHandler": [
                     ""
@@ -49,7 +48,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "search",
                 "fn": "search",
                 "designer|params": [
                     "searchQuery"
@@ -76,7 +74,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "deselectAllLists",
                 "fn": "deselectAllLists",
                 "implHandler": [
                     "if (MyGlobals.currentDocumentList) {\r",
@@ -106,7 +103,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "navigateToFolder",
                 "fn": "navigateToFolder",
                 "designer|params": [
                     "fId",
@@ -192,7 +188,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "navigateToParent",
                 "fn": "navigateToParent",
                 "implHandler": [
                     "var me = this;\r",
@@ -228,7 +223,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "tabCallback",
                 "fn": "tabCallback",
                 "designer|params": [
                     "tab"
@@ -256,7 +250,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "navigateToParent2",
                 "fn": "navigateToParent2",
                 "designer|params": [
                     "container"
@@ -290,8 +283,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "tabPanel",
-                "designer|userClassName": "MyTabPanel"
+                "itemId": "tabPanel"
             },
             "designerId": "9b3c6a02-ab91-4c7e-8325-65a3740932e3",
             "cn": [
@@ -305,8 +297,7 @@
                     "userConfig": {
                         "docked": "bottom",
                         "height": null,
-                        "itemId": "tabBar",
-                        "designer|userClassName": "MyTabBar"
+                        "itemId": "tabBar"
                     },
                     "designerId": "0dcbf19f-d6ad-44c4-9782-152a6b9f1f53",
                     "cn": [
@@ -318,7 +309,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onTabBarActivate",
                                 "fn": "onTabBarActivate",
                                 "implHandler": [
                                     ""
@@ -342,7 +332,7 @@
                         "showAnimation": null,
                         "layout": "card",
                         "title": "My folders",
-                        "iconCls": "doc"
+                        "iconCls": "user"
                     },
                     "designerId": "0c56fa49-323a-4930-99f6-49aad9328b3e",
                     "masterInstanceId": "17bbcff2-770e-425f-b8f5-e355b625ab67"
@@ -398,7 +388,7 @@
                     "userConfig": {
                         "itemId": "settingsContainer",
                         "title": "Settings",
-                        "iconCls": "settings5"
+                        "iconCls": "settings"
                     },
                     "designerId": "50e7569b-c240-49dd-890b-5cdda45fd169",
                     "masterInstanceId": "e45f39e9-8310-4feb-b0f1-677c45441336"
@@ -411,7 +401,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onTabPanelActivate",
                         "fn": "onTabPanelActivate",
                         "implHandler": [
                             "var me = this,\r",
@@ -436,7 +425,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onTabPanelActiveItemChange",
                         "fn": "onTabPanelActiveItemChange",
                         "implHandler": [
                             "this.lastActiveItem = value.id;\r",
@@ -456,7 +444,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onPanelShow",
                 "fn": "onPanelShow",
                 "implHandler": [
                     "\r",
@@ -478,7 +465,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onPanelHide",
                 "fn": "onPanelHide",
                 "implHandler": [
                     "/*\r",

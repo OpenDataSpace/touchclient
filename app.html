@@ -6,23 +6,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>gds2-touchclient</title>
-    <script src="../touch-2.0.3/sencha-touch-all-debug.js"></script>
-    <link rel="stylesheet" href="../touch-2.0.3/resources/css/sencha-touch.css">
+    <script>
+        var Ext = Ext || {};
+        Ext.theme = {
+            name: "Default"
+        };
+    </script>
+    <script src="../touch-2.2.0sencha-touch-all-debug.js"></script>
+    <link rel="stylesheet" href="../touch-2.2.0resources/css/sencha-touch.css">
     <link rel="stylesheet" href="css/agorum.css" id="agorumcss">
     <script src="agorum.js"></script>
     <script src="3rdparty/plupload.full.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript">
-        if (!Ext.browser.is.WebKit) {
-            alert("The current browser is unsupported.\n\nSupported browsers:\n" +
-                "Google Chrome\n" +
-                "Apple Safari\n" +
-                "Mobile Safari (iOS)\n" +
-                "Android Browser\n" +
-                "BlackBerry Browser"
-            );
-        }
-    </script>
 </head>
 <body></body>
 </html>

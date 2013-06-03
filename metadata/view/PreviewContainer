@@ -25,7 +25,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "setPageLabel",
                 "fn": "setPageLabel",
                 "designer|params": [
                     "page",
@@ -52,7 +51,6 @@
                 "style": "background:#ddd;opacity:0.5;",
                 "top": 20,
                 "width": 60,
-                "designer|userClassName": "MyContainer9",
                 "layout": "fit"
             },
             "designerId": "d4f702a7-9c3d-494e-8658-837bbe5152a9",
@@ -68,8 +66,7 @@
                         "centered": true,
                         "html": "1/2",
                         "itemId": "pageLabel",
-                        "ui": "dark",
-                        "designer|userClassName": "MyLabel"
+                        "ui": "dark"
                     },
                     "designerId": "aaf3451d-cbed-4ef5-a886-ad499c708e96"
                 }

@@ -21,7 +21,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "activateCallback",
                 "fn": "activateCallback",
                 "implHandler": [
                     "this.down('#searchList').deselectAll();"
@@ -37,7 +36,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "deactivateCallback",
                 "fn": "deactivateCallback",
                 "implHandler": [
                     "this.down('#searchList').deselectAll();\r",
@@ -56,8 +54,7 @@
             "userConfig": {
                 "docked": "top",
                 "height": null,
-                "itemId": "searchToolbar",
-                "designer|userClassName": "MyToolbar6"
+                "itemId": "searchToolbar"
             },
             "designerId": "d8a13cf2-48e9-4d6c-b9f7-87525bc51795",
             "cn": [
@@ -73,7 +70,6 @@
                         "height": null,
                         "itemId": "mysearchfield",
                         "width": "95%",
-                        "designer|userClassName": "MySearchField",
                         "label": null
                     },
                     "designerId": "b0f8de2c-8579-4a33-9fd6-b0fbc2b732b7",
@@ -86,7 +82,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "onMysearchfieldAction",
                                 "fn": "onMysearchfieldAction",
                                 "implHandler": [
                                     "var me = this;\r",
@@ -119,7 +114,6 @@
                         "itemId": "searchFilter",
                         "width": "0%",
                         "zIndex": null,
-                        "designer|userClassName": "MySelectField",
                         "label": null,
                         "displayField": "label",
                         "store": "QuickSearchDataStore"
@@ -141,7 +135,6 @@
                 ],
                 "itemId": "searchList",
                 "ui": null,
-                "designer|userClassName": "MyList",
                 "masked": [
                     "true"
                 ],
@@ -159,7 +152,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onSearchListSelect",
                         "fn": "onSearchListSelect",
                         "implHandler": [
                             "var classObject = record.get(\"classname\"),\r",
@@ -180,9 +172,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MyPullRefreshPlugin2"
-                    },
                     "designerId": "07054897-6870-42fd-a66d-acaede09441a",
                     "cn": [
                         {
@@ -193,7 +182,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "designer|userClassName": "refreshFn",
                                 "fn": "refreshFn",
                                 "designer|params": [
                                     "plugin"
@@ -221,7 +209,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "MyListPagingPlugin2",
                         "autoPaging": true,
                         "loadMoreText": "Mehr laden...",
                         "noMoreRecordsText": " "
@@ -236,7 +223,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "onSearchListDisclose",
                         "fn": "onSearchListDisclose",
                         "implHandler": [
                             "MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'));"
@@ -253,7 +239,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "itemTpl",
                         "implHandler": [
                             "<div class=\"list_style\">",
                             "<div class=\"list_icons\">",
@@ -276,7 +261,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerDeactivate",
                 "fn": "onContainerDeactivate",
                 "implHandler": [
                     "this.deactivateCallback();"
@@ -293,7 +277,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerActivate",
                 "fn": "onContainerActivate",
                 "implHandler": [
                     "this.activateCallback();"
@@ -310,7 +293,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerPainted",
                 "fn": "onContainerPainted",
                 "implHandler": [
                     "var store = this.down('#searchFilter').getStore();\r",

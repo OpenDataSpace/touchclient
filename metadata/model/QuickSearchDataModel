@@ -19,8 +19,7 @@
             "codeClass": null,
             "userConfig": {
                 "mapping": "text",
-                "name": "label",
-                "designer|userClassName": "MyField"
+                "name": "label"
             },
             "designerId": "6a821a82-c3cf-4e6c-b959-169755e7c39a",
             "cn": [
@@ -32,7 +31,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|userClassName": "convert",
                         "fn": "convert",
                         "designer|params": [
                             "v",
@@ -63,8 +61,7 @@
             "userConfig": {
                 "mapping": "query",
                 "name": "value",
-                "type": "string",
-                "designer|userClassName": "MyField1"
+                "type": "string"
             },
             "designerId": "16b06628-24c8-4579-8947-c9815c58de30"
         }

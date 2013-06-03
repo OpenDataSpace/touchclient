@@ -21,7 +21,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "reload",
                 "fn": "reload",
                 "implHandler": [
                     "var me = this;\r",
@@ -47,7 +46,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "load",
                 "fn": "load",
                 "designer|params": [
                     "objectId"
@@ -153,7 +151,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "writeNote",
                 "fn": "writeNote",
                 "implHandler": [
                     "var me = this,\r",
@@ -184,7 +181,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "showNote",
                 "fn": "showNote",
                 "designer|params": [
                     "noteId"
@@ -208,7 +204,6 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "viewContainer",
-                "designer|userClassName": "MyContainer44",
                 "layout": "fit"
             },
             "designerId": "955c2dbc-81e1-4fe7-93b0-0a19df3d82af",
@@ -222,8 +217,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "docked": "top",
-                        "itemId": "objectInfoToolbar",
-                        "designer|userClassName": "MyToolbar11"
+                        "itemId": "objectInfoToolbar"
                     },
                     "designerId": "122fff3d-ea57-477c-adfb-8be1cc59b019",
                     "cn": [
@@ -236,9 +230,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "itemId": "closeButtonLeft",
-                                "designer|userClassName": "MyButton19",
                                 "iconCls": "left2",
-                                "iconMask": true,
                                 "text": null
                             },
                             "designerId": "b0c1c465-609e-42c5-b690-3257e9fc2d3d",
@@ -251,7 +243,6 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "designer|userClassName": "onCloseButtonLeftTap",
                                         "fn": "onCloseButtonLeftTap",
                                         "implHandler": [
                                             "MyGlobals.mainPanel.hideInfoPanel();"
@@ -270,8 +261,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "itemId": "buttonSegment",
-                                "designer|userClassName": "MySegmentedButton"
+                                "itemId": "buttonSegment"
                             },
                             "designerId": "85b5e880-4772-46aa-82f0-ebeb94d075d8",
                             "cn": [
@@ -285,9 +275,7 @@
                                     "userConfig": {
                                         "pressed": true,
                                         "itemId": "infoButton",
-                                        "designer|userClassName": "MyButton18",
                                         "iconCls": "info",
-                                        "iconMask": true,
                                         "text": "Info"
                                     },
                                     "designerId": "453bfba4-8a58-4463-8f20-225a5c248c13",
@@ -300,7 +288,6 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "designer|userClassName": "onInfoButtonTap",
                                                 "fn": "onInfoButtonTap",
                                                 "implHandler": [
                                                     "this.down('#cardContainer').setActiveItem(0);"
@@ -320,9 +307,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "itemId": "notesButton",
-                                        "designer|userClassName": "MyButton17",
                                         "iconCls": "chat",
-                                        "iconMask": true,
                                         "text": "Notes"
                                     },
                                     "designerId": "5277a73c-2338-430a-abb1-5607404e38e8",
@@ -335,7 +320,6 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "designer|userClassName": "onNotesButtonTap",
                                                 "fn": "onNotesButtonTap",
                                                 "implHandler": [
                                                     "this.down('#cardContainer').setActiveItem(1);"
@@ -355,9 +339,6 @@
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "userConfig": {
-                                "designer|userClassName": "MySpacer5"
-                            },
                             "designerId": "8fdfb534-7ef6-4407-b927-b8491a60e38c"
                         },
                         {
@@ -370,9 +351,7 @@
                             "userConfig": {
                                 "itemId": "closeButtonRight",
                                 "ui": null,
-                                "designer|userClassName": "MyButton19",
                                 "iconCls": "right2",
-                                "iconMask": true,
                                 "text": null
                             },
                             "designerId": "e5ab0ee8-afb5-4ca7-9685-86c4683de4f0",
@@ -385,7 +364,6 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "designer|userClassName": "onCloseButtonRightTap",
                                         "fn": "onCloseButtonRightTap",
                                         "implHandler": [
                                             "this.hide();\r",
@@ -408,7 +386,6 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "cardContainer",
-                        "designer|userClassName": "MyContainer38",
                         "layout": "card"
                     },
                     "designerId": "54ca12e9-5e5a-4ee1-938d-df1c9d3d8025",
@@ -426,7 +403,6 @@
                                 ],
                                 "itemId": "infoContainer",
                                 "padding": 10,
-                                "designer|userClassName": "MyContainer21",
                                 "scrollable": true
                             },
                             "designerId": "50780741-a2db-487b-a1f0-3ee68e11a2ad",
@@ -440,7 +416,6 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "padding": null,
-                                        "designer|userClassName": "MyFieldSet2",
                                         "title": null
                                     },
                                     "designerId": "c4dd02b5-d1c8-46b3-a033-92a43066bc79",
@@ -454,7 +429,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "name",
-                                                "designer|userClassName": "MyTextArea2",
                                                 "clearIcon": false,
                                                 "label": "Name",
                                                 "labelWidth": 100,
@@ -474,7 +448,6 @@
                                                     "myTextArea"
                                                 ],
                                                 "itemId": "description",
-                                                "designer|userClassName": "MyTextArea1",
                                                 "clearIcon": false,
                                                 "label": "Description",
                                                 "labelWidth": 100,
@@ -494,7 +467,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "objectId",
-                                                "designer|userClassName": "MyTextField1",
                                                 "clearIcon": false,
                                                 "label": "Id",
                                                 "labelWidth": 100,
@@ -514,7 +486,6 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "padding": null,
-                                        "designer|userClassName": "MyFieldSet2",
                                         "title": null
                                     },
                                     "designerId": "254b8ae3-6c44-4304-ad15-5f52faae399f",
@@ -528,7 +499,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "creator",
-                                                "designer|userClassName": "MyTextField1",
                                                 "clearIcon": false,
                                                 "label": "Creator",
                                                 "labelAlign": null,
@@ -549,7 +519,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "owner",
-                                                "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
                                                 "label": "Owner",
                                                 "labelWidth": 100,
@@ -569,7 +538,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "lastModifier",
-                                                "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
                                                 "label": "Changed by",
                                                 "labelWidth": 100,
@@ -591,7 +559,6 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "padding": null,
-                                        "designer|userClassName": "MyFieldSet2",
                                         "title": null
                                     },
                                     "designerId": "4eaf4d29-7a12-469f-9e34-21a53c87e259",
@@ -605,7 +572,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "createDate",
-                                                "designer|userClassName": "MyTextField1",
                                                 "clearIcon": false,
                                                 "label": "Creation Time",
                                                 "labelWidth": 100,
@@ -625,7 +591,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "lastModifyDate",
-                                                "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
                                                 "label": "Last Modification",
                                                 "labelWidth": 100,
@@ -645,7 +610,6 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "itemId": "accessDate",
-                                                "designer|userClassName": "MyTextField2",
                                                 "clearIcon": false,
                                                 "label": "Last Access",
                                                 "labelWidth": 100,
@@ -669,7 +633,6 @@
                             "codeClass": null,
                             "userConfig": {
                                 "itemId": "notesContainer",
-                                "designer|userClassName": "MyContainer22",
                                 "layout": "card"
                             },
                             "designerId": "81ef6d50-9787-40f7-9f0f-1551b2c412a3",
@@ -683,7 +646,6 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "itemId": "notesList",
-                                        "designer|userClassName": "MyContainer3",
                                         "layout": "fit"
                                     },
                                     "designerId": "c4ea0798-7829-4736-a5ff-b7c359a83833",
@@ -702,7 +664,6 @@
                                                 "hidden": true,
                                                 "itemId": "noteEntries",
                                                 "padding": 5,
-                                                "designer|userClassName": "MyContainer33",
                                                 "scrollable": true
                                             },
                                             "designerId": "87108497-0099-4bec-b6c4-97134a79cf03"
@@ -716,8 +677,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "docked": "bottom",
-                                                "height": null,
-                                                "designer|userClassName": "MyToolbar2"
+                                                "height": null
                                             },
                                             "designerId": "98d011e0-5a6f-4bef-bbdd-e20b8fcee499",
                                             "cn": [
@@ -731,9 +691,7 @@
                                                     "userConfig": {
                                                         "layout|flex": null,
                                                         "itemId": "createNote",
-                                                        "designer|userClassName": "MyButton11",
                                                         "iconCls": "compose",
-                                                        "iconMask": true,
                                                         "text": "Create  Note"
                                                     },
                                                     "designerId": "c71e365b-1e3b-49aa-9aef-eb01eda6c612",
@@ -746,7 +704,6 @@
                                                             },
                                                             "codeClass": null,
                                                             "userConfig": {
-                                                                "designer|userClassName": "onCreateNoteTap",
                                                                 "fn": "onCreateNoteTap",
                                                                 "implHandler": [
                                                                     "this.writeNote();"
@@ -769,8 +726,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "itemId": "notesWrite",
-                                        "designer|userClassName": "MyContainer23"
+                                        "itemId": "notesWrite"
                                     },
                                     "designerId": "71bae361-7002-4ded-896b-79fb63190533",
                                     "cn": [
@@ -782,8 +738,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "itemId": "receivers",
-                                                "designer|userClassName": "MyContainer24"
+                                                "itemId": "receivers"
                                             },
                                             "designerId": "9bcfd89f-e165-4ee8-b6ae-f27727e76d03"
                                         },
@@ -795,8 +750,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "itemId": "notesText",
-                                                "designer|userClassName": "MyContainer25"
+                                                "itemId": "notesText"
                                             },
                                             "designerId": "ab781713-a787-43c1-b63d-f23429737cbf",
                                             "cn": [
@@ -808,7 +762,6 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
-                                                        "designer|userClassName": "MyTextArea",
                                                         "label": null,
                                                         "required": true,
                                                         "value": [
@@ -850,8 +803,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "docked": "bottom",
-                                                "designer|userClassName": "MyToolbar8"
+                                                "docked": "bottom"
                                             },
                                             "designerId": "0585f40a-efd4-49ca-985e-c326643ace5b",
                                             "cn": [
@@ -864,7 +816,6 @@
                                                     "codeClass": null,
                                                     "userConfig": {
                                                         "ui": "confirm",
-                                                        "designer|userClassName": "MyButton12",
                                                         "text": "Senden"
                                                     },
                                                     "designerId": "c378d274-5950-4408-b9c0-fe6ec7ffccbe"
@@ -876,9 +827,6 @@
                                                         "type": "array"
                                                     },
                                                     "codeClass": null,
-                                                    "userConfig": {
-                                                        "designer|userClassName": "MySpacer3"
-                                                    },
                                                     "designerId": "c90b22aa-91db-4ae2-8674-112344383334"
                                                 },
                                                 {
@@ -891,7 +839,6 @@
                                                     "userConfig": {
                                                         "docked": null,
                                                         "ui": "decline",
-                                                        "designer|userClassName": "MyButton13",
                                                         "text": "Abbrechen"
                                                     },
                                                     "designerId": "69a32650-6571-485f-bda5-a1633970b5ca"
@@ -914,7 +861,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerMove",
                 "fn": "onContainerMove",
                 "implHandler": [
                     "console.log('move');"
@@ -931,7 +877,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerLeftChange",
                 "fn": "onContainerLeftChange",
                 "implHandler": [
                     "console.log(value+\", \"+oldValue);"
@@ -948,7 +893,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerPainted",
                 "fn": "onContainerPainted",
                 "implHandler": [
                     "if (MyGlobals.isPhone) {\r",
@@ -970,7 +914,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerActivate",
                 "fn": "onContainerActivate",
                 "implHandler": [
                     ""
@@ -987,7 +930,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onContainerActiveItemChange",
                 "fn": "onContainerActiveItemChange",
                 "implHandler": [
                     "//we come from noteslist, so reload if necessary\r",

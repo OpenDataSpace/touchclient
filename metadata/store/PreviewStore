@@ -20,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onStoreBeforeLoad",
                 "fn": "onStoreBeforeLoad",
                 "implHandler": [
                     "operation.setParams({\r",

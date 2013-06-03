@@ -6,7 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": false,
         "model": "QuickSearchDataModel",
         "storeId": "QuickSearchDataStore",
         "designer|userClassName": "QuickSearchDataStore"
@@ -21,7 +20,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyRestProxy7",
                 "extraParams": [
                     "{",
                     "\tprovider: 'quicksearch',",
@@ -41,8 +39,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader8"
+                        "rootProperty": "data"
                     },
                     "designerId": "8ea4d105-edd7-48c7-b94b-e7f69dca3265"
                 }
@@ -56,7 +53,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "onJsonstoreBeforeLoad",
                 "fn": "onJsonstoreBeforeLoad",
                 "implHandler": [
                     "addSessionIdToParams(operation);\r",
