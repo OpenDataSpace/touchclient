@@ -65,7 +65,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     onPanelShow: function(component, eOpts) {
-        var me = this, men = null, contentContainer;
+        var me = this, men = null, contentContainer, logoContainer;
 
         MyGlobals.mainPanel = me;
 
@@ -101,7 +101,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         MyGlobals.contentContainer = contentContainer;
 
         if (!MyGlobals.isPhone) {
-            var logoContainer = Ext.create("ACMobileClient.view.LogoContainer", {});
+            logoContainer = Ext.create("ACMobileClient.view.LogoContainer", {});
             logoContainer.persistent = true;
             MyGlobals.lastObjectInContentContainer = logoContainer;
             me.loadContentContainer(logoContainer, true, false, "Start");
@@ -139,7 +139,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         items = cont.items;
         MyGlobals.lastObjectInContentContainer = cont.getAt(items.length - 2);
 
-        if (items.length == 1 && MyGlobals.isPhone) {
+        if (items.length === 1 && MyGlobals.isPhone) {
             this.showMenuPanel();
 
             setTimeout(function() {
@@ -152,7 +152,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         else {
             cont.remove(cont.getActiveItem(), true);
             if (items.length > 1) {
-                if (items.length == 2) {
+                if (items.length === 2) {
                     if (MyGlobals.menuPanel) {
                         MyGlobals.menuPanel.deselectAllLists();
                     }
@@ -163,7 +163,8 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     handleObject: function(classObject, objectId, name, persistent, record) {
-        var me = this;
+        var me = this,
+            tab;
         ACUtils.utils.checkConnectionWithFunction(function() {
             var previewAble = record.get("previewable"),
                 textAvailable = record.get("textavailable"),
@@ -179,7 +180,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 me.showText(objectId,persistent);
             }
             else if (isFolder) {
-                var tab = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();
+                tab = MyGlobals.menuPanel.down('#tabPanel').getActiveItem();
                 //MyGlobals.menuPanel.down('#tabPanel').setActiveItem(me.down('#documentsBar'));
 
                 MyGlobals.menuPanel.navigateToFolder(objectId, name, false, tab);
@@ -218,7 +219,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 //listButton.hide();
                 MyGlobals.showListButton = false;
             }
-            else if ((Ext.Viewport.getOrientation() == 'portrait' && !isAndroidTablet) || (Ext.Viewport.getOrientation() != 'portrait' && isAndroidTablet)) {
+            else if ((Ext.Viewport.getOrientation() === 'portrait' && !isAndroidTablet) || (Ext.Viewport.getOrientation() !== 'portrait' && isAndroidTablet)) {
                 height = me.element.getHeight();
                 men.setDocked(null);
                 men.setTop(5);
@@ -256,7 +257,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
             }
 
             //reload content elements
-            for (i=0; i<itemLen; ++i) {
+            for (i=0; i<itemLen; i+=1) {
                 el = cont.getAt(i);
                 if (el.doRepaint) {
                     el.doRepaint();
@@ -291,8 +292,8 @@ Ext.define('ACMobileClient.view.MainPanel', {
             itemLen = items.length,
             contCon;
 
-        if (!persistent && lastObj != null && !lastObj.persistent) {
-            itemLen--;
+        if (!persistent && lastObj !== null && !lastObj.persistent) {
+            itemLen-=1;
             setTimeout(function() {
                 console.log("removing last: "+lastObj);
                 cont.remove(lastObj, true);
@@ -362,7 +363,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 var jsonResp = Ext.decode(response.responseText),
                     areas = jsonResp.data,
                     i;
-                for (i = 0; i < areas.length; ++i) {
+                for (i = 0; i < areas.length; i+=1) {
                     MyGlobals.areaIds += theOr + "inpath:" + areas[i].id;
                     theOr = " OR ";
                 }
@@ -467,7 +468,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         iPanel.load(objectId);
 
 
-        if (className && className == 'noteobject') {
+        if (className && className === 'noteobject') {
             //switch not note view
             iPanel.showNote(noteId);
         }
