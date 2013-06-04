@@ -134,7 +134,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
             this.parentContainer.setPageLabel(this.page, this.pageCount);
         }
         var imgViewer = this;
-        if (imgViewer.isLoaded == false) {
+        if (imgViewer.isLoaded === false) {
             this.showLoader();
         }
 
@@ -145,7 +145,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
             if (!imgViewer.abortLoad) {
                 console.log("isLoaded? " + imgViewer.isLoaded + ", isLoading? " + imgViewer.isLoading);
-                if (imgViewer.isLoaded == false && imgViewer.isLoading == false) {
+                if (imgViewer.isLoaded === false && imgViewer.isLoading === false) {
                     imgViewer.isLoading = true;
 
                     //load first image
@@ -167,7 +167,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
                     previewStore.load();
 
                 } else {
-                    if (imgViewer.nextImageViewer != null && imgViewer.loadNext) {
+                    if (imgViewer.nextImageViewer !== null && imgViewer.loadNext) {
                         console.log("load next...");
                         //preload next image
                         imgViewer.nextImageViewer.viewerShown(false);
@@ -288,7 +288,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
             this.isLoading = false;
             this.hideLoader();
             this.reloadViewer();
-            if (this.nextImageViewer != null && this.loadNext) {
+            if (this.nextImageViewer !== null && this.loadNext) {
                 console.log("load next...");
                 //preload next image
                 this.nextImageViewer.viewerShown(false);
@@ -362,8 +362,12 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
             console.log(posX+"/"+curImgW+", "+posY+"/"+curImgH);
 
-            if (posX > 0) posX = 0;
-            if (posY > 0) posY = 0;
+            if (posX > 0) {
+                posX = 0;
+            }
+            if (posY > 0) {
+                posY = 0;
+            }
 
             if (curImgW < this.viewportWidth) {
                 posX = (this.viewportWidth - curImgW)/2;
@@ -490,9 +494,15 @@ Ext.define('ACMobileClient.view.ImageViewer', {
                 this.getScrollable().refresh();
 
                 // apply scroll
+                if(typeof this.scrollX === 'undefined'){
+                    this.scrollX = 0;
+                }
+                if(typeof this.scrollY === 'undefined'){
+                    this.scrollY = 0;
+                }
                 this.getScrollable().getScroller().scrollTo(
-                        -this.scrollX || 0,
-                        -this.scrollY || 0,
+                        -this.scrollX,
+                        -this.scrollY,
                         { 'duration' : 0 }
                         );
 
