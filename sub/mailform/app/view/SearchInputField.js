@@ -140,8 +140,8 @@ Ext.define('ACMobile.view.SearchInputField', {
         this.theTextField = textfield;
         console.log(e.browserEvent.keyCode);
 
-        if (textfield.getValue().length == 0) {
-            if (e.browserEvent.keyCode == 8 && this.lastInputValue.length == 0) {
+        if (textfield.getValue().length === 0) {
+            if (e.browserEvent.keyCode === 8 && this.lastInputValue.length === 0) {
                 //backspace on empty field
                 if (!this.selectedItem) {
                     //first time, select last item
@@ -159,7 +159,7 @@ Ext.define('ACMobile.view.SearchInputField', {
                 this.deselectField();
             }
         }
-        else if (e.browserEvent.keyCode == 13) {
+        else if (e.browserEvent.keyCode === 13) {
             var eml = textfield.getValue();
             if (Ext.util.Format.trim(eml).length>0) {
                 textfield.setValue('');
@@ -216,13 +216,13 @@ Ext.define('ACMobile.view.SearchInputField', {
     onContainerInitialize: function(component, eOpts) {
         this.inputEmptyCounter = 0;
         this.lastInputValue = "";
-        this.inputItems = new Array();
+        this.inputItems = [];
         this.selectedItem = null;
         this.theTextField = null;
         this.hasSearchResults = false;
 
-        var me = this;
-        var store = this.down('#searchList').getStore();
+        var me = this,
+            store = this.down('#searchList').getStore();
 
         store.on('load', function(store, records) {
             me.inSearch = false;
@@ -243,13 +243,15 @@ Ext.define('ACMobile.view.SearchInputField', {
     search: function(force) {
         if (!this.inSearch || force) {
 
-            var store = this.down('#searchList').getStore();
+            var store = this.down('#searchList').getStore(),
+                value = this.down('#inputField').getValue(),
+                me;
+
             this.handleInpField();
-            var value = this.down('#inputField').getValue();
             this.lastInputValue = value;
 
-            if (value.length == 0) {
-                var me = this;
+            if (value.length === 0) {
+                me = this;
                 setTimeout(function() {
                     me.down('#searchList').setHeight(0);
                 },200);
@@ -266,8 +268,8 @@ Ext.define('ACMobile.view.SearchInputField', {
     },
 
     focusField: function() {
-        var me = this;
-        var theInpId = me.down('#inputField').element.down('textarea').id;
+        var me = this,
+            theInpId = me.down('#inputField').element.down('textarea').id;
         document.getElementById(theInpId).focus();
 
     },
@@ -275,7 +277,7 @@ Ext.define('ACMobile.view.SearchInputField', {
     handleInpField: function() {
         var value = this.down('#inputField').getValue();
 
-        if (value.length > 7 || this.inputItems.length == 0) {
+        if (value.length > 7 || this.inputItems.length === 0) {
             //resize the input field
             this.down('#inputField').removeCls('searchInpFieldSmall');
             this.down('#inputField').addCls('searchInpFieldLarge');
@@ -288,17 +290,17 @@ Ext.define('ACMobile.view.SearchInputField', {
     },
 
     addField: function(text, value) {
-        var inpC = this.down('#inputContainer');
-
-        var selField = Ext.create('ACMobile.view.SelectedField', {
-            html: text
-        });
+        var inpC = this.down('#inputContainer'),
+            me = this,
+            selField = Ext.create('ACMobile.view.SelectedField', {
+                html: text
+            });
         selField.theParent = this;
 
         inpC.insert(this.inputItems.length, selField);
         this.inputItems[this.inputItems.length] = selField;
 
-        var me = this;
+
         me.theTextField.focus();
 
     },
@@ -313,7 +315,7 @@ Ext.define('ACMobile.view.SearchInputField', {
     },
 
     deselectField: function() {
-        if (this.selectedItem != null) {
+        if (this.selectedItem !== null) {
             this.selectedItem.removeCls('inputFieldSelected');
             this.selectedItem = null;
         }
@@ -327,10 +329,12 @@ Ext.define('ACMobile.view.SearchInputField', {
     },
 
     deleteField: function() {
-        var inpC = this.down('#inputContainer');
+        var inpC = this.down('#inputContainer'),
+            numb = -1,
+            i;
         inpC.remove(this.selectedItem, true);
-        var numb = -1;
-        for (var i=0;i<this.inputItems.length;i++) {
+
+        for (i=0;i<this.inputItems.length;i+=1) {
             if (this.inputItems[i] == this.selectedItem) {
                 numb = i;
                 break;

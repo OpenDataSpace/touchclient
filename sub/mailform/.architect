@@ -158,18 +158,19 @@
     },
     "tabState": {
         "openTabs": [
-            "883a6b90-59f6-4f44-9ebd-2b7302dee485"
+            "883a6b90-59f6-4f44-9ebd-2b7302dee485",
+            "c90b719c-b695-4737-a327-5eedf7497106"
         ]
     },
     "canvasState": {
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "b0308bf4-60d1-4b6f-a46e-c17056024001",
-        "selectedInstance": "b0308bf4-60d1-4b6f-a46e-c17056024001"
+        "topInstance": "c90b719c-b695-4737-a327-5eedf7497106",
+        "selectedInstance": "91110de3-7636-49a4-b4aa-96614509ede3"
     },
     "codeState": {
-        "topInstance": null
+        "topInstance": "c90b719c-b695-4737-a327-5eedf7497106"
     },
     "editMode": "code"
 }
