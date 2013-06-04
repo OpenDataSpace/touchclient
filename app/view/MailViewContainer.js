@@ -172,13 +172,13 @@ Ext.define('ACMobileClient.view.MailViewContainer', {
     },
 
     onAttachmentListSelect: function(dataview, record, eOpts) {
-        var classObject = record.get("className");
-        var objectId = record.get("objectId");
-        var name = record.get("name");
+        var classObject = record.get("className"),
+            objectId = record.get("objectId"),
+            name = record.get("name"),
+            me = this;
 
         MyGlobals.mainPanel.handleObject(classObject, objectId, name, true, record);
 
-        var me = this;
         setTimeout(function() {
             me.down('#attachmentList').deselectAll();
         }, 100);
@@ -229,28 +229,50 @@ Ext.define('ACMobileClient.view.MailViewContainer', {
     },
 
     loadMask: function(record, objectId) {
-        var data = record.getData(true);
+        var data = record.getData(true),
+            adr,
+            theAddress,
+            butTo,
+            fromAddress,
+            toAddresses,
+            but1,
+            bodyText,
+            text,
+            bodyTextDiv,
+            tags,
+            st,
+            w,
+            h,
+            wc,
+            fac,
+            nw,
+            nh,
+            store,
+            me = this;
+
         this.down('#subjectLabel').setData(data);
         this.down('#dateLabel').setData(data);
 
         //from
-        var fromAddress = record.get('from');
-        var but1 = Ext.create('ACMobileClient.view.MailButton', {});
+        fromAddress = record.get('from');
+        but1 = Ext.create('ACMobileClient.view.MailButton', {});
         but1.setHtml(Ext.String.htmlEncode(fromAddress));
         this.down('#fromButtons').add(but1);
 
         //to
-        var toAddresses = record.get('to');
+        toAddresses = record.get('to');
         if (toAddresses) {
-            for (var adr in toAddresses) {
-                var theAddress = toAddresses[adr];
-                var butTo = Ext.create('ACMobileClient.view.MailButton', {});
-                butTo.setHtml(Ext.String.htmlEncode(theAddress));
-                this.down('#toButtons').add(butTo);
+            for (adr in toAddresses) {
+                if(toAddresses.hasOwnProperty(adr)){
+                    theAddress = toAddresses[adr];
+                    butTo = Ext.create('ACMobileClient.view.MailButton', {});
+                    butTo.setHtml(Ext.String.htmlEncode(theAddress));
+                    this.down('#toButtons').add(butTo);
+                }
             }
         }
 
-        var bodyText = Ext.create('Ext.Container', {
+        bodyText = Ext.create('Ext.Container', {
             cls: [
             'scaled_content'
             ],
@@ -260,31 +282,31 @@ Ext.define('ACMobileClient.view.MailViewContainer', {
             ui: 'light'
         });
 
-        var text = data.text;
+        text = data.text;
         text = text.replace(/cid:/gi, "/api/rest/object/embed/");
         bodyText.setHtml(text);
-        var bodyTextDiv = bodyText.element.dom;
+        bodyTextDiv = bodyText.element.dom;
 
         //this.element.down('#bodyText').dom.innerHTML = record.get('text');
         //this.down('#bodyText').setHtml('<iframe width="100%" height="100%" border="0" frameborder="0" scrolling="no"  src="mailviewbody/mailviewbody.jsp?objectId='+objectId+'"/>');
 
-        var tags = bodyTextDiv.getElementsByTagName('style');
+        tags = bodyTextDiv.getElementsByTagName('style');
         if (tags) {
-            for (var st=0;st<tags.length;st++) {
+            for (st=0;st<tags.length;st+=1) {
                 tags[st].parentNode.removeChild(tags[st]);
             }
         }
 
         tags = bodyTextDiv.getElementsByTagName('script');
         if (tags) {
-            for (var st=0;st<tags.length;st++) {
+            for (st=0;st<tags.length;st+=1) {
                 tags[st].parentNode.removeChild(tags[st]);
             }
         }
 
         tags = bodyTextDiv.getElementsByTagName('meta');
         if (tags) {
-            for (var st=0;st<tags.length;st++) {
+            for (st=0;st<tags.length;st+=1) {
                 tags[st].content='';
             }
         }
@@ -294,22 +316,22 @@ Ext.define('ACMobileClient.view.MailViewContainer', {
 
         bodyText.element.on('doubletap', this.onDoubleTap, this, {}); 
         this.scaled = true;
-        var w = parseInt(getStyle(bodyTextDiv, "width"));
+        w = parseInt(getStyle(bodyTextDiv, "width"), 10);
         this.orgWidth = w;
-        var h = parseInt(getStyle(bodyTextDiv, "height"));
+        h = parseInt(getStyle(bodyTextDiv, "height"), 10);
         this.orgHeight = h;
-        var wc = parseInt(getStyle(this.element.dom, "width"));
+        wc = parseInt(getStyle(this.element.dom, "width"), 10);
 
         if (w > wc) {
             //scale down
-            var fac = wc/w;
+            fac = wc/w;
             this.scaleFactor = fac;
             setStyle(bodyTextDiv, "-webkit-transform-origin", "0 0");
             setStyle(bodyTextDiv, "-webkit-transform", "scale("+fac+")");
 
             //recalc new height and width
-            var nw = w * fac;
-            var nh = h * fac;
+            nw = w * fac;
+            nh = h * fac;
             this.scaleWidth = nw;
             this.scaleHeight = nh;
             setStyle(bodyTextDiv, "width", nw+"px");
@@ -320,10 +342,9 @@ Ext.define('ACMobileClient.view.MailViewContainer', {
         //load attachments
         //var modl = Ext.create('ACMobileClient.model.MailAttachmentModel', {});
         //var attas = record.get('attachments');
-        var store = Ext.create('ACMobileClient.store.MailAttachmentStore');
-        var me = this;
+        store = Ext.create('ACMobileClient.store.MailAttachmentStore');
         store.on('load', function(record) {
-            if (record.data.length == 0) {
+            if (record.data.length === 0) {
                 me.down('#attachments').hide();
             }
             else {
