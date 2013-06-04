@@ -19,7 +19,7 @@ YUI = java -jar $(YUIJAR) --type js -o
 DBGSUFFIX=
 endif
 
-all: dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
+all: jslint dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
 
 $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js: $(SDK)/sencha-touch-all$(DBGSUFFIX).js
 	cp $^ $@
@@ -64,7 +64,12 @@ $(DSTDIR)/css/app.css: css/*.css
 	mkdir -p $(DSTDIR)/css
 	cat $^ | java -jar $(YUIJAR) --type css -o $@
 
+jslint:
+	phantomjs app-test/phantomlint/Tests-Runner.js
+
 clean:
 	rm -rf build generated $(PROJECT)*.tar.gz
+	rm -f app-test/results/TEST*
+	rm -f app-test/results/touchclient-lint*
 
 .PHONY: generated/AppVersion.js
