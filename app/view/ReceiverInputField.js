@@ -107,6 +107,8 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
     },
 
     onInputFieldKeyup: function(textfield, e, eOpts) {
+        var me = this,
+            eml;
         this.theTextField = textfield;
         console.log(e.browserEvent.keyCode);
 
@@ -130,27 +132,26 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
                 this.deselectField();
             }
         }
-        else if (e.browserEvent.keyCode == 13) {
-            var eml = textfield.getValue();
-            eml = Ext.util.Format.trim(eml);
-            if (eml.length>0) {
-                if (this.config.entryCallback && this.config.entryCallback(eml)) {
-                    textfield.setValue('');
-                    this.search(true);
-                    this.addField(eml, eml);
-                    return false;
+        else { 
+            if (e.browserEvent.keyCode === 13) {
+                em1 = textfield.getValue();
+                eml = Ext.util.Format.trim(eml);
+                if (eml.length>0) {
+                    if (this.config.entryCallback && this.config.entryCallback(eml)) {
+                        textfield.setValue('');
+                        this.search(true);
+                        this.addField(eml, eml);
+                    }
+                    else {
+                        textfield.setValue(eml);
+                    }
                 }
                 else {
-                    textfield.setValue(eml);
-                    return false;
+                    textfield.setValue('');
                 }
-            }
-            else {
-                textfield.setValue('');
                 return false;
             }
-        }
-        else {
+
             this.deselectField();
         }
 
@@ -161,8 +162,10 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
             textfield.setWidth(100);
         }
 
-        var me = this;
-        if (this.timer) clearTimeout(this.timer);
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
         this.timer = setTimeout(
         function() {
             me.search();
@@ -189,19 +192,21 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
             flex: 1,
             store: this.config.store,
             caller: this
-        });
+        }),
+        me = this,
+        store = this.down('#receiverList').getStore();
+
         this.down('#selectContainer').add(list);
 
 
         this.inputEmptyCounter = 0;
         this.lastInputValue = "";
-        this.inputItems = new Array();
+        this.inputItems = [];
         this.selectedItem = null;
         this.theTextField = null;
         this.hasSearchResults = false;
 
-        var me = this;
-        var store = this.down('#receiverList').getStore();
+
 
         store.on('load', function(store, records) {
             me.inSearch = false;
@@ -225,15 +230,16 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
 
     search: function(force) {
         if (!this.inSearch || force) {
-
+            var me = this,
+                store = this.down('#receiverList').getStore(),
+                value = this.down('#inputField').getValue();
             this.down('#receiverList').deselectAll();
-            var store = this.down('#receiverList').getStore();
+
             this.handleInpField();
-            var value = this.down('#inputField').getValue();
+
             this.lastInputValue = value;
 
-            if (value.length == 0) {
-                var me = this;
+            if (value.length === 0) {
                 me.down('#inputField').setWidth(50);
                 setTimeout(function() {
                     me.setHeight(null);
@@ -255,16 +261,17 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
     },
 
     focusField: function() {
-        var me = this;
-        var theInpId = me.down('#inputField').element.down('textarea').id;
+        var me = this,
+            theInpId = me.down('#inputField').element.down('textarea').id;
         document.getElementById(theInpId).focus();
 
     },
 
     getReceivers: function() {
-        var ret = new Array();
+        var ret = [],
+            i;
 
-        for (var i=0;i<this.inputItems.length;i++) {
+        for (i=0;i<this.inputItems.length;i+=1) {
             ret[i] = {
                 value: this.inputItems[i].value,
                 text: this.inputItems[i].text
@@ -278,7 +285,7 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
     handleInpField: function() {
         var value = this.down('#inputField').getValue();
 
-        if (value.length > 7 || this.inputItems.length == 0) {
+        if (value.length > 7 || this.inputItems.length === 0) {
             //resize the input field
             this.down('#inputField').removeCls('receiverInpFieldSmall');
             this.down('#inputField').addCls('receiverInpFieldLarge');
@@ -291,18 +298,18 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
     },
 
     addField: function(text, value) {
-        var inpC = this.down('#inputContainer');
-
-        var selField = Ext.create('ACMobileClient.view.ReceiverField', {
-            html: text,
-            value: value
-        });
+        var inpC = this.down('#inputContainer'),
+            me = this,
+            selField = Ext.create('ACMobileClient.view.ReceiverField', {
+                html: text,
+                value: value
+            });
         selField.theParent = this;
 
         inpC.insert(this.inputItems.length, selField);
         this.inputItems[this.inputItems.length] = selField;
 
-        var me = this;
+
         if (me.theTextField) {
             me.theTextField.focus();
         }
@@ -319,7 +326,7 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
     },
 
     deselectField: function() {
-        if (this.selectedItem != null) {
+        if (this.selectedItem !== null) {
             this.selectedItem.removeCls('inputFieldSelected');
             this.selectedItem = null;
         }
@@ -333,11 +340,13 @@ Ext.define('ACMobileClient.view.ReceiverInputField', {
     },
 
     deleteField: function() {
-        var inpC = this.down('#inputContainer');
+        var inpC = this.down('#inputContainer'),
+            numb = -1,
+            i;
         inpC.remove(this.selectedItem, true);
-        var numb = -1;
-        for (var i=0;i<this.inputItems.length;i++) {
-            if (this.inputItems[i] == this.selectedItem) {
+
+        for (i=0;i<this.inputItems.length;i+=1) {
+            if (this.inputItems[i] === this.selectedItem) {
                 numb = i;
                 break;
             }
