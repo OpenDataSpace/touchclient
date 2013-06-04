@@ -1,6 +1,5 @@
 {
-    "id": "ExtBox1-ext-gen5861",
-    "type": "datamodel",
+    "type": "Ext.data.Model",
     "reference": {
         "name": "items",
         "type": "array"
@@ -9,14 +8,10 @@
     "userConfig": {
         "designer|userClassName": "MailTextViewModel"
     },
-    "customConfigs": [],
     "designerId": "3d9a754d-6da2-46b1-b848-db7aa574c89a",
-    "$viewOrder": 0,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen7397",
-            "type": "datafield",
+            "type": "Ext.data.Field",
             "reference": {
                 "name": "fields",
                 "type": "array"
@@ -24,11 +19,9 @@
             "codeClass": null,
             "userConfig": {
                 "name": "text",
-                "type": "string",
-                "designer|userClassName": "MyField21"
+                "type": "string"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "9fe0c716-6f7d-421f-b416-b926acddf2d4"
         }
     ]
 }

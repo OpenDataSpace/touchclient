@@ -1,6 +1,5 @@
 {
-    "id": "ExtBox1-ext-gen10289",
-    "type": "container",
+    "type": "Ext.Container",
     "reference": {
         "name": "items",
         "type": "array"
@@ -8,17 +7,12 @@
     "codeClass": null,
     "userConfig": {
         "itemId": "",
-        "tpl": "{text}",
         "designer|userClassName": "MailViewPage",
         "designer|userAlias": "mailviewpage"
     },
-    "customConfigs": [],
     "designerId": "12305eb8-8158-48f8-81e4-f4b6cb509371",
-    "$viewOrder": 0,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen5677",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -30,14 +24,45 @@
                 "designer|params": [
                     "record"
                 ],
-                "implHandler": "\nvar data = record.getData(true);\nthis.setData(data);\n//this.element.down('#bodyText').dom.innerHTML = record.get('text');\n\n/*\nvar bodyTextDiv = this.element.down('#bodyText').dom;\nvar w = parseInt(getStyle(bodyTextDiv, \"width\"));\nvar h = parseInt(getStyle(bodyTextDiv, \"height\"));\nvar wc = parseInt(getStyle(this.element.dom, \"width\"));\n\nif (w > wc) {\n//scale down\nvar fac = wc/w;\nsetStyle(bodyTextDiv, \"-webkit-transform-origin\", \"0 0\");\nsetStyle(bodyTextDiv, \"-webkit-transform\", \"scale(\"+fac+\")\");\n\n//recalc new height and width\nvar nw = w * fac;\nvar nh = h * fac;\n\nsetStyle(bodyTextDiv, \"width\", nw+\"px\");\nsetStyle(bodyTextDiv, \"height\", nh+\"px\");\n\n}\nthis.setMasked(false);\n*/\n\n//var wc = getStyle(, \"width\");\n//alert(w + \" == \"+ wc);\n//this.doLayout();\n//this.down('#bodyText').show();\n",
-                "designer|userClassName": "loadMask"
+                "implHandler": [
+                    "",
+                    "var data = record.getData(true);",
+                    "this.setData(data);",
+                    "//this.element.down('#bodyText').dom.innerHTML = record.get('text');",
+                    "",
+                    "/*",
+                    "var bodyTextDiv = this.element.down('#bodyText').dom;",
+                    "var w = parseInt(getStyle(bodyTextDiv, \"width\"));",
+                    "var h = parseInt(getStyle(bodyTextDiv, \"height\"));",
+                    "var wc = parseInt(getStyle(this.element.dom, \"width\"));",
+                    "",
+                    "if (w > wc) {",
+                    "//scale down",
+                    "var fac = wc/w;",
+                    "setStyle(bodyTextDiv, \"-webkit-transform-origin\", \"0 0\");",
+                    "setStyle(bodyTextDiv, \"-webkit-transform\", \"scale(\"+fac+\")\");",
+                    "",
+                    "//recalc new height and width",
+                    "var nw = w * fac;",
+                    "var nh = h * fac;",
+                    "",
+                    "setStyle(bodyTextDiv, \"width\", nw+\"px\");",
+                    "setStyle(bodyTextDiv, \"height\", nh+\"px\");",
+                    "",
+                    "}",
+                    "this.setMasked(false);",
+                    "*/",
+                    "",
+                    "//var wc = getStyle(, \"width\");",
+                    "//alert(w + \" == \"+ wc);",
+                    "//this.doLayout();",
+                    "//this.down('#bodyText').show();",
+                    ""
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "e523f4f1-e697-4431-b4de-e1ac86d002e9"
         },
         {
-            "id": "ExtBox1-ext-gen13235",
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -46,12 +71,44 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "onContainerInitialize",
-                "implHandler": "var urlVars = getUrlVars();\nif (urlVars[\"objectId\"]) {\n    var objectId = urlVars[\"objectId\"];\n    this.dataStore = Ext.create('ACMobileClient.store.MailTextViewStore', {});\n\n    var me = this;\n\n    this.dataStore.on('load', function(store, records) {\n        me.loadMask(store.getAt(0));\n    });\n\n    //event, after store has been loaded\n    this.dataStore.load( {\n        params: {\t\n            objectIds: objectId\n        }\n    });\n}",
-                "name": "initialize",
-                "designer|userClassName": "onContainerInitialize"
+                "implHandler": [
+                    "var urlVars = getUrlVars();",
+                    "if (urlVars[\"objectId\"]) {",
+                    "    var objectId = urlVars[\"objectId\"];",
+                    "    this.dataStore = Ext.create('ACMobileClient.store.MailTextViewStore', {});",
+                    "",
+                    "    var me = this;",
+                    "",
+                    "    this.dataStore.on('load', function(store, records) {",
+                    "        me.loadMask(store.getAt(0));",
+                    "    });",
+                    "",
+                    "    //event, after store has been loaded",
+                    "    this.dataStore.load( {",
+                    "        params: {\t",
+                    "            objectIds: objectId",
+                    "        }",
+                    "    });",
+                    "}"
+                ],
+                "name": "initialize"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "1a7e7da3-930a-474c-bc0a-9fdafbd14e94"
+        },
+        {
+            "type": "Ext.XTemplate",
+            "reference": {
+                "name": "tpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "implHandler": [
+                    "{text}"
+                ],
+                "designer|displayName": "tpl"
+            },
+            "designerId": "3474fda4-bbda-421d-b112-4930a80a6d59"
         }
     ]
 }

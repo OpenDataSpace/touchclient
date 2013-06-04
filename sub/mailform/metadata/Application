@@ -1,6 +1,5 @@
 {
-    "id": "ExtBox1-ext-gen2042",
-    "type": "application",
+    "type": "Ext.app.Application",
     "reference": {
         "name": "items",
         "type": "array"
@@ -20,9 +19,5 @@
         ],
         "name": "ACMobile"
     },
-    "customConfigs": [],
-    "designerId": "application",
-    "$viewOrder": 0,
-    "iconCls": "icon-application",
-    "expanded": true
+    "designerId": "application"
 }

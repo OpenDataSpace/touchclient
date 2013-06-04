@@ -1,29 +1,23 @@
 {
-    "id": "ExtBox1-ext-gen18245",
-    "type": "button",
+    "type": "Ext.Button",
     "reference": {
         "name": "items",
         "type": "array"
     },
     "codeClass": null,
     "userConfig": {
-        "cls": "",
         "margin": "0 5 5 0",
         "maxWidth": 125,
         "padding": null,
         "style": "display:inline-block;top:-2px",
         "ui": "small",
-        "text": "test@test.de",
         "designer|userClassName": "SelectedField",
-        "designer|userAlias": "SelectedField"
+        "designer|userAlias": "SelectedField",
+        "text": "test@test.de"
     },
-    "customConfigs": [],
     "designerId": "fd2d183f-56c6-4b56-8fa2-3f96f7be8acf",
-    "$viewOrder": 2,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen26142",
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -35,11 +29,9 @@
                 "implHandler": [
                     "this.theParent.selectField(this);"
                 ],
-                "name": "tap",
-                "designer|userClassName": "onButtonTap"
+                "name": "tap"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "04a58668-a959-4226-be11-8786beebc3d6"
         }
     ]
 }

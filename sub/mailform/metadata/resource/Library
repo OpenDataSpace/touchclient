@@ -1,0 +1,14 @@
+{
+    "type": "libraryresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Library",
+        "basePath": "http://extjs.cachefly.net/touch/sencha-touch-2.0.1/",
+        "debug": true
+    },
+    "designerId": "b0308bf4-60d1-4b6f-a46e-c17056024001"
+}

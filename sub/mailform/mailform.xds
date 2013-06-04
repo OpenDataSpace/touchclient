@@ -5,7 +5,6 @@
         "spacesToIndent": 4,
         "codeGenFormat": "Class",
         "exportPath": "",
-        "extPath": "http://extjs.cachefly.net/touch/sencha-touch-2.0.1/",
         "senchaIoKey": "",
         "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
         "lineEnding": "LF",
@@ -13,11 +12,14 @@
         "genTimestamps": false,
         "saveOnDeploy": false,
         "appName": "MyApp",
-        "mapsAPI": "http://maps.google.com/maps/api/js?sensor=true"
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.0.0",
-    "xdsBuild": "442",
-    "framework": "touch20",
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
     "topInstanceFileMap": {
         "883a6b90-59f6-4f44-9ebd-2b7302dee485": {
             "paths": [
@@ -64,13 +66,33 @@
                 "metadata/resource/css"
             ],
             "className": "css"
+        },
+        "b0308bf4-60d1-4b6f-a46e-c17056024001": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
         }
     },
-    "expandedState": {
-        "data": true,
-        "model": true,
-        "component": true,
-        "controller": true,
-        "resource": true
+    "viewOrderMap": {
+        "view": [
+            "883a6b90-59f6-4f44-9ebd-2b7302dee485",
+            "c90b719c-b695-4737-a327-5eedf7497106",
+            "fd2d183f-56c6-4b56-8fa2-3f96f7be8acf"
+        ],
+        "store": [
+            "c8ed7010-4ecf-4f54-a2dd-bfe02afa7ae5"
+        ],
+        "controller": [],
+        "model": [
+            "20874d06-4c5c-4fa7-b35c-57cc2269e370"
+        ],
+        "resource": [
+            "b0308bf4-60d1-4b6f-a46e-c17056024001",
+            "2a5138c1-4e25-49e2-8648-b42cf78894a3"
+        ],
+        "app": [
+            "application"
+        ]
     }
 }

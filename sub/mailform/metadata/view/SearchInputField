@@ -1,6 +1,5 @@
 {
-    "id": "ExtBox1-ext-gen25260",
-    "type": "container",
+    "type": "Ext.Container",
     "reference": {
         "name": "items",
         "type": "array"
@@ -9,17 +8,13 @@
     "userConfig": {
         "itemId": null,
         "padding": "",
-        "layout": "vbox",
         "designer|userClassName": "SearchInputField",
-        "designer|userAlias": "SearchInputField"
+        "designer|userAlias": "SearchInputField",
+        "layout": "vbox"
     },
-    "customConfigs": [],
     "designerId": "c90b719c-b695-4737-a327-5eedf7497106",
-    "$viewOrder": 1,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen39421",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -54,14 +49,11 @@
                     "        });",
                     "    }",
                     "}"
-                ],
-                "designer|userClassName": "search"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "3f86ff96-b902-47a0-816f-69be9d6d13ec"
         },
         {
-            "id": "ExtBox1-ext-gen21145",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -75,14 +67,11 @@
                     "var theInpId = me.down('#inputField').element.down('textarea').id;",
                     "document.getElementById(theInpId).focus();",
                     ""
-                ],
-                "designer|userClassName": "focusField"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "0a28711e-9d77-4b89-bad8-72c699087547"
         },
         {
-            "id": "ExtBox1-ext-gen17426",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -104,14 +93,11 @@
                     "    this.down('#inputField').addCls('searchInpFieldSmall');",
                     "}",
                     ""
-                ],
-                "designer|userClassName": "handleInpField"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "b2deb252-299a-48ae-9f3d-46f2f08e4db9"
         },
         {
-            "id": "ExtBox1-ext-gen5833",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -138,14 +124,11 @@
                     "var me = this;",
                     "me.theTextField.focus();",
                     ""
-                ],
-                "designer|userClassName": "addField"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "ff09e920-d117-4011-882b-4e5de700dd28"
         },
         {
-            "id": "ExtBox1-ext-gen13177",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -164,14 +147,11 @@
                     "field.addCls('inputFieldSelected');",
                     "this.selectedItem = field;",
                     "this.focusField();"
-                ],
-                "designer|userClassName": "selectField"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "12558404-6e71-419d-8bc7-b2b77eb7b1fe"
         },
         {
-            "id": "ExtBox1-ext-gen15640",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -185,14 +165,11 @@
                     "    this.selectedItem.removeCls('inputFieldSelected');",
                     "    this.selectedItem = null;",
                     "}"
-                ],
-                "designer|userClassName": "deselectField"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "a7b6a1aa-833b-48e9-aa4d-b08593a24da1"
         },
         {
-            "id": "ExtBox1-ext-gen13506",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -206,14 +183,11 @@
                     "    var lastItem = this.inputItems[this.inputItems.length-1];",
                     "    this.selectField(lastItem);",
                     "}"
-                ],
-                "designer|userClassName": "selectLastField"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "1ab83674-db36-453b-b9ed-9f33ec44a786"
         },
         {
-            "id": "ExtBox1-ext-gen19222",
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -238,60 +212,52 @@
                     "}",
                     "this.selectedItem = null;",
                     ""
-                ],
-                "designer|userClassName": "deleteField"
+                ]
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "91110de3-7636-49a4-b4aa-96614509ede3"
         },
         {
-            "id": "ExtBox1-ext-gen8734",
-            "type": "container",
+            "type": "Ext.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
+                "layout|flex": 0,
                 "cls": [
                     "addressContainer"
                 ],
                 "padding": 5,
-                "layout": "hbox",
-                "designer|userClassName": "MyContainer6",
-                "layout|flex": 0
+                "layout": "hbox"
             },
-            "customConfigs": [],
-            "expanded": true,
+            "designerId": "84c682d9-822a-4df1-a85c-4851a68b3a55",
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen25621",
-                    "type": "label",
+                    "type": "Ext.Label",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout|flex": 0,
                         "html": "An:",
                         "margin": "0 10 0 0",
                         "style": "display:block",
-                        "width": null,
-                        "designer|userClassName": "MyLabel",
-                        "layout|flex": 0
+                        "width": null
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "65cfe364-b974-4baf-a3df-df35e8e46fb9"
                 },
                 {
-                    "id": "ExtBox1-ext-gen2918",
-                    "type": "container",
+                    "type": "Ext.Container",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout|flex": 1,
                         "html": null,
                         "id": null,
                         "itemId": "inputContainer",
@@ -300,36 +266,29 @@
                         "padding": "",
                         "ui": "",
                         "width": null,
-                        "layout": "hbox",
-                        "designer|userClassName": "MyContainer",
-                        "layout|flex": 1
+                        "layout": "hbox"
                     },
-                    "customConfigs": [],
-                    "expanded": true,
+                    "designerId": "d1f4f9df-de49-43b1-9b0b-8820472c07f8",
                     "cn": [
                         {
-                            "id": "ExtBox1-ext-gen33529",
-                            "type": "container",
+                            "type": "Ext.Container",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "layout|flex": 0,
                                 "itemId": "searchContainer",
                                 "maxWidth": null,
                                 "minWidth": null,
                                 "style": "display:inline-block;",
-                                "width": null,
-                                "designer|userClassName": "MyContainer6",
-                                "layout|flex": 0
+                                "width": null
                             },
-                            "customConfigs": [],
-                            "expanded": true,
+                            "designerId": "b60b4596-cc89-413e-bb50-5f3580770e1a",
                             "cn": [
                                 {
-                                    "id": "ExtBox1-ext-gen16200",
-                                    "type": "textareafield",
+                                    "type": "Ext.field.TextArea",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
@@ -346,14 +305,11 @@
                                         "style": null,
                                         "width": null,
                                         "label": null,
-                                        "labelWidth": 0,
-                                        "designer|userClassName": "MyTextArea1"
+                                        "labelWidth": 0
                                     },
-                                    "customConfigs": [],
-                                    "expanded": true,
+                                    "designerId": "bfa2d8bd-644a-47cd-9b4e-db5693adba6a",
                                     "cn": [
                                         {
-                                            "id": "ExtBox1-ext-gen37312",
                                             "type": "basiceventbinding",
                                             "reference": {
                                                 "name": "listeners",
@@ -405,14 +361,11 @@
                                                     "",
                                                     ""
                                                 ],
-                                                "name": "keyup",
-                                                "designer|userClassName": "onInputFieldKeyup"
+                                                "name": "keyup"
                                             },
-                                            "customConfigs": [],
-                                            "expanded": true
+                                            "designerId": "bc5a3804-cf54-4600-986e-7c70c7cad49a"
                                         },
                                         {
-                                            "id": "ExtBox1-ext-gen37970",
                                             "type": "basiceventbinding",
                                             "reference": {
                                                 "name": "listeners",
@@ -424,14 +377,11 @@
                                                 "implHandler": [
                                                     ""
                                                 ],
-                                                "name": "action",
-                                                "designer|userClassName": "onInputFieldAction"
+                                                "name": "action"
                                             },
-                                            "customConfigs": [],
-                                            "expanded": true
+                                            "designerId": "d7c50b1d-41a4-43c0-9a0d-a356db766106"
                                         },
                                         {
-                                            "id": "ExtBox1-ext-gen38901",
                                             "type": "basiceventbinding",
                                             "reference": {
                                                 "name": "listeners",
@@ -446,14 +396,11 @@
                                                     "    me.search(true);",
                                                     "}, 200);"
                                                 ],
-                                                "name": "clearicontap",
-                                                "designer|userClassName": "onInputFieldClearicontap"
+                                                "name": "clearicontap"
                                             },
-                                            "customConfigs": [],
-                                            "expanded": true
+                                            "designerId": "12067cd9-a8a9-4f2b-baaa-ed296ccb6dce"
                                         },
                                         {
-                                            "id": "ExtBox1-ext-gen4049",
                                             "type": "basiceventbinding",
                                             "reference": {
                                                 "name": "listeners",
@@ -470,18 +417,15 @@
                                                     "document.getElementById(theInpId).focus();",
                                                     "*/"
                                                 ],
-                                                "name": "blur",
-                                                "designer|userClassName": "onInputFieldBlur"
+                                                "name": "blur"
                                             },
-                                            "customConfigs": [],
-                                            "expanded": true
+                                            "designerId": "6e416b64-605f-4c82-a03a-053081c720f8"
                                         }
                                     ]
                                 }
                             ]
                         },
                         {
-                            "id": "ExtBox1-ext-gen4314",
                             "type": "basiceventbinding",
                             "reference": {
                                 "name": "listeners",
@@ -496,61 +440,51 @@
                                 "implHandler": [
                                     "alert('tap');"
                                 ],
-                                "name": "tap",
-                                "designer|userClassName": "onInputContainerTap"
+                                "name": "tap"
                             },
-                            "customConfigs": [],
-                            "expanded": true
+                            "designerId": "b4812841-30e8-4522-8f0b-47e906d71e54"
                         }
                     ]
                 },
                 {
-                    "id": "ExtBox1-ext-gen29666",
-                    "type": "button",
+                    "type": "Ext.Button",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "layout|flex": 0,
                         "height": 22,
                         "hidden": true,
                         "ui": "small",
                         "width": 25,
                         "icon": null,
                         "iconCls": null,
-                        "iconMask": true,
-                        "text": "+",
-                        "designer|userClassName": "MyButton9",
-                        "layout|flex": 0
+                        "text": "+"
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "9b695b17-30d7-4f0d-9475-9cb6cc633741"
                 }
             ]
         },
         {
-            "id": "ExtBox1-ext-gen34050",
-            "type": "container",
+            "type": "Ext.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
+                "layout|flex": 0,
                 "height": null,
                 "itemId": "selectContainer",
                 "ui": "",
-                "width": null,
-                "designer|userClassName": "MyContainer7",
-                "layout|flex": 0
+                "width": null
             },
-            "customConfigs": [],
-            "expanded": true,
+            "designerId": "b155f8a0-09b7-4c80-8730-3d4c75a9f1ff",
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen34586",
-                    "type": "list",
+                    "type": "Ext.dataview.List",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -564,17 +498,15 @@
                         "height": 0,
                         "itemId": "searchList",
                         "ui": null,
-                        "scrollable": "false",
-                        "itemTpl": "<div class=\"mailSearchListEntry\">{text}</div>",
+                        "scrollable": [
+                            "false"
+                        ],
                         "loadingText": " ",
-                        "store": "MailSearchStore",
-                        "designer|userClassName": "MyList"
+                        "store": "MailSearchStore"
                     },
-                    "customConfigs": [],
-                    "expanded": true,
+                    "designerId": "eb716e9c-7978-4eec-b502-06b85425f639",
                     "cn": [
                         {
-                            "id": "ExtBox1-ext-gen43985",
                             "type": "basiceventbinding",
                             "reference": {
                                 "name": "listeners",
@@ -591,18 +523,30 @@
                                     "",
                                     ""
                                 ],
-                                "name": "select",
-                                "designer|userClassName": "onSearchListSelect"
+                                "name": "select"
                             },
-                            "customConfigs": [],
-                            "expanded": true
+                            "designerId": "b6760824-360e-4ed8-bda8-8667c9915ec3"
+                        },
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "implHandler": [
+                                    "<div class=\"mailSearchListEntry\">{text}</div>"
+                                ],
+                                "designer|displayName": "itemTpl"
+                            },
+                            "designerId": "e75eb2a5-9331-4017-93ad-34806e7be7d3"
                         }
                     ]
                 }
             ]
         },
         {
-            "id": "ExtBox1-ext-gen7766",
             "type": "basiceventbinding",
             "reference": {
                 "name": "listeners",
@@ -637,11 +581,9 @@
                     "    document.getElementById(theInpId).focus();",
                     "});"
                 ],
-                "name": "initialize",
-                "designer|userClassName": "onContainerInitialize"
+                "name": "initialize"
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "aa2fb656-a0b6-409b-9bd1-78e0254b0550"
         }
     ]
 }

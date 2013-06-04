@@ -1,5 +1,4 @@
 {
-    "id": "ExtBox1-ext-gen5382",
     "type": "jsonstore",
     "reference": {
         "name": "items",
@@ -11,40 +10,31 @@
         "storeId": "MailTextViewStore",
         "designer|userClassName": "MailTextViewStore"
     },
-    "customConfigs": [],
     "designerId": "a19b8f4e-6323-4456-b288-9cd5ffe1e7c1",
-    "$viewOrder": 0,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen5389",
-            "type": "ajaxproxy",
+            "type": "Ext.data.proxy.Ajax",
             "reference": {
                 "name": "proxy",
                 "type": "object"
             },
             "codeClass": null,
             "userConfig": {
-                "url": "/roiwebui/mobileclient_module/mobileViewMaskLoadAction.do?viewMaskName=MailObjectMobileViewMask",
-                "designer|userClassName": "MyAjaxProxy4"
+                "url": "/roiwebui/mobileclient_module/mobileViewMaskLoadAction.do?viewMaskName=MailObjectMobileViewMask"
             },
-            "customConfigs": [],
-            "expanded": true,
+            "designerId": "11e80aa2-fa76-4ce2-9a67-5e48129b00eb",
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen5396",
-                    "type": "jsonreader",
+                    "type": "Ext.data.reader.Json",
                     "reference": {
                         "name": "reader",
                         "type": "object"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "rootProperty": "data",
-                        "designer|userClassName": "MyJsonReader4"
+                        "rootProperty": "data"
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "61afcb28-d500-49c0-b5ab-5ef2828b0376"
                 }
             ]
         }

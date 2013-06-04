@@ -1,28 +1,23 @@
 {
-    "id": "ExtBox1-ext-gen2100",
-    "type": "formpanel",
+    "type": "Ext.form.Panel",
     "reference": {
         "name": "items",
         "type": "array"
     },
     "codeClass": null,
     "userConfig": {
-        "designer|initialView": true,
         "cls": [
             "whiteForm"
         ],
         "padding": 0,
         "style": null,
-        "layout": "vbox",
-        "designer|userClassName": "MyFormPanel"
+        "designer|userClassName": "MyFormPanel",
+        "designer|initialView": true,
+        "layout": "vbox"
     },
-    "customConfigs": [],
     "designerId": "883a6b90-59f6-4f44-9ebd-2b7302dee485",
-    "$viewOrder": 0,
-    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen39913",
             "type": "linkedinstance",
             "reference": {
                 "name": "items",
@@ -32,14 +27,11 @@
             "userConfig": {
                 "itemId": "toField"
             },
-            "customConfigs": [],
-            "iconCls": "icon-linkedinstance",
-            "expanded": true,
-            "masterInstanceId": "ExtBox1-ext-gen25260"
+            "designerId": "f58ee692-7e9f-4a9f-b301-2cf84353ea68",
+            "masterInstanceId": "c90b719c-b695-4737-a327-5eedf7497106"
         },
         {
-            "id": "ExtBox1-ext-gen19665",
-            "type": "textareafield",
+            "type": "Ext.field.TextArea",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -47,14 +39,11 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "bodyText",
-                "label": null,
-                "designer|userClassName": "MyTextArea"
+                "label": null
             },
-            "customConfigs": [],
-            "expanded": true,
+            "designerId": "109432f8-5755-4485-a82f-c860c964f1ab",
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen28657",
                     "type": "basiceventbinding",
                     "reference": {
                         "name": "listeners",
@@ -66,29 +55,24 @@
                         "implHandler": [
                             ""
                         ],
-                        "name": "focus",
-                        "designer|userClassName": "onBodyTextFocus"
+                        "name": "focus"
                     },
-                    "customConfigs": [],
-                    "expanded": true
+                    "designerId": "06a6cd24-52e0-4de0-a7a1-6a5e813af885"
                 }
             ]
         },
         {
-            "id": "ExtBox1-ext-gen4077",
-            "type": "container",
+            "type": "Ext.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "minHeight": 100,
-                "designer|userClassName": "MyContainer5",
-                "layout|flex": 1
+                "layout|flex": 1,
+                "minHeight": 100
             },
-            "customConfigs": [],
-            "expanded": true
+            "designerId": "163ac883-34a2-4e3a-8886-7c539f886779"
         }
     ]
 }
