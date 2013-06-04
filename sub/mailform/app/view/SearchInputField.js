@@ -335,7 +335,7 @@ Ext.define('ACMobile.view.SearchInputField', {
         inpC.remove(this.selectedItem, true);
 
         for (i=0;i<this.inputItems.length;i+=1) {
-            if (this.inputItems[i] == this.selectedItem) {
+            if (this.inputItems[i] === this.selectedItem) {
                 numb = i;
                 break;
             }
