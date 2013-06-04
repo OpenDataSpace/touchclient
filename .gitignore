@@ -2,3 +2,4 @@ build
 generated
 touchui*.gz
 *.swp
+.architect
