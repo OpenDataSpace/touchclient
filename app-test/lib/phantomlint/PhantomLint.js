@@ -64,7 +64,8 @@ PhantomLint = {
         sloppy   : true, //if the 'use strict'; pragma is optional
         vars     : false, //if multiple var statements per function should be allowed
         white    : true, //if sloppy whitespace is tolerated
-        undef    : true  //if variables can be declared out of order
+        undef    : true,  //if variables can be declared out of order
+        regexp   : true //allow ^ and . in regexp
     },
 
     /**
