@@ -31,17 +31,12 @@
             "userConfig": {
                 "fn": "onEventAssistanceListSelect",
                 "implHandler": [
-                    "if (this.parentClass.inEditMode) {\r",
-                    "    //this.down('#eventAssistanceList').deselectAll();\r",
-                    "}\r",
-                    "else {\r",
-                    "\r",
-                    "    var classObject = record.get(\"mainobject_classname\");\r",
-                    "    var objectId = record.get(\"mainobject_id\");\r",
-                    "    var name = record.get(\"displayname\");\r",
-                    "\r",
+                    "if (!this.parentClass.inEditMode) {\r",
+                    "    var classObject = record.get(\"mainobject_classname\"),\r",
+                    "        objectId = record.get(\"mainobject_id\"),\r",
+                    "        name = record.get(\"displayname\"),\r",
                     "    //remove read style\r",
-                    "    var eaItem = document.getElementById(\"eaitem_\"+record.get(\"id\"));\r",
+                    "        eaItem = document.getElementById(\"eaitem_\"+record.get(\"id\"));\r",
                     "    if (hasClass(eaItem, 'list_read_false')) {\r",
                     "        removeClass(eaItem, 'list_read_false');\r",
                     "        addClass(eaItem, 'list_read_true');\r",
@@ -67,12 +62,12 @@
             "userConfig": {
                 "fn": "onEventAssistanceListSelectionChange",
                 "implHandler": [
-                    "var me = this;\r",
-                    "var selected = this.getSelection();\r",
+                    "var me = this,\r",
+                    "    selected = this.getSelection();\r",
                     "me.parentClass.selectedItems = [];\r",
                     "\r",
                     "Ext.Array.each(selected, function (item) {\r",
-                    "    me.parentClass.selectedItems.push(''+item.get(\"eaId\"));\r",
+                    "    me.parentClass.selectedItems.push(String(item.get(\"eaId\")));\r",
                     "});"
                 ],
                 "name": "selectionchange"

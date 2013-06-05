@@ -86,17 +86,12 @@ Ext.define('ACMobileClient.view.EventAssistanceListList', {
     },
 
     onEventAssistanceListSelect: function(dataview, record, eOpts) {
-        if (this.parentClass.inEditMode) {
-            //this.down('#eventAssistanceList').deselectAll();
-        }
-        else {
-
-            var classObject = record.get("mainobject_classname");
-            var objectId = record.get("mainobject_id");
-            var name = record.get("displayname");
-
-            //remove read style
-            var eaItem = document.getElementById("eaitem_"+record.get("id"));
+        if (!this.parentClass.inEditMode) {
+            var classObject = record.get("mainobject_classname"),
+                objectId = record.get("mainobject_id"),
+                name = record.get("displayname"),
+                //remove read style
+                eaItem = document.getElementById("eaitem_"+record.get("id"));
             if (hasClass(eaItem, 'list_read_false')) {
                 removeClass(eaItem, 'list_read_false');
                 addClass(eaItem, 'list_read_true');
@@ -110,12 +105,12 @@ Ext.define('ACMobileClient.view.EventAssistanceListList', {
     },
 
     onEventAssistanceListSelectionChange: function(selectable, records, eOpts) {
-        var me = this;
-        var selected = this.getSelection();
+        var me = this,
+            selected = this.getSelection();
         me.parentClass.selectedItems = [];
 
         Ext.Array.each(selected, function (item) {
-            me.parentClass.selectedItems.push(''+item.get("eaId"));
+            me.parentClass.selectedItems.push(String(item.get("eaId")));
         });
     },
 
