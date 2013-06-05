@@ -35,7 +35,7 @@ Ext.define('ACMobileClient.model.MailAttachmentModel', {
             },
             {
                 convert: function(v, rec) {
-                    return v != null;
+                    return v !== null;
                 },
                 mapping: '["<mailobject>id"]',
                 name: 'isMailObject',
@@ -46,9 +46,8 @@ Ext.define('ACMobileClient.model.MailAttachmentModel', {
                     if (v) {
                         return v.toLowerCase();
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
                 },
                 mapping: 'classname',
                 name: 'className',

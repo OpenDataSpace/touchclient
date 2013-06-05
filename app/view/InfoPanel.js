@@ -393,10 +393,10 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                     // XTemplate configuration:
                     'disableFormats': false,
                     'selectedNote': function(theId) {
-                        if (me.noteId && me.noteId == theId) {
+                        if (me.noteId && me.noteId === theId) {
                             return "selectedNote";
                     }
-                    else return "";
+                    return "";
                 },
                 'convertContent': function(content) {
                     return content.replace(/\n/gi, "<br>");

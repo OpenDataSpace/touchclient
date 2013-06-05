@@ -24,8 +24,8 @@ Ext.define('ACMobileClient.controller.MyController', {
     },
 
     launch: function() {
-        var isPhone, utils, urlVars = getUrlVars();
-
+        var isPhone, utils, urlVars = getUrlVars(),
+            globalViewPort = Ext.create("ACMobileClient.view.ViewportLogin", {});
         Ext.Ajax.setDefaultHeaders( {"Accept":"application/json"});
         Ext.getStore("GlobalFolderStore").load();
 
@@ -90,7 +90,6 @@ Ext.define('ACMobileClient.controller.MyController', {
         });
 
 
-        var globalViewPort = Ext.create("ACMobileClient.view.ViewportLogin", {});
         globalViewPort.show();
 
         /*

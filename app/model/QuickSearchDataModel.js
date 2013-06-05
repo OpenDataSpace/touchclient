@@ -24,9 +24,7 @@ Ext.define('ACMobileClient.model.QuickSearchDataModel', {
                     if (trans) {
                         return trans;
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
 
                 },
                 mapping: 'text',

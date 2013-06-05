@@ -33,13 +33,9 @@ Ext.define('ACMobileClient.model.ObjectInfoModel', {
                         if (trans) {
                             return trans;
                         }
-                        else {
-                            return v;
-                        }
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
                 },
                 mapping: 'displayname',
                 name: 'name',

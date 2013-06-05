@@ -24,9 +24,8 @@ Ext.define('ACMobileClient.model.AreaDataModel', {
                     if (trans) {
                         return trans;
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
 
                 },
                 mapping: 'text',

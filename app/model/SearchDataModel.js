@@ -32,9 +32,8 @@ Ext.define('ACMobileClient.model.SearchDataModel', {
                     if (v) {
                         return v.toLowerCase();
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
                 },
                 name: 'classname'
             },

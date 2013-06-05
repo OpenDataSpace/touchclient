@@ -95,9 +95,8 @@
                             "if (v) {\r",
                             "    return v.toLowerCase();\r",
                             "}\r",
-                            "else {\r",
-                            "    return v;\r",
-                            "}"
+                            "return v;\r",
+                            ""
                         ]
                     },
                     "designerId": "6dba2fe0-97e1-459f-bf79-98a7927ce998"
@@ -135,9 +134,8 @@
                             "if (v) {\r",
                             "    return v.toLowerCase();\r",
                             "}\r",
-                            "else {\r",
-                            "    return v;\r",
-                            "}"
+                            "return v;\r",
+                            ""
                         ]
                     },
                     "designerId": "1ac1bc85-1210-4a7e-aa96-5b8c7357ff75"

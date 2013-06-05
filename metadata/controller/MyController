@@ -23,8 +23,8 @@
             "userConfig": {
                 "fn": "launch",
                 "implHandler": [
-                    "var isPhone, utils, urlVars = getUrlVars();\r",
-                    "\r",
+                    "var isPhone, utils, urlVars = getUrlVars(),\r",
+                    "    globalViewPort = Ext.create(\"ACMobileClient.view.ViewportLogin\", {});\r",
                     "Ext.Ajax.setDefaultHeaders( {\"Accept\":\"application/json\"});\r",
                     "Ext.getStore(\"GlobalFolderStore\").load();\r",
                     "\r",
@@ -89,7 +89,6 @@
                     "});\r",
                     "\r",
                     "\r",
-                    "var globalViewPort = Ext.create(\"ACMobileClient.view.ViewportLogin\", {});\r",
                     "globalViewPort.show();\r",
                     "\r",
                     "/*\r",

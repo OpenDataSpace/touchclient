@@ -166,7 +166,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
                         msg = err.message + ' ';
                     }
                     if (err.status) {
-                        msg += '' + err.status;
+                        msg += ' ' + err.status;
                     }
                     if (msg !== '') {
                         rec.set('message', msg);

@@ -27,13 +27,9 @@ Ext.define('ACMobileClient.model.FolderObjectDataModel', {
                         if (trans) {
                             return trans;
                         }
-                        else {
-                            return v;
-                        }
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
                 },
                 mapping: 'displayname',
                 name: 'name',
@@ -52,9 +48,8 @@ Ext.define('ACMobileClient.model.FolderObjectDataModel', {
                     if (v) {
                         return v.toLowerCase();
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
                 },
                 name: 'classname'
             },

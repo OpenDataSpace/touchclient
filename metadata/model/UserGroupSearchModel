@@ -117,9 +117,8 @@
                             "if (rec.get(\"fullname\") != null) {\r",
                             "    return rec.get(\"fullname\");\r",
                             "}\r",
-                            "else {\r",
-                            "    return rec.get(\"name\");\r",
-                            "}"
+                            "return rec.get(\"name\");\r",
+                            ""
                         ]
                     },
                     "designerId": "0d390bee-85d2-4f0a-bd2a-63aaa9b7235c"

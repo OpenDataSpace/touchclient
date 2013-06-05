@@ -41,12 +41,11 @@ Ext.define('ACMobileClient.model.UserGroupSearchModel', {
             },
             {
                 convert: function(v, rec) {
-                    if (rec.get("fullname") != null) {
+                    if (rec.get("fullname") !== null) {
                         return rec.get("fullname");
                     }
-                    else {
-                        return rec.get("name");
-                    }
+                    return rec.get("name");
+
                 },
                 name: 'text'
             }

@@ -187,7 +187,7 @@
                     "                msg = err.message + ' ';\r",
                     "            }\r",
                     "            if (err.status) {\r",
-                    "                msg += '' + err.status;\r",
+                    "                msg += ' ' + err.status;\r",
                     "            }\r",
                     "            if (msg !== '') {\r",
                     "                rec.set('message', msg);\r",

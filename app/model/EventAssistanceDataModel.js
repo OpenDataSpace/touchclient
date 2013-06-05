@@ -41,9 +41,8 @@ Ext.define('ACMobileClient.model.EventAssistanceDataModel', {
                     if (v) {
                         return v.toLowerCase();
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
                 },
                 mapping: 'classname',
                 name: 'classname',
@@ -54,9 +53,8 @@ Ext.define('ACMobileClient.model.EventAssistanceDataModel', {
                     if (v) {
                         return v.toLowerCase();
                     }
-                    else {
-                        return v;
-                    }
+                    return v;
+
                 },
                 mapping: '["mainobj.classname"]',
                 name: 'mainobject_classname',

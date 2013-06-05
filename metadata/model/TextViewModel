@@ -54,9 +54,8 @@
                             "if (v) {\r",
                             "    return v.replace(/\\n/gi, \"<br>\");\r",
                             "}\r",
-                            "else {\r",
-                            "    return \"\";\r",
-                            "}"
+                            "hreturn \"\";\r",
+                            ""
                         ]
                     },
                     "designerId": "bdb4f6e9-d556-4c71-9bad-fd339404087b"

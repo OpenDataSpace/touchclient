@@ -66,9 +66,8 @@
                             "if (v) {\r",
                             "    return v.toLowerCase();\r",
                             "}\r",
-                            "else {\r",
-                            "    return v;\r",
-                            "}"
+                            "return v;\r",
+                            ""
                         ]
                     },
                     "designerId": "affa69fe-d505-4488-8e1a-0a4e72ca7803"

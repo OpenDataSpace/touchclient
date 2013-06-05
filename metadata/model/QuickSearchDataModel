@@ -41,9 +41,7 @@
                             "if (trans) {\r",
                             "    return trans;\r",
                             "}\r",
-                            "else {\r",
-                            "    return v;\r",
-                            "}\r",
+                            "return v;\r",
                             ""
                         ]
                     },

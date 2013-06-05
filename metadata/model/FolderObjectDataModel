@@ -45,13 +45,9 @@
                             "    if (trans) {\r",
                             "        return trans;\r",
                             "    }\r",
-                            "    else {\r",
-                            "        return v;\r",
-                            "    }\r",
                             "}\r",
-                            "else {\r",
-                            "    return v;\r",
-                            "}"
+                            "return v;\r",
+                            ""
                         ]
                     },
                     "designerId": "973404c7-051e-4af4-815c-c32189c682e8"
@@ -113,9 +109,8 @@
                             "if (v) {\r",
                             "    return v.toLowerCase();\r",
                             "}\r",
-                            "else {\r",
-                            "    return v;\r",
-                            "}"
+                            "return v;\r",
+                            ""
                         ]
                     },
                     "designerId": "c69fdd64-4413-4469-a21b-3bd862057d7a"

@@ -27,9 +27,8 @@ Ext.define('ACMobileClient.model.TextViewModel', {
                     if (v) {
                         return v.replace(/\n/gi, "<br>");
                     }
-                    else {
-                        return "";
-                    }
+                    return "";
+
                 },
                 name: 'text',
                 type: 'string'
