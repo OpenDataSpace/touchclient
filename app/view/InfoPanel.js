@@ -356,7 +356,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
 
     onContainerActiveItemChange: function(container, value, oldValue, eOpts) {
         //we come from noteslist, so reload if necessary
-        if (value.config && value.config.itemId == 'viewContainer') {
+        if (value.config && value.config.itemId === 'viewContainer') {
             this.reload();
         }
 

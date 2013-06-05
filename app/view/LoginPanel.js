@@ -157,8 +157,8 @@ Ext.define('ACMobileClient.view.LoginPanel', {
 
 
             //load language
-            var lang = "de";
-            var url = "app/languages/"+lang+"/Messages.js";
+            var lang = "de",
+                url = "app/languages/"+lang+"/Messages.js";
 
             Ext.Ajax.request({
                 url: url,
