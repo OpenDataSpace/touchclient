@@ -54,7 +54,7 @@
                             "if (v) {\r",
                             "    return v.replace(/\\n/gi, \"<br>\");\r",
                             "}\r",
-                            "hreturn \"\";\r",
+                            "return \"\";\r",
                             ""
                         ]
                     },

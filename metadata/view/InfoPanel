@@ -933,7 +933,7 @@
                 "fn": "onContainerActiveItemChange",
                 "implHandler": [
                     "//we come from noteslist, so reload if necessary\r",
-                    "if (value.config && value.config.itemId == 'viewContainer') {\r",
+                    "if (value.config && value.config.itemId === 'viewContainer') {\r",
                     "    this.reload();\r",
                     "}\r",
                     ""

@@ -41,7 +41,7 @@ Ext.define('ACMobileClient.model.UserGroupSearchModel', {
             },
             {
                 convert: function(v, rec) {
-                    if (rec.get("fullname") != null) {
+                    if (rec.get("fullname") !== null) {
                         return rec.get("fullname");
                     }
                     return rec.get("name");

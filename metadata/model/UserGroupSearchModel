@@ -114,7 +114,7 @@
                             "rec"
                         ],
                         "implHandler": [
-                            "if (rec.get(\"fullname\") != null) {\r",
+                            "if (rec.get(\"fullname\") !== null) {\r",
                             "    return rec.get(\"fullname\");\r",
                             "}\r",
                             "return rec.get(\"name\");\r",

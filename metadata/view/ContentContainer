@@ -71,7 +71,7 @@
                     "        this.down('#titleBar').down('#backButton').show();\r",
                     "        console.log(\"nav: \"+this.navTitle);\r",
                     "\r",
-                    "        if (!this.navTitle || this.navTitle == \"Start\") {\r",
+                    "        if (!this.navTitle || this.navTitle === \"Start\") {\r",
                     "            this.down('#titleBar').down('#backButton').setText(\"\");\r",
                     "            this.down('#titleBar').down('#backButton').setIconCls(\"home\");\r",
                     "        }\r",
