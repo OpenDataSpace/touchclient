@@ -242,7 +242,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 men.setLeft(null);
                 //men.setStyle("border-right: 1px solid #000 !important;");
                 men.setCls("MenuBorder");
-                men.setHeight(null);
+                men.setHeight(me.element.getHeight());
                 men.setWidth(315);
 
                 //this.down("#toolbarRight").setStyle("font-size: 1.25em;");

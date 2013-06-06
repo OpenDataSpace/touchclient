@@ -181,7 +181,7 @@
                     "        men.setLeft(null);\r",
                     "        //men.setStyle(\"border-right: 1px solid #000 !important;\");\r",
                     "        men.setCls(\"MenuBorder\");\r",
-                    "        men.setHeight(null);\r",
+                    "        men.setHeight(me.element.getHeight());\r",
                     "        men.setWidth(315);\r",
                     "\r",
                     "        //this.down(\"#toolbarRight\").setStyle(\"font-size: 1.25em;\");\r",
