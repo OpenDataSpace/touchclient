@@ -28,15 +28,15 @@
                 "implHandler": [
                     "var content = item.get('content').replace(/\\n/gi, \"<br>\");\r",
                     "\r",
-                    "if (noteId && noteId == item.get('id')) {\r",
+                    "if (noteId && noteId === item.get('id')) {\r",
                     "    this.addCls(\"selectedNote\");\r",
                     "}\r",
                     "this.add({\r",
                     "    'xtype': 'label',\r",
                     "    'html': '<div class=\"notesHead\">' +\r",
-                    "        '<div class=\"notesUser\">' + item.get('creator') + '</div>'+\r",
-                    "        '<div class=\"notesDate\">' + formatDate(item.get('createdate')) + '</div>' +\r",
-                    "        '</div><div class=\"notesText\">' + content + '</div>',\r",
+                    "    '<div class=\"notesUser\">' + item.get('creator') + '</div>'+\r",
+                    "    '<div class=\"notesDate\">' + formatDate(item.get('createdate')) + '</div>' +\r",
+                    "    '</div><div class=\"notesText\">' + content + '</div>',\r",
                     "    'flex': 0\r",
                     "});"
                 ]

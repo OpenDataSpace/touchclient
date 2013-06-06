@@ -23,7 +23,7 @@ Ext.define('ACMobileClient.view.NoteEntry', {
     loadNote: function(item, noteId) {
         var content = item.get('content').replace(/\n/gi, "<br>");
 
-        if (noteId && noteId == item.get('id')) {
+        if (noteId && noteId === item.get('id')) {
             this.addCls("selectedNote");
         }
         this.add({

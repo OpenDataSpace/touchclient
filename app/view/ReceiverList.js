@@ -33,8 +33,8 @@ Ext.define('ACMobileClient.view.ReceiverList', {
     },
 
     onReceiverListSelect: function(dataview, record, eOpts) {
-        var text = record.get("text");
-        var value = record.get("value");
+        var text = record.get("text"),
+            value = record.get("value");
         this.config.caller.addField(text, value);
         this.config.caller.down('#inputField').setValue('');
         this.config.caller.search(true);

@@ -31,12 +31,14 @@ Ext.define('ACMobileClient.view.MailViewPage', {
     },
 
     onContainerInitialize: function(component, eOpts) {
-        var urlVars = getUrlVars();
-        if (urlVars["objectId"]) {
-            var objectId = urlVars["objectId"];
+        var urlVars = getUrlVars(),
+            objectId,
+            me = this;
+        if (urlVars.objectId) {
+            objectId = urlVars.objectId;
             this.dataStore = Ext.create('ACMobileClient.store.MailTextViewStore', {});
 
-            var me = this;
+
 
             this.dataStore.on('load', function(store, records) {
                 me.loadMask(store.getAt(0));

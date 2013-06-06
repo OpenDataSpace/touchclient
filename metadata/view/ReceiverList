@@ -30,8 +30,8 @@
             "userConfig": {
                 "fn": "onReceiverListSelect",
                 "implHandler": [
-                    "var text = record.get(\"text\");\r",
-                    "var value = record.get(\"value\");\r",
+                    "var text = record.get(\"text\"),\r",
+                    "    value = record.get(\"value\");\r",
                     "this.config.caller.addField(text, value);\r",
                     "this.config.caller.down('#inputField').setValue('');\r",
                     "this.config.caller.search(true);\r",

@@ -124,7 +124,7 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
                 parentContainer.setPageLabel(page, pageCount);
 
                 //all other images
-                for (i = 1; i < pageCount; ++i) {
+                for (i = 1; i < pageCount; i+=1) {
                     console.log("init next page: ", i);
 
                     imageViewerContainer2 = Ext.create("ACMobileClient.view.ImageViewerContainer", {});

@@ -53,7 +53,7 @@ Ext.define('ACMobileClient.view.ContentContainer', {
                 this.down('#titleBar').down('#backButton').show();
                 console.log("nav: "+this.navTitle);
 
-                if (!this.navTitle || this.navTitle === "Start") {
+                if (!this.navTitle || this.navTitle == "Start") {
                     this.down('#titleBar').down('#backButton').setText("");
                     this.down('#titleBar').down('#backButton').setIconCls("home");
                 }

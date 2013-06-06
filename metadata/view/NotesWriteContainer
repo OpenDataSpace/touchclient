@@ -255,7 +255,7 @@
                     "    colon = \"\";\r",
                     "\r",
                     "    console.log(receivers);\r",
-                    "    for (i = 0; i < receivers.length; ++i) {\r",
+                    "    for (i = 0; i < receivers.length; i+=1) {\r",
                     "        console.log(receivers[i].value);\r",
                     "        console.log(receivers[i]);\r",
                     "        if (recList === null) {\r",

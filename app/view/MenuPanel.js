@@ -253,7 +253,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 me.pathList = "";
                 me.pathNameList = "";
                 colon = "";
-                for (i = 0; i < fIds.length-2; ++i) {
+                for (i = 0; i < fIds.length-2; i+=1) {
                     me.pathList += colon + fIds[i];
                     me.pathNameList += colon + names[i];
                     colon = "|";

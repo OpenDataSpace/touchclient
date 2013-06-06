@@ -184,7 +184,7 @@ Ext.define('ACMobileClient.view.NotesWriteContainer', {
             colon = "";
 
             console.log(receivers);
-            for (i = 0; i < receivers.length; ++i) {
+            for (i = 0; i < receivers.length; i+=1) {
                 console.log(receivers[i].value);
                 console.log(receivers[i]);
                 if (recList === null) {

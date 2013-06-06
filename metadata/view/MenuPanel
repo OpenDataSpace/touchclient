@@ -203,7 +203,7 @@
                     "        me.pathList = \"\";\r",
                     "        me.pathNameList = \"\";\r",
                     "        colon = \"\";\r",
-                    "        for (i = 0; i < fIds.length-2; ++i) {\r",
+                    "        for (i = 0; i < fIds.length-2; i+=1) {\r",
                     "            me.pathList += colon + fIds[i];\r",
                     "            me.pathNameList += colon + names[i];\r",
                     "            colon = \"|\";\r",
