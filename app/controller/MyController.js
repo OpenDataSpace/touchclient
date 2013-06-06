@@ -24,6 +24,28 @@ Ext.define('ACMobileClient.controller.MyController', {
     },
 
     launch: function() {
+        Ext.define('ACMobileClient.view.ViewportLogin', {
+            extend: 'ACMobileClient.view.LoginPanel',
+            config: {
+                fullscreen: true
+            }
+        });
+
+        Ext.define('ACMobileClient.view.ViewportMain', {
+            extend: 'ACMobileClient.view.MainPanel',
+            config: {
+                fullscreen: true
+            }
+        });
+
+
+        Ext.define('ACMobileClient.view.ViewportTest', {
+            extend: 'ACMobileClient.view.MailViewContainer',
+            config: {
+                fullscreen: true
+            }
+        });
+
         var isPhone, utils, urlVars = getUrlVars(),
             globalViewPort = Ext.create("ACMobileClient.view.ViewportLogin", {});
         Ext.Ajax.setDefaultHeaders( {"Accept":"application/json"});
@@ -67,27 +89,7 @@ Ext.define('ACMobileClient.controller.MyController', {
 
         MyGlobals.isPhone = isPhone;
 
-        Ext.define('ACMobileClient.view.ViewportLogin', {
-            extend: 'ACMobileClient.view.LoginPanel',
-            config: {
-                fullscreen: true
-            }
-        });
 
-        Ext.define('ACMobileClient.view.ViewportMain', {
-            extend: 'ACMobileClient.view.MainPanel',
-            config: {
-                fullscreen: true
-            }
-        });
-
-
-        Ext.define('ACMobileClient.view.ViewportTest', {
-            extend: 'ACMobileClient.view.MailViewContainer',
-            config: {
-                fullscreen: true
-            }
-        });
 
 
         globalViewPort.show();
