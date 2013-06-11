@@ -6,10 +6,16 @@ DSTDIR=build/$(PROJECT)
 SDK = /home/felfert/Projects/GRAU/sencha/touch-2.2.0
 YUIJAR = tools/yuicompressor-2.4.7.jar
 SENCHA_CDN=https://extjs.cachefly.net/touch/sencha-touch-2.2.0/
+LINK_SDK = ln -s $(SDK) touch
+UNLINK_SDK = rm -f touch
 
 SOURCES=$(shell find app 3rdparty -name "*.js") generated/AppVersion.js agorum.js app.js
 
 TARGETS=$(addprefix $(DSTDIR)/,$(SOURCES)) $(DSTDIR)/index.html
+
+ifndef BASEURL
+BASEURL = 'http://localhost/~froth/touchclientgpl/'
+endif
 
 ifeq ($(DEBUG),1)
 YUI = cat >
@@ -66,6 +72,12 @@ $(DSTDIR)/css/app.css: css/*.css
 
 jslint:
 	phantomjs app-test/phantomlint/Tests-Runner.js
+
+jasmine:
+	$(UNLINK_SDK)
+	$(LINK_SDK)
+	phantomjs app-test/lib/phantomjs-testrunner.js $(BASEURL)/run-tests.html 
+	$(UNLINK_SDK)
 
 clean:
 	rm -rf build generated $(PROJECT)*.tar.gz
