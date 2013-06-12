@@ -1,6 +1,3 @@
-/*global jasmine, describe, it, expect, beforeEach, afterEach, runs, waitsFor,
-  window, com, user, password, Ext, touchclient */
-//exclude from jslint globals checker
 describe("Sencha testrunner", function () {
 
     it("has Sencha Touch 2 loaded", function () {
@@ -10,6 +7,6 @@ describe("Sencha testrunner", function () {
     });
 
     it("has loaded touch code", function () {
-        expect(touchclient).toBeDefined();
+        expect(ACMobileClient).toBeDefined();
     });
 });

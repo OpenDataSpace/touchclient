@@ -8,10 +8,12 @@ var Application = null,
 Ext.onReady(function () {
     //Ext.Loader.setConfig({disableCaching: false});
     Application = Ext.create('Ext.app.Application', {
-        name: 'touchclient',
+        name: 'ACMobileClient',
 
         requires: [
-            'com.graudata.Logging'
+            'com.graudata.Logging',
+            'ACMobileClient.utils.ACUtils',
+
         ],
 
 
@@ -28,6 +30,21 @@ Ext.onReady(function () {
             jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
             jasmine.getEnv().addReporter(new jasmine.JUnitXmlReporter('app-test/results/'));
             jasmine.getEnv().execute();
+
+            Ext.define('MyGlobals', { 
+                'singleton': true, 
+                'app': this
+            });
+            Ext.define('ACUtils', {
+                requires: [
+                    'ACMobileClient.utils.ACUtils'
+                ],
+                singleton: true,
+                utils: null
+            });
+            utils = Ext.create('ACMobileClient.utils.ACUtils', {});
+            utils.init();
+            ACUtils.utils = utils;
         }
 
 
