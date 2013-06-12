@@ -12,8 +12,7 @@ Ext.onReady(function () {
 
         requires: [
             'com.graudata.Logging',
-            'ACMobileClient.utils.ACUtils',
-
+            'ACMobileClient.utils.ACUtils'
         ],
 
 
