@@ -25,6 +25,7 @@ Ext.onReady(function () {
             window.log = l;
             this.logAppender = a;
 
+
             //include the tests in the test.html head
             jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
             jasmine.getEnv().addReporter(new jasmine.JUnitXmlReporter('app-test/results/'));
@@ -44,6 +45,7 @@ Ext.onReady(function () {
             utils = Ext.create('ACMobileClient.utils.ACUtils', {});
             utils.init();
             ACUtils.utils = utils;
+            ACUtils.utils.login(user, password);
         }
 
 
