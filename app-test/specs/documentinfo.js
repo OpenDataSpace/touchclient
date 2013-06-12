@@ -2,7 +2,8 @@ describe("Documentinfo model", function () {
 
     it("can be loaded from the server", function () {
         var goodSpy = jasmine.createSpy('successSpy'),
-            badSpy = jasmine.createSpy('failureSpy');
+            badSpy = jasmine.createSpy('failureSpy'),
+            store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
 
         runs(function () {
              ACUtils.utils.login(user, password, goodSpy, badSpy);
@@ -13,7 +14,6 @@ describe("Documentinfo model", function () {
         }, "One spy should have been called", 2000);
 
         Ext.Ajax.setDefaultHeaders({"Accept":"application/json"});
-        var store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
         runs(function () {
             store.load();
         });

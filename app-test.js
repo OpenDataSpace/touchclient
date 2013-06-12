@@ -45,7 +45,6 @@ Ext.onReady(function () {
             utils = Ext.create('ACMobileClient.utils.ACUtils', {});
             utils.init();
             ACUtils.utils = utils;
-            ACUtils.utils.login(user, password);
         }
 
 
