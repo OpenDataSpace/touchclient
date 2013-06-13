@@ -119,6 +119,19 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                         items: [
                                             {
                                                 xtype: 'textfield',
+                                                itemId: 'size',
+                                                clearIcon: false,
+                                                label: 'Size',
+                                                labelWidth: 100,
+                                                readOnly: true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        xtype: 'fieldset',
+                                        items: [
+                                            {
+                                                xtype: 'textfield',
                                                 itemId: 'creator',
                                                 clearIcon: false,
                                                 label: 'Creator',
@@ -131,15 +144,6 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 itemId: 'owner',
                                                 clearIcon: false,
                                                 label: 'Owner',
-                                                labelWidth: 100,
-                                                value: 'Rolf Lang',
-                                                readOnly: true
-                                            },
-                                            {
-                                                xtype: 'textfield',
-                                                itemId: 'lastModifier',
-                                                clearIcon: false,
-                                                label: 'Changed by',
                                                 labelWidth: 100,
                                                 value: 'Rolf Lang',
                                                 readOnly: true
@@ -420,6 +424,9 @@ Ext.define('ACMobileClient.view.InfoPanel', {
             me.down('#createDate').setValue(formatDate(rec.get('createdate')));
             me.down('#lastModifyDate').setValue(formatDate(rec.get('lastmodifydate')));
             me.down('#accessDate').setValue(formatDate(rec.get('updatedate')));
+            if(rec.get('size') !== null) {
+                me.down('#size').setValue(rec.get('size') + ' KB');
+            }
 
             //show after load
             if(!me.notesFirst) {

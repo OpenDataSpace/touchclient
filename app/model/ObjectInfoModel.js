@@ -75,6 +75,10 @@ Ext.define('ACMobileClient.model.ObjectInfoModel', {
             {
                 name: 'updatedate',
                 type: 'date'
+            },
+            {
+                name: 'size',
+                type: 'int'
             }
         ]
     }

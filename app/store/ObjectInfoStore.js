@@ -26,8 +26,8 @@ Ext.define('ACMobileClient.store.ObjectInfoStore', {
         proxy: {
             type: 'rest',
             extraParams: {
-                handler: 'object',
-                provider: 'object',
+                handler: 'dataspaceobject',
+                provider: 'dataspacefolder',
                 properties: [
                     'id',
                     'name',
@@ -39,7 +39,8 @@ Ext.define('ACMobileClient.store.ObjectInfoStore', {
                     'owner.fullname',
                     'createdate',
                     'lastmodifydate',
-                    'updatedate'
+                    'updatedate',
+                    'size'
                 ]
             },
             url: '/api/rest/object',

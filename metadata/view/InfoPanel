@@ -69,13 +69,13 @@
                     "            'selectedNote': function(theId) {\r",
                     "                if (me.noteId && me.noteId === theId) {\r",
                     "                    return \"selectedNote\";\r",
-                    "                }\r",
-                    "                return \"\";\r",
-                    "             },\r",
-                    "            'convertContent': function(content) {\r",
-                    "                return content.replace(/\\n/gi, \"<br>\");\r",
-                    "             }\r",
+                    "            }\r",
+                    "            return \"\";\r",
+                    "        },\r",
+                    "        'convertContent': function(content) {\r",
+                    "            return content.replace(/\\n/gi, \"<br>\");\r",
                     "        }\r",
+                    "    }\r",
                     "    ),\r",
                     "    'store': noteStore,\r",
                     "    'itemId': 'notesListList'\r",
@@ -94,6 +94,9 @@
                     "    me.down('#createDate').setValue(formatDate(rec.get('createdate')));\r",
                     "    me.down('#lastModifyDate').setValue(formatDate(rec.get('lastmodifydate')));\r",
                     "    me.down('#accessDate').setValue(formatDate(rec.get('updatedate')));\r",
+                    "    if(rec.get('size') !== null) {\r",
+                    "        me.down('#size').setValue(rec.get('size') + ' KB');\r",
+                    "    }\r",
                     "\r",
                     "    //show after load\r",
                     "    if(!me.notesFirst) {\r",
@@ -488,6 +491,38 @@
                                         "padding": null,
                                         "title": null
                                     },
+                                    "designerId": "4f4a1e29-ecc1-47c1-a0f6-ebeac2bc0766",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "size",
+                                                "clearIcon": false,
+                                                "label": "Size",
+                                                "labelAlign": null,
+                                                "labelWidth": 100,
+                                                "readOnly": true
+                                            },
+                                            "designerId": "75d1969b-217e-4131-bd13-493288cc7b56"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "padding": null,
+                                        "title": null
+                                    },
                                     "designerId": "254b8ae3-6c44-4304-ad15-5f52faae399f",
                                     "cn": [
                                         {
@@ -528,25 +563,6 @@
                                                 "readOnly": true
                                             },
                                             "designerId": "a2e38c13-6ae0-493d-9e44-07820ee08430"
-                                        },
-                                        {
-                                            "type": "Ext.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "itemId": "lastModifier",
-                                                "clearIcon": false,
-                                                "label": "Changed by",
-                                                "labelWidth": 100,
-                                                "value": [
-                                                    "Rolf Lang"
-                                                ],
-                                                "readOnly": true
-                                            },
-                                            "designerId": "8ca3f9cb-27e8-4a94-8c7d-dc4df9f0f7f9"
                                         }
                                     ]
                                 },

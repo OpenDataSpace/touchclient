@@ -50,15 +50,17 @@ describe("Documentinfo model", function () {
         });
 
         runs(function () {
-           expect(objectinfostore.first().get("name")).toBeDefined(); 
-           expect(objectinfostore.first().get("objecttextkey")).toBeDefined(); 
-           expect(objectinfostore.first().get("description")).toBeDefined(); 
-           expect(objectinfostore.first().get("creator")).toBeDefined(); 
-           expect(objectinfostore.first().get("lastmodifier")).toBeDefined(); 
-           expect(objectinfostore.first().get("owner")).toBeDefined(); 
-           expect(objectinfostore.first().get("createdate")).toBeDefined(); 
-           expect(objectinfostore.first().get("lastmodifydate")).toBeDefined(); 
-           expect(objectinfostore.first().get("updatedate")).toBeDefined(); 
+            var keys = objectinfostore.first().getFields().keys;
+            expect(keys).toContain("name"); 
+            expect(keys).toContain("objecttextkey"); 
+            expect(keys).toContain("description"); 
+            expect(keys).toContain("creator"); 
+            expect(keys).toContain("lastmodifier"); 
+            expect(keys).toContain("owner"); 
+            expect(keys).toContain("createdate"); 
+            expect(keys).toContain("lastmodifydate"); 
+            expect(keys).toContain("updatedate"); 
+            expect(keys).toContain("size"); 
         });
     });
 });

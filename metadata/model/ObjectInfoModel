@@ -181,6 +181,19 @@
                 "type": "date"
             },
             "designerId": "8ecae11e-032d-49b7-926e-78313c71ca89"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "size",
+                "type": "int"
+            },
+            "designerId": "1e1b12c0-f1e5-45f3-9149-96b1d7d12300"
         }
     ]
 }
