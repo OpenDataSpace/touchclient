@@ -2,7 +2,7 @@
 //exclude these from jslint globals checker
 Ext.require('Ext.app.Application');
 var Application = null,
-    user = 'jenkinstouchui',
+    user = 'jenkinsatouchuigpl',
     password = 'Jenkins1';
 
 Ext.onReady(function () {
