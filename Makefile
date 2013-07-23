@@ -70,10 +70,10 @@ $(DSTDIR)/css/app.css: css/*.css
 	mkdir -p $(DSTDIR)/css
 	cat $^ | java -jar $(YUIJAR) --type css -o $@
 
-jslint:
+jslint: $(SOURCES)
 	phantomjs app-test/phantomlint/Tests-Runner.js
 
-jasmine:
+jasmine: $(SOURCES)
 	$(UNLINK_SDK)
 	$(LINK_SDK)
 	phantomjs app-test/lib/phantomjs-testrunner.js $(BASEURL)/run-tests.html 
