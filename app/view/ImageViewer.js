@@ -215,10 +215,12 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
 
     'onSwipe': function(ev, node, options, eOpts) {
-        console.debug("swipe: ", ev);
-        if (this.lastScrollBoundWidth != null && Math.abs(this.lastScrollBoundWidth) > 30) {
-           if (ev.direction == 'left') this.caller.loadNextPage();
-           if (ev.direction == 'right') this.caller.loadPrevPage();
+        if (this.lastScrollBoundWidth !== null && Math.abs(this.lastScrollBoundWidth) > 30) {
+           if (ev.direction === 'left') {
+               this.caller.loadNextPage();
+           if (ev.direction === 'right') {
+               this.caller.loadPrevPage();
+           }
         }
     },
 
