@@ -22,12 +22,14 @@ Ext.define('ACMobileClient.view.ContentContainerBar', {
         items: [
             {
                 xtype: 'button',
+                hidden: true,
                 itemId: 'listButton',
                 ui: 'plain',
                 iconCls: 'layout'
             },
             {
                 xtype: 'button',
+                hidden: false,
                 itemId: 'backButton',
                 ui: 'back',
                 text: 'xx'

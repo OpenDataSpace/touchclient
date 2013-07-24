@@ -101,12 +101,14 @@
             "codeClass": null,
             "userConfig": {
                 "centered": true,
-                "height": 280,
+                "height": 10,
                 "itemId": "loginForm",
-                "padding": 10,
+                "minHeight": 290,
+                "padding": 7,
                 "showAnimation": "slideIn",
                 "style": "",
                 "width": 300,
+                "layout": null,
                 "url": "/api/rest/session/login"
             },
             "designerId": "dad96ca0-db19-479d-a5f5-e0b51e74da0a",
@@ -134,6 +136,7 @@
                     "userConfig": {
                         "itemId": "loginFieldSet",
                         "width": 250,
+                        "layout": null,
                         "title": null
                     },
                     "designerId": "741505ab-3e1d-4ac8-a1f4-5c6d07887c2e",
@@ -262,27 +265,6 @@
             ]
         },
         {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onPanelPainted",
-                "implHandler": [
-                    "if (ACUtils.utils.isAutoLogin()) {\r",
-                    "    this.down('#userName').setValue(ACUtils.utils.getUserName());\r",
-                    "    this.down('#passWord').setValue(ACUtils.utils.getPassWord());\r",
-                    "    this.down('#rememberLogin').check();\r",
-                    "    this.doLogin();\r",
-                    "}"
-                ],
-                "name": "painted"
-            },
-            "designerId": "31544a7c-9d80-48ce-8462-fda49f33aa53"
-        },
-        {
             "type": "Ext.Img",
             "reference": {
                 "name": "items",
@@ -297,6 +279,28 @@
                 "src": "images/logo.png"
             },
             "designerId": "2d6e32fd-05c5-4932-a6bb-b095039502cb"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelPainted",
+                "implHandler": [
+                    "console.debug('loginpanel painted');\r",
+                    "if (ACUtils.utils.isAutoLogin()) {\r",
+                    "    this.down('#userName').setValue(ACUtils.utils.getUserName());\r",
+                    "    this.down('#passWord').setValue(ACUtils.utils.getPassWord());\r",
+                    "    this.down('#rememberLogin').check();\r",
+                    "    this.doLogin();\r",
+                    "}"
+                ],
+                "name": "painted"
+            },
+            "designerId": "c6bfc8de-62ec-436b-9cdb-1eaa9f355e9f"
         }
     ]
 }

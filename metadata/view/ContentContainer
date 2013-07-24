@@ -48,25 +48,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onContainerInitialize",
-                "implHandler": [
-                    ""
-                ],
-                "name": "initialize"
-            },
-            "designerId": "4b108a02-c340-4a1a-9de8-b63f0193c539"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "onContainerPainted",
                 "implHandler": [
                     "if (!this.loaded) {\r",
+                    "    console.debug('ContentContainer.painted');\r",
                     "    if (this.hasPrevious) {\r",
                     "        this.down('#titleBar').down('#backButton').show();\r",
                     "        console.log(\"nav: \"+this.navTitle);\r",

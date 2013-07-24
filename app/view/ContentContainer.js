@@ -33,22 +33,15 @@ Ext.define('ACMobileClient.view.ContentContainer', {
         ],
         listeners: [
             {
-                fn: 'onContainerInitialize',
-                event: 'initialize'
-            },
-            {
                 fn: 'onContainerPainted',
                 event: 'painted'
             }
         ]
     },
 
-    onContainerInitialize: function(component, eOpts) {
-
-    },
-
     onContainerPainted: function(element, eOpts) {
         if (!this.loaded) {
+            console.debug('ContentContainer.painted');
             if (this.hasPrevious) {
                 this.down('#titleBar').down('#backButton').show();
                 console.log("nav: "+this.navTitle);

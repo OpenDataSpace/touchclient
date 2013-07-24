@@ -37,6 +37,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
+                        "hidden": false,
                         "itemId": "backButton",
                         "maxWidth": 100,
                         "ui": "back",

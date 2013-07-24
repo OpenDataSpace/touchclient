@@ -41,6 +41,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "hidden": true,
                 "itemId": "listButton",
                 "ui": "plain",
                 "iconCls": "layout",
@@ -79,6 +80,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "hidden": false,
                 "itemId": "backButton",
                 "ui": "back",
                 "iconCls": null,

@@ -311,7 +311,7 @@
                     "toolbar.getComponent('Stop').hide();\r",
                     "toolbar.getComponent('Start').show();\r",
                     "me.uploaders.forEach(function(up) {\r",
-                    "\tup.stop();\r",
+                    "    up.stop();\r",
                     "});"
                 ]
             },

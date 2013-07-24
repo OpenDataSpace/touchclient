@@ -47,10 +47,8 @@ Ext.define('ACMobileClient.controller.MyController', {
         });
 
         var isPhone, utils, urlVars = getUrlVars(),
-            globalViewPort = Ext.create("ACMobileClient.view.ViewportLogin", {});
+            globalViewPort;
         Ext.Ajax.setDefaultHeaders( {"Accept":"application/json"});
-        Ext.getStore("GlobalFolderStore").load();
-
         Ext.JSON.encodeDate = function(d){
             return Ext.Date.format(d, '"YmdHisO"');
         };
@@ -65,7 +63,8 @@ Ext.define('ACMobileClient.controller.MyController', {
             'contentContainer': null,
             'lastObjectInContentContainer': null,
             'isPhone': false,
-            'uploadController' : null
+            'uploadController' : null,
+            'showListButton': false
         });
 
         Ext.define('ACUtils', {
@@ -91,7 +90,7 @@ Ext.define('ACMobileClient.controller.MyController', {
 
 
 
-
+        globalViewPort = Ext.create("ACMobileClient.view.ViewportLogin", {});
         globalViewPort.show();
 
         /*

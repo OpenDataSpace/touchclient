@@ -18,6 +18,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     'abortLoad': false,
     'imageViewerContainer': null,
     'nextImageViewer': null,
+    'lastScrollBoundWidth': null,
     'loadNext': false,
     'isLoading': false,
 
@@ -116,7 +117,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         this.imgEl.on('pinchend', this.onImagePinchEnd, this, {});
         this.on('resize', this.reloadViewer, this, {});
         this.imgEl.on('swipe', this.onSwipe, this, {});
-        this.imgEl.on('dragend', this.onDragEnd, this, {});
         this.getScrollable().getScroller().on('scroll', this.onScroll, this, {});
         this.getScrollable().getScroller().on('scrollend', this.onScrollEnd, this, {});
 
@@ -177,11 +177,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         }, 500);
     },
 
-    'onDragEnd': function(event, node, options, eOpts) {
-        console.log("onDragEnd");
-        //this.doScrolling(true);
-    },
-
     'onScrollEnd': function(scroller, x, y, eOpts) {
         console.log("onScrollEnd");
         //this.doScrolling(true);
@@ -220,13 +215,11 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
 
     'onSwipe': function(ev, node, options, eOpts) {
-        /*
-           if (Math.abs(this.lastScrollBoundWidth) > 30) {
+        console.debug("swipe: ", ev);
+        if (this.lastScrollBoundWidth != null && Math.abs(this.lastScrollBoundWidth) > 30) {
            if (ev.direction == 'left') this.caller.loadNextPage();
            if (ev.direction == 'right') this.caller.loadPrevPage();
-        //console.log("swipe: "+ev.direction);
         }
-        */
     },
 
     'hidePreview': function() {
@@ -235,7 +228,8 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         }
     },
 
-    'loadImage': function(src) {	
+    'loadImage': function(src) {
+        console.debug('imgEl=', this.imgEl, 'src=', src);
         this.imageSrc = src;
         if (this.imgEl) {
             this.imgEl.dom.src = src;

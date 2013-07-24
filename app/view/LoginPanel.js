@@ -23,9 +23,10 @@ Ext.define('ACMobileClient.view.LoginPanel', {
             {
                 xtype: 'formpanel',
                 centered: true,
-                height: 280,
+                height: 10,
                 itemId: 'loginForm',
-                padding: 10,
+                minHeight: 290,
+                padding: 7,
                 showAnimation: 'slideIn',
                 style: '',
                 width: 300,
@@ -119,6 +120,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
     },
 
     onPanelPainted: function(element, eOpts) {
+        console.debug('loginpanel painted');
         if (ACUtils.utils.isAutoLogin()) {
             this.down('#userName').setValue(ACUtils.utils.getUserName());
             this.down('#passWord').setValue(ACUtils.utils.getPassWord());
