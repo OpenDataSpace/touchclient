@@ -16,22 +16,6 @@
     "designerId": "17bbcff2-770e-425f-b8f5-e355b625ab67",
     "cn": [
         {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onContainerDeactivate",
-                "implHandler": [
-                    "//this.down('#documentList').deselectAll();"
-                ],
-                "name": "deactivate"
-            },
-            "designerId": "080d4e5e-e3a2-420f-ac6d-4921029d61d3"
-        },
-        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",

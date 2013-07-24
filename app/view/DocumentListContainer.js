@@ -18,16 +18,6 @@ Ext.define('ACMobileClient.view.DocumentListContainer', {
     alias: 'widget.DocumentListContainer',
 
     config: {
-        listeners: [
-            {
-                fn: 'onContainerDeactivate',
-                event: 'deactivate'
-            }
-        ]
-    },
-
-    onContainerDeactivate: function(oldActiveItem, container, newActiveItem, eOpts) {
-        //this.down('#documentList').deselectAll();
     },
 
     doubleTapCallback: function() {
