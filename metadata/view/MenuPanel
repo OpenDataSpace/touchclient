@@ -19,6 +19,17 @@
         "zIndex": null,
         "designer|userClassName": "MenuPanel",
         "designer|userAlias": "menupanel",
+        "requires": [
+            "ACMobileClient.view.DocumentListContainer",
+            "ACMobileClient.view.SearchContainer",
+            "ACMobileClient.view.SettingsContainer"
+        ],
+        "uses": [
+            "ACMobileClient.view.FolderListContainer",
+            "ACMobileClient.store.PrivateGlobalFoldersStore",
+            "ACMobileClient.store.SharedGlobalFoldersStore",
+            "ACMobileClient.store.FolderObjectDataStore"
+        ],
         "hideOnMaskTap": false,
         "layout": "fit",
         "modal": false
@@ -435,47 +446,6 @@
                     "designerId": "1fe8786a-d1f8-40b8-a900-20a56521df39"
                 }
             ]
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onPanelShow",
-                "implHandler": [
-                    "\r",
-                    "/*\r",
-                    "Ext.Anim.run(this, 'slide', {\r",
-                    "direction: 'down'\r",
-                    "});\r",
-                    "*/"
-                ],
-                "name": "show"
-            },
-            "designerId": "8e122a14-90c2-4d40-87bd-0c0621feaf1f"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onPanelHide",
-                "implHandler": [
-                    "/*\r",
-                    "Ext.Anim.run(this, 'slide', {\r",
-                    "direction: 'up'\r",
-                    "});\r",
-                    "*/"
-                ],
-                "name": "hide"
-            },
-            "designerId": "6935c443-2b4d-45f8-9261-2a78ac8f8e84"
         }
     ]
 }

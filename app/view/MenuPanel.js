@@ -22,6 +22,12 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         'ACMobileClient.view.SearchContainer',
         'ACMobileClient.view.SettingsContainer'
     ],
+    uses: [
+        'ACMobileClient.view.FolderListContainer',
+        'ACMobileClient.store.PrivateGlobalFoldersStore',
+        'ACMobileClient.store.SharedGlobalFoldersStore',
+        'ACMobileClient.store.FolderObjectDataStore'
+    ],
 
     config: {
         style: '',
@@ -87,14 +93,6 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 fn: 'onTabPanelActiveItemChange',
                 event: 'activeitemchange',
                 delegate: '#tabPanel'
-            },
-            {
-                fn: 'onPanelShow',
-                event: 'show'
-            },
-            {
-                fn: 'onPanelHide',
-                event: 'hide'
             }
         ]
     },
@@ -118,23 +116,6 @@ Ext.define('ACMobileClient.view.MenuPanel', {
     onTabPanelActiveItemChange: function(container, value, oldValue, eOpts) {
         this.lastActiveItem = value.id;
 
-    },
-
-    onPanelShow: function(component, eOpts) {
-
-        /*
-        Ext.Anim.run(this, 'slide', {
-        direction: 'down'
-        });
-        */
-    },
-
-    onPanelHide: function(component, eOpts) {
-        /*
-        Ext.Anim.run(this, 'slide', {
-        direction: 'up'
-        });
-        */
     },
 
     internInit: function() {
