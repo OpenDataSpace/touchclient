@@ -76,6 +76,10 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 hideOnMaskTap: true
             });
         }
+        if (MyGlobals.isPhone) {
+            men.setStyle("font-size:1.25em");
+        }
+
 
         //remember the panel in the globals to reuse it on another place
         MyGlobals.menuPanel = men;    
@@ -194,7 +198,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 men.setWidth(null);
                 MyGlobals.showListButton = false;
 
-                men.setStyle("font-size:1.25em");
                 if (MyGlobals.contentContainer.down('#content').items.length > 1) {
                     me.showInContentContainer();
                 } else {
@@ -204,7 +207,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
             } else {
                 men.setHideOnMaskTap(true);
                 men.setModal(true);
-                men.setStyle('');
                 if (isAndroidTablet) {
                     men.setDocked(null);
                     men.setTop(5);
