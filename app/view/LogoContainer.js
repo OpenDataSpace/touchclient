@@ -18,16 +18,6 @@ Ext.define('ACMobileClient.view.LogoContainer', {
 
     config: {
         cls: 'logoBack',
-        listeners: [
-            {
-                fn: 'onContainerPainted',
-                event: 'painted'
-            },
-            {
-                fn: 'onContainerShow',
-                event: 'show'
-            }
-        ],
         items: [
             {
                 xtype: 'image',
@@ -36,14 +26,6 @@ Ext.define('ACMobileClient.view.LogoContainer', {
                 src: 'images/logo.png'
             }
         ]
-    },
-
-    onContainerPainted: function(element, eOpts) {
-
-    },
-
-    onContainerShow: function(component, eOpts) {
-
     }
 
 });
