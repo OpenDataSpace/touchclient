@@ -51,7 +51,6 @@
                 "fn": "onContainerPainted",
                 "implHandler": [
                     "if (!this.loaded) {\r",
-                    "    console.debug('ContentContainer.painted');\r",
                     "    if (this.hasPrevious) {\r",
                     "        this.down('#titleBar').down('#backButton').show();\r",
                     "        console.log(\"nav: \"+this.navTitle);\r",

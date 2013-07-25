@@ -294,20 +294,8 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                 delegate: '#createNote'
             },
             {
-                fn: 'onContainerMove',
-                event: 'move'
-            },
-            {
-                fn: 'onContainerLeftChange',
-                event: 'leftchange'
-            },
-            {
                 fn: 'onContainerPainted',
                 event: 'painted'
-            },
-            {
-                fn: 'onContainerActivate',
-                event: 'activate'
             },
             {
                 fn: 'onContainerActiveItemChange',
@@ -329,33 +317,22 @@ Ext.define('ACMobileClient.view.InfoPanel', {
     },
 
     onCloseButtonRightTap: function(button, e, eOpts) {
-        this.hide();
-        //MyGlobals.mainPanel.remove(this, true);
+        MyGlobals.mainPanel.hideInfoPanel();
     },
 
     onCreateNoteTap: function(button, e, eOpts) {
         this.writeNote();
     },
 
-    onContainerMove: function(container, item, toIndex, fromIndex, eOpts) {
-        console.log('move');
-    },
-
-    onContainerLeftChange: function(component, value, oldValue, eOpts) {
-        console.log(value+", "+oldValue);
-    },
-
     onContainerPainted: function(element, eOpts) {
-        if (MyGlobals.isPhone) {
+        if (MyGlobals.isNarrow()) {
+            this.down('#closeButtonLeft').show();
             this.down('#closeButtonRight').hide();
         }
         else {
             this.down('#closeButtonLeft').hide();
+            this.down('#closeButtonRight').show();
         }
-    },
-
-    onContainerActivate: function(newActiveItem, container, oldActiveItem, eOpts) {
-
     },
 
     onContainerActiveItemChange: function(container, value, oldValue, eOpts) {
@@ -429,7 +406,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
             }
 
             //show after load
-            if(!me.notesFirst) {
+            if ((!me.notesFirst) && Ext.isFunction(me.loadCallback)) {
                 me.loadCallback();
             }
         });
@@ -440,30 +417,9 @@ Ext.define('ACMobileClient.view.InfoPanel', {
             }
         });
 
-        /*
-        var noteStore = Ext.create('ACMobileClient.store.NoteStore', {});
-        noteStore.objectId = me.objectId;
-        var notesList = Ext.create('ACMobileClient.view.NotesListList', {
-        itemTpl: myTpl,
-        store: noteStore,
-        itemId: 'notesListList'
-        });
-        */
 
         noteStore.on('load', function(store, records) {
-            /*
-            var data = store.getData();
-            data.each(function (item) {
-            var noteEntry = Ext.create('ACMobileClient.view.NoteEntry', {
-            layout: 'vbox'
-            });
-            noteEntry.loadNote(item, me.noteId);
-            me.down('#noteEntries').add(noteEntry);
-            });
-            */
-
-            //show after load
-            if (me.notesFirst) {
+            if ((me.notesFirst) && Ext.isFunction(me.loadCallback)) {
                 me.loadCallback();
             }
 

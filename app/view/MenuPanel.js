@@ -118,10 +118,6 @@ Ext.define('ACMobileClient.view.MenuPanel', {
 
     },
 
-    internInit: function() {
-
-    },
-
     search: function(searchQuery) {
         var me = this;
         ACUtils.utils.checkConnectionWithFunction(function() {

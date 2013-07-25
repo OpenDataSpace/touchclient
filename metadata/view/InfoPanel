@@ -11,7 +11,17 @@
         "designer|userAlias": "infoPanel",
         "layout": "card"
     },
+    "configAlternates": {
+        "loadCallback": "object"
+    },
     "designerId": "008f2c44-08b6-468e-9034-fcc3f6167cf1",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "loadCallback",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "basicfunction",
@@ -99,7 +109,7 @@
                     "    }\r",
                     "\r",
                     "    //show after load\r",
-                    "    if(!me.notesFirst) {\r",
+                    "    if ((!me.notesFirst) && Ext.isFunction(me.loadCallback)) {\r",
                     "        me.loadCallback();\r",
                     "    }\r",
                     "});\r",
@@ -110,30 +120,9 @@
                     "    }\r",
                     "});\r",
                     "\r",
-                    "/*\r",
-                    "var noteStore = Ext.create('ACMobileClient.store.NoteStore', {});\r",
-                    "noteStore.objectId = me.objectId;\r",
-                    "var notesList = Ext.create('ACMobileClient.view.NotesListList', {\r",
-                    "itemTpl: myTpl,\r",
-                    "store: noteStore,\r",
-                    "itemId: 'notesListList'\r",
-                    "});\r",
-                    "*/\r",
                     "\r",
                     "noteStore.on('load', function(store, records) {\r",
-                    "    /*\r",
-                    "    var data = store.getData();\r",
-                    "    data.each(function (item) {\r",
-                    "    var noteEntry = Ext.create('ACMobileClient.view.NoteEntry', {\r",
-                    "    layout: 'vbox'\r",
-                    "    });\r",
-                    "    noteEntry.loadNote(item, me.noteId);\r",
-                    "    me.down('#noteEntries').add(noteEntry);\r",
-                    "    });\r",
-                    "    */\r",
-                    "\r",
-                    "    //show after load\r",
-                    "    if (me.notesFirst) {\r",
+                    "    if ((me.notesFirst) && Ext.isFunction(me.loadCallback)) {\r",
                     "        me.loadCallback();\r",
                     "    }\r",
                     "\r",
@@ -369,8 +358,7 @@
                                     "userConfig": {
                                         "fn": "onCloseButtonRightTap",
                                         "implHandler": [
-                                            "this.hide();\r",
-                                            "//MyGlobals.mainPanel.remove(this, true);"
+                                            "MyGlobals.mainPanel.hideInfoPanel();"
                                         ],
                                         "name": "tap"
                                     },
@@ -877,66 +865,20 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onContainerMove",
-                "implHandler": [
-                    "console.log('move');"
-                ],
-                "name": "move"
-            },
-            "designerId": "2ab0b218-4734-4c6e-aed2-923637b59322"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onContainerLeftChange",
-                "implHandler": [
-                    "console.log(value+\", \"+oldValue);"
-                ],
-                "name": "leftchange"
-            },
-            "designerId": "6f5f5b42-cded-4c7b-8d0b-09e8442db1d6"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "onContainerPainted",
                 "implHandler": [
-                    "if (MyGlobals.isPhone) {\r",
+                    "if (MyGlobals.isNarrow()) {\r",
+                    "    this.down('#closeButtonLeft').show();\r",
                     "    this.down('#closeButtonRight').hide();\r",
                     "}\r",
                     "else {\r",
                     "    this.down('#closeButtonLeft').hide();\r",
+                    "    this.down('#closeButtonRight').show();\r",
                     "}"
                 ],
                 "name": "painted"
             },
             "designerId": "888c065f-13d8-4663-b91c-04828df69ef8"
-        },
-        {
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onContainerActivate",
-                "implHandler": [
-                    ""
-                ],
-                "name": "activate"
-            },
-            "designerId": "18d1e142-8338-4711-a832-6268e8d48101"
         },
         {
             "type": "basiceventbinding",

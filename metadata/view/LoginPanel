@@ -290,7 +290,6 @@
             "userConfig": {
                 "fn": "onPanelPainted",
                 "implHandler": [
-                    "console.debug('loginpanel painted');\r",
                     "if (ACUtils.utils.isAutoLogin()) {\r",
                     "    this.down('#userName').setValue(ACUtils.utils.getUserName());\r",
                     "    this.down('#passWord').setValue(ACUtils.utils.getPassWord());\r",

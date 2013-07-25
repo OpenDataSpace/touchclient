@@ -80,7 +80,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "hidden": false,
+                "hidden": true,
                 "itemId": "backButton",
                 "ui": "back",
                 "iconCls": null,

@@ -44,21 +44,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "internInit",
-                "implHandler": [
-                    ""
-                ]
-            },
-            "designerId": "2813bb4a-2c84-426f-8716-2a46b8509345"
-        },
-        {
-            "type": "basicfunction",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "fn": "search",
                 "designer|params": [
                     "searchQuery"

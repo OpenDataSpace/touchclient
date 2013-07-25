@@ -21,6 +21,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     'lastScrollBoundWidth': null,
     'loadNext': false,
     'isLoading': false,
+    'mustInitialize': true,
 
     'config': {
         'cls': 'imageBox',
@@ -43,7 +44,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     },
 
     'initialize': function() {
-        this.on('activate', this.initViewer, this, {'delay': 10, 'single': true});
+        // this.on('painted', this.initViewer, this, {'single': true});
         this.callParent();
     },
 
@@ -51,7 +52,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         var imgSrc = "/api/rest/object/preview/" + previewTicket +
             ".png?noCache=" + new Date().getTime() + "&sessionId=" + MyGlobals.sessionId;
 
-        console.log("loading image from server");
         this.showLoader();
         this.isLoaded = true;
 
@@ -60,8 +60,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         this.page = page;
         this.pageNumber = page;
         this.objectId = objectId;
-
-        //Ext.Msg.alert("Info", ""+jsonResp.previewTicket+", "+jsonResp.pageCount);
     },
 
     'doScrolling': function(enable) {
@@ -75,50 +73,49 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     },
 
     'initViewer': function() {
-        var scroller;
+        var me = this, scroller;
 
-        this.doScrolling(false);
-        this.doWipe(true);
+        if (me.mustInitialize) {
+            me.mustInitialize = false;
 
-        //scroller
-        scroller = this.getScrollable().getScroller();
+            me.doScrolling(false);
+            me.doWipe(true);
 
-        // mask image viewer
-        if (this.loadingMask) {
-            this.mask(Ext.LoadingSpinner);
+            scroller = me.getScrollable().getScroller();
+
+            // mask image viewer
+            if (me.loadingMask) {
+                me.mask(Ext.LoadingSpinner);
+            }
+
+            // retrieve DOM els
+            me.figEl = me.element.down('figure');
+            me.imgEl = me.figEl.down('img');
+
+            // apply required styles
+            me.figEl.setStyle({
+                'overflow': 'hidden',
+                'display': 'block',
+                'margin': 0
+            });
+
+            me.imgEl.setStyle({
+                '-webkit-user-drag': 'none',
+                '-webkit-transform-origin': '0 0',
+                'visibility': 'hidden'
+            });
+
+            // attach event listeners
+            me.imgEl.dom.onload = Ext.Function.bind( me.onImageLoad, me, [me.imgEl], 0);
+            me.imgEl.on('doubletap', me.onDoubleTap, me, {});
+            me.imgEl.on('pinchstart', me.onImagePinchStart, me, {});
+            me.imgEl.on('pinch', me.onImagePinch, me, {});
+            me.imgEl.on('pinchend', me.onImagePinchEnd, me, {});
+            me.on('resize', me.reloadViewer, me, {});
+            me.imgEl.on('swipe', me.onSwipe, me, {});
+            me.getScrollable().getScroller().on('scroll', me.onScroll, me, {});
+            me.getScrollable().getScroller().on('scrollend', me.onScrollEnd, me, {});
         }
-
-
-        // retrieve DOM els
-        this.figEl = this.element.down('figure');
-        this.imgEl = this.figEl.down('img');
-        //this.divEl = this.figEl.down('div');
-
-        // apply required styles
-        this.figEl.setStyle({
-            'overflow': 'hidden',
-            'display': 'block',
-            'margin': 0
-        });
-
-        this.imgEl.setStyle({
-            '-webkit-user-drag': 'none',
-            '-webkit-transform-origin': '0 0',
-            'visibility': 'hidden'
-
-        });
-
-        // attach event listeners
-        this.imgEl.dom.onload = Ext.Function.bind( this.onImageLoad, this, [this.imgEl], 0);
-
-        this.imgEl.on('doubletap', this.onDoubleTap, this, {});
-        this.imgEl.on('pinchstart', this.onImagePinchStart, this, {});
-        this.imgEl.on('pinch', this.onImagePinch, this, {});
-        this.imgEl.on('pinchend', this.onImagePinchEnd, this, {});
-        this.on('resize', this.reloadViewer, this, {});
-        this.imgEl.on('swipe', this.onSwipe, this, {});
-        this.getScrollable().getScroller().on('scroll', this.onScroll, this, {});
-        this.getScrollable().getScroller().on('scrollend', this.onScrollEnd, this, {});
 
     },
 
@@ -226,62 +223,54 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     },
 
     'hidePreview': function() {
-        if (this.imgEl) {
-            this.imgEl.dom.style.visibility="hidden";
-        }
+        var me = this;
+        me.initViewer();
+        me.imgEl.dom.style.visibility="hidden";
     },
 
     'loadImage': function(src) {
-        console.debug('imgEl=', this.imgEl, 'src=', src);
-        this.imageSrc = src;
-        if (this.imgEl) {
-            this.imgEl.dom.src = src;
-        }
+        var me = this;
+        me.initViewer();
+        me.imageSrc = src;
+        me.imgEl.dom.src = src;
     },
 
     'reloadViewer': function() {
-        if (!this.imgEl) {
-            return;
-        }
+        var me = this;
+        me.initViewer();
 
-        this.doWipe(true);
-        this.doScrolling(false);
+        me.doWipe(true);
+        me.doScrolling(false);
         // get viewport size
-        this.viewportWidth = this.element.getWidth();
-        this.viewportHeight = this.element.getHeight();
+        me.viewportWidth = me.element.getWidth();
+        me.viewportHeight = me.element.getHeight();
 
         // grab image size
-        this.imgWidth = this.imgEl.dom.width;
-        this.imgHeight = this.imgEl.dom.height;
+        me.imgWidth = me.imgEl.dom.width;
+        me.imgHeight = me.imgEl.dom.height;
 
         // calculate and apply initial scale to fit image to screen
-        if (this.imgWidth > this.viewportWidth || this.imgHeight > this.viewportHeight) {
-            this.scale = this.baseScale =
-                Math.min(this.viewportWidth/this.imgWidth, this.viewportHeight/this.imgHeight);
+        if (me.imgWidth > me.viewportWidth || me.imgHeight > me.viewportHeight) {
+            me.scale = me.baseScale =
+                Math.min(me.viewportWidth/me.imgWidth, me.viewportHeight/me.imgHeight);
         } else {
-            this.scale = this.baseScale = 1;
+            me.scale = me.baseScale = 1;
         }
 
         // set initial translation to center
-        this.translateX = this.translateBaseX = (this.viewportWidth - this.baseScale * this.imgWidth) / 2;
-        this.translateY = this.translateBaseY = 0; //-this.imgHeight / 2; //this.translateBaseY = (this.viewportHeight - this.baseScale * this.imgHeight) / 2;
+        me.translateX = me.translateBaseX = (me.viewportWidth - me.baseScale * me.imgWidth) / 2;
+        me.translateY = me.translateBaseY = 0;
 
         // apply initial scale and translation
-        this.applyTransform();
+        me.applyTransform();
 
         // initialize scroller configuration
-        this.adjustScroller();
-
-        // show image and remove mask
-        //this.imgEl.setStyle({ visibility: 'visible' });
-
-        this.getScrollable().getScroller().scrollTo(0, 0, false);
-        //this.imgEl.dom.style.visibility="visible";
+        me.adjustScroller();
+        me.getScrollable().getScroller().scrollTo(0, 0, false);
     },
 
     'onImageLoad': function() {
         if (!this.parentContainer.isBeingRemoved) {
-            //this.fireEvent('imageLoaded', this);
             this.isLoading = false;
             this.hideLoader();
             this.reloadViewer();
@@ -294,11 +283,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     },
 
     'onImagePinchStart': function(ev) {
-        //console.log("onImagePinchStart");
-        // disable scrolling during pinch
-        //this.getScrollable().getScroller().stopMomentumAnimation();
-        //this.scroller.disable();
-
         // store beginning scale
         this.startScale = this.scale;
 
@@ -328,7 +312,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     },
 
     'onImagePinch': function(ev) {
-        //alert("onImagePinch");
         // prevent scaling to smaller than screen size
         this.maxScale = 1;
         this.scale = Ext.Number.constrain(ev.scale * this.startScale, this.baseScale, this.maxScale);
@@ -386,11 +369,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
 
     'onDoubleTap': function(ev, t) {
-        /*
-           alert(this.doubleTapScale);
-           if(!this.doubleTapScale)
-           return false;
-           */
         // set scale and translation
         if(Math.abs(this.baseScale - this.scale) > 0.01) {
             // zoom out to base view
@@ -454,11 +432,9 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         var fixedX, fixedY, fixedScale;
 
         if (Math.abs(this.baseScale - this.scale) > 0.01) {
-            //console.log("zoomed in");
             this.doScrolling(true);
             this.doWipe(false);
         } else {
-            //console.log("zoomed out");
             this.doScrolling(false);
             this.doWipe(true);
         }

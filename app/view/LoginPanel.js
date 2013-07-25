@@ -120,7 +120,6 @@ Ext.define('ACMobileClient.view.LoginPanel', {
     },
 
     onPanelPainted: function(element, eOpts) {
-        console.debug('loginpanel painted');
         if (ACUtils.utils.isAutoLogin()) {
             this.down('#userName').setValue(ACUtils.utils.getUserName());
             this.down('#passWord').setValue(ACUtils.utils.getPassWord());

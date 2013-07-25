@@ -26,10 +26,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
         layout: {
             type: 'card'
         },
-        tpl: [
-            '<h2>Test</h2>',
-            'blablabla'
-        ],
         listeners: [
             {
                 fn: 'onPanelShow',
@@ -65,21 +61,21 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     onPanelShow: function(component, eOpts) {
-        var me = this, men = null, contentContainer, logoContainer;
+        var me = this,
+            contentContainer = me.down('#contentContainer'),
+            men, logoContainer;
 
         MyGlobals.mainPanel = me;
 
         //create the menu panel
-        if (MyGlobals.isPhone) {
+        if (MyGlobals.isNarrow()) {
             men = Ext.create("ACMobileClient.view.MenuPanel", {});
-        }
-        else {
+        } else {
             men = Ext.create("ACMobileClient.view.MenuPanel", {
                 modal: true,
                 hideOnMaskTap: true
             });
         }
-        men.internInit();
 
         //remember the panel in the globals to reuse it on another place
         MyGlobals.menuPanel = men;    
@@ -88,33 +84,19 @@ Ext.define('ACMobileClient.view.MainPanel', {
         men.navigateToFolder('', "Start", true, this.down('#documentsBar'));
         men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
 
-        if (MyGlobals.isPhone) {
-            men.setStyle("font-size:1.25em");
-            me.setActiveItem(men);
-        }
-
         //register event for orientation change
         Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });
 
-        //get the preview container
-        contentContainer = me.down('#contentContainer');
         MyGlobals.contentContainer = contentContainer;
-
-        if (!MyGlobals.isPhone) {
-            logoContainer = Ext.create("ACMobileClient.view.LogoContainer", {});
-            logoContainer.persistent = true;
-            MyGlobals.lastObjectInContentContainer = logoContainer;
-            me.loadContentContainer(logoContainer, true, false, "Start");
-            //contentContainer.down('#content').add(logoContainer);
-        }
-
-        //end preview module init
+        logoContainer = Ext.create("ACMobileClient.view.LogoContainer", {});
+        logoContainer.persistent = true;
+        MyGlobals.lastObjectInContentContainer = logoContainer;
+        me.loadContentContainer(logoContainer, true, false, "Start");
 
         //init the view
         me.handleOrientationChange();
 
         me.showMenuPanel();
-
         me.loadQuickSearchAreas();
 
     },
@@ -128,8 +110,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
             lastObj = MyGlobals.lastObjectInContentContainer,
             items;
 
-        //MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);
-
         cont.getLayout().setAnimation({
             type: 'slide',
             direction: 'right'
@@ -139,7 +119,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         items = cont.items;
         MyGlobals.lastObjectInContentContainer = cont.getAt(items.length - 2);
 
-        if (items.length === 1 && MyGlobals.isPhone) {
+        if (items.length === 2 && MyGlobals.isNarrow()) {
             this.showMenuPanel();
 
             setTimeout(function() {
@@ -148,8 +128,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
 
             MyGlobals.menuPanel.deselectAllLists();
-        }
-        else {
+        } else {
             cont.remove(cont.getActiveItem(), true);
             if (items.length > 1) {
                 if (items.length === 2) {
@@ -198,59 +177,56 @@ Ext.define('ACMobileClient.view.MainPanel', {
             //alert("Orient change: "+Ext.Viewport.getOrientation());
 
             var men = MyGlobals.menuPanel,
-                isAndroidTablet = false,
+                isAndroidTablet = (Ext.os.deviceType === 'Tablet' && !Ext.os.is.iOS),
                 cont = me.down('#content'),
                 items = cont.items,
                 itemLen = items.length,
-                height, i, el;
+                height = me.element.getHeight(),
+                i, el;
 
-            //var listButton = me.down('#listButton');
-            //var backButton = me.down('#backButton');
-            //men.hide();
-
-            if (Ext.os.deviceType === 'Tablet' && !Ext.os.is.iOS) {
-                isAndroidTablet = true;
-            }
-
-
-            if (MyGlobals.isPhone) {
-                //men.show();
-                //backButton.show();
-                //listButton.hide();
-                MyGlobals.showListButton = false;
-            }
-            else if ((Ext.Viewport.getOrientation() === 'portrait' && !isAndroidTablet) || (Ext.Viewport.getOrientation() !== 'portrait' && isAndroidTablet)) {
-                height = me.element.getHeight();
+            if (MyGlobals.isNarrow()) {
+                men.setHideOnMaskTap(false);
+                men.setModal(false);
                 men.setDocked(null);
-                men.setTop(5);
-                men.setLeft(5);
-                men.setHeight(height-70);
-                men.setWidth(315);
-                //men.setStyle(null);
-                men.removeCls("MenuBorder");
-                men.hide();
-
-                //this.down("#toolbarRight").setStyle("font-size: 1.25em;");
-
-                //listButton.show();
-                MyGlobals.showListButton = true;
-                //backButton.hide();
-            }
-            else {
-                men.setDocked("left");
                 men.setTop(null);
                 men.setLeft(null);
-                //men.setStyle("border-right: 1px solid #000 !important;");
-                men.setCls("MenuBorder");
-                men.setHeight(me.element.getHeight());
-                men.setWidth(315);
-
-                //this.down("#toolbarRight").setStyle("font-size: 1.25em;");
-                men.show();
-                //listButton.hide();
+                men.setHeight(null);
+                men.setWidth(null);
                 MyGlobals.showListButton = false;
-                //backButton.hide();
+
+                men.setStyle("font-size:1.25em");
+                if (MyGlobals.contentContainer.down('#content').items.length > 1) {
+                    me.showInContentContainer();
+                } else {
+                    me.showMenuPanel();
+                }
+
+            } else {
+                men.setHideOnMaskTap(true);
+                men.setModal(true);
+                men.setStyle('');
+                if (isAndroidTablet) {
+                    men.setDocked(null);
+                    men.setTop(5);
+                    men.setLeft(5);
+                    men.setHeight(height - 70);
+                    men.setWidth(315);
+                    men.removeCls("MenuBorder");
+                    men.hide();
+                } else {
+                    men.setDocked("left");
+                    men.setTop(null);
+                    men.setLeft(null);
+                    men.setCls("MenuBorder");
+                    men.setHeight(height);
+                    men.setWidth(315);
+                    men.show();
+                }
+                MyGlobals.showListButton = true;
+
+                MyGlobals.contentContainer.show();
             }
+
 
             if (MyGlobals.imageViewer) {
                 MyGlobals.imageViewer.reloadViewer();
@@ -269,16 +245,15 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     hideInfoPanel: function() {
-        var items = this.getInnerItems();
-        this.getLayout().setAnimation({
-            type: 'slide',
-            direction: 'right'
-        });
-
-        this.setActiveItem(items.length-2);
-        //is remove, when info is shown next time
-        //this.remove(MyGlobals.infoPanel, true);    
-
+        var me = this,
+            ip = MyGlobals.infoPanel;
+        if (ip) {
+            me.remove(ip, true);
+            MyGlobals.infoPanel = null;
+        }
+        if (MyGlobals.isNarrow()) {
+            me.setActiveItem(MyGlobals.menuPanel);
+        }
     },
 
     hideLoader: function() {
@@ -293,9 +268,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
             contCon;
 
         if (!persistent && lastObj !== null && !lastObj.persistent) {
-            itemLen-=1;
+            itemLen -= 1;
             setTimeout(function() {
-                console.log("removing last: "+lastObj);
+                console.log("removing last: " + lastObj);
                 cont.remove(lastObj, true);
             }, 1000);
         }
@@ -319,27 +294,23 @@ Ext.define('ACMobileClient.view.MainPanel', {
         contCon.add(container);
 
 
-        //MyGlobals.contentContainer.remove(MyGlobals.lastObjectInContentContainer, false);
         cont.add(contCon);
         cont.setActiveItem(contCon);
         contCon.prevNavTitle = navTitle;
         MyGlobals.lastObjectInContentContainer = contCon;
         this.showInContentContainer();
 
-        //hide menu panel when showing something in container
-        setTimeout(function() {
-            var men;
-            if (MyGlobals.showListButton)  {
-                men = MyGlobals.menuPanel;
-                men.deselectAllLists();
-                men.hide();
-            }
-        }, 20);
-
-    },
-
-    loadLanguage: function() {
-
+        if (MyGlobals.isNarrow()) {
+            // hide menu panel when showing something in container
+            setTimeout(function() {
+                var men;
+                if (MyGlobals.showListButton)  {
+                    men = MyGlobals.menuPanel;
+                    men.deselectAllLists();
+                    men.hide();
+                }
+            }, 20);
+        }
     },
 
     loadQuickSearchAreas: function() {
@@ -387,12 +358,23 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     restoreSidePanel: function() {
-        var iPanel, height, width;
-        if (MyGlobals.infoPanel) {
-            if (!MyGlobals.isPhone) {
-                iPanel = MyGlobals.infoPanel;
-                height = this.element.getHeight();
-                width = this.down('#contentContainer').element.getWidth();
+        var me = this,
+            iPanel = MyGlobals.infoPanel,
+            height, width;
+        if (iPanel) {
+            if (MyGlobals.isNarrow()) {
+                iPanel.setTop(null);
+                iPanel.setLeft(null);
+                iPanel.setHeight(null);
+                iPanel.setWidth(null);
+                me.getLayout().setAnimation({
+                    type: 'slide',
+                    direction: 'left'
+                });
+                me.setActiveItem(iPanel);
+            } else {
+                height = me.element.getHeight();
+                width = me.down('#contentContainer').element.getWidth();
                 iPanel.setDocked(null);
                 iPanel.setShowAnimation("slideIn");
                 iPanel.setHideAnimation({
@@ -403,8 +385,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 iPanel.setLeft(width-320);
                 iPanel.setHeight(height);
                 iPanel.setWidth(320);
-
-                //iPanel.showBy(button);
             }
         }
 
@@ -412,46 +392,14 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     showInContentContainer: function() {
-        if (MyGlobals.isPhone) {
-
-            //MyGlobals.contentContainer.setShowAnimation("slideIn");
-            this.getLayout().setAnimation({
-                type: 'slide',
-                direction: 'left'
-            });
-
-            this.setActiveItem(MyGlobals.contentContainer);
-        }
-    },
-
-    showInfoPanel: function(button) {
-        var me = this,
-            iPanel = Ext.create('ACMobileClient.view.InfoPanel', {}),
-            height;
-
-        me.add(iPanel);
-        iPanel.hide();
-
-        if (MyGlobals.isPhone) {
+        var me = this, cc = MyGlobals.contentContainer;
+        if (MyGlobals.isNarrow()) {
             me.getLayout().setAnimation({
                 type: 'slide',
                 direction: 'left'
             });
-            me.setActiveItem(iPanel);    
+            me.setActiveItem(cc);
         }
-        else {
-            height = me.element.getHeight();
-            iPanel.setDocked(null);
-            iPanel.setTop(5);
-            iPanel.setLeft(5);
-            iPanel.setHeight(height-80);
-            iPanel.setWidth(315);
-
-            iPanel.showBy(button);
-        }
-
-        MyGlobals.infoPanel = iPanel;
-
     },
 
     showInfoPanelSlided: function(objectId, noteId, className) {
@@ -459,7 +407,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
             iPanel;
 
         if (MyGlobals.infoPanel) {
-            //MyGlobals.infoPanel.hide();
             me.remove(MyGlobals.infoPanel, true);
             MyGlobals.infoPanel = null;
         }
@@ -479,14 +426,13 @@ Ext.define('ACMobileClient.view.MainPanel', {
         iPanel.loadCallback = function() {
             var height, width;
 
-            if (MyGlobals.isPhone) {
+            if (MyGlobals.isNarrow()) {
                 me.getLayout().setAnimation({
                     type: 'slide',
                     direction: 'left'
                 });
                 me.setActiveItem(iPanel);    
-            }
-            else {
+            } else {
                 height = me.element.getHeight();
                 width = me.down('#contentContainer').element.getWidth();
                 iPanel.setDocked(null);
@@ -501,7 +447,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 iPanel.setWidth(320);
                 iPanel.addCls('shadowPanel');
 
-                //iPanel.showBy(button);
                 iPanel.show();
             }
         };
@@ -527,10 +472,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     showMenuPanel: function() {
-        if (MyGlobals.isPhone) {
-            //MyGlobals.menuPanel.down("#documentList").deselectAll();
-
-            //Reverse the slide direction before using setActiveItem()
+        if (MyGlobals.isNarrow()) {
             this.getLayout().setAnimation({
                 type: 'slide',
                 direction: 'right'

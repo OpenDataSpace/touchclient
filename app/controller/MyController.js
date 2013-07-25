@@ -64,7 +64,10 @@ Ext.define('ACMobileClient.controller.MyController', {
             'lastObjectInContentContainer': null,
             'isPhone': false,
             'uploadController' : null,
-            'showListButton': false
+            'showListButton': false,
+            'isNarrow': function() {
+                return this.isPhone || Ext.Viewport.getOrientation() === 'portrait';
+            }
         });
 
         Ext.define('ACUtils', {
@@ -88,19 +91,9 @@ Ext.define('ACMobileClient.controller.MyController', {
 
         MyGlobals.isPhone = isPhone;
 
-
-
         globalViewPort = Ext.create("ACMobileClient.view.ViewportLogin", {});
         globalViewPort.show();
 
-        /*
-        var profs = new Array();
-        profs[0] = { portraitPhone: function() { return Ext.is.Phone && Ext.orientation == 'portrait'; } };
-        profs[1] = { landscapePhone: function() { return Ext.is.Phone && Ext.orientation == 'landscape'; } };
-        profs[2] = { portraitTablet: function() { return !Ext.is.Phone && Ext.orientation == 'portrait'; } };
-        profs[3] = { landscapeTablet: function() { return !Ext.is.Phone && Ext.orientation == 'landscape'; } };
-        this.getApplication().setProfiles(profs);
-        */
     }
 
 });

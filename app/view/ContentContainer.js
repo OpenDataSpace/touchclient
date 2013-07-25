@@ -41,7 +41,6 @@ Ext.define('ACMobileClient.view.ContentContainer', {
 
     onContainerPainted: function(element, eOpts) {
         if (!this.loaded) {
-            console.debug('ContentContainer.painted');
             if (this.hasPrevious) {
                 this.down('#titleBar').down('#backButton').show();
                 console.log("nav: "+this.navTitle);
