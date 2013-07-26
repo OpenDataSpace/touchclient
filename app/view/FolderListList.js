@@ -46,7 +46,6 @@ Ext.define('ACMobileClient.view.FolderListList', {
             },
             {
                 refreshFn: function(plugin) {
-                    var me = this;
                     ACUtils.utils.checkConnectionWithFunction(function() {
                         plugin.up().setMasked({
                             xtype: 'loadmask',

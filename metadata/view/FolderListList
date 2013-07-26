@@ -113,7 +113,6 @@
                             "plugin"
                         ],
                         "implHandler": [
-                            "var me = this;\r",
                             "ACUtils.utils.checkConnectionWithFunction(function() {\r",
                             "    plugin.up().setMasked({\r",
                             "        xtype: 'loadmask',\r",
