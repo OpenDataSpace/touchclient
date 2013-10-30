@@ -1,5 +1,5 @@
 PROJECT = touchui
-VERSION = 0.99.3
+VERSION = 0.99.4
 BUILD = local@$(shell hostname) $(shell date)
 GITREV = $(shell git show-ref --heads --hash)
 DSTDIR = build/$(PROJECT)
@@ -82,5 +82,9 @@ clean:
 	rm -rf build generated $(PROJECT)*.tar.gz
 	rm -f app-test/results/TEST*
 	rm -f app-test/results/touchclient-lint*
+	$(UNLINK_SDK)
+
+deploy-fritz: clean dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
+	rsync -cr --del --inplace --progress build/$(PROJECT) www.fritz-elfert.de:fritz/
 
 .PHONY: generated/AppVersion.js

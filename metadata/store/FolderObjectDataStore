@@ -70,7 +70,7 @@
                 "fn": "onJsonstoreBeforeLoad",
                 "implHandler": [
                     "operation.setParams( {\r",
-                    "        source: store.folderId\r",
+                    "    source: store.folderId\r",
                     "});\r",
                     "\r",
                     "addSessionIdToParams(operation);\r",

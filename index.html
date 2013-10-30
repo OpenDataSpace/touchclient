@@ -11,9 +11,15 @@
     <script type="text/javascript">
         (function() {
             var p = navigator.platform,
-                vpmeta = 'width=device-width, height=device-height, user-scalable=no';
+                vpmeta = 'width=device-width, height=device-height, user-scalable=no',
+                msVPS;
             if (p === 'iPad' || p === 'iPhone' || p === 'iPod' ) {
                 vpmeta = 'user-scalable=no';
+            }
+            if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                msVPS = document.createElement('style');
+                msVPS.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'));
+                document.getElementsByTagName('head')[0].appendChild(msVPS);
             }
             document.head.insertAdjacentHTML(
                 'afterbegin', '<meta name="viewport" content="' + vpmeta + '" />');

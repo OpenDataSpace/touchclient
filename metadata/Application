@@ -88,7 +88,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "disableCaching": false,
                 "paths": [
                     "{\"Ext\":\".\",'ACMobileClient':'app','generated':'generated'}"
                 ]
