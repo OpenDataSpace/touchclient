@@ -57,7 +57,8 @@ Ext.define('ACMobileClient.view.FolderListList', {
                 loadingText: 'Lade...',
                 pullRefreshText: 'Zum Aktualisieren ziehen',
                 releaseRefreshText: 'Zum Aktualisieren loslassen',
-                type: 'pullrefresh'
+                xclass: 'ACMobileClient.utils.PullRefreshFn'
+                //type: 'pullrefresh'
             }
         ]
     },
