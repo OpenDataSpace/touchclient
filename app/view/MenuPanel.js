@@ -123,7 +123,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         ACUtils.utils.checkConnectionWithFunction(function() {
             me.down('#searchList').setMasked({
                 xtype: 'loadmask',
-                message: 'Suche...'
+                message: 'Search...'
             });
             me.down('#searchList').getStore().searchQuery = searchQuery;
             me.down('#searchList').getStore().load();

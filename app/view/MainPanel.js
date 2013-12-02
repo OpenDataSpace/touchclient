@@ -169,7 +169,8 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 MyGlobals.menuPanel.navigateToFolder(objectId, name, false, tab);
             }
             else {
-                Ext.Msg.alert('Error', 'Für dieses Objekt ist derzeit noch keine Anzeige erstellt: '+classObject, Ext.emptyFn);   
+                Ext.Msg.alert('Error', 'This file is not support preview.', Ext.emptyFn);
+                //Ext.Msg.alert('Error', 'Für dieses Objekt ist derzeit noch keine Anzeige erstellt: '+classObject, Ext.emptyFn);   
             }
 
         });

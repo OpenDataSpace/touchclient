@@ -57,7 +57,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                     '<div class="list_entry">{name}</div>',
                     '</div>'
                 ],
-                loadingText: 'Suche...',
+                loadingText: 'Search...',
                 store: 'SearchDataStore',
                 onItemDisclosure: true,
                 plugins: [
@@ -72,7 +72,8 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                             });
 
                         },
-                        type: 'pullrefresh'
+                        xclass: 'ACMobileClient.utils.PullRefreshFn'
+                        //type: 'pullrefresh'
                     },
                     {
                         autoPaging: true,
