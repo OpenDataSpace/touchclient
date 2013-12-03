@@ -38,7 +38,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                             {
                                 xtype: 'button',
                                 itemId: 'closeButtonLeft',
-                                iconCls: 'left2'
+                                iconCls: 'arrow_left'
                             },
                             {
                                 xtype: 'segmentedbutton',
@@ -65,7 +65,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                             {
                                 xtype: 'button',
                                 itemId: 'closeButtonRight',
-                                iconCls: 'right2'
+                                iconCls: 'arrow_right'
                             }
                         ]
                     },
