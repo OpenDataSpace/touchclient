@@ -67,6 +67,8 @@ Ext.define('ACMobileClient.controller.UploadController', {
     },
 
     initUploader: function(container) {
+        //console.log("In initUploader")
+        //console.log("browse_button: "+container.down('#uploadButton').getId())
         var me = this,
             folderStore = container.down('#documentList').getStore(),
             folderId = folderStore.folderId,
@@ -84,6 +86,8 @@ Ext.define('ACMobileClient.controller.UploadController', {
         uploader.init();
 
         uploader.bind('FilesAdded', function(up, files) {
+            //console.log("In File Added")
+            //console.log(me.uploaders)
             var autoStart = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');
             if (!me.uploadQueue) {
                 me.uploadQueue = MyGlobals.menuPanel.getComponent('tabPanel').add({
@@ -144,9 +148,9 @@ Ext.define('ACMobileClient.controller.UploadController', {
                 // Queue is empty, remove it
                 me.uploaders.forEach(function(up) {
                     up.splice(0);
-                    up.destroy();
+                    //up.destroy();
                 });
-                me.uploaders = [];
+                //me.uploaders = [];
                 // qStore.removeAll(true);
                 tp.remove(me.uploadQueue, true);
                 me.uploadQueue = null;
@@ -219,9 +223,9 @@ Ext.define('ACMobileClient.controller.UploadController', {
             // Remove all uploads and the queue
             me.uploaders.forEach(function(up) {
                 up.splice(0);
-                up.destroy();
+                //up.destroy();
             });
-            me.uploaders = [];
+            //me.uploaders = [];
             qStore.removeAll(true);
             tp.remove(me.uploadQueue, true);
             me.uploadQueue = null;
