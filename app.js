@@ -73,6 +73,7 @@ Ext.application({
         'SearchContainerSub',
         'FolderListList',
         'InfoPanel',
+        'DownloadLinkPanel',
         'FolderListContainer',
         'ContentContainerBar',
         'ContentContainer',

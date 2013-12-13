@@ -259,6 +259,20 @@ Ext.define('ACMobileClient.view.MainPanel', {
         }
     },
 
+    hideDownloadLinkPanel: function(){
+        console.log("To hide downloadLinkPanel")
+        var me = this,
+            linkPanel = MyGlobals.downloadLinkPanel;
+        console.log()
+        if (linkPanel) {
+            linkPanel.hide();
+            MyGlobals.linkPanel = null;
+        }
+        if (MyGlobals.isNarrow()) {
+            me.setActiveItem(MyGlobals.menuPanel);
+        } 
+    },
+
     hideLoader: function() {
         this.down('#contentContainer').setMasked(false);
     },
@@ -455,6 +469,28 @@ Ext.define('ACMobileClient.view.MainPanel', {
         };
 
         MyGlobals.infoPanel = iPanel;
+
+    },
+
+    showDownloadLinkPanelSlided: function(objectId, noteId) {
+        var me = this,
+            linkPanel;
+
+        if (MyGlobals.downloadLinkPanel) {
+            me.remove(MyGlobals.downloadLinkPanel, true);
+            MyGlobals.downloadLinkPanel = null;
+        }
+
+        linkPanel = Ext.create('ACMobileClient.view.DownloadLinkPanel', {});
+
+        console.log("showDownloadLinkPanel id: " + objectId)
+        linkPanel.objId = objectId;
+
+        me.add(linkPanel);
+
+        linkPanel.show();
+
+        MyGlobals.downloadLinkPanel = linkPanel;
 
     },
 
