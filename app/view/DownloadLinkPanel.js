@@ -82,7 +82,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                                 dataFormat :'Y/m/d',
                                                 labelWidth: 110,
                                                 picker:{
-                                                    yearFrom:parseInt(Ext.Date.format(new Date(), 'Y')),
+                                                    yearFrom:parseInt(Ext.Date.format(new Date(), 'Y'), 10),
                                                     yearTo:2100
                                                 },
                                                 value:new Date()

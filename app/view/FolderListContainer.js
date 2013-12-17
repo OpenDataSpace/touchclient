@@ -123,7 +123,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                 i;
             for(i = 0; i<tmp.length; i+=1){
                 //console.log(tmp[i])
-                if(tmp[i].type == 'file'){
+                if(tmp[i].type === 'file'){
                     //tmp[i].click();
                     fileElement = tmp[i];
                     break;
@@ -132,7 +132,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
 
             if(!this.lastAction){   // first click
                 this.lastAction = Date.now(); 
-                fileElement.click()
+                fileElement.click();
             }else{
                 if (this.lastAction && this.lastAction <= Date.now() - 1000){
                     this.lastAction = Date.now(); 
