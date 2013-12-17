@@ -30,12 +30,12 @@ Ext.define('ACMobileClient.utils.PullRefreshFn', {
     requires: ['Ext.DateExtras'],
 
     config: {
-    	/**
-         * @cfg {Function} refreshFn The function that will be called to refresh the list.
-         * If this is not defined, the store's load function will be called.
-         * The refresh function gets called with a reference to this plugin instance.
-         * @accessor
-         */
+	 /**
+	  * @cfg {Function} refreshFn The function that will be called to refresh the list.
+	  * If this is not defined, the store's load function will be called.
+	  * The refresh function gets called with a reference to this plugin instance.
+	  * @accessor
+	  */
         refreshFn: null
     },
 

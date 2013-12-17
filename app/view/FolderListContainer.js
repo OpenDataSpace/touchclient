@@ -110,17 +110,18 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
         this.getComponent('accordionContainer').add(list);
     },
     onUploadButtonTap: function(button, e, eOpts){
-        console.log("uploadButton click")
-        console.log(button.getId())
+        //console.log("uploadButton click")
+        //console.log(button.getId())
         // console.log(navigator.platform)
         // console.log(navigator.appName)
         // console.log(navigator.appVersion)
         // console.log(navigator.userAgent)
 
-        if(navigator.platform == 'BlackBerry' || !(Ext.os.is.Windows || Ext.os.is.MacOS || Ext.os.is.Linux) ){
-            var fileElement = null;
-            var tmp = document.getElementById(document.getElementById(button.getId()).parentNode.id).getElementsByTagName('input')
-            for(var i=0; i<tmp.length; i++){
+        if(navigator.platform === 'BlackBerry' || !(Ext.os.is.Windows || Ext.os.is.MacOS || Ext.os.is.Linux) ){
+            var fileElement = null,
+                tmp = document.getElementById(document.getElementById(button.getId()).parentNode.id).getElementsByTagName('input'),
+                i;
+            for(i = 0; i<tmp.length; i+=1){
                 //console.log(tmp[i])
                 if(tmp[i].type == 'file'){
                     //tmp[i].click();

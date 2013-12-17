@@ -82,7 +82,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                                 dataFormat :'Y/m/d',
                                                 labelWidth: 110,
                                                 picker:{
-                                                    yearFrom:Ext.Date.format(new Date(), 'Y')*1,    // convert to int
+                                                    yearFrom:parseInt(Ext.Date.format(new Date(), 'Y')),
                                                     yearTo:2100
                                                 },
                                                 value:new Date()
@@ -101,14 +101,14 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                                 clearIcon: false,
                                                 label: 'Message',
                                                 labelWidth: 110,
-                                                value: '',
+                                                value: ''
                                             },                                          
                                             {
                                                 xtype: 'panel',
                                                 padding:10,
                                                 layout:{
                                                     type:'hbox',
-                                                    pack:'end',
+                                                    pack:'end'
                                                 },
                                                 defaults:{
                                                     xtype:'button'
@@ -192,34 +192,31 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
     },
 
     onSendTap: function(button, e, eOpts){
-        var email = MyGlobals.downloadLinkPanel.down("#mailaddress").getValue();
-        var subject = MyGlobals.downloadLinkPanel.down("#subject").getValue();
-        var expirationDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ynj');
-        var pwd = MyGlobals.downloadLinkPanel.down("#password").getValue();
-        var msg = MyGlobals.downloadLinkPanel.down("#message").getValue();
-        var objId = this.objId;
+        var email = MyGlobals.downloadLinkPanel.down("#mailaddress").getValue(),
+            subject = MyGlobals.downloadLinkPanel.down("#subject").getValue(),
+            expirationDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ynj'),
+            pwd = MyGlobals.downloadLinkPanel.down("#password").getValue(),
+            msg = MyGlobals.downloadLinkPanel.down("#message").getValue(),
+            objId = this.objId,
+            param = {
+                            objectIds: objId, 
+                            expirationDate: MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymd'), 
+                            mailaddress: email, 
+                            message: msg, 
+                            subject: subject, 
+                            password: pwd
+                        },
+            model = Ext.create('ACMobileClient.model.ObjectDownloadLinkModel', param),
+            errors = model.validate(),
+            message = "";
 
-        //console.log("email: " + email + " subject: " + subject + " exp: " + typeof expirationDate + " pwd: " + pwd + " msg: "+msg)
-        console.log(this.objId)
-
-        var param = {
-                        objectIds: objId, 
-                        expirationDate: MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymd'), 
-                        mailaddress: email, 
-                        message: msg, 
-                        subject: subject, 
-                        password: pwd
-                    };
-        
-        var model = Ext.create('ACMobileClient.model.ObjectDownloadLinkModel', param);
-
-        var errors = model.validate();
-        var message = ""
         Ext.each(errors.items, function(rec){
-            message += rec.getMessage() + "<br />"
+            message += rec.getMessage() + "<br />";
         });
+        //console.log("email: " + email + " subject: " + subject + " exp: " + typeof expirationDate + " pwd: " + pwd + " msg: "+msg)
+        //console.log(this.objId);
 
-        if(message != ""){
+        if(message !== ""){
             Ext.Msg.alert("Valid Failed", message);
             return;
         }
@@ -242,14 +239,12 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
             },
             success:function(response, success){
                 Ext.Viewport.setMasked(false);
-                console.log(response)
                 Ext.Msg.alert("Success", "Finish to create download link.", function(){
                     MyGlobals.mainPanel.hideDownloadLinkPanel();
                 });
             },
             failure:function(response){
                 MyGlobals.downloadLinkPanel.setMasked(false);
-                console.log(response)
                 Ext.Msg.alert("Fail", "Fail to create download link.", function(){
                     //MyGlobals.mainPanel.hideDownloadLinkPanel();
                 });

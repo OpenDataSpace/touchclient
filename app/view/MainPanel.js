@@ -260,10 +260,10 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     hideDownloadLinkPanel: function(){
-        console.log("To hide downloadLinkPanel")
+        console.log("To hide downloadLinkPanel");
         var me = this,
             linkPanel = MyGlobals.downloadLinkPanel;
-        console.log()
+
         if (linkPanel) {
             linkPanel.hide();
             MyGlobals.linkPanel = null;
@@ -483,7 +483,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         linkPanel = Ext.create('ACMobileClient.view.DownloadLinkPanel', {});
 
-        console.log("showDownloadLinkPanel id: " + objectId)
+        console.log("showDownloadLinkPanel id: " + objectId);
         linkPanel.objId = objectId;
 
         me.add(linkPanel);

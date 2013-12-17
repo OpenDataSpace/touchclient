@@ -103,58 +103,57 @@ Ext.define('ACMobileClient.view.FolderListList', {
 
 
     onListItemTaphold: function(dataview, index, target, record, e, eOpts) {
-        console.log("OnListItemTapHold")
-        var disableDownload = false;
+        var disableDownload = false,
 
-        var actionSheet = Ext.create('Ext.ActionSheet', {
+            actionSheet = Ext.create('Ext.ActionSheet', {
             items:[
-                {
-                    text: 'Download',
-                    id: 'btnDownload',
-                    ui: 'action',
-                    handler: function(){
-                        console.log("download taphold")
-                        objectId = record.get("id");
-                        ifr = document.createElement('iframe');
-                        url = '/api/rest/object/download/' + objectId;
-                        ifr.style.display = 'none';
-                        document.body.appendChild(ifr);
-                        ifr.src = url;
-                        ifr.onload = function(e) {
-                            document.body.removeChild(ifr);
-                            ifr = null;
-                        };
-                        actionSheet.hide();
-                        actionSheet.destroy();
-                    }
-                },{
-                    text: 'Create Link',
-                    ui: 'action',
-                    handler: function(){
-                        console.log("handle download link")
-                        MyGlobals.mainPanel.showDownloadLinkPanelSlided(record.get('id'));
+                    {
+                        text: 'Download',
+                        id: 'btnDownload',
+                        ui: 'action',
+                        handler: function(){
+                            console.log("download taphold");
+                            objectId = record.get("id");
+                            ifr = document.createElement('iframe');
+                            url = '/api/rest/object/download/' + objectId;
+                            ifr.style.display = 'none';
+                            document.body.appendChild(ifr);
+                            ifr.src = url;
+                            ifr.onload = function(e) {
+                                document.body.removeChild(ifr);
+                                ifr = null;
+                            };
+                            actionSheet.hide();
+                            actionSheet.destroy();
+                        }
+                    },{
+                        text: 'Create Link',
+                        ui: 'action',
+                        handler: function(){
+                            console.log("handle download link");
+                            MyGlobals.mainPanel.showDownloadLinkPanelSlided(record.get('id'));
 
-                        actionSheet.hide();
-                        actionSheet.destroy();
+                            actionSheet.hide();
+                            actionSheet.destroy();
+                        }
+                    },{
+                        text: 'Cancel',
+                        ui: 'action',
+                        handler: function(){
+                            //console.log("Hide Sheet")
+                            actionSheet.hide();
+                            actionSheet.destroy();
+                        } 
                     }
-                },{
-                    text: 'Cancel',
-                    ui: 'action',
-                    handler: function(){
-                        console.log("Hide Sheet")
-                        actionSheet.hide();
-                        actionSheet.destroy();
-                    } 
-                }
-            ]
-        });
+                ]
+            });
         if (record.get('isfolder')) {
             disableDownload = true;
             //actionSheet.down("#btnDownload").hide();
         }else{
             //actionSheet.down("#btnDownload").show();
         }
-        actionSheet.down("#btnDownload").setDisabled(disableDownload)
+        actionSheet.down("#btnDownload").setDisabled(disableDownload);
 
         MyGlobals.menuPanel.add(actionSheet);
         actionSheet.show();
