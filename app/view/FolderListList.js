@@ -150,8 +150,6 @@ Ext.define('ACMobileClient.view.FolderListList', {
         if (record.get('isfolder')) {
             disableDownload = true;
             //actionSheet.down("#btnDownload").hide();
-        }else{
-            //actionSheet.down("#btnDownload").show();
         }
         actionSheet.down("#btnDownload").setDisabled(disableDownload);
 
