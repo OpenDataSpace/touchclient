@@ -137,8 +137,24 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             actionSheet.destroy();
                         }
                     },{
+                        text: 'Delete',
+                        ui: 'decline',
+                        handler: function(){
+                            console.log(record);
+                            //objectId = record.get("id");
+
+                            Ext.Msg.confirm("Delete", "Are you sure to delete " + record.raw.displayname + " ?", function(button){
+                                if(button === 'yes' || button === 'ok'){
+                                    MyGlobals.mainPanel.deleteItem(record.get("id"), dataview);
+
+                                    actionSheet.hide();
+                                    actionSheet.destroy();
+                                }
+                            });
+                        }
+                    },{
                         text: 'Cancel',
-                        ui: 'action',
+                        ui: 'normal',
                         handler: function(){
                             //console.log("Hide Sheet")
                             actionSheet.hide();
