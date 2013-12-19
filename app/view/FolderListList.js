@@ -142,8 +142,8 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         handler: function(){
                             console.log(record);
                             //objectId = record.get("id");
-
-                            Ext.Msg.confirm("Delete", "Are you sure to delete " + record.raw.displayname + " ?", function(button){
+                            var displayName = record.raw.displayname || record.raw.name;
+                            Ext.Msg.confirm("Delete", "Are you sure to delete " + displayName + " ?", function(button){
                                 if(button === 'yes' || button === 'ok'){
                                     MyGlobals.mainPanel.deleteItem(record.get("id"), dataview);
 
