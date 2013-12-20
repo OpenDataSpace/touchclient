@@ -161,7 +161,10 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 if (area.getItemId() === 'documentsBar') {
                     store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
                 } else {
-                    store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
+                    store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {
+                        groupField:'sharedowner'
+                    });  
+                    foldC.down('#documentList').setGrouped(true);                  
                 }
             } else {
                 parentName = area.getActiveItem().titleName;
