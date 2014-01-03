@@ -26,6 +26,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         'ACMobileClient.view.FolderListContainer',
         'ACMobileClient.store.PrivateGlobalFoldersStore',
         'ACMobileClient.store.SharedGlobalFoldersStore',
+        'ACMobileClient.store.GlobalGlobalFoldersStore',
         'ACMobileClient.store.FolderObjectDataStore'
     ],
 
@@ -62,6 +63,15 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                         },
                         title: 'Shared folders',
                         iconCls: 'team'
+                    },
+                    {
+                        xtype: 'DocumentListContainer',
+                        itemId: 'globalFolders',
+                        layout: {
+                            type: 'card'
+                        },
+                        title: 'Global',
+                        iconCls: 'global'
                     },
                     {
                         xtype: 'searchcontainer',
@@ -153,13 +163,15 @@ Ext.define('ACMobileClient.view.MenuPanel', {
 
             var parentName = '',
             // create a new FolderList view
-                foldC = Ext.create("ACMobileClient.view.FolderListContainer", {}),
+                foldC = Ext.create("ACMobileClient.view.FolderListContainer", {}),  // #documentList
                 store = null;
 
             if (isRoot)  {
                 // If root, load the areas
                 if (area.getItemId() === 'documentsBar') {
                     store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
+                } else if (area.getItemId() === 'globalFolders') {
+                    store = Ext.create("ACMobileClient.store.GlobalGlobalFoldersStore", {});
                 } else {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {
                         groupField:'sharedowner'

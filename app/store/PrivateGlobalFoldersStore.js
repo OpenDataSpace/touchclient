@@ -25,6 +25,6 @@ Ext.define('ACMobileClient.store.PrivateGlobalFoldersStore', {
         model: 'ACMobileClient.model.PrivateGlobalFolders',
         pageSize: 50,
         remoteSort: true,
-        storeId: 'GlobalFolderStore'
+        storeId: 'MyFolderStore'
     }
 });

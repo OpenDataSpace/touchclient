@@ -87,6 +87,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         men.navigateToFolder('', "Start", true, this.down('#documentsBar'));
         men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
+        men.navigateToFolder('', "Start", true, this.down('#globalFolders'));
 
         //register event for orientation change
         Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });

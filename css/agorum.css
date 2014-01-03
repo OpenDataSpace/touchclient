@@ -612,3 +612,19 @@
     font-size: .6em;
     white-space: nowrap;
 }
+
+/* Tab width */
+.x-tab {
+    min-width: 2.8em;
+}
+/* Tab icon global */
+.x-tab .x-button-icon.global:before, .x-button .x-button-icon.global:before {
+    bottom: 0;
+    content: "G";
+    font-family: "Pictos";
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
