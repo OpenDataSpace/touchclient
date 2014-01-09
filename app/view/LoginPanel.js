@@ -188,14 +188,16 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         if(success){
                             var data = records[0].data.children,
                                 vpMain,
+                                repoName,
                                 i;
 
                                 for(i=0; i < data.length; i+=1){
-                                    if(data[i].name === 'my'){
+                                    repoName = data[i].name.toLowerCase();
+                                    if(repoName === 'my'){
                                         MyGlobals.myId = data[i].id;
-                                    } else if(data[i].name === 'shared'){
+                                    } else if(repoName === 'shared'){
                                         MyGlobals.sharedId = data[i].id;
-                                    } else if(data[i].name === 'global'){
+                                    } else if(repoName === 'global'){
                                         MyGlobals.globalId = data[i].id;
                                     }
                                 }
