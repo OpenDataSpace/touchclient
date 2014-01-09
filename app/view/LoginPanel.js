@@ -187,9 +187,10 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         //console.log(records);
                         if(success){
                             var data = records[0].data.children,
+                                vpMain,
                                 i;
 
-                                for(i=0; i < data.length; i++){
+                                for(i=0; i < data.length; i+=1){
                                     if(data[i].name === 'my'){
                                         MyGlobals.myId = data[i].id;
                                     } else if(data[i].name === 'shared'){
@@ -209,7 +210,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                                 me.remove();
 
                                 //load main page
-                                var vpMain = Ext.create("ACMobileClient.view.ViewportMain", {});
+                                vpMain = Ext.create("ACMobileClient.view.ViewportMain", {});
                                 vpMain.show();
 
                         } else {
