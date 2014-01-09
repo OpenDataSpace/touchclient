@@ -42,6 +42,14 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                     {
                         xtype: 'button',
                         align: 'right',
+
+                        itemId: 'CreateFoldBtn',
+                        //text: 'New Folder'
+                        iconCls: 'folder'
+                    },
+                    {
+                        xtype: 'button',
+                        align: 'right',
                         disabled: true,
                         itemId: 'uploadButton',
                         text: 'Upload'
@@ -74,6 +82,11 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                 fn: 'onUploadButtonTap',
                 event: 'tap',
                 delegate: '#uploadButton'
+            },
+            {
+                fn: 'onCreateFoldButtonTap',
+                event: 'tap',
+                delegate: '#CreateFoldBtn'
             }
         ]
     },
@@ -81,6 +94,21 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
     onBackButtonTap: function(button, e, eOpts) {
         button.disable();
         MyGlobals.menuPanel.navigateToParent2(this);
+    },
+
+    onCreateFoldButtonTap: function(button, e, eOpts){
+        //console.log(button.parentFolderId);
+        Ext.Msg.prompt("New Folder", "Please input new folder name: ", function(buttonId, value){
+            if(buttonId === 'ok'){
+                var folderName = Ext.String.trim(value),
+                    dataview = button.up().up().up().down("#documentList");
+
+                if(folderName !== ""){
+                    console.log(folderName);
+                    MyGlobals.mainPanel.createFolder(button.parentFolderId, folderName, dataview);
+                }
+            }
+        });
     },
 
     onContainerActivate: function(newActiveItem, container, oldActiveItem, eOpts) {

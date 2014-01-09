@@ -16,6 +16,10 @@
 Ext.define('ACMobileClient.view.LoginPanel', {
     extend: 'Ext.Panel',
 
+    requires:[
+        'ACMobileClient.store.RootFolderStore'
+    ],
+
     config: {
         cls: 'logoBack',
         fullscreen: true,
@@ -174,13 +178,53 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                     */
                     eval(response.responseText);
 
-                    Ext.Viewport.setMasked(false);
-                    me.hide();
-                    me.remove();
+                    var rootFolderStore = Ext.create('ACMobileClient.store.RootFolderStore', {
+                        storeId: 'rootFolderStore'
+                    });
 
-                    //load main page
-                    var vpMain = Ext.create("ACMobileClient.view.ViewportMain", {});
-                    vpMain.show();
+                    // Get root repo ids
+                    rootFolderStore.load(function(records, operation, success){
+                        //console.log(records);
+                        if(success){
+                            var data = records[0].data.children,
+                                i;
+
+                                for(i=0; i < data.length; i++){
+                                    if(data[i].name === 'my'){
+                                        MyGlobals.myId = data[i].id;
+                                    } else if(data[i].name === 'shared'){
+                                        MyGlobals.sharedId = data[i].id;
+                                    } else if(data[i].name === 'global'){
+                                        MyGlobals.globalId = data[i].id;
+                                    }
+                                }
+
+                                console.log("myId: " + MyGlobals.myId);
+                                console.log("sharedId: " + MyGlobals.sharedId);
+                                console.log("globalId: " + MyGlobals.globalId);
+
+                                // Init viewport main
+                                Ext.Viewport.setMasked(false);
+                                me.hide();
+                                me.remove();
+
+                                //load main page
+                                var vpMain = Ext.create("ACMobileClient.view.ViewportMain", {});
+                                vpMain.show();
+
+                        } else {
+                            Ext.Viewport.setMasked(false);
+                            Ext.Msg.alert('Error', 'Get root repository id failed.', Ext.emptyFn);
+                        }
+                    });
+
+                    // Ext.Viewport.setMasked(false);
+                    // me.hide();
+                    // me.remove();
+
+                    // //load main page
+                    // var vpMain = Ext.create("ACMobileClient.view.ViewportMain", {});
+                    // vpMain.show();
                 },
                 scope: me
             });

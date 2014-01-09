@@ -52,7 +52,8 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                         layout: {
                             type: 'card'
                         },
-                        title: 'My folders',
+                        title: 'My',
+                        //title: 'My folders',
                         iconCls: 'user'
                     },
                     {
@@ -61,7 +62,8 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                         layout: {
                             type: 'card'
                         },
-                        title: 'Shared folders',
+                        title: 'Shared',
+                        //title: 'Shared folders',
                         iconCls: 'team'
                     },
                     {
@@ -170,18 +172,24 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 // If root, load the areas
                 if (area.getItemId() === 'documentsBar') {
                     store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
+                    fId = MyGlobals.myId;//'parvate'
                 } else if (area.getItemId() === 'globalFolders') {
                     store = Ext.create("ACMobileClient.store.GlobalGlobalFoldersStore", {});
+                    fId = MyGlobals.globalId;//'agorum/roi/files/dataspace'
                 } else {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {
                         groupField:'sharedowner'
                     });  
-                    foldC.down('#documentList').setGrouped(true);                  
+                    foldC.down('#documentList').setGrouped(true);
+                    fId = MyGlobals.sharedId;//'shared';
+                    // Shared root folder can't create folder
+                    foldC.down("#CreateFoldBtn").disable();           
                 }
             } else {
                 parentName = area.getActiveItem().titleName;
                 // if not root load a normal folder structure
                 store = Ext.create("ACMobileClient.store.FolderObjectDataStore", {});
+                foldC.down("#CreateFoldBtn").enable();
             }
 
             foldC.down('#documentList').setStore(store);
@@ -196,6 +204,8 @@ Ext.define('ACMobileClient.view.MenuPanel', {
             else {
                 foldC.down('#backButton').hide();
             }
+
+            foldC.down('#CreateFoldBtn').parentFolderId = fId;
 
             foldC.down('#titleBar').setTitle(name);
             foldC.titleName = name;

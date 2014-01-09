@@ -585,6 +585,29 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 Ext.Msg.alert("Failed", "Delete failed.", Ext.emptyFn);
             }
         });
+    },
+
+    createFolder: function(parentFolder, folderName, dataview){
+        //console.log("To create folder, parent: " + parentFolder + " folderName: " + folderName);
+
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Creating...'
+        });
+
+        Ext.Ajax.request({
+            method:'POST',
+            url:"/api/rest/dataspace/createFolder.json",
+            params: {destination:parentFolder, folderName:folderName},
+            success:function(response, success){
+                Ext.Viewport.setMasked(false);
+                dataview.getStore().loadPage(1);
+            },
+            failure:function(response){
+                Ext.Viewport.setMasked(false);
+                Ext.Msg.alert("Failed", "Create folder failed.", Ext.emptyFn);
+            }
+        });
     }
 
 });
