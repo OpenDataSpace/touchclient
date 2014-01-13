@@ -87,6 +87,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         men.navigateToFolder('', "Start", true, this.down('#documentsBar'));
         men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
+        men.navigateToFolder('', "Start", true, this.down('#globalFolders'));
 
         //register event for orientation change
         Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });
@@ -260,10 +261,10 @@ Ext.define('ACMobileClient.view.MainPanel', {
     },
 
     hideDownloadLinkPanel: function(){
-        console.log("To hide downloadLinkPanel")
+        console.log("To hide downloadLinkPanel");
         var me = this,
             linkPanel = MyGlobals.downloadLinkPanel;
-        console.log()
+
         if (linkPanel) {
             linkPanel.hide();
             MyGlobals.linkPanel = null;
@@ -483,7 +484,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         linkPanel = Ext.create('ACMobileClient.view.DownloadLinkPanel', {});
 
-        console.log("showDownloadLinkPanel id: " + objectId)
+        console.log("showDownloadLinkPanel id: " + objectId);
         linkPanel.objId = objectId;
 
         me.add(linkPanel);
@@ -561,6 +562,52 @@ Ext.define('ACMobileClient.view.MainPanel', {
             });
         }, 500);
 
+    },
+
+    deleteItem: function(objectId, dataview){
+        console.log("To delete Item: " + objectId);
+
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Deleting...'
+        });
+
+        Ext.Ajax.request({
+            method:'DELETE',
+            url:'/api/rest/object/' + objectId,
+            params: {},
+            success:function(response, success){
+                Ext.Viewport.setMasked(false);
+                dataview.getStore().loadPage(1);
+            },
+            failure:function(response){
+                Ext.Viewport.setMasked(false);
+                Ext.Msg.alert("Failed", "Delete failed.", Ext.emptyFn);
+            }
+        });
+    },
+
+    createFolder: function(parentFolder, folderName, dataview){
+        //console.log("To create folder, parent: " + parentFolder + " folderName: " + folderName);
+
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Creating...'
+        });
+
+        Ext.Ajax.request({
+            method:'POST',
+            url:"/api/rest/dataspace/createFolder.json",
+            params: {destination:parentFolder, folderName:folderName},
+            success:function(response, success){
+                Ext.Viewport.setMasked(false);
+                dataview.getStore().loadPage(1);
+            },
+            failure:function(response){
+                Ext.Viewport.setMasked(false);
+                Ext.Msg.alert("Failed", "Create folder failed.", Ext.emptyFn);
+            }
+        });
     }
 
 });

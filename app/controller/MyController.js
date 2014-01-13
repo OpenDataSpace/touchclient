@@ -65,6 +65,9 @@ Ext.define('ACMobileClient.controller.MyController', {
             'isPhone': false,
             'uploadController' : null,
             'showListButton': false,
+            'myId':'',
+            'sharedId':'',
+            'globalId':'',
             'isNarrow': function() {
                 return this.isPhone || Ext.Viewport.getOrientation() === 'portrait';
             }

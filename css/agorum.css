@@ -612,3 +612,28 @@
     font-size: .6em;
     white-space: nowrap;
 }
+
+/* Tab width */
+.x-tab {
+    min-width: 2.8em;
+}
+
+/* Icons */
+.x-tab .x-button-icon.global:before, .x-button .x-button-icon.global:before,
+.x-tab .x-button-icon.folder:before, .x-button .x-button-icon.folder:before {
+    bottom: 0;    
+    font-family: "Pictos";
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+/* Icon global */
+.x-tab .x-button-icon.global:before, .x-button .x-button-icon.global:before {
+    content: "G";
+}
+/* Icon folder */
+.x-tab .x-button-icon.folder:before, .x-button .x-button-icon.folder:before {
+    content: "o";
+}

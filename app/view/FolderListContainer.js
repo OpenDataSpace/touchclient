@@ -42,6 +42,14 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                     {
                         xtype: 'button',
                         align: 'right',
+
+                        itemId: 'CreateFoldBtn',
+                        //text: 'New Folder'
+                        iconCls: 'folder'
+                    },
+                    {
+                        xtype: 'button',
+                        align: 'right',
                         disabled: true,
                         itemId: 'uploadButton',
                         text: 'Upload'
@@ -74,6 +82,11 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                 fn: 'onUploadButtonTap',
                 event: 'tap',
                 delegate: '#uploadButton'
+            },
+            {
+                fn: 'onCreateFoldButtonTap',
+                event: 'tap',
+                delegate: '#CreateFoldBtn'
             }
         ]
     },
@@ -81,6 +94,21 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
     onBackButtonTap: function(button, e, eOpts) {
         button.disable();
         MyGlobals.menuPanel.navigateToParent2(this);
+    },
+
+    onCreateFoldButtonTap: function(button, e, eOpts){
+        //console.log(button.parentFolderId);
+        Ext.Msg.prompt("New Folder", "Please input new folder name: ", function(buttonId, value){
+            if(buttonId === 'ok'){
+                var folderName = Ext.String.trim(value),
+                    dataview = button.up().up().up().down("#documentList");
+
+                if(folderName !== ""){
+                    console.log(folderName);
+                    MyGlobals.mainPanel.createFolder(button.parentFolderId, folderName, dataview);
+                }
+            }
+        });
     },
 
     onContainerActivate: function(newActiveItem, container, oldActiveItem, eOpts) {
@@ -110,19 +138,20 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
         this.getComponent('accordionContainer').add(list);
     },
     onUploadButtonTap: function(button, e, eOpts){
-        console.log("uploadButton click")
-        console.log(button.getId())
+        //console.log("uploadButton click")
+        //console.log(button.getId())
         // console.log(navigator.platform)
         // console.log(navigator.appName)
         // console.log(navigator.appVersion)
         // console.log(navigator.userAgent)
 
-        if(navigator.platform == 'BlackBerry' || !(Ext.os.is.Windows || Ext.os.is.MacOS || Ext.os.is.Linux) ){
-            var fileElement = null;
-            var tmp = document.getElementById(document.getElementById(button.getId()).parentNode.id).getElementsByTagName('input')
-            for(var i=0; i<tmp.length; i++){
+        if(navigator.platform === 'BlackBerry' || !(Ext.os.is.Windows || Ext.os.is.MacOS || Ext.os.is.Linux) ){
+            var fileElement = null,
+                tmp = document.getElementById(document.getElementById(button.getId()).parentNode.id).getElementsByTagName('input'),
+                i;
+            for(i = 0; i<tmp.length; i+=1){
                 //console.log(tmp[i])
-                if(tmp[i].type == 'file'){
+                if(tmp[i].type === 'file'){
                     //tmp[i].click();
                     fileElement = tmp[i];
                     break;
@@ -131,7 +160,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
 
             if(!this.lastAction){   // first click
                 this.lastAction = Date.now(); 
-                fileElement.click()
+                fileElement.click();
             }else{
                 if (this.lastAction && this.lastAction <= Date.now() - 1000){
                     this.lastAction = Date.now(); 

@@ -39,15 +39,14 @@ Ext.define('ACMobileClient.model.ObjectDownloadLinkModel', {
 
     validate: function(options){
         var me = this,
-        errors = me.callParent(arguments);
-
-        var expirationDate = this.get('expirationDate');
+            errors = me.callParent(arguments),
+            expirationDate = this.get('expirationDate');
 
         if(expirationDate < Ext.Date.format(new Date(), 'Ymd')){
             errors.add({
                 field: 'expirationDate',
                 message: 'ExpirationDate is invalid.'
-            })
+            });
         }
         
         return errors;
