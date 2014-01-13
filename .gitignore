@@ -4,3 +4,7 @@ touchui*.gz
 *.swp
 .architect
 touch
+*.deb
+*.changes
+noarch
+version.properties

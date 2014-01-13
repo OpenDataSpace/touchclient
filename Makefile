@@ -48,8 +48,7 @@ $(DSTDIR)/%.js: %.js
 debug:
 	$(MAKE) DEBUG=1 all
 
-dist: clean all
-	tar -cz -C build -f $(PROJECT).tar.gz $(PROJECT)
+dist: clean all package
 
 package:
 	echo VERSION=$(VERSION) > version.properties
