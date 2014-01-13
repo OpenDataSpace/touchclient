@@ -68,6 +68,7 @@
             exclusions: [
                 '3rdparty/',
                 'build/',
+                'packaging/',
                 'touch/',
                 'app-test/lib/',
                 'app-test/phantomlint/',
