@@ -1,3 +1,50 @@
+gds2-touchui (1.6.104) unstable; urgency=low
+
+  * gitrev: 655f3f794544ff1c475676bf0ce2c81ae308ff27
+    Ignore packaging in jasmine
+  * gitrev: 6fa47d9d7996a9d36d4bb0d0e0290473019ae082
+    Merge branch 'master' of github.com:OpenDataSpace/touchclient
+  * gitrev: 94fc5ad8a814589a7ef53a5125a59bcc022e4590
+    Hook packaging into dist, Ignore generated files
+  * gitrev: 316bfaef210c9a483f759c6472e8c4f1374168cd
+    Perform monolithic packaging
+  * gitrev: dcbbfe917aed20c7649e2bcc020093a917e90830
+    Revert generated changes
+  * gitrev: b7c5e20aefe53ac70202d23b9c0928c03de52e9b
+    Fix returned capitalize repo name issue.
+  * gitrev: c77bee7cd5a3b8d5f48293e63a4132f2efdbc489
+    fixes jslint error
+  * gitrev: 6542b0cb8c32ab310bed9eb2bbf77da2cbe93c48
+    Add create folder button
+  * gitrev: 1316459b03a1133a5b2908958444568c4607c515
+    Display global repo
+  * gitrev: 6589ed32cc95c1f334c0bdd6b49d6aa2206afa70
+    Display e-mail address of owner of the room shared
+  * gitrev: 42dcc14cc4c0d5959c3b64c73ca8c7841cacf9a3
+    Fix when delete root folder display undefined.
+  * gitrev: fd0d06bce0e522f7aa21cf452d3a9ed17fbaf2ee
+    Add delete item function
+  * gitrev: 228b3da04c453cb3e7e0973407dc7e5eaac2dcc7
+    fixes jslint error
+  * gitrev: 5429fafd840a551ef87016976006b86fb47c26d3
+    Fixes jslint error
+  * gitrev: 680ceb352cde0c30618bf7e4cc3206ed5b179cee
+    Fixes jslint error
+  * gitrev: c8d66b1f5426fe38573bca7d6d5363080e4f1710
+    Support download link
+  * gitrev: 16e330e8cc2a56e694fad24ee3d007e45469e5f0
+    Fix upload once issue
+  * gitrev: daa5f2d3676c3919a603519c93200c186896982e
+    Fix in BlackBerry upload not work issue.
+  * gitrev: ec4b5c2c585615aef074ba85a2c7d1c6a9901e74
+    Fix info box no upper right icon
+  * gitrev: eae07659b8ad5591a98f10baccc25b9cd1f25a97
+    Message change
+  * gitrev: 4556a5268b46487f84105283b6767f702d960665
+    Fix pull down to refresh not get the latest file.
+
+ -- Fritz Elfert <fritz@fritz-elfert.de>  Mon, 13 Jan 2014 09:59:23 +0100
+
 gds2-touchui (1.6.94) unstable; urgency=low
 
   * gitrev: 584659afa9594a3938f42771c128096d2b3d8426
