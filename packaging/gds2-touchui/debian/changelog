@@ -1,0 +1,37 @@
+gds2-touchui (1.6.94) unstable; urgency=low
+
+  * gitrev: 584659afa9594a3938f42771c128096d2b3d8426
+    Prep for RPM monolithic build.
+    Fix initial size on WP8 with IE10
+
+ -- Fritz Elfert <fritz.elfert@graudata.com>  Mon, 30 Dec 2013 05:16:22 +0100
+
+gds2-touchui (1.5.94) unstable; urgency=low
+
+  * Added redirect for download=true queryparam
+
+ -- Fritz Elfert <fritz.elfert@graudata.com>  Thu, 19 Dec 2013 15:51:22 +0100
+
+gds2-touchui (1.4.94) unstable; urgency=low
+
+  * Added blackberry useragent patterns.
+
+ -- Fritz Elfert <fritz.elfert@graudata.com>  Thu, 19 Dec 2013 15:08:22 +0100
+
+gds2-touchui (1.3.94) unstable; urgency=low
+
+  * Depend on gds2-agorumcore
+
+ -- Fritz Elfert <fritz.elfert@graudata.com>  Sat, 04 May 2013 16:28:22 +0200
+
+gds2-touchui (1.2.20) unstable; urgency=low
+
+  * Added toplevel redirect for mobile devices.
+
+ -- Fritz Elfert <fritz.elfert@graudata.com>  Sun, 28 Apr 2013 08:59:22 +0200
+
+gds2-touchui (1.1.20) unstable; urgency=low
+
+  * Initial release.
+
+ -- Fritz Elfert <fritz.elfert@graudata.com>  Sun, 28 Apr 2013 08:59:22 +0200
