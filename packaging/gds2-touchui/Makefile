@@ -15,5 +15,7 @@ install-real:
 	install -d $(DESTDIR)$(DOCROOT)
 	install -d $(DESTDIR)$(ETCAPACHE)/conf.d
 	tar cCf ../../build - touchui | tar xCf $(DESTDIR)$(DOCROOT) -
-	install -m 0644 gds2.00-touchui  $(DESTDIR)$(ETCAPACHE)/conf.d/
-	install -m 0644 gds2.10-touchui  $(DESTDIR)$(ETCAPACHE)/conf.d/
+	test $(TARGET_SYS) = "rpm" || install -m 0644 gds2.00-touchui  $(DESTDIR)$(ETCAPACHE)/conf.d/
+	test $(TARGET_SYS) = "rpm" || install -m 0644 gds2.10-touchui  $(DESTDIR)$(ETCAPACHE)/conf.d/
+	test $(TARGET_SYS) = "deb" || install -m 0644 gds2.00-touchui  $(DESTDIR)$(ETCAPACHE)/conf.d/gds2.00-touchui.conf
+	test $(TARGET_SYS) = "deb" || install -m 0644 gds2.10-touchui  $(DESTDIR)$(ETCAPACHE)/conf.d/gds2.10-touchui.conf
