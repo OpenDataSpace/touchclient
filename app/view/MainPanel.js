@@ -129,9 +129,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
             setTimeout(function() {
                 cont.remove(cont.getActiveItem(), true);
-            }, 1000);    
+            }, 100);
 
-
+            //cont.remove(cont.getActiveItem(), true);
             MyGlobals.menuPanel.deselectAllLists();
         } else {
             cont.remove(cont.getActiveItem(), true);
@@ -285,7 +285,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
             itemLen = items.length,
             contCon;
 
-        if (!persistent && lastObj !== null && !lastObj.persistent) {
+        if (!persistent && lastObj !== null && typeof lastObj !== 'undefined' && !lastObj.persistent) {
             itemLen -= 1;
             setTimeout(function() {
                 console.log("removing last: " + lastObj);
@@ -304,7 +304,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         contCon.hasPrevious = hasPrevious;
         if (hasPrevious) {
             if (itemLen > 0) {
-                contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;
+                //contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;
             }
         }
 

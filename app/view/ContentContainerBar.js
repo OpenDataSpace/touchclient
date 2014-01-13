@@ -63,6 +63,11 @@ Ext.define('ACMobileClient.view.ContentContainerBar', {
     },
 
     onBackButtonTap: function(button, e, eOpts) {
+        // sometimes tap once fire twice
+        if (this.lastAction && this.lastAction > Date.now() - 2000) {
+            return;
+        }
+        this.lastAction = Date.now();
         MyGlobals.mainPanel.contentContainerBack();
     },
 
