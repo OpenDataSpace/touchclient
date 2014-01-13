@@ -1,3 +1,10 @@
+gds2-touchui (1.6.110) unstable; urgency=low
+
+  * gitrev: 2702b2776e7b9610fc145eb0ea6661eb15cff637
+    Fix apache config filenames
+
+ -- Fritz Elfert <fritz@fritz-elfert.de>  Mon, 13 Jan 2014 13:21:31 +0100
+
 gds2-touchui (1.6.109) unstable; urgency=low
 
   * gitrev: 6f697234a82470b3d02e3d36d72e3c8e1e8ecda8
