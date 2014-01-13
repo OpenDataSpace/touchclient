@@ -1,4 +1,4 @@
-%global ver 1.6.108
+%global ver 1.6.109
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Mon Jan 13 2014 bob-chen <562336543@qq.com> - 1.6.109-1
+- gitrev: 6f697234a82470b3d02e3d36d72e3c8e1e8ecda8
+  Fix open file from the search result twice issue
 * Mon Jan 13 2014 Build System <gds2dev@dataspace.cc> - 1.6.108-1
 - Automated rebuild
 * Mon Jan 13 2014 Build System <gds2dev@dataspace.cc> - 1.6.107-1

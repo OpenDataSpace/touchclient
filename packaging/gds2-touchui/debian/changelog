@@ -1,3 +1,10 @@
+gds2-touchui (1.6.109) unstable; urgency=low
+
+  * gitrev: 6f697234a82470b3d02e3d36d72e3c8e1e8ecda8
+    Fix open file from the search result twice issue
+
+ -- bob-chen <562336543@qq.com>  Mon, 13 Jan 2014 17:59:17 +0800
+
 gds2-touchui (1.6.108) unstable; urgency=low
 
   * Automated rebuild
