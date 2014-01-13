@@ -1,3 +1,9 @@
+gds2-touchui (1.6.105) unstable; urgency=low
+
+  * Automated rebuild
+
+ -- Fritz Elfert <fritz@fritz-elfert.de>  Mon, 13 Jan 2014 10:10:24 +0100
+
 gds2-touchui (1.6.104) unstable; urgency=low
 
   * gitrev: 655f3f794544ff1c475676bf0ce2c81ae308ff27
