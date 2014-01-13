@@ -1,4 +1,4 @@
-%global ver 1.6.105
+%global ver 1.6.106
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,8 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Mon Jan 13 2014 Build System <gds2dev@dataspace.cc> - 1.6.106-1
+- Automated rebuild
 * Mon Jan 13 2014 Build System <gds2dev@dataspace.cc> - 1.6.105-1
 - Automated rebuild
 * Mon Jan 13 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.104-1
