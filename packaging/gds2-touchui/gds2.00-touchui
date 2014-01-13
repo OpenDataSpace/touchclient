@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    RewriteCond %{HTTP_USER_AGENT} .*(Android)|(iPhone)|(iPad)|(BB10)|(BlackBerry)|(Trident.*Touch).*
+    RewriteCond %{QUERY_STRING} .*download=true.*
+    RewriteRule !.*/touch/.* /roiwebui/dataspace_module/touch/index.jsp [R,L]
+
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteCond %{HTTP_USER_AGENT} .*(Android)|(iPhone)|(iPad)|(BB10)|(BlackBerry)|(Trident.*Touch).*
+    RewriteRule .* /touchui [R,L]
+</IfModule>
+

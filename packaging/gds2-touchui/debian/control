@@ -1,0 +1,13 @@
+Source: gds2-touchui
+Section: non-free/web
+Priority: extra
+Maintainer: Fritz Elfert <fritz.elfert@graudata.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.1
+Homepage: http://www.graudata.com
+
+Package: gds2-touchui
+Architecture: all
+Depends: ${misc:Depends}, gds2-agorumcore
+Description: TouchGUI for GDS2
+ This package contains a Mobile Touch GUI.

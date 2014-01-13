@@ -1,0 +1,5 @@
+<IfModule mod_proxy_ajp.c>
+	<Location /touchui>
+                ProxyPass !
+        </Location>
+</IfModule>

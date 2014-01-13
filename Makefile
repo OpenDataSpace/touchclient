@@ -1,5 +1,8 @@
 PROJECT = touchui
-VERSION = 0.99.4
+VERSION_MAJOR = 1.6
+# The following is set in jenkins, for local builds, we get version 1.6.x while on jenkins we get e.g: 1.6.99
+BUILDNUMBER=x
+VERSION=$(VERSION_MAJOR).$(BUILDNUMBER)
 BUILD = local@$(shell hostname) $(shell date)
 GITREV = $(shell git show-ref --heads --hash)
 DSTDIR = build/$(PROJECT)
@@ -47,6 +50,10 @@ debug:
 
 dist: clean all
 	tar -cz -C build -f $(PROJECT).tar.gz $(PROJECT)
+
+package:
+	echo VERSION=$(VERSION) > version.properties
+	$(MAKE) VERSION=$(VERSION) -C packaging dist
 
 missing: generated/AppVersion.js
 
