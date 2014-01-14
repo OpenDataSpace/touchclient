@@ -1,4 +1,4 @@
-%global ver 1.6.110
+%global ver 1.6.111
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Tue Jan 14 2014 bob-chen <562336543@qq.com> - 1.6.111-1
+- gitrev: aef2b76b81895402f02b503aca2c080e4babe000
+  Move the file info to menu
 * Mon Jan 13 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.110-1
 - gitrev: 2702b2776e7b9610fc145eb0ea6661eb15cff637
   Fix apache config filenames

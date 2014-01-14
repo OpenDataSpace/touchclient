@@ -1,3 +1,10 @@
+gds2-touchui (1.6.111) unstable; urgency=low
+
+  * gitrev: aef2b76b81895402f02b503aca2c080e4babe000
+    Move the file info to menu
+
+ -- bob-chen <562336543@qq.com>  Tue, 14 Jan 2014 16:11:45 +0800
+
 gds2-touchui (1.6.110) unstable; urgency=low
 
   * gitrev: 2702b2776e7b9610fc145eb0ea6661eb15cff637
