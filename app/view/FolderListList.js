@@ -22,7 +22,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
     ],
 
     config: {
-        onItemDisclosure: true,
+        //onItemDisclosure: true,
         listeners: [
             {
                 fn: 'onDocumentListSelect',
@@ -33,10 +33,10 @@ Ext.define('ACMobileClient.view.FolderListList', {
                 fn: 'onDocumentListRefresh',
                 event: 'refresh'
             },
-            {
-                fn: 'onDocumentListDisclose',
-                event: 'disclose'
-            },
+            // {
+            //     fn: 'onDocumentListDisclose',
+            //     event: 'disclose'
+            // },
             {
                 fn: 'onListItemTaphold',
                 event: 'itemtaphold'
@@ -92,14 +92,14 @@ Ext.define('ACMobileClient.view.FolderListList', {
         this.deselectAll();
     },
 
-    onDocumentListDisclose: function(list, record, target, index, e, eOpts) {
-        // See comment in onDocumentListSelect()
-        this.lastAction = Date.now();
+    // onDocumentListDisclose: function(list, record, target, index, e, eOpts) {
+    //     // See comment in onDocumentListSelect()
+    //     this.lastAction = Date.now();
 
-        this.deselectAll();
-        MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'));
+    //     this.deselectAll();
+    //     MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'));
 
-    },
+    // },
 
 
     onListItemTaphold: function(dataview, index, target, record, e, eOpts) {
@@ -125,6 +125,21 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             };
                             actionSheet.hide();
                             actionSheet.destroy();
+                        }
+                    },{
+                        text: 'Info',
+                        ui: 'action',
+                        handler: function(){
+                            console.log("handle show info");
+
+                            MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'));
+
+                            setTimeout(function(){
+                                actionSheet.hide();
+                                actionSheet.destroy();
+                            }, 500)
+                            // actionSheet.hide();
+                            // actionSheet.destroy();
                         }
                     },{
                         text: 'Create Link',
