@@ -1,4 +1,4 @@
-%global ver 1.6.111
+%global ver 1.6.112
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Fri Jan 17 2014 bob-chen <562336543@qq.com> - 1.6.112-1
+- gitrev: 77abf9733e83e5a732db10931242f2c47bc88cd6
+  Add rename function
 * Tue Jan 14 2014 bob-chen <562336543@qq.com> - 1.6.111-1
 - gitrev: aef2b76b81895402f02b503aca2c080e4babe000
   Move the file info to menu

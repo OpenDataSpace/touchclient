@@ -1,3 +1,10 @@
+gds2-touchui (1.6.112) unstable; urgency=low
+
+  * gitrev: 77abf9733e83e5a732db10931242f2c47bc88cd6
+    Add rename function
+
+ -- bob-chen <562336543@qq.com>  Fri, 17 Jan 2014 10:58:50 +0800
+
 gds2-touchui (1.6.111) unstable; urgency=low
 
   * gitrev: aef2b76b81895402f02b503aca2c080e4babe000
