@@ -104,6 +104,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
 
     onListItemTaphold: function(dataview, index, target, record, e, eOpts) {
         var disableDownload = false,
+            disableRename = false,
 
             actionSheet = Ext.create('Ext.ActionSheet', {
             items:[
@@ -126,7 +127,21 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             actionSheet.hide();
                             actionSheet.destroy();
                         }
-                    },{
+                    }, {
+                        text: 'Rename',
+                        id: 'btnRename',
+                        ui: 'action',
+                        handler: function(){
+                            console.log("handle rename");
+
+                            MyGlobals.mainPanel.renameItem(record);
+
+                            actionSheet.hide();
+                            actionSheet.destroy();
+                        }
+                    },
+
+                    {
                         text: 'Info',
                         ui: 'action',
                         handler: function(){
@@ -137,7 +152,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             setTimeout(function(){
                                 actionSheet.hide();
                                 actionSheet.destroy();
-                            }, 500)
+                            }, 500);
                             // actionSheet.hide();
                             // actionSheet.destroy();
                         }
@@ -183,6 +198,11 @@ Ext.define('ACMobileClient.view.FolderListList', {
             //actionSheet.down("#btnDownload").hide();
         }
         actionSheet.down("#btnDownload").setDisabled(disableDownload);
+
+        if(dataview.getStore().getGroupField() === 'sharedowner'){
+            disableRename = true;
+        }
+        actionSheet.down("#btnRename").setDisabled(disableRename);
 
         MyGlobals.menuPanel.add(actionSheet);
         actionSheet.show();

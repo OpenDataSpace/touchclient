@@ -302,11 +302,11 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         contCon = Ext.create('ACMobileClient.view.ContentContainer', {});
         contCon.hasPrevious = hasPrevious;
-        if (hasPrevious) {
-            if (itemLen > 0) {
-                //contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;
-            }
-        }
+        // if (hasPrevious) {
+        //     if (itemLen > 0) {
+        //         //contCon.navTitle =  cont.getAt(itemLen-1).prevNavTitle;
+        //     }
+        // }
 
         contCon.persistent = container.persistent;
         contCon.add(container);
@@ -608,6 +608,50 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 Ext.Msg.alert("Failed", "Create folder failed.", Ext.emptyFn);
             }
         });
+    },
+
+    renameItem: function(record){
+        var objectId = record.get('id'),
+            orgName = record.get('name'),
+            newName = "",
+            parmeter;
+
+            Ext.Msg.prompt(
+                "Rename", 
+                "Please input new name: ", 
+                function(buttonId, value){
+                    if(buttonId === 'ok'){
+                        newName = Ext.String.trim(value);
+
+                        if(newName !== "" && newName !== orgName){
+                            parmeter = Ext.String.format('{"name":"{0}"}', newName.replace('"', '\\"') );
+                            console.log(parmeter);
+                            //Ext.Viewport.setMasked(true);
+
+                            ACUtils.utils.checkConnectionWithFunction(function() {
+                                Ext.Ajax.request({
+                                    method:'PUT',
+                                    url:"/api/rest/object/"+ objectId +".json",
+                                    params: {
+                                        "data":parmeter
+                                    },
+                                    success:function(response, success){
+                                        //Ext.Viewport.setMasked(false);
+                                        record.set('name', newName);
+                                    },
+                                    failure:function(response){
+                                        //Ext.Viewport.setMasked(false);
+                                        Ext.Msg.alert("Failed", "Rename failed.", Ext.emptyFn);
+                                    }
+                                });
+                            }); 
+                        }
+                    }
+                },
+                this,
+                false,
+                orgName
+            );
     }
 
 });
