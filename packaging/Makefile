@@ -2,6 +2,8 @@ TOPDIR = $(shell pwd)
 SUBDIRS = gds2-touchui
 CHGFILES = $(addsuffix _$(VERSION)_amd64.changes,$(SUBDIRS))
 RPMFILES = $(addprefix noarch/,$(addsuffix -$(VERSION)*.rpm,$(SUBDIRS)))
+RD = $(if $(shell cat /etc/debian_version),--nodeps)
+DD = $(if $(shell cat /etc/redhat-release),-d)
 
 all:
 
@@ -20,8 +22,8 @@ upload:
 build:
 	@set -e; for d in $(SUBDIRS) ; do \
 		$(MAKE) -C $$d buildnumber ; \
-		cd $$d && dpkg-buildpackage -d -b -tc -us -uc && \
-		rpmbuild -bb --define "gds2root `pwd`" --define "_rpmdir $(TOPDIR)" $$d.spec ; \
+		cd $$d && dpkg-buildpackage $(DD) -b -tc -us -uc && \
+		rpmbuild -bb $(RD) --define "gds2root `pwd`" --define "_rpmdir $(TOPDIR)" $$d.spec ; \
 	done
 
 clean:
