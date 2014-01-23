@@ -1,3 +1,10 @@
+gds2-touchui (1.6.113) unstable; urgency=low
+
+  * gitrev: fe9aa67eb983f129748ba3d7cc8dfc93f4501088
+    Allow building on debian and fedora
+
+ -- Fritz Elfert <fritz@fritz-elfert.de>  Thu, 23 Jan 2014 10:36:25 +0100
+
 gds2-touchui (1.6.112) unstable; urgency=low
 
   * gitrev: 77abf9733e83e5a732db10931242f2c47bc88cd6

@@ -1,4 +1,4 @@
-%global ver 1.6.112
+%global ver 1.6.113
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Jan 23 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.113-1
+- gitrev: fe9aa67eb983f129748ba3d7cc8dfc93f4501088
+  Allow building on debian and fedora
 * Fri Jan 17 2014 bob-chen <562336543@qq.com> - 1.6.112-1
 - gitrev: 77abf9733e83e5a732db10931242f2c47bc88cd6
   Add rename function
