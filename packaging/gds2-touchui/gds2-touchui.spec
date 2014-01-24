@@ -1,4 +1,4 @@
-%global ver 1.6.113
+%global ver 1.6.114
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Fri Jan 24 2014 bob-chen <562336543@qq.com> - 1.6.114-1
+- gitrev: 7dd9bc40b8d7ef44c4c4092716e7ba53bcb8ae29
+  Refactor preview image
 * Thu Jan 23 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.113-1
 - gitrev: fe9aa67eb983f129748ba3d7cc8dfc93f4501088
   Allow building on debian and fedora
