@@ -1,4 +1,4 @@
-%global ver 1.6.114
+%global ver 1.6.115
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,11 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Fri Jan 24 2014 bob-chen <562336543@qq.com> - 1.6.115-1
+- gitrev: 773c0b9defdd4b906b5de305a1b5cee827ca46a8
+  Merge branch 'master' of https://github.com/OpenDataSpace/touchclient
+- gitrev: 77e563e760ad8a7588ef5d087735715699146fd5
+  Fixes jslint error
 * Fri Jan 24 2014 bob-chen <562336543@qq.com> - 1.6.114-1
 - gitrev: 7dd9bc40b8d7ef44c4c4092716e7ba53bcb8ae29
   Refactor preview image
