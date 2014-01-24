@@ -21,7 +21,7 @@ Ext.define('ACMobileClient.view.PreviewContainer', {
     ],
 
     config: {
-        itemId: '',
+        itemId: 'myPreviewContainer',
         margin: 0,
         padding: 0,
         ui: 'light',
@@ -56,11 +56,6 @@ Ext.define('ACMobileClient.view.PreviewContainer', {
                 flex: 1
             }
         ]
-    },
-
-    setPageLabel: function(page, pageCount) {
-        this.down('#pageLabel').setHtml(page+"/"+pageCount);
-
     }
 
 });

@@ -15,7 +15,7 @@
 
 Ext.define('ACMobileClient.view.ImageViewerContainer', {
     extend: 'Ext.Container',
-
+    alias: 'widget.imageviewercontainer',
     config: {
         layout: {
             type: 'fit'
@@ -31,11 +31,11 @@ Ext.define('ACMobileClient.view.ImageViewerContainer', {
     },
 
     viewerHidden: function() {
-        this.imageViewer.viewerHidden();
+        this.fireEvent('viewerhidden', this.imageViewer);
     },
 
     viewerShown: function() {
-        this.imageViewer.viewerShown(true);
+        this.fireEvent('viewershown', this.imageViewer, true)
     },
 
     hideLoader: function() {

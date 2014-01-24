@@ -1,5 +1,5 @@
 Ext.define('ACMobileClient.view.ImageViewer', {
-
+    alias: 'widget.imageviewer',
     'require': ['ACMobileClient.store.PreviewStore'],
 
     'extend': 'Ext.Container',
@@ -25,41 +25,16 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
     'config': {
         'cls': 'imageBox',
-            'scrollable': 'both',
-            'html': ['<figure><img></figure>'],
-            'layout': {
-                'type': 'fit'
-            }
-    },
-
-    'showLoader': function() {
-        this.imageViewerContainer.showLoader();
-        this.hidePreview();
-    },
-
-    'hideLoader': function() {
-        var imgViewer = this;
-        imgViewer.imageViewerContainer.hideLoader();
-        imgViewer.imgEl.dom.style.visibility = "visible";
+        'scrollable': 'both',
+        'html': ['<figure><img></figure>'],
+        'layout': {
+            'type': 'fit'
+        }
     },
 
     'initialize': function() {
         // this.on('painted', this.initViewer, this, {'single': true});
         this.callParent();
-    },
-
-    'loadImageFromServer': function(previewTicket, pageCount, page, objectId) {
-        var imgSrc = "/api/rest/object/preview/" + previewTicket +
-            ".png?noCache=" + new Date().getTime() + "&sessionId=" + MyGlobals.sessionId;
-
-        this.showLoader();
-        this.isLoaded = true;
-
-        this.loadImage(imgSrc);
-        this.pageCount = pageCount;
-        this.page = page;
-        this.pageNumber = page;
-        this.objectId = objectId;
     },
 
     'doScrolling': function(enable) {
@@ -119,61 +94,6 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
     },
 
-    'viewerHidden': function() {
-        this.abortLoad = true;
-    },
-
-    'viewerShown': function(loadNext) {
-        console.log("viewerShown called: "+loadNext);
-        this.abortLoad = false;
-        this.loadNext = loadNext;
-        if (loadNext) {
-            this.parentContainer.setPageLabel(this.page, this.pageCount);
-        }
-        var imgViewer = this;
-        if (imgViewer.isLoaded === false) {
-            this.showLoader();
-        }
-
-        imgViewer.reloadViewer();
-
-        setTimeout(function() {
-            var previewStore;
-
-            if (!imgViewer.abortLoad) {
-                console.log("isLoaded? " + imgViewer.isLoaded + ", isLoading? " + imgViewer.isLoading);
-                if (imgViewer.isLoaded === false && imgViewer.isLoading === false) {
-                    imgViewer.isLoading = true;
-
-                    //load first image
-                    console.log('load preview 2: ' + imgViewer.objectId + ", " + imgViewer.page);
-                    previewStore = Ext.create('ACMobileClient.store.PreviewStore', {});
-                    previewStore.source = imgViewer.objectId;
-                    previewStore.page = imgViewer.page;
-
-                    previewStore.on('load', function() {
-                        var mdl = previewStore.getAt(0),
-                            ticket = mdl.get('ticket'),
-                            pageCount = previewStore.getTotalCount();
-
-                        console.log("LoadPreview 2 finished");
-                        imgViewer.loadImageFromServer(ticket, pageCount, imgViewer.page, imgViewer.objectId);
-                    });
-
-                    //now load the preview
-                    previewStore.load();
-
-                } else {
-                    if (imgViewer.nextImageViewer !== null && imgViewer.loadNext) {
-                        console.log("load next...");
-                        //preload next image
-                        imgViewer.nextImageViewer.viewerShown(false);
-                    }
-                }
-            }
-        }, 500);
-    },
-
     'onScrollEnd': function(scroller, x, y, eOpts) {
         console.log("onScrollEnd");
         //this.doScrolling(true);
@@ -214,25 +134,14 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     'onSwipe': function(ev, node, options, eOpts) {
         if (this.lastScrollBoundWidth !== null && Math.abs(this.lastScrollBoundWidth) > 30) {
            if (ev.direction === 'left') {
-               this.caller.loadNextPage();
+               //this.caller.loadNextPage();
+               this.caller.next();
            }
            if (ev.direction === 'right') {
-               this.caller.loadPrevPage();
+               //this.caller.loadPrevPage();
+               this.caller.previous();
            }
         }
-    },
-
-    'hidePreview': function() {
-        var me = this;
-        me.initViewer();
-        me.imgEl.dom.style.visibility="hidden";
-    },
-
-    'loadImage': function(src) {
-        var me = this;
-        me.initViewer();
-        me.imageSrc = src;
-        me.imgEl.dom.src = src;
     },
 
     'reloadViewer': function() {
@@ -270,16 +179,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     },
 
     'onImageLoad': function() {
-        if (!this.parentContainer.isBeingRemoved) {
-            this.isLoading = false;
-            this.hideLoader();
-            this.reloadViewer();
-            if (this.nextImageViewer !== null && this.loadNext) {
-                console.log("load next...");
-                //preload next image
-                this.nextImageViewer.viewerShown(false);
-            }
-        }
+        this.fireEvent('imgload', this);
     },
 
     'onImagePinchStart': function(ev) {
@@ -446,42 +346,42 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         if (Ext.os.is.Android) {
             this.imgEl.dom.style.webkitTransform =
                 'matrix(' + fixedScale + ',0,0,' + fixedScale + ',' + fixedX + ',' + fixedY + ')';
-                        } else {
-                            this.imgEl.dom.style.webkitTransform =
-                    'translate3d(' + (fixedX) + 'px, ' + (fixedY) + 'px, 0)'
-                    +' scale3d(' + fixedScale + ',' + fixedScale + ',1)';
-                        }
-                        },
+        } else {
+            this.imgEl.dom.style.webkitTransform =
+                'translate3d(' + (fixedX) + 'px, ' + (fixedY) + 'px, 0)'
+                +' scale3d(' + fixedScale + ',' + fixedScale + ',1)';
+        }
+    },
 
-                        'adjustScroller': function() {
-                            // size container to final image size
-                            var boundWidth = Math.max(this.imgWidth * this.scale, this.viewportWidth),
-                boundHeight = Math.max(this.imgHeight * this.scale, this.viewportHeight);
+    'adjustScroller': function() {
+        // size container to final image size
+        var boundWidth = Math.max(this.imgWidth * this.scale, this.viewportWidth),
+        boundHeight = Math.max(this.imgHeight * this.scale, this.viewportHeight);
 
-                this.figEl.setStyle({
-                    'width': boundWidth + 'px',
-                    'height': boundHeight + 'px'
-                });
+        this.figEl.setStyle({
+            'width': boundWidth + 'px',
+            'height': boundHeight + 'px'
+        });
 
-                // update scroller to new content size
-                this.getScrollable().refresh();
+        // update scroller to new content size
+        this.getScrollable().refresh();
 
-                // apply scroll
-                if(typeof this.scrollX === 'undefined'){
-                    this.scrollX = 0;
-                }
-                if(typeof this.scrollY === 'undefined'){
-                    this.scrollY = 0;
-                }
-                this.getScrollable().getScroller().scrollTo(
-                        -this.scrollX,
-                        -this.scrollY,
-                        { 'duration' : 0 }
-                        );
+        // apply scroll
+        if(typeof this.scrollX === 'undefined'){
+            this.scrollX = 0;
+        }
+        if(typeof this.scrollY === 'undefined'){
+            this.scrollY = 0;
+        }
+        this.getScrollable().getScroller().scrollTo(
+                -this.scrollX,
+                -this.scrollY,
+                { 'duration' : 0 }
+        );
 
-                // update scroller to new content size
-                this.getScrollable().refresh();
-                        }
+        // update scroller to new content size
+        this.getScrollable().refresh();
+    }
 
 });
 

@@ -69,7 +69,8 @@ Ext.define('ACMobileClient.view.FolderListList', {
     },
 
     onDocumentListSelect: function(dataview, index, target, record, e, eOpts) {
-        var classObject, objectId, name;
+        var classObject, objectId, name,
+            previewAble;
 
         // For both 'taphold' and 'disclose' events, sencha fires an additional
         // 'singletap' afterwards. Since we trigger actions for both events and
@@ -84,7 +85,16 @@ Ext.define('ACMobileClient.view.FolderListList', {
         classObject = record.get("classname");
         objectId = record.get("id");
         name = record.get("name");
-        MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);
+
+        // separate 'enter folder' and 'preview'
+        previewAble = record.get("previewable");
+        if (classObject !== 'mailobject' && previewAble) {
+            console.log('To fire preview event')
+            this.fireEvent('preview', classObject, objectId, name, false, record);
+        } else {
+            MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);
+        }
+
         MyGlobals.currentDocumentList = this;
     },
 
