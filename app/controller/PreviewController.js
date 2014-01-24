@@ -28,7 +28,7 @@ Ext.define('ACMobileClient.controller.PreviewController', {
     },
 
     previewItem: function(classObject, objectId, name, persistent, record){
-        console.log("PreviewItem in PreviewController")
+        console.log("PreviewItem in PreviewController");
 
         var me = this,
             page = 1;
@@ -46,7 +46,6 @@ Ext.define('ACMobileClient.controller.PreviewController', {
     },
 
     imgLoad : function(imgViewer){
-        console.log("imgLoad in PreviewController")
         var me = this;
         if (!imgViewer.parentContainer.isBeingRemoved) {
             imgViewer.isLoading = false;
@@ -158,10 +157,6 @@ Ext.define('ACMobileClient.controller.PreviewController', {
             previewCarousel =  parentContainer.down('#previewCarousel');
             //MyGlobals.previewContrainer.down('#previewCarousel');
             //previewCarousel =  this.getPreviewCarousel();
-
-        console.log("Get previewCarousel")
-        //console.log(previewCarousel)
-        //console.log(MyGlobals.previewContrainer.down('#previewCarousel'))
 
         ACUtils.utils.checkConnectionWithFunction(function() {
             var imageViewerContainer,
@@ -331,7 +326,6 @@ Ext.define('ACMobileClient.controller.PreviewController', {
                 }
             }
         }, 500);
-    },
-
+    }
 
 });

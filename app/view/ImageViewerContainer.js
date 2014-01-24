@@ -35,7 +35,7 @@ Ext.define('ACMobileClient.view.ImageViewerContainer', {
     },
 
     viewerShown: function() {
-        this.fireEvent('viewershown', this.imageViewer, true)
+        this.fireEvent('viewershown', this.imageViewer, true);
     },
 
     hideLoader: function() {

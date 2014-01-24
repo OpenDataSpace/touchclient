@@ -89,7 +89,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
         // separate 'enter folder' and 'preview'
         previewAble = record.get("previewable");
         if (classObject !== 'mailobject' && previewAble) {
-            console.log('To fire preview event')
+            console.log('To fire preview event');
             this.fireEvent('preview', classObject, objectId, name, false, record);
         } else {
             MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);
