@@ -1,3 +1,10 @@
+gds2-touchui (1.6.114) unstable; urgency=low
+
+  * gitrev: 7dd9bc40b8d7ef44c4c4092716e7ba53bcb8ae29
+    Refactor preview image
+
+ -- bob-chen <562336543@qq.com>  Fri, 24 Jan 2014 15:39:26 +0800
+
 gds2-touchui (1.6.113) unstable; urgency=low
 
   * gitrev: fe9aa67eb983f129748ba3d7cc8dfc93f4501088
