@@ -45,7 +45,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                 ]
             },
             {
-                xtype: 'list',
+                xtype: 'folderlistlist',
                 cls: 'searchList',
                 itemId: 'searchList',
                 masked: true,
@@ -59,7 +59,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                 ],
                 loadingText: 'Search...',
                 store: 'SearchDataStore',
-                onItemDisclosure: true,
+                //onItemDisclosure: true,
                 plugins: [
                     {
                         refreshFn: function(plugin) {
@@ -129,11 +129,11 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
     },
 
     onSearchListSelect: function(dataview, record, eOpts) {
-        var classObject = record.get("classname"),
-            objectId = record.get("id"),
-            name = record.get("name");
+        // var classObject = record.get("classname"),
+        //     objectId = record.get("id"),
+        //     name = record.get("name");
 
-        MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);
+        //MyGlobals.mainPanel.handleObject(classObject, objectId, name, false, record);
         MyGlobals.currentSearchList = this.down('#searchList');
     },
 
