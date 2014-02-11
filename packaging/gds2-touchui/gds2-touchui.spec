@@ -1,4 +1,4 @@
-%global ver 1.6.115
+%global ver 1.6.116
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Tue Feb 11 2014 bob-chen <562336543@qq.com> - 1.6.116-1
+- gitrev: 33a6b1e5b08b6cd8547d8122ddbd39c4f3b56308
+  Adapt preview in search.
 * Fri Jan 24 2014 bob-chen <562336543@qq.com> - 1.6.115-1
 - gitrev: 773c0b9defdd4b906b5de305a1b5cee827ca46a8
   Merge branch 'master' of https://github.com/OpenDataSpace/touchclient

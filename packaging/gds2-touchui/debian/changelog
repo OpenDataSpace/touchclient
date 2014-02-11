@@ -1,3 +1,10 @@
+gds2-touchui (1.6.116) unstable; urgency=low
+
+  * gitrev: 33a6b1e5b08b6cd8547d8122ddbd39c4f3b56308
+    Adapt preview in search.
+
+ -- bob-chen <562336543@qq.com>  Tue, 11 Feb 2014 16:57:00 +0800
+
 gds2-touchui (1.6.115) unstable; urgency=low
 
   * gitrev: 773c0b9defdd4b906b5de305a1b5cee827ca46a8
