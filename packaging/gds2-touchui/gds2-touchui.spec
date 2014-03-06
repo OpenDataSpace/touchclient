@@ -1,4 +1,4 @@
-%global ver 1.6.117
+%global ver 1.6.118
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar  6 2014 bob-chen <562336543@qq.com> - 1.6.118-1
+- gitrev: ef5e1539b28c34b3f82861352f1a77a3b3daa2f9
+  Fix can't create download link in ie10
 * Thu Mar  6 2014 bob-chen <562336543@qq.com> - 1.6.117-1
 - gitrev: 4b330d9d88123f77069325a55f992f472806a473
   Fix create download link sometimes failed
