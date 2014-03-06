@@ -1,4 +1,4 @@
-%global ver 1.6.116
+%global ver 1.6.117
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar  6 2014 bob-chen <562336543@qq.com> - 1.6.117-1
+- gitrev: 4b330d9d88123f77069325a55f992f472806a473
+  Fix create download link sometimes failed
 * Tue Feb 11 2014 bob-chen <562336543@qq.com> - 1.6.116-1
 - gitrev: 33a6b1e5b08b6cd8547d8122ddbd39c4f3b56308
   Adapt preview in search.
