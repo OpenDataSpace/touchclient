@@ -432,7 +432,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
         iPanel = Ext.create('ACMobileClient.view.InfoPanel', {});
         iPanel.load(objectId);
 
-
         if (className && className === 'noteobject') {
             //switch not note view
             iPanel.showNote(noteId);
@@ -473,7 +472,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
     },
 
-    showDownloadLinkPanelSlided: function(objectId, noteId) {
+    showDownloadLinkPanelSlided: function(objectId) {
         var me = this,
             linkPanel;
 
@@ -489,7 +488,33 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         me.add(linkPanel);
 
-        linkPanel.show();
+        if(Ext.browser.is.IE){
+            if (MyGlobals.isNarrow()) {
+                me.getLayout().setAnimation({
+                    type: 'slide',
+                    direction: 'left'
+                });
+                me.setActiveItem(linkPanel);    
+            } else {
+                //height = me.element.getHeight();
+                width = me.down('#contentContainer').element.getWidth();
+                linkPanel.setDocked(null);
+                linkPanel.setShowAnimation("slideIn");
+                linkPanel.setHideAnimation({
+                    type: 'slideOut',
+                    direction: 'right'
+                });
+                linkPanel.setTop(0);
+                //linkPanel.setLeft(width-320);
+                //linkPanel.setHeight(height);
+                linkPanel.setWidth(width);
+                //linkPanel.addCls('shadowPanel');
+
+                linkPanel.show();
+            }
+        } else {
+            linkPanel.show();
+        }     
 
         MyGlobals.downloadLinkPanel = linkPanel;
 

@@ -12,11 +12,11 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
         },
         items: [
             {
-                layout: {
-                        type: 'fit'
-                },
+                // layout: {
+                //         type: 'fit'
+                // },
                 xtype: 'container',
-                itemId: 'viewContainer2',
+                //itemId: 'viewContainer2',
                 items: [
                     {
                         xtype: 'toolbar',
@@ -39,9 +39,9 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                         ]
                     },
                     {
-                        layout: {
-                            type: 'card'
-                        },
+                        // layout: {
+                        //     type: 'card'
+                        // },
                         xtype: 'container',
                         itemId: 'cardContainer',
                         items: [
@@ -50,9 +50,9 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                     type: 'fit'
                                 },
                                 xtype: 'container',
-                                cls: 'infoContainer',
-                                itemId: 'infoContainer',
+                                // itemId: 'infoContainer',
                                 padding: 10,
+                                cls: 'infoContainer',
                                 items: [
                                     {
                                         xtype: 'fieldset',
@@ -258,3 +258,4 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
     }
  
 });
+
