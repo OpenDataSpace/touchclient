@@ -194,7 +194,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
     onSendTap: function(button, e, eOpts){
         var email = MyGlobals.downloadLinkPanel.down("#mailaddress").getValue(),
             subject = MyGlobals.downloadLinkPanel.down("#subject").getValue(),
-            expirationDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ynj'),
+            expirationDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymj'),
             pwd = MyGlobals.downloadLinkPanel.down("#password").getValue(),
             msg = MyGlobals.downloadLinkPanel.down("#message").getValue(),
             objId = this.objId,
@@ -245,6 +245,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
             },
             failure:function(response){
                 MyGlobals.downloadLinkPanel.setMasked(false);
+                Ext.Viewport.setMasked(false);
                 Ext.Msg.alert("Fail", "Fail to create download link.", function(){
                     //MyGlobals.mainPanel.hideDownloadLinkPanel();
                 });
