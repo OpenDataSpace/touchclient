@@ -1,4 +1,4 @@
-%global ver 1.6.118
+%global ver 1.6.119
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Fri Mar  7 2014 bob-chen <562336543@qq.com> - 1.6.119-1
+- gitrev: c0a250d94d504025da20a93b93ba8eb325c6f42b
+  Fix wrong text msg after link createin
 * Thu Mar  6 2014 bob-chen <562336543@qq.com> - 1.6.118-1
 - gitrev: ef5e1539b28c34b3f82861352f1a77a3b3daa2f9
   Fix can't create download link in ie10

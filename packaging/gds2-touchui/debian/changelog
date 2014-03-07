@@ -1,3 +1,10 @@
+gds2-touchui (1.6.119) unstable; urgency=low
+
+  * gitrev: c0a250d94d504025da20a93b93ba8eb325c6f42b
+    Fix wrong text msg after link createin
+
+ -- bob-chen <562336543@qq.com>  Fri, 7 Mar 2014 11:25:33 +0800
+
 gds2-touchui (1.6.118) unstable; urgency=low
 
   * gitrev: ef5e1539b28c34b3f82861352f1a77a3b3daa2f9
