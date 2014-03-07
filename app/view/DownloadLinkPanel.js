@@ -239,7 +239,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
             },
             success:function(response, success){
                 Ext.Viewport.setMasked(false);
-                Ext.Msg.alert("Success", "Finish to create download link.", function(){
+                Ext.Msg.alert("", "Download link was created.", function(){
                     MyGlobals.mainPanel.hideDownloadLinkPanel();
                 });
             },
