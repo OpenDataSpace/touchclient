@@ -1,4 +1,4 @@
-%global ver 1.6.119
+%global ver 1.6.120
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,8 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Mon Mar 10 2014 Build System <gds2dev@dataspace.cc> - 1.6.120-1
+- Automated rebuild
 * Fri Mar  7 2014 bob-chen <562336543@qq.com> - 1.6.119-1
 - gitrev: c0a250d94d504025da20a93b93ba8eb325c6f42b
   Fix wrong text msg after link createin
