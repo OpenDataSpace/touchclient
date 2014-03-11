@@ -15,7 +15,7 @@ describe("Documentinfo model", function () {
 
         waitsFor(function () {
             return goodSpy.wasCalled || badSpy.wasCalled;
-        }, "One spy should have been called", 2000);
+        }, "One spy should have been called", 10000);
 
         Ext.Ajax.setDefaultHeaders({"Accept":"application/json"});
         runs(function () {
