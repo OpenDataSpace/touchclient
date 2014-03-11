@@ -1,4 +1,4 @@
-%global ver 1.6.120
+%global ver 1.6.121
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Tue Mar 11 2014 bob-chen <562336543@qq.com> - 1.6.121-1
+- gitrev: daff9999a253da0aacfa0ff493c6a7989ad89369
+  Fix st 2.3.1 can not input in BB 10
 * Mon Mar 10 2014 Build System <gds2dev@dataspace.cc> - 1.6.120-1
 - Automated rebuild
 * Fri Mar  7 2014 bob-chen <562336543@qq.com> - 1.6.119-1
