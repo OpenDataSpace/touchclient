@@ -1,3 +1,10 @@
+gds2-touchui (1.6.125) unstable; urgency=low
+
+  * gitrev: a830936f2af792c89025ed25dd2646a9e4547814
+    Fixed #3633
+
+ -- Fritz Elfert <fritz@fritz-elfert.de>  Wed, 12 Mar 2014 17:28:27 +0100
+
 gds2-touchui (1.6.124) unstable; urgency=low
 
   * gitrev: 2a9760f4e62259b134d89748153388ff7dc8eecd
