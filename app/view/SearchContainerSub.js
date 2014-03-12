@@ -46,42 +46,42 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
             },
             {
                 xtype: 'folderlistlist',
-                cls: 'searchList',
+                //cls: 'searchList',
                 itemId: 'searchList',
                 masked: true,
-                itemTpl: [
-                    '<div class="list_style">',
-                    '<div class="list_icons">',
-                    '<div class="list_icon list_icon_{classname}"></div>',
-                    '</div>',
-                    '<div class="list_entry">{name}</div>',
-                    '</div>'
-                ],
+                // itemTpl: [
+                //     '<div class="list_style">',
+                //     '<div class="list_icons">',
+                //     '<div class="list_icon list_icon_{classname}"></div>',
+                //     '</div>',
+                //     '<div class="list_entry">{name}</div>',
+                //     '</div>'
+                // ],
                 loadingText: 'Search...',
                 store: 'SearchDataStore',
                 //onItemDisclosure: true,
-                plugins: [
-                    {
-                        refreshFn: function(plugin) {
-                            ACUtils.utils.checkConnectionWithFunction(function() {
-                                plugin.up().setMasked({
-                                    xtype: 'loadmask',
-                                    message: 'Refreshing...'
-                                });
-                                plugin.up().getStore().loadPage(1);
-                            });
+                // plugins: [
+                //     {
+                //         refreshFn: function(plugin) {
+                //             ACUtils.utils.checkConnectionWithFunction(function() {
+                //                 plugin.up().setMasked({
+                //                     xtype: 'loadmask',
+                //                     message: 'Refreshing...'
+                //                 });
+                //                 plugin.up().getStore().loadPage(1);
+                //             });
 
-                        },
-                        xclass: 'ACMobileClient.utils.PullRefreshFn'
-                        //type: 'pullrefresh'
-                    },
-                    {
-                        autoPaging: true,
-                        loadMoreText: 'Mehr laden...',
-                        noMoreRecordsText: ' ',
-                        type: 'listpaging'
-                    }
-                ]
+                //         },
+                //         xclass: 'ACMobileClient.utils.PullRefreshFn'
+                //         //type: 'pullrefresh'
+                //     },
+                //     {
+                //         autoPaging: true,
+                //         loadMoreText: 'Mehr laden...',
+                //         noMoreRecordsText: ' ',
+                //         type: 'listpaging'
+                //     }
+                // ]
             }
         ],
         listeners: [

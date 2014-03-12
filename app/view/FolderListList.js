@@ -23,6 +23,25 @@ Ext.define('ACMobileClient.view.FolderListList', {
 
     config: {
         //onItemDisclosure: true,
+
+        itemTpl: new Ext.XTemplate(
+        '<div class="list_style">',
+        '<div class="list_icons">',
+        '<div class="list_icon list_icon_{classname}"></div>',
+        '</div>',
+        '<div class="list_entry">{[this.testing(name)]}{name}</div>',
+        '</div>',
+            {
+                // XTemplate configuration:
+                'disableFormats': true,
+                // just a sample
+                'testing': function(){
+                    return '';
+                }
+            }
+        ),
+
+
         listeners: [
             {
                 fn: 'onDocumentListSelect',
