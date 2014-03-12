@@ -1,4 +1,4 @@
-%global ver 1.6.123
+%global ver 1.6.124
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Mar 12 2014 bob-chen <562336543@qq.com> - 1.6.124-1
+- gitrev: 2a9760f4e62259b134d89748153388ff7dc8eecd
+  Fix search result display abnormal in st 2.3
 * Wed Mar 12 2014 bob-chen <562336543@qq.com> - 1.6.123-1
 - gitrev: d31e4ac04e54d4d5a3433d7b11ac27a7c886069f
   Fix pull down refresh not work in st 2.3.1

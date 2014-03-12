@@ -1,3 +1,10 @@
+gds2-touchui (1.6.124) unstable; urgency=low
+
+  * gitrev: 2a9760f4e62259b134d89748153388ff7dc8eecd
+    Fix search result display abnormal in st 2.3
+
+ -- bob-chen <562336543@qq.com>  Wed, 12 Mar 2014 17:36:39 +0800
+
 gds2-touchui (1.6.123) unstable; urgency=low
 
   * gitrev: d31e4ac04e54d4d5a3433d7b11ac27a7c886069f
