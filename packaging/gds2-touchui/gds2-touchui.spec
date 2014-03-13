@@ -1,4 +1,4 @@
-%global ver 1.6.128
+%global ver 1.6.129
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar 13 2014 bob-chen <562336543@qq.com> - 1.6.129-1
+- gitrev: 1da55e42c4ec618a5f4db67220c54ef345d566b0
+  Fix jslint issue
 * Thu Mar 13 2014 bob-chen <562336543@qq.com> - 1.6.128-1
 - gitrev: 09774a6a709f7146bc6ec8651215e1533c8b6101
   Fixed jslint issue.
