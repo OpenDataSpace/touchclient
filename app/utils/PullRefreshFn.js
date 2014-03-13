@@ -23,7 +23,7 @@ Ext.define('ACMobileClient.utils.PullRefreshFn', {
             this.setState("loaded");
             this.fireEvent("latestfetched", this, 'refreshFn');
             if(this.getAutoSnapBack()){
-            	this.snapBack();
+                this.snapBack();
             }
         }
     }
