@@ -214,11 +214,14 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
             message += rec.getMessage() + "<br />";
         });
         //console.log("email: " + email + " subject: " + subject + " exp: " + typeof expirationDate + " pwd: " + pwd + " msg: "+msg)
-        //console.log(this.objId);
 
         if(message !== ""){
             Ext.Msg.alert("Valid Failed", message);
             return;
+        }
+
+        if(pwd !== ""){
+            pwd = SHA256(pwd);
         }
 
         Ext.Viewport.setMasked({
@@ -228,6 +231,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
 
         Ext.Ajax.request({
             method:'POST',
+            timeout: '300000',
             url:'/api/rest/dataspace/createDownloadLink.json',
             params: {
                 objectIds: objId, // array of ids which to be added to download link, mandatory
