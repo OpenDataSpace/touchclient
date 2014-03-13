@@ -58,7 +58,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                 //     '</div>'
                 // ],
                 loadingText: 'Search...',
-                store: 'SearchDataStore',
+                store: 'SearchDataStore'
                 //onItemDisclosure: true,
                 // plugins: [
                 //     {
