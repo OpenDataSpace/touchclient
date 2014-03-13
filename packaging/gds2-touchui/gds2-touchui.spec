@@ -1,4 +1,4 @@
-%global ver 1.6.126
+%global ver 1.6.127
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,11 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar 13 2014 bob-chen <562336543@qq.com> - 1.6.127-1
+- gitrev: 6aab9d365b4a6347147ba9d90aae5c4cb5e0db5f
+  Merge branch 'master' of https://github.com/OpenDataSpace/touchclient
+- gitrev: e150683cb1ecee6df111cf27822e1a4bc35878ff
+  Fixed jslint issue
 * Thu Mar 13 2014 bob-chen <562336543@qq.com> - 1.6.126-1
 - gitrev: 6702ca07b6c3a48e222793bd9e1630b8d0ede1a4
   Fix create download link with pwd issue.
