@@ -1,4 +1,4 @@
-%global ver 1.6.125
+%global ver 1.6.126
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar 13 2014 bob-chen <562336543@qq.com> - 1.6.126-1
+- gitrev: 6702ca07b6c3a48e222793bd9e1630b8d0ede1a4
+  Fix create download link with pwd issue.
 * Wed Mar 12 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.125-1
 - gitrev: a830936f2af792c89025ed25dd2646a9e4547814
   Fixed #3633
