@@ -1,4 +1,4 @@
-/*jslint bitwise: true, newcap: false */
+/*jslint bitwise: true, newcap: true */
 
 function getStyle(el, style) {
     var value = el.style[toCamelCase(style)];
