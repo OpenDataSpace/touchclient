@@ -677,6 +677,48 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 false,
                 orgName
             );
-    }
+    },
 
+    checkObjectAccessLevel: function(record, actionSheet){
+        var objectId = record.get("id"),
+            accessLevelArry = ["write", "rename"],
+            i, hasAccessLevel, rs;
+
+        ACUtils.utils.checkConnectionWithFunction(function() {
+            for(i=0; i<accessLevelArry.length; i+=1){
+
+                var accessLevelName = accessLevelArry[i];
+                (function(accessLevel){
+                    Ext.Ajax.request({
+                        method:'GET',
+                        url:"/api/rest/dataspace/hasAccessLevel.json",
+                        params: {
+                            "accessLevel":accessLevel,
+                            "objectIds":objectId
+                        },
+                        success:function(response, success){
+                            rs = Ext.JSON.decode(response.responseText, true);
+                            hasAccessLevel = rs.hasAccessLevel;
+  
+                            switch(accessLevel){
+                                case "write":
+                                    actionSheet.down("#btnDelete").setDisabled( !hasAccessLevel); // hasAccessLevel => ture, setDisabled(false)
+                                    break;                                                        // hasAccessLevel => false, setDisabled(true)
+                                case "rename":
+                                    actionSheet.down("#btnRename").setDisabled( !hasAccessLevel);
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                        },
+                        failure:function(response){
+                            console.log("Get accessLevel failed: " + accessLevel);
+                        }
+                    });
+                })(accessLevelName);
+            }
+        });
+    }
+    
 });

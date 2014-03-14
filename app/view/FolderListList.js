@@ -160,6 +160,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         text: 'Rename',
                         id: 'btnRename',
                         ui: 'action',
+                        disabled: true,
                         handler: function(){
                             console.log("handle rename");
 
@@ -197,7 +198,9 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         }
                     },{
                         text: 'Delete',
+                        id: 'btnDelete',
                         ui: 'decline',
+                        disabled: true,
                         handler: function(){
                             console.log(record);
                             //objectId = record.get("id");
@@ -222,16 +225,18 @@ Ext.define('ACMobileClient.view.FolderListList', {
                     }
                 ]
             });
+
+        MyGlobals.mainPanel.checkObjectAccessLevel(record, actionSheet);
+
         if (record.get('isfolder')) {
             disableDownload = true;
-            //actionSheet.down("#btnDownload").hide();
         }
         actionSheet.down("#btnDownload").setDisabled(disableDownload);
 
-        if(dataview.getStore().getGroupField() === 'sharedowner'){
-            disableRename = true;
-        }
-        actionSheet.down("#btnRename").setDisabled(disableRename);
+        // if(dataview.getStore().getGroupField() === 'sharedowner'){
+        //     disableRename = true;
+        // }
+        // actionSheet.down("#btnRename").setDisabled(disableRename);
 
         MyGlobals.menuPanel.add(actionSheet);
         actionSheet.show();
