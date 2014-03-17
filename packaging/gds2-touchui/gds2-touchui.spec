@@ -1,4 +1,4 @@
-%global ver 1.6.130
+%global ver 1.6.131
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,11 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Mon Mar 17 2014 bob-chen <562336543@qq.com> - 1.6.131-1
+- gitrev: ae5b5fa625f16a9ad90d7d73423423a3c4587b5d
+  Fix #3623
+- gitrev: 4c54a8e4ef1c9f2dac5f7e86a255f2a666caee16
+  make download link panel scrollable
 * Fri Mar 14 2014 bob-chen <562336543@qq.com> - 1.6.130-1
 - gitrev: 8dd635fd040a6934de98f7d2ed8804aa06ad038d
   Fixed issue 3622
