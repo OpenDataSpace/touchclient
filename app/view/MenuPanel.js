@@ -189,7 +189,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 parentName = area.getActiveItem().titleName;
                 // if not root load a normal folder structure
                 store = Ext.create("ACMobileClient.store.FolderObjectDataStore", {});
-                foldC.down("#CreateFoldBtn").enable();
+                foldC.down("#CreateFoldBtn").disable();
             }
 
             foldC.down('#documentList').setStore(store);
@@ -216,13 +216,16 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 fId, 'protected',
                 function() { // onGranted
                     foldC.down('#uploadButton').enable();
+                    foldC.down("#CreateFoldBtn").enable(); 
                     MyGlobals.uploadController.initUploader(foldC);
                 },
                 function() { // onDenied
                     foldC.down('#uploadButton').disable();
+                    foldC.down("#CreateFoldBtn").disable(); 
                 },
                 function() { // onFailure
                     foldC.down('#uploadButton').disable();
+                    foldC.down("#CreateFoldBtn").disable(); 
                     Ext.Msg.alert('Could not fetch permissions');
                 });
             }

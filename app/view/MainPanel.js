@@ -686,39 +686,38 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         ACUtils.utils.checkConnectionWithFunction(function() {
             for(i=0; i<accessLevelArry.length; i+=1){
+                MyGlobals.mainPanel.toCheckAccessLevel(objectId, accessLevelArry[i], actionSheet);
+            }
+        });
+    },
 
-                var accessLevelName = accessLevelArry[i];
-                (function(accessLevel){
-                    Ext.Ajax.request({
-                        method:'GET',
-                        url:"/api/rest/dataspace/hasAccessLevel.json",
-                        params: {
-                            "accessLevel":accessLevel,
-                            "objectIds":objectId
-                        },
-                        success:function(response, success){
-                            rs = Ext.JSON.decode(response.responseText, true);
-                            hasAccessLevel = rs.hasAccessLevel;
-  
-                            switch(accessLevel){
-                                case "write":
-                                    actionSheet.down("#btnDelete").setDisabled( !hasAccessLevel); // hasAccessLevel => ture, setDisabled(false)
-                                    break;                                                        // hasAccessLevel => false, setDisabled(true)
-                                case "rename":
-                                    actionSheet.down("#btnRename").setDisabled( !hasAccessLevel);
-                                    break;
-                                default:
-                                    break;
-                            }
+    toCheckAccessLevel: function(objectId, accessLevel, container){
+        Ext.Ajax.request({
+            method:'GET',
+            url:"/api/rest/dataspace/hasAccessLevel.json",
+            params: {
+                "accessLevel":accessLevel,
+                "objectIds":objectId
+            },
+            success:function(response, success){
+                rs = Ext.JSON.decode(response.responseText, true);
+                hasAccessLevel = rs.hasAccessLevel;
 
-                        },
-                        failure:function(response){
-                            console.log("Get accessLevel failed: " + accessLevel);
-                        }
-                    });
-                })(accessLevelName);
+                switch(accessLevel){
+                    case "write":
+                        container.down("#btnDelete").setDisabled( !hasAccessLevel); // hasAccessLevel => ture, setDisabled(false)
+                        break;                                                        // hasAccessLevel => false, setDisabled(true)
+                    case "rename":
+                        container.down("#btnRename").setDisabled( !hasAccessLevel);
+                        break;
+                    default:
+                        break;
+                }
+            },
+            failure:function(response){
+                console.log("Get accessLevel failed: " + accessLevel);
             }
         });
     }
-    
+
 });

@@ -49,6 +49,11 @@ Ext.define('ACMobileClient.view.FolderListList', {
                 event: 'itemsingletap'
             },
             {
+                fn: 'onDocumentListSelect',
+                //event: 'itemtap'
+                event: 'itemdoubletap'
+            },
+            {
                 fn: 'onDocumentListRefresh',
                 event: 'refresh'
             },
@@ -100,6 +105,8 @@ Ext.define('ACMobileClient.view.FolderListList', {
             this.deselectAll();
             return;
         }
+
+        this.lastAction = Date.now();
 
         classObject = record.get("classname");
         objectId = record.get("id");
