@@ -46,12 +46,21 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                         itemId: 'cardContainer',
                         items: [
                             {
-                                layout: {
-                                    type: 'fit'
-                                },
+                                // layout: {
+                                //     type: 'fit'
+                                // },
                                 xtype: 'container',
                                 // itemId: 'infoContainer',
                                 padding: 10,
+                                fullscreen: true,
+                                style: {
+                                    width: '100%',
+                                    height: '100%'
+                                },
+                                scrollable:{
+                                    directionLock: true,
+                                    direction: 'vertical'
+                                },
                                 cls: 'infoContainer',
                                 items: [
                                     {
