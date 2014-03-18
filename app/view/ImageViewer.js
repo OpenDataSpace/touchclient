@@ -347,7 +347,15 @@ Ext.define('ACMobileClient.view.ImageViewer', {
             this.imgEl.dom.style.webkitTransform =
                 'matrix(' + fixedScale + ',0,0,' + fixedScale + ',' + fixedX + ',' + fixedY + ')';
         } else {
+
+            // web-kit
             this.imgEl.dom.style.webkitTransform =
+                'translate3d(' + (fixedX) + 'px, ' + (fixedY) + 'px, 0)'
+                +' scale3d(' + fixedScale + ',' + fixedScale + ',1)';
+
+            // IE10, firefox, opera
+            this.imgEl.dom.style.transformOrigin = "0px 0px";
+            this.imgEl.dom.style.transform =
                 'translate3d(' + (fixedX) + 'px, ' + (fixedY) + 'px, 0)'
                 +' scale3d(' + fixedScale + ',' + fixedScale + ',1)';
         }
