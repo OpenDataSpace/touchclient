@@ -23,9 +23,9 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
 
     config: {
         padding: 10,
-        layout: {
-            type: 'vbox'
-        },
+        // layout: {
+        //     type: 'vbox'
+        // },
         items: [
             {
                 xtype: 'toolbar',
@@ -55,6 +55,7 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
             },
             {
                 xtype: 'label',
+                docked: 'bottom',
                 html: 'x',
                 itemId: 'Version',
                 styleHtmlCls: 'x-html appversion',
