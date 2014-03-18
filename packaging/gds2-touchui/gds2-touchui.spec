@@ -1,4 +1,4 @@
-%global ver 1.6.131
+%global ver 1.6.132
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,11 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Tue Mar 18 2014 bob-chen <562336543@qq.com> - 1.6.132-1
+- gitrev: d224bee8b4553318ca48a3151b9fcc02d502005e
+  Fix issue 3640/3621, image scaled and zoom in wp
+- gitrev: 5a3177ad66fdd9171238a2a0410a3bc00bed5411
+  Fix issue 3642 settings tab not work in wp
 * Mon Mar 17 2014 bob-chen <562336543@qq.com> - 1.6.131-1
 - gitrev: ae5b5fa625f16a9ad90d7d73423423a3c4587b5d
   Fix #3623
