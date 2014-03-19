@@ -179,6 +179,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
     handleOrientationChange: function() {
         var me = this;
+
         ACUtils.utils.checkConnectionWithFunction(function() {
             //alert("Orient change: "+Ext.Viewport.getOrientation());
 
@@ -192,12 +193,13 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
             if (MyGlobals.isNarrow()) {
                 men.setHideOnMaskTap(false);
-                men.setModal(false);
+                men.setModal(null);
                 men.setDocked(null);
                 men.setTop(null);
                 men.setLeft(null);
                 men.setHeight(null);
                 men.setWidth(null);
+
                 MyGlobals.showListButton = false;
 
                 if (MyGlobals.contentContainer.down('#content').items.length > 1) {

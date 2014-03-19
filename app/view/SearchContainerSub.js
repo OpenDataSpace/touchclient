@@ -18,7 +18,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
     alias: 'widget.SearchContainerSub',
 
     config: {
-        itemId: '',
+        //itemId: '',
         layout: {
             type: 'fit'
         },
