@@ -1,4 +1,4 @@
-%global ver 1.6.132
+%global ver 1.6.133
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,13 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Mar 19 2014 bob-chen <562336543@qq.com> - 1.6.133-1
+- gitrev: 7e2b48ad15ad129858f430b39dc03d7a94fbe4fc
+  code clear
+- gitrev: e70ceccf4be3036cbb8b3ca623189d8253dfe236
+  Fix 3641 Search bar doesn't work at all on WP
+- gitrev: 58dce9efcfa6b581043b623c89ac9cc8697d2c15
+  Fix 3603
 * Tue Mar 18 2014 bob-chen <562336543@qq.com> - 1.6.132-1
 - gitrev: d224bee8b4553318ca48a3151b9fcc02d502005e
   Fix issue 3640/3621, image scaled and zoom in wp
