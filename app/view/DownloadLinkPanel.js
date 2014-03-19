@@ -12,16 +12,16 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
         },
         items: [
             {
-                // layout: {
-                //         type: 'fit'
-                // },
+                layout: {
+                        type: 'fit'
+                },
                 xtype: 'container',
-                //itemId: 'viewContainer2',
+                itemId: 'linkRootContainer',
                 items: [
                     {
                         xtype: 'toolbar',
                         docked: 'top',
-                        itemId: 'objectInfoToolbar',
+                        itemId: 'linkToolbar',
                         items: [
                             {
                                 xtype: 'button',
@@ -39,9 +39,9 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                         ]
                     },
                     {
-                        // layout: {
-                        //     type: 'card'
-                        // },
+                        layout: {
+                            type: 'card'
+                        },
                         xtype: 'container',
                         itemId: 'cardContainer',
                         items: [
@@ -50,7 +50,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                 //     type: 'fit'
                                 // },
                                 xtype: 'container',
-                                // itemId: 'infoContainer',
+                                itemId: 'linkContainer',
                                 padding: 10,
                                 fullscreen: true,
                                 style: {
@@ -197,6 +197,11 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
         else {
             this.down('#closeButtonLeft').hide();
             this.down('#closeButtonRight').show();
+
+            var viewPortHeight = Ext.Viewport.element.getHeight(),
+                toolbarHeight = this.down("#linkToolbar").element.getHeight(),
+                height = viewPortHeight - toolbarHeight;
+            this.down("#cardContainer").setStyle("min-height:"+height+"px;");
         }
     },
 
