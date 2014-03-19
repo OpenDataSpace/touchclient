@@ -140,11 +140,6 @@ Ext.define('ACMobileClient.controller.PreviewController', {
             // hide menu panel when showing something in container
             setTimeout(function() {
                 var men;
-
-                    men = MyGlobals.menuPanel;
-                    men.deselectAllLists();
-                    men.hide();
-
                 if (MyGlobals.showListButton)  {
                     men = MyGlobals.menuPanel;
                     men.deselectAllLists();
