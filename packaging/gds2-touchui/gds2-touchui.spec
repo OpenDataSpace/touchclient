@@ -1,4 +1,4 @@
-%global ver 1.6.133
+%global ver 1.6.134
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar 20 2014 bob-chen <562336543@qq.com> - 1.6.134-1
+- gitrev: 4b0be766f4779363e81306f9c03e1d49ddb5fd89
+  Fix 3643 Search icon not positioned properly
 * Wed Mar 19 2014 bob-chen <562336543@qq.com> - 1.6.133-1
 - gitrev: 7e2b48ad15ad129858f430b39dc03d7a94fbe4fc
   code clear
