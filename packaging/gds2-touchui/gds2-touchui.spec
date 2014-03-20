@@ -1,4 +1,4 @@
-%global ver 1.6.134
+%global ver 1.6.135
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar 20 2014 bob-chen <562336543@qq.com> - 1.6.135-1
+- gitrev: a126aadf552d4c3f183a630da5576285e4c8a514
+  Fix issue 3638 Can't upload pic in ios
 * Thu Mar 20 2014 bob-chen <562336543@qq.com> - 1.6.134-1
 - gitrev: 4b0be766f4779363e81306f9c03e1d49ddb5fd89
   Fix 3643 Search icon not positioned properly
