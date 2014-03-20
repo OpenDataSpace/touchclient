@@ -1,3 +1,10 @@
+gds2-touchui (1.6.136) unstable; urgency=low
+
+  * gitrev: 0765dffe129b17b83ddf8e711671b15555c90177
+    Fix upload icon not in place
+
+ -- bob-chen <562336543@qq.com>  Thu, 20 Mar 2014 18:06:45 +0800
+
 gds2-touchui (1.6.135) unstable; urgency=low
 
   * gitrev: a126aadf552d4c3f183a630da5576285e4c8a514
