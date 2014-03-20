@@ -31,6 +31,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                     {
                         xtype: 'searchfield',
                         itemId: 'mysearchfield',
+                        style: 'line-height:1',
                         width: '95%'
                     },
                     {
