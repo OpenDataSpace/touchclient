@@ -197,7 +197,7 @@
 }
 
 .x-button-icon.list {
-  -webkit-mask-image: url(../images/icons/list.png);
+  /*-webkit-mask-image: url(../images/icons/list.png);*/
 }
 
 .x-button-icon.check_black2 {
