@@ -31,7 +31,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
                     {
                         xtype: 'searchfield',
                         itemId: 'mysearchfield',
-                        style: 'line-height:1',
+                        style: 'line-height:1;',
                         width: '95%'
                     },
                     {
@@ -151,11 +151,15 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
     },
 
     onContainerPainted: function(element, eOpts) {
-        var store = this.down('#searchFilter').getStore();
+        var store = this.down('#searchFilter').getStore(),
+            searchField;
         if (!store.isLoaded()) {
             console.log("loading QuickSearch");
             store.load();
         }
+
+        searchField = document.getElementById(this.down("#mysearchfield").getId()).getElementsByTagName('input')[0];
+        searchField.style.paddingLeft = "10px";
 
         this.titleName = "Suche";
     },

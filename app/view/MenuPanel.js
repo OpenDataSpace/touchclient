@@ -168,6 +168,11 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 foldC = Ext.create("ACMobileClient.view.FolderListContainer", {}),  // #documentList
                 store = null;
 
+            // WP IE not support upload so hide the upload button
+            if (navigator.userAgent.match(/IEMobile/)){
+                foldC.down("#uploadButton").hide();
+            }
+
             if (isRoot)  {
                 // If root, load the areas
                 if (area.getItemId() === 'documentsBar') {
