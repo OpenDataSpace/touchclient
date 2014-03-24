@@ -127,11 +127,11 @@ Ext.define('ACMobileClient.view.MainPanel', {
         if (items.length === 2 && MyGlobals.isNarrow()) {
             this.showMenuPanel();
 
-            setTimeout(function() {
-                cont.remove(cont.getActiveItem(), true);
-            }, 100);
+            // setTimeout(function() {
+            //     cont.remove(cont.getActiveItem(), true);
+            // }, 1000);
 
-            //cont.remove(cont.getActiveItem(), true);
+            cont.remove(cont.getActiveItem(), true);
             MyGlobals.menuPanel.deselectAllLists();
         } else {
             cont.remove(cont.getActiveItem(), true);
