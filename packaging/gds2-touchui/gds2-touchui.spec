@@ -1,4 +1,4 @@
-%global ver 1.6.136
+%global ver 1.6.137
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Mon Mar 24 2014 bob-chen <562336543@qq.com> - 1.6.137-1
+- gitrev: 9d681a6c4d3e709e6f4f8b344d27fd978feaa879
+  Fix issue 2235
 * Thu Mar 20 2014 bob-chen <562336543@qq.com> - 1.6.136-1
 - gitrev: 0765dffe129b17b83ddf8e711671b15555c90177
   Fix upload icon not in place
