@@ -717,7 +717,8 @@ Ext.define('ACMobileClient.view.MainPanel', {
                         container.down("#btnRename").setDisabled( !hasAccessLevel);
                         break;
                     case "upload":
-                        container.down("#uploadLinkContainer").setDisabled( !hasAccessLevel);
+                        container.down("#uploadLinkContainer").setDisabled( !hasAccessLevel); 
+                        break;
                     default:
                         break;
                 }

@@ -4,7 +4,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
     alias: 'widget.downloadLinkPanel',
     required: [
         "ACMobileClient.model.ObjectDownloadLinkModel",
-        "ACMobileClient.model.ObjectUploadLinkModel",
+        "ACMobileClient.model.ObjectUploadLinkModel"
     ],
                 
     config: {
@@ -327,24 +327,24 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
             objId = this.objId;
 
         if(eOpts.delegate === "#btnSend"){ // download link
-            isDownloadLink = true,
-            url = '/api/rest/dataspace/createDownloadLink.json',
-            modelName = 'ACMobileClient.model.ObjectDownloadLinkModel',
-            email = MyGlobals.downloadLinkPanel.down("#mailaddress").getValue(),
-            subject = MyGlobals.downloadLinkPanel.down("#subject").getValue(),
-            expirationDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymj'),
-            validExpDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymd'),
-            pwd = MyGlobals.downloadLinkPanel.down("#password").getValue(),
+            isDownloadLink = true;
+            url = '/api/rest/dataspace/createDownloadLink.json';
+            modelName = 'ACMobileClient.model.ObjectDownloadLinkModel';
+            email = MyGlobals.downloadLinkPanel.down("#mailaddress").getValue();
+            subject = MyGlobals.downloadLinkPanel.down("#subject").getValue();
+            expirationDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymj');
+            validExpDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymd');
+            pwd = MyGlobals.downloadLinkPanel.down("#password").getValue();
             msg = MyGlobals.downloadLinkPanel.down("#message").getValue();
         } else {
-            isDownloadLink = false,
-            url = '/api/rest/object',
-            modelName = 'ACMobileClient.model.ObjectUploadLinkModel',
-            email = MyGlobals.downloadLinkPanel.down("#uploadMailaddress").getValue(),
-            subject = MyGlobals.downloadLinkPanel.down("#uploadSubject").getValue(),
-            expirationDate = MyGlobals.downloadLinkPanel.down("#uploadExpirationDate").getFormattedValue('c'),
-            validExpDate = MyGlobals.downloadLinkPanel.down("#uploadExpirationDate").getFormattedValue('Ymd'),
-            pwd = MyGlobals.downloadLinkPanel.down("#uploadPassword").getValue(),
+            isDownloadLink = false;
+            url = '/api/rest/object';
+            modelName = 'ACMobileClient.model.ObjectUploadLinkModel';
+            email = MyGlobals.downloadLinkPanel.down("#uploadMailaddress").getValue();
+            subject = MyGlobals.downloadLinkPanel.down("#uploadSubject").getValue();
+            expirationDate = MyGlobals.downloadLinkPanel.down("#uploadExpirationDate").getFormattedValue('c');
+            validExpDate = MyGlobals.downloadLinkPanel.down("#uploadExpirationDate").getFormattedValue('Ymd');
+            pwd = MyGlobals.downloadLinkPanel.down("#uploadPassword").getValue();
             msg = MyGlobals.downloadLinkPanel.down("#uploadMessage").getValue();
         }
 
