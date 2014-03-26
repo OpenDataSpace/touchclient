@@ -2,9 +2,11 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
     extend: 'Ext.Container',
     //extend: 'Ext.form.Panel',
     alias: 'widget.downloadLinkPanel',
-    required: "ACMobileClient.model.ObjectDownloadLinkModel",
-
-
+    required: [
+        "ACMobileClient.model.ObjectDownloadLinkModel",
+        "ACMobileClient.model.ObjectUploadLinkModel",
+    ],
+                
     config: {
         // style: 'font-size:1.25em',
         layout: {
@@ -42,7 +44,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                         layout: {
                             type: 'card'
                         },
-                        xtype: 'container',
+                        xtype: 'tabpanel', //container
                         itemId: 'cardContainer',
                         items: [
                             {
@@ -50,7 +52,8 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                 //     type: 'fit'
                                 // },
                                 xtype: 'container',
-                                itemId: 'linkContainer',
+                                title: 'Download Link',
+                                itemId: 'downloadLinkContainer',
                                 padding: 10,
                                 fullscreen: true,
                                 style: {
@@ -144,9 +147,116 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                                 ]
                                             }
                                         ]
-                                    }
+                                    } // fieldset
                                 ]
-                            }
+                            }, // download link panel
+                            {
+                                // layout: {
+                                //     type: 'fit'
+                                // },
+                                xtype: 'container',
+                                title: 'Upload Link',
+                                itemId: 'uploadLinkContainer',
+                                padding: 10,
+                                fullscreen: true,
+                                style: {
+                                    width: '100%',
+                                    height: '100%'
+                                },
+                                scrollable:{
+                                    directionLock: true,
+                                    direction: 'vertical'
+                                },
+                                cls: 'infoContainer',
+                                items: [
+                                    {
+                                        xtype: 'fieldset',
+                                        title: "Create Upload Link",
+                                        items: [
+                                            {
+                                                xtype: 'emailfield',
+                                                itemId: 'uploadMailaddress',
+                                                name: 'uploadEmail',
+                                                label: 'Mail Address',
+                                                labelWidth: 110,
+                                                required: true
+                                            },
+                                            {
+                                                xtype: 'textfield',
+                                                itemId: 'uploadSubject',
+                                                //clearIcon: false,
+                                                label: 'Subject',
+                                                labelWidth: 110,
+                                                required: true
+                                            },
+                                            {
+                                                xtype:'datepickerfield',
+                                                name: 'uploadExpirationDate',
+                                                itemId: 'uploadExpirationDate',
+                                                label:'Expiration Date',
+                                                dataFormat :'Y/m/d',
+                                                labelWidth: 110,
+                                                picker:{
+                                                    yearFrom:parseInt(Ext.Date.format(new Date(), 'Y'), 10),
+                                                    yearTo:2100
+                                                },
+                                                value:new Date()
+                                            },
+                                            {
+                                                xtype: 'passwordfield',
+                                                itemId: 'uploadPassword',
+                                                label: 'Password',
+                                                labelWidth: 110,
+                                                name: 'uploadPassword'
+                                            },
+                                            {
+                                                xtype: 'textareafield',
+                                                cls: 'myTextArea',
+                                                itemId: 'uploadMessage',
+                                                clearIcon: false,
+                                                label: 'Message',
+                                                labelWidth: 110,
+                                                value: ''
+                                            },                                          
+                                            {
+                                                xtype: 'panel',
+                                                padding:10,
+                                                layout:{
+                                                    type:'hbox',
+                                                    pack:'end'
+                                                },
+                                                defaults:{
+                                                    xtype:'button'
+                                                },
+                                                items:[
+                                                    {
+                                                        xtype: 'spacer'
+                                                    },                                                
+                                                    {
+                                                        text:'Cancel',
+                                                        itemId: 'btnCancel'
+                                                    },
+                                                    {
+                                                        xtype: 'spacer'
+                                                    },
+                                                    {
+                                                        text:'Send',
+                                                        itemId: 'btnUploadSend',
+                                                        ui: 'action'
+                                                    },
+                                                    {
+                                                        xtype: 'spacer'
+                                                    }                                                  
+                                                ]
+                                            }
+                                        ]
+                                    } // fieldset
+                                ]
+                            } // upload link panel
+
+
+
+
                         ]
                     }
                 ]
@@ -167,6 +277,11 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                 fn: 'onSendTap',
                 event: 'tap',
                 delegate: '#btnSend'
+            },
+            {
+                fn: 'onSendTap',
+                event: 'tap',
+                delegate: '#btnUploadSend'
             },
             {
                 fn: 'onCancelTap',
@@ -206,28 +321,49 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
     },
 
     onSendTap: function(button, e, eOpts){
-        var email = MyGlobals.downloadLinkPanel.down("#mailaddress").getValue(),
+        var email, subject, expirationDate, validExpDate, pwd, msg, 
+            param, postParam, model, modelName, errors, url, isDownloadLink,
+            message = "",
+            objId = this.objId;
+
+        if(eOpts.delegate === "#btnSend"){ // download link
+            isDownloadLink = true,
+            url = '/api/rest/dataspace/createDownloadLink.json',
+            modelName = 'ACMobileClient.model.ObjectDownloadLinkModel',
+            email = MyGlobals.downloadLinkPanel.down("#mailaddress").getValue(),
             subject = MyGlobals.downloadLinkPanel.down("#subject").getValue(),
             expirationDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymj'),
+            validExpDate = MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymd'),
             pwd = MyGlobals.downloadLinkPanel.down("#password").getValue(),
-            msg = MyGlobals.downloadLinkPanel.down("#message").getValue(),
-            objId = this.objId,
-            param = {
-                            objectIds: objId, 
-                            expirationDate: MyGlobals.downloadLinkPanel.down("#expirationDate").getFormattedValue('Ymd'), 
-                            mailaddress: email, 
-                            message: msg, 
-                            subject: subject, 
-                            password: pwd
-                        },
-            model = Ext.create('ACMobileClient.model.ObjectDownloadLinkModel', param),
-            errors = model.validate(),
-            message = "";
+            msg = MyGlobals.downloadLinkPanel.down("#message").getValue();
+        } else {
+            isDownloadLink = false,
+            url = '/api/rest/object',
+            modelName = 'ACMobileClient.model.ObjectUploadLinkModel',
+            email = MyGlobals.downloadLinkPanel.down("#uploadMailaddress").getValue(),
+            subject = MyGlobals.downloadLinkPanel.down("#uploadSubject").getValue(),
+            expirationDate = MyGlobals.downloadLinkPanel.down("#uploadExpirationDate").getFormattedValue('c'),
+            validExpDate = MyGlobals.downloadLinkPanel.down("#uploadExpirationDate").getFormattedValue('Ymd'),
+            pwd = MyGlobals.downloadLinkPanel.down("#uploadPassword").getValue(),
+            msg = MyGlobals.downloadLinkPanel.down("#uploadMessage").getValue();
+        }
+
+        param = {
+            objectIds: objId, 
+            expirationDate: validExpDate, 
+            mailaddress: email, 
+            message: msg, 
+            subject: subject, 
+            password: pwd
+        };
+
+        model = Ext.create(modelName, param);
+        errors = model.validate();   
 
         Ext.each(errors.items, function(rec){
             message += rec.getMessage() + "<br />";
         });
-        //console.log("email: " + email + " subject: " + subject + " exp: " + typeof expirationDate + " pwd: " + pwd + " msg: "+msg)
+
 
         if(message !== ""){
             Ext.Msg.alert("Valid Failed", message);
@@ -238,41 +374,77 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
             pwd = SHA256(pwd);
         }
 
-        Ext.Viewport.setMasked({
-            xtype: 'loadmask',
-            message: 'Creating...'
-        });
 
-        Ext.Ajax.request({
-            method:'POST',
-            timeout: '300000',
-            url:'/api/rest/dataspace/createDownloadLink.json',
-            params: {
+        if(isDownloadLink){
+            postParam = {
                 objectIds: objId, // array of ids which to be added to download link, mandatory
                 expirationDate: expirationDate, // expiration date of download lin, mandatory
                 mailaddress: email, // emailaddress to send link notification, mandatory
                 message: msg, // message for notification, mandatory
                 subject: subject, // subject for notification, mandatory
                 password: pwd // password for downloadlink, optional
-            },
+            };
+        } else {
+            postParam = {
+                data: Ext.JSON.encode({
+                    linkedfolder: objId,
+                    expirationdate: expirationDate,
+                    mailaddress: email,
+                    "~dataspace_upload_message": msg,
+                    "~dataspace_upload_message_subject": subject,
+                    password: pwd}),
+                handler: "dataspaceuploadlink"
+            };
+            postParam.data = Ext.JSON.encode({
+                linkedfolder: objId,
+                expirationdate: expirationDate,
+                mailaddress: email,
+                "~dataspace_upload_message": msg,
+                "~dataspace_upload_message_subject": subject,
+                password: pwd
+            });
+        }
+
+        this.sendCreateLinkPost(url, postParam, isDownloadLink);
+
+    },
+
+    onCancelTap: function(button, e, eOpts){
+        MyGlobals.mainPanel.hideDownloadLinkPanel();
+    },
+
+    sendCreateLinkPost: function(url, params, isDownloadLink){
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Creating...'
+        });
+
+        var succMsg = "Download link was created.",
+            failMsg = "Fail to create download link.";
+        if(!isDownloadLink){
+            succMsg = "Upload link was created.",
+            failMsg = "Fail to create upload link.";
+        }
+
+        Ext.Ajax.request({
+            method:'POST',
+            timeout: '300000',
+            url:url,
+            params: params,
             success:function(response, success){
                 Ext.Viewport.setMasked(false);
-                Ext.Msg.alert("", "Download link was created.", function(){
+                Ext.Msg.alert("", succMsg, function(){
                     MyGlobals.mainPanel.hideDownloadLinkPanel();
                 });
             },
             failure:function(response){
                 MyGlobals.downloadLinkPanel.setMasked(false);
                 Ext.Viewport.setMasked(false);
-                Ext.Msg.alert("Fail", "Fail to create download link.", function(){
+                Ext.Msg.alert("Fail", failMsg, function(){
                     //MyGlobals.mainPanel.hideDownloadLinkPanel();
                 });
             }
         });
-    },
-
-    onCancelTap: function(button, e, eOpts){
-        MyGlobals.mainPanel.hideDownloadLinkPanel();
     }
  
 });

@@ -176,9 +176,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             actionSheet.hide();
                             actionSheet.destroy();
                         }
-                    },
-
-                    {
+                    }, {
                         text: 'Info',
                         ui: 'action',
                         handler: function(){
@@ -193,12 +191,12 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             // actionSheet.hide();
                             // actionSheet.destroy();
                         }
-                    },{
+                    }, {
                         text: 'Create Link',
                         ui: 'action',
                         handler: function(){
                             console.log("handle download link");
-                            MyGlobals.mainPanel.showDownloadLinkPanelSlided(record.get('id'));
+                            MyGlobals.mainPanel.showDownloadLinkPanelSlided(record.get('id'), record.get('isfolder'));
 
                             actionSheet.hide();
                             actionSheet.destroy();

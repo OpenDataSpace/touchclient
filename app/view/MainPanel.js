@@ -407,8 +407,6 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 iPanel.setWidth(320);
             }
         }
-
-
     },
 
     showInContentContainer: function() {
@@ -474,7 +472,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
     },
 
-    showDownloadLinkPanelSlided: function(objectId) {
+    showDownloadLinkPanelSlided: function(objectId, isFolder) {
         var me = this,
             linkPanel;
 
@@ -487,6 +485,12 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         console.log("showDownloadLinkPanel id: " + objectId);
         linkPanel.objId = objectId;
+
+        if(!isFolder){
+            linkPanel.down("#uploadLinkContainer").setDisabled(true);
+        } else {
+            MyGlobals.mainPanel.toCheckAccessLevel(objectId, "upload", linkPanel, true);
+        }
 
         me.add(linkPanel);
 
@@ -693,7 +697,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         });
     },
 
-    toCheckAccessLevel: function(objectId, accessLevel, container){
+    toCheckAccessLevel: function(objectId, accessLevel, container, isUploadLink){
         Ext.Ajax.request({
             method:'GET',
             url:"/api/rest/dataspace/hasAccessLevel.json",
@@ -708,10 +712,12 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 switch(accessLevel){
                     case "write":
                         container.down("#btnDelete").setDisabled( !hasAccessLevel); // hasAccessLevel => ture, setDisabled(false)
-                        break;                                                        // hasAccessLevel => false, setDisabled(true)
+                        break;                                                      // hasAccessLevel => false, setDisabled(true)
                     case "rename":
                         container.down("#btnRename").setDisabled( !hasAccessLevel);
                         break;
+                    case "upload":
+                        container.down("#uploadLinkContainer").setDisabled( !hasAccessLevel);
                     default:
                         break;
                 }
