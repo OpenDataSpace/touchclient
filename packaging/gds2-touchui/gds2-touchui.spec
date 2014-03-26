@@ -1,4 +1,4 @@
-%global ver 1.6.137
+%global ver 1.6.138
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Mar 26 2014 bob-chen <562336543@qq.com> - 1.6.138-1
+- gitrev: 6e109e161d6cd5f808ed69981c03ddad750bf4a9
+  Add create upload link panel
 * Mon Mar 24 2014 bob-chen <562336543@qq.com> - 1.6.137-1
 - gitrev: 9d681a6c4d3e709e6f4f8b344d27fd978feaa879
   Fix issue 2235

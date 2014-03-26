@@ -1,3 +1,10 @@
+gds2-touchui (1.6.138) unstable; urgency=low
+
+  * gitrev: 6e109e161d6cd5f808ed69981c03ddad750bf4a9
+    Add create upload link panel
+
+ -- bob-chen <562336543@qq.com>  Wed, 26 Mar 2014 18:16:23 +0800
+
 gds2-touchui (1.6.137) unstable; urgency=low
 
   * gitrev: 9d681a6c4d3e709e6f4f8b344d27fd978feaa879
