@@ -1,4 +1,4 @@
-%global ver 1.6.138
+%global ver 1.6.139
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Mar 26 2014 bob-chen <562336543@qq.com> - 1.6.139-1
+- gitrev: a605d78532ea072d626cdeef9e627d2a98f2f44e
+  Fix jslint issue
 * Wed Mar 26 2014 bob-chen <562336543@qq.com> - 1.6.138-1
 - gitrev: 6e109e161d6cd5f808ed69981c03ddad750bf4a9
   Add create upload link panel
