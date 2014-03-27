@@ -73,7 +73,7 @@ Ext.define('ACMobileClient.view.ContentContainerBar', {
 
     onTitlebarPainted: function(element, eOpts) {
         if (MyGlobals.showListButton) {
-            this.down('#listButton').hide();
+            this.down('#listButton').hide(); //show
         }
         else {
             this.down('#listButton').hide();
@@ -82,7 +82,7 @@ Ext.define('ACMobileClient.view.ContentContainerBar', {
 
     doRepaint: function() {
         if (MyGlobals.showListButton) {
-            this.down('#listButton').hide();
+            this.down('#listButton').hide(); //show
         }
         else {
             this.down('#listButton').hide();

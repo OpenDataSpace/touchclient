@@ -211,23 +211,32 @@ Ext.define('ACMobileClient.view.MainPanel', {
             } else {
                 men.setHideOnMaskTap(true);
                 men.setModal(true);
-                if (isAndroidTablet) {
-                    men.setDocked(null);
-                    men.setTop(5);
-                    men.setLeft(5);
-                    men.setHeight(height - 70);
-                    men.setWidth(315);
-                    men.removeCls("MenuBorder");
-                    men.hide();
-                } else {
-                    men.setDocked("left");
-                    men.setTop(null);
-                    men.setLeft(null);
-                    men.setCls("MenuBorder");
-                    men.setHeight(height);
-                    men.setWidth(315);
-                    men.show();
-                }
+                // if (isAndroidTablet) {
+                //     men.setDocked(null);
+                //     men.setTop(5);
+                //     men.setLeft(5);
+                //     men.setHeight(height - 70);
+                //     men.setWidth(315);
+                //     men.removeCls("MenuBorder");
+                //     men.hide();
+                // } else {
+                //     men.setDocked("left");
+                //     men.setTop(null);
+                //     men.setLeft(null);
+                //     men.setCls("MenuBorder");
+                //     men.setHeight(height);
+                //     men.setWidth(315);
+                //     men.show();
+                // }
+
+                men.setDocked("left");
+                men.setTop(null);
+                men.setLeft(null);
+                men.setCls("MenuBorder");
+                men.setHeight(height);
+                men.setWidth(315);
+                men.show();
+  
                 MyGlobals.showListButton = true;
 
                 MyGlobals.contentContainer.show();
