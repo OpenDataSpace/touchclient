@@ -422,7 +422,7 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
         var succMsg = "Download link was created.",
             failMsg = "Fail to create download link.";
         if(!isDownloadLink){
-            succMsg = "Upload link was created.",
+            succMsg = "Upload link was created.";
             failMsg = "Fail to create upload link.";
         }
 
