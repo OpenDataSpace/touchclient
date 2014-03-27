@@ -1,4 +1,4 @@
-%global ver 1.6.139
+%global ver 1.6.140
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Mar 27 2014 bob-chen <562336543@qq.com> - 1.6.140-1
+- gitrev: e3bd6bfaf77f7d1d9d517d35d59d7b58f85b6f63
+  Fix android tablet unusable issue.
 * Wed Mar 26 2014 bob-chen <562336543@qq.com> - 1.6.139-1
 - gitrev: a605d78532ea072d626cdeef9e627d2a98f2f44e
   Fix jslint issue
