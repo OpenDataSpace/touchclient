@@ -1,3 +1,10 @@
+gds2-touchui (1.6.141) unstable; urgency=low
+
+  * gitrev: 21da1a949ce50e0916a555ded1dded60d0b23e13
+    Fix jslint issue
+
+ -- bob-chen <562336543@qq.com>  Thu, 27 Mar 2014 17:27:38 +0800
+
 gds2-touchui (1.6.140) unstable; urgency=low
 
   * gitrev: e3bd6bfaf77f7d1d9d517d35d59d7b58f85b6f63
