@@ -207,7 +207,8 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                                 itemId: 'uploadPassword',
                                                 label: 'Password',
                                                 labelWidth: 110,
-                                                name: 'uploadPassword'
+                                                name: 'uploadPassword',
+                                                required: true
                                             },
                                             {
                                                 xtype: 'textareafield',
@@ -216,7 +217,8 @@ Ext.define('ACMobileClient.view.DownloadLinkPanel', {
                                                 clearIcon: false,
                                                 label: 'Message',
                                                 labelWidth: 110,
-                                                value: ''
+                                                value: '',
+                                                required: true
                                             },                                          
                                             {
                                                 xtype: 'panel',
