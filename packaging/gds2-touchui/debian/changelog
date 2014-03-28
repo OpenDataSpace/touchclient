@@ -1,3 +1,10 @@
+gds2-touchui (1.6.143) unstable; urgency=low
+
+  * gitrev: 42bae5312c6385b5e5c3b668ba37af72869864b5
+    Replace orientationchage event with resize event
+
+ -- bob-chen <562336543@qq.com>  Fri, 28 Mar 2014 15:34:23 +0800
+
 gds2-touchui (1.6.142) unstable; urgency=low
 
   * gitrev: f2c315a1273bc86e0a1080d77054a7cc84a0818f
