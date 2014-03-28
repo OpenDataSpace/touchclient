@@ -20,9 +20,6 @@ Ext.define('ACMobileClient.controller.MyController', {
         'ACMobileClient.utils.ACUtils'
     ],
 
-    config: {
-    },
-
     launch: function() {
         Ext.define('ACMobileClient.view.ViewportLogin', {
             extend: 'ACMobileClient.view.LoginPanel',
@@ -69,7 +66,7 @@ Ext.define('ACMobileClient.controller.MyController', {
             'sharedId':'',
             'globalId':'',
             'isNarrow': function() {
-                return this.isPhone || Ext.Viewport.getOrientation() === 'portrait';
+                return Ext.Viewport.getOrientation() === 'portrait'; //this.isPhone || 
             }
         });
 

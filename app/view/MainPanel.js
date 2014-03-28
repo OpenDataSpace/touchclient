@@ -76,9 +76,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 hideOnMaskTap: true
             });
         }
-        if (MyGlobals.isPhone) {
-            men.setStyle("font-size:1.25em");
-        }
+        // if (MyGlobals.isPhone) {
+        //     men.setStyle("font-size:1.25em");
+        // }
 
 
         //remember the panel in the globals to reuse it on another place
@@ -180,6 +180,12 @@ Ext.define('ACMobileClient.view.MainPanel', {
     handleOrientationChange: function() {
         var me = this;
 
+        if (Ext.Viewport.getOrientation() === 'portrait') {
+            this.setStyle("font-size:1.25em");
+        } else {
+            this.setStyle("font-size:1.0em");
+        }
+
         ACUtils.utils.checkConnectionWithFunction(function() {
             //alert("Orient change: "+Ext.Viewport.getOrientation());
 
@@ -236,7 +242,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 men.setHeight(height);
                 men.setWidth(315);
                 men.show();
-  
+
                 MyGlobals.showListButton = true;
 
                 MyGlobals.contentContainer.show();
