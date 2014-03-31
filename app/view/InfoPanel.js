@@ -55,6 +55,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                         xtype: 'button',
                                         itemId: 'notesButton',
                                         iconCls: 'chat',
+                                        hidden: true,
                                         text: 'Notes'
                                     }
                                 ]
