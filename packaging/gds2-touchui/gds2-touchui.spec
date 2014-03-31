@@ -1,4 +1,4 @@
-%global ver 1.6.143
+%global ver 1.6.144
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Mon Mar 31 2014 bob-chen <562336543@qq.com> - 1.6.144-1
+- gitrev: 3c76ef2f333dc8b367e73ec11e8e0830a19af42e
+  Orientation change enhancement
 * Fri Mar 28 2014 bob-chen <562336543@qq.com> - 1.6.143-1
 - gitrev: 42bae5312c6385b5e5c3b668ba37af72869864b5
   Replace orientationchage event with resize event

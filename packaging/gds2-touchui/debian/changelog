@@ -1,3 +1,10 @@
+gds2-touchui (1.6.144) unstable; urgency=low
+
+  * gitrev: 3c76ef2f333dc8b367e73ec11e8e0830a19af42e
+    Orientation change enhancement
+
+ -- bob-chen <562336543@qq.com>  Mon, 31 Mar 2014 16:33:39 +0800
+
 gds2-touchui (1.6.143) unstable; urgency=low
 
   * gitrev: 42bae5312c6385b5e5c3b668ba37af72869864b5
