@@ -89,13 +89,30 @@ Ext.define('ACMobileClient.view.MainPanel', {
         men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
         men.navigateToFolder('', "Start", true, this.down('#globalFolders'));
 
+        if(Ext.feature.has.OrientationChange){
+            //register event for orientation change
+            Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });
+        }else{
+            // ST2.3 not fire 'orientationchage' event in android browser.
+            Ext.Viewport.bodyElement.on('resize', function(){
+                me.handleOrientationChange();
+            }, this, { buffer: 50});
+        }
+
         // ST2.3 not fire 'orientationchage' event in android browser.
-        Ext.Viewport.bodyElement.on('resize', function(){
-            me.handleOrientationChange();
-        }, this, { buffer: 1});
+        if(Ext.os.is.Android && !navigator.userAgent.match(/Chrome/)){
+            Ext.Viewport.bodyElement.on('resize', function(){
+                me.handleOrientationChange();
+            }, this, { buffer: 50});
+        }
+
+        // ST2.3 not fire 'orientationchage' event in android browser.
+        // Ext.Viewport.bodyElement.on('resize', function(){
+        //     me.handleOrientationChange();
+        // }, this, { buffer: 50});
 
         //register event for orientation change
-        Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });
+        //Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });
 
         MyGlobals.contentContainer = contentContainer;
         logoContainer = Ext.create("ACMobileClient.view.LogoContainer", {});
@@ -185,15 +202,14 @@ Ext.define('ACMobileClient.view.MainPanel', {
     handleOrientationChange: function() {
         var me = this;
 
-        if (Ext.Viewport.getOrientation() === 'portrait') {
+        if (MyGlobals.isNarrow()) {             //Ext.Viewport.getOrientation() === 'portrait'
             this.setStyle("font-size:1.25em");
         } else {
             this.setStyle("font-size:1.0em");
-        }
-        //alert("Orient change: "+Ext.Viewport.getOrientation());
+        }      
+
         ACUtils.utils.checkConnectionWithFunction(function() {
             
-
             var men = MyGlobals.menuPanel,
                 isAndroidTablet = (Ext.os.deviceType === 'Tablet' && !Ext.os.is.iOS),
                 cont = me.down('#content'),
