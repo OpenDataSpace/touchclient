@@ -1,4 +1,4 @@
-%global ver 1.6.145
+%global ver 1.6.146
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Apr  2 2014 bob-chen <562336543@qq.com> - 1.6.146-1
+- gitrev: 26e82d407c3690edf349e931e0688a26ec92f0d3
+  Item info size enhancement
 * Wed Apr  2 2014 bob-chen <562336543@qq.com> - 1.6.145-1
 - gitrev: ede6d239eef56fdf050b0544ffa731a6adfb78d3
   Fix wp create link issue
