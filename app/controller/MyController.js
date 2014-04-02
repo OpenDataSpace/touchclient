@@ -69,9 +69,8 @@ Ext.define('ACMobileClient.controller.MyController', {
                 if (navigator.userAgent.match(/IEMobile/)){
                     if(Ext.Viewport.getWindowHeight()+200 >= Ext.Viewport.getWindowWidth()){
                         return true;
-                    }else{
-                        return false;
                     }
+                    return false;
                 }
                 return Ext.Viewport.getOrientation() === 'portrait'; //this.isPhone || 
             }

@@ -223,11 +223,11 @@ function SHA256(s){
 
 // Calculate Size
 function formatSize(bytes){
-    var unitArray = Array("KB", "MB", "GB", "TB", "PB"); //Array("B", "KB", "MB", "GB", "TB", "PB")
-    var i = 0 ;
+    var unitArray = ["KB", "MB", "GB", "TB", "PB"], //Array("B", "KB", "MB", "GB", "TB", "PB")
+        i = 0 ;
     while(bytes >= 1024 && i < unitArray.length-1){ 
     bytes = bytes / 1024;
-    i++; 
+    i += 1; 
     }
     bytes = Math.round(bytes*100)/100;
     return bytes+" "+unitArray[i];
