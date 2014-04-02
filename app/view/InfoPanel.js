@@ -403,7 +403,8 @@ Ext.define('ACMobileClient.view.InfoPanel', {
             me.down('#lastModifyDate').setValue(formatDate(rec.get('lastmodifydate')));
             me.down('#accessDate').setValue(formatDate(rec.get('updatedate')));
             if(rec.get('size') !== null) {
-                me.down('#size').setValue(rec.get('size') + ' KB');
+                //me.down('#size').setValue(rec.get('size') + ' KB');
+                me.down('#size').setValue(formatSize(rec.get('size')));
             }
 
             //show after load

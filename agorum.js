@@ -220,3 +220,15 @@ function SHA256(s){
     return binb2hex(core_sha256(str2binb(s), s.length * chrsz));
  
 }
+
+// Calculate Size
+function formatSize(bytes){
+    var unitArray = Array("KB", "MB", "GB", "TB", "PB"); //Array("B", "KB", "MB", "GB", "TB", "PB")
+    var i = 0 ;
+    while(bytes >= 1024 && i < unitArray.length-1){ 
+    bytes = bytes / 1024;
+    i++; 
+    }
+    bytes = Math.round(bytes*100)/100;
+    return bytes+" "+unitArray[i];
+}
