@@ -1,3 +1,10 @@
+gds2-touchui (1.6.145) unstable; urgency=low
+
+  * gitrev: ede6d239eef56fdf050b0544ffa731a6adfb78d3
+    Fix wp create link issue
+
+ -- bob-chen <562336543@qq.com>  Wed, 2 Apr 2014 17:06:06 +0800
+
 gds2-touchui (1.6.144) unstable; urgency=low
 
   * gitrev: 3c76ef2f333dc8b367e73ec11e8e0830a19af42e

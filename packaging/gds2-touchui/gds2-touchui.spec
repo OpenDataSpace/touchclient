@@ -1,4 +1,4 @@
-%global ver 1.6.144
+%global ver 1.6.145
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Apr  2 2014 bob-chen <562336543@qq.com> - 1.6.145-1
+- gitrev: ede6d239eef56fdf050b0544ffa731a6adfb78d3
+  Fix wp create link issue
 * Mon Mar 31 2014 bob-chen <562336543@qq.com> - 1.6.144-1
 - gitrev: 3c76ef2f333dc8b367e73ec11e8e0830a19af42e
   Orientation change enhancement
