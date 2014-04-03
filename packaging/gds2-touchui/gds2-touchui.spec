@@ -1,4 +1,4 @@
-%global ver 1.6.148
+%global ver 1.6.149
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Apr  3 2014 bob-chen <562336543@qq.com> - 1.6.149-1
+- gitrev: 1836678c5f224c67ac22045d9e3e5e162ba40e4e
+  Fix issue 3669
 * Thu Apr  3 2014 bob-chen <562336543@qq.com> - 1.6.148-1
 - gitrev: 4af287d90f73388524d2ff33264114f0ba0a72d1
   Fix 2458: Text displayed with German Language
