@@ -89,18 +89,18 @@ Ext.define('ACMobileClient.view.MainPanel', {
         men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
         men.navigateToFolder('', "Start", true, this.down('#globalFolders'));
 
+        // ST2.3 not fire 'orientationchage' event in android browser.
+        // if(Ext.os.is.Android && !navigator.userAgent.match(/Chrome/)){
+        //     Ext.Viewport.bodyElement.on('resize', function(){
+        //         me.handleOrientationChange();
+        //     }, this, { buffer: 1});
+        // }
+
         if(Ext.feature.has.OrientationChange){
             //register event for orientation change
             Ext.Viewport.on('orientationchange', 'handleOrientationChange', me,  {buffer: 50 });
         }else{
             // ST2.3 not fire 'orientationchage' event in android browser.
-            Ext.Viewport.bodyElement.on('resize', function(){
-                me.handleOrientationChange();
-            }, this, { buffer: 50});
-        }
-
-        // ST2.3 not fire 'orientationchage' event in android browser.
-        if(Ext.os.is.Android && !navigator.userAgent.match(/Chrome/)){
             Ext.Viewport.bodyElement.on('resize', function(){
                 me.handleOrientationChange();
             }, this, { buffer: 50});
@@ -229,11 +229,14 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
                 MyGlobals.showListButton = false;
 
-                if (MyGlobals.contentContainer.down('#content').items.length > 1) {
-                    me.showInContentContainer();
-                } else {
-                    me.showMenuPanel();
+                if(!MyGlobals.downloadLinkPanel){
+                    if (MyGlobals.contentContainer.down('#content').items.length > 1) {
+                        me.showInContentContainer();
+                    } else {
+                        me.showMenuPanel();
+                    } 
                 }
+
 
             } else {
                 men.setHideOnMaskTap(true);
