@@ -69,7 +69,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
         plugins: [
             {
                 autoPaging: true,
-                loadMoreText: 'Mehr laden...',
+                loadMoreText: 'Load More...',
                 noMoreRecordsText: ' ',
                 type: 'listpaging'
             },
@@ -83,9 +83,9 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         plugin.up().getStore().loadPage(1);
                     });
                 },
-                loadingText: 'Lade...',
-                pullRefreshText: 'Zum Aktualisieren ziehen',
-                releaseRefreshText: 'Zum Aktualisieren loslassen',
+                loadingText: 'Loading...',
+                pullText: 'Pull down to refresh',
+                releaseRefreshText: 'Release to refresh...',
                 xclass: 'ACMobileClient.utils.PullRefreshFn'
                 //type: 'pullrefresh'
             }

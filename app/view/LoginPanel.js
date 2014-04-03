@@ -234,7 +234,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
         }, 
         function() {
             Ext.Viewport.setMasked(false);
-            Ext.Msg.alert('Error', 'Login fehlgeschlagen, Benutzername/Kennwort nicht korrekt?', Ext.emptyFn);
+            Ext.Msg.alert('Error', 'Login failed,<br /> Username/password incorrect?', Ext.emptyFn);
 
         }
         );

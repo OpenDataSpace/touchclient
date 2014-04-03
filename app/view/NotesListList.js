@@ -24,7 +24,7 @@ Ext.define('ACMobileClient.view.NotesListList', {
         plugins: [
             {
                 autoPaging: true,
-                loadMoreText: 'Mehr laden...',
+                loadMoreText: 'Load More...',
                 noMoreRecordsText: '',
                 type: 'listpaging'
             },
@@ -38,9 +38,9 @@ Ext.define('ACMobileClient.view.NotesListList', {
                         plugin.up().getStore().loadPage(1);
                     });
                 },
-                loadingText: 'Lade...',
-                pullRefreshText: 'Zum Aktualisieren ziehen',
-                releaseRefreshText: 'Zum Aktualisieren loslassen',
+                loadingText: 'Loading...',
+                pullRefreshText: 'Pull down to refresh...',
+                releaseRefreshText: 'Release to refresh...',
                 type: 'pullrefresh'
             }
         ]
