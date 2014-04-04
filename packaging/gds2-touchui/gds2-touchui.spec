@@ -1,4 +1,4 @@
-%global ver 1.6.149
+%global ver 1.6.150
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Fri Apr  4 2014 bob-chen <562336543@qq.com> - 1.6.150-1
+- gitrev: d0a9a261a679286ef08c4a9a187ce2b9318e029b
+  Preview enhancement.
 * Thu Apr  3 2014 bob-chen <562336543@qq.com> - 1.6.149-1
 - gitrev: 1836678c5f224c67ac22045d9e3e5e162ba40e4e
   Fix issue 3669
