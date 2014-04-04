@@ -18,41 +18,51 @@ Ext.define('ACMobileClient.model.PreviewModel', {
 
     config: {
         fields: [
+            // {
+            //     name: 'ticket',
+            //     type: 'string'
+            // },
             {
-                name: 'ticket',
+                name: 'message',
                 type: 'string'
             },
             {
-                name: 'width',
-                type: 'int'
-            },
-            {
-                name: 'height',
-                type: 'int'
-            },
-            {
-                name: 'masterWidth',
-                type: 'int'
-            },
-            {
-                name: 'masterHeight',
+                name: 'total',
                 type: 'int'
             }
+            //,
+            // {
+            //     name: 'width',
+            //     type: 'int'
+            // },
+            // {
+            //     name: 'height',
+            //     type: 'int'
+            // },
+            // {
+            //     name: 'masterWidth',
+            //     type: 'int'
+            // },
+            // {
+            //     name: 'masterHeight',
+            //     type: 'int'
+            // }
         ],
         proxy: {
             type: 'rest',
             extraParams: {
                 provider: 'preview',
-                parameters: Ext.encode({
-                    width: -1,
-                    height: -1
-                })
+                // parameters: Ext.encode({
+                //     width: -1,
+                //     height: -1
+                // })
             },
             url: '/api/rest/object',
             format: 'json',
             reader: {
-                type: 'json',
-                rootProperty: 'data'
+                type: 'json'
+                // ,
+                // rootProperty: 'data'
             }
         }
     }

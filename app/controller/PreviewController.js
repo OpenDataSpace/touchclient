@@ -195,17 +195,28 @@ Ext.define('ACMobileClient.controller.PreviewController', {
             previewStore = Ext.create('ACMobileClient.store.PreviewStore', {});
             previewStore.source = objectId;
             previewStore.page = page;
+            previewStore.tryCount = 5;
 
-            previewStore.on('load', function() {
+            previewStore.on('load', function(store, records, successful, operation, eOpts) {
                 var mdl = previewStore.getAt(0),
                     ticket, pageCount, lastImageViewer, i, imageViewerContainer2, imageViewer2;
                 
-                if (!mdl) {
+                if (!successful) {
                     console.log("preview 1 failed");
+                    if(operation.error.status === 0 && previewStore.tryCount > 0){ // time out
+                        previewStore.tryCount -= 1;
+                        previewStore.load();
+                    } else {
+                        Ext.Msg.alert("", "Failed to preview.", function(){
+                            MyGlobals.mainPanel.contentContainerBack();
+                        });
+                    }
+
                     return;
                 }
-                ticket = mdl.get('ticket');
-                pageCount = previewStore.getTotalCount();
+                //ticket = mdl.get('ticket');
+                ticket = objectId; //mdl.get('ticket');
+                pageCount = mdl.get("total");//previewStore.getTotalCount();
                 lastImageViewer = imageViewer;
 
                 console.log("preview 1 finished");
@@ -250,7 +261,8 @@ Ext.define('ACMobileClient.controller.PreviewController', {
 
     'loadImageFromServer': function(imgViewer, previewTicket, pageCount, page, objectId) {
         var imgSrc = "/api/rest/object/preview/" + previewTicket +
-            ".png?noCache=" + new Date().getTime() + "&sessionId=" + MyGlobals.sessionId,
+            ".jpg?noCache=" + new Date().getTime() + "&sessionId=" + MyGlobals.sessionId +
+            "&page=" + page,
 
             me = this;
 
@@ -305,8 +317,8 @@ Ext.define('ACMobileClient.controller.PreviewController', {
 
                     previewStore.on('load', function() {
                         var mdl = previewStore.getAt(0),
-                            ticket = mdl.get('ticket'),
-                            pageCount = previewStore.getTotalCount();
+                            ticket = imgViewer.objectId,//mdl.get('ticket'),
+                            pageCount = mdl.get("total");//previewStore.getTotalCount();
 
                         console.log("LoadPreview 2 finished");
                         //imgViewer.loadImageFromServer(ticket, pageCount, imgViewer.page, imgViewer.objectId);

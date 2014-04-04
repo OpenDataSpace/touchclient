@@ -34,8 +34,8 @@ Ext.define('ACMobileClient.store.PreviewStore', {
     onStoreBeforeLoad: function(store, operation, eOpts) {
         operation.setParams({
             source: store.source, 
-            start: parseInt(store.page, 10)-1, // TODO (Fritz): check, if radix is correct
-            limit: 1
+            //start: parseInt(store.page, 10)-1, // TODO (Fritz): check, if radix is correct
+            limit: 0
         });
         addSessionIdToParams(operation);
 
