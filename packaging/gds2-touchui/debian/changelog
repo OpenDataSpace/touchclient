@@ -1,3 +1,10 @@
+gds2-touchui (1.6.151) unstable; urgency=low
+
+  * gitrev: 46ac14749781fc219c92391634d2fe08d3bdd52b
+    Fix issue 3807 Login dialog  is not so beautiful.
+
+ -- bob-chen <562336543@qq.com>  Tue, 8 Apr 2014 16:47:52 +0800
+
 gds2-touchui (1.6.150) unstable; urgency=low
 
   * gitrev: d0a9a261a679286ef08c4a9a187ce2b9318e029b
