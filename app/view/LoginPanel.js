@@ -32,6 +32,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                 minHeight: 290,
                 padding: 7,
                 showAnimation: 'slideIn',
+                cls: 'login_panel',
                 style: '',
                 width: 300,
                 url: '/api/rest/session/login',

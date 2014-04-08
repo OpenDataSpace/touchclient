@@ -637,3 +637,10 @@
 .x-tab .x-button-icon.folder:before, .x-button .x-button-icon.folder:before {
     content: "o";
 }
+
+.login_panel{
+	background-color:transparent;
+}
+.x-form.x-floating.login_panel > div.x-dock.x-sized{
+	margin:0;
+}
