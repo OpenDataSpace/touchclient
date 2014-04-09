@@ -1,3 +1,9 @@
+gds2-touchui (1.6.153) unstable; urgency=low
+
+  * Automated rebuild
+
+ -- bob-chen <562336543@qq.com>  Wed, 09 Apr 2014 08:58:00 +0200
+
 gds2-touchui (1.6.152) unstable; urgency=low
 
   * gitrev: 0611e4f150a865b8b202d9693f87f35d940978eb

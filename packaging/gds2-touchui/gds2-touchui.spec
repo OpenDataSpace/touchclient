@@ -1,4 +1,4 @@
-%global ver 1.6.152
+%global ver 1.6.153
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,8 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Apr  9 2014 Build System <gds2dev@dataspace.cc> - 1.6.153-1
+- Automated rebuild
 * Wed Apr  9 2014 bob-chen <562336543@qq.com> - 1.6.152-1
 - gitrev: 0611e4f150a865b8b202d9693f87f35d940978eb
   fix issue 3808
