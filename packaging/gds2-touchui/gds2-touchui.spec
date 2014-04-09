@@ -1,4 +1,4 @@
-%global ver 1.6.151
+%global ver 1.6.152
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Wed Apr  9 2014 bob-chen <562336543@qq.com> - 1.6.152-1
+- gitrev: 0611e4f150a865b8b202d9693f87f35d940978eb
+  fix issue 3808
 * Tue Apr  8 2014 bob-chen <562336543@qq.com> - 1.6.151-1
 - gitrev: 46ac14749781fc219c92391634d2fe08d3bdd52b
   Fix issue 3807 Login dialog  is not so beautiful.
