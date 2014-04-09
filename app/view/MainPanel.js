@@ -85,9 +85,13 @@ Ext.define('ACMobileClient.view.MainPanel', {
         MyGlobals.menuPanel = men;    
         me.add(men);
 
-        men.navigateToFolder('', "Start", true, this.down('#documentsBar'));
-        men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
-        men.navigateToFolder('', "Start", true, this.down('#globalFolders'));
+        men.navigateToFolder('', "My", true, this.down('#documentsBar'));
+        men.navigateToFolder('', "Shared", true, this.down('#sharedFolders'));
+        men.navigateToFolder('', "Global", true, this.down('#globalFolders'));
+
+        // men.navigateToFolder('', "Start", true, this.down('#documentsBar'));
+        // men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));
+        // men.navigateToFolder('', "Start", true, this.down('#globalFolders'));
 
         // ST2.3 not fire 'orientationchage' event in android browser.
         // if(Ext.os.is.Android && !navigator.userAgent.match(/Chrome/)){

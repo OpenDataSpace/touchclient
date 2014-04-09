@@ -51,7 +51,7 @@ Ext.define('ACMobileClient.model.PreviewModel', {
         proxy: {
             type: 'rest',
             extraParams: {
-                provider: 'preview',
+                provider: 'preview'//,
                 // parameters: Ext.encode({
                 //     width: -1,
                 //     height: -1

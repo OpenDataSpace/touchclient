@@ -161,7 +161,7 @@ Ext.define('ACMobileClient.view.SearchContainerSub', {
         searchField = document.getElementById(this.down("#mysearchfield").getId()).getElementsByTagName('input')[0];
         searchField.style.paddingLeft = "10px";
 
-        this.titleName = "Suche";
+        this.titleName = "Search";
     },
 
     activateCallback: function() {
