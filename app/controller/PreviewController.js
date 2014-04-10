@@ -195,7 +195,7 @@ Ext.define('ACMobileClient.controller.PreviewController', {
             previewStore = Ext.create('ACMobileClient.store.PreviewStore', {});
             previewStore.source = objectId;
             previewStore.page = page;
-            previewStore.tryCount = 5;
+            previewStore.tryCount = 10;
 
             previewStore.on('load', function(store, records, successful, operation, eOpts) {
                 var mdl = previewStore.getAt(0),
