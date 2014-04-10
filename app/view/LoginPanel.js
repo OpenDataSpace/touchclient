@@ -125,11 +125,22 @@ Ext.define('ACMobileClient.view.LoginPanel', {
     },
 
     onPanelPainted: function(element, eOpts) {
+        var checkBoxItem = this.down('#rememberLogin');
         if (ACUtils.utils.isAutoLogin()) {
             this.down('#userName').setValue(ACUtils.utils.getUserName());
             this.down('#passWord').setValue(ACUtils.utils.getPassWord());
             this.down('#rememberLogin').check();
             this.doLogin();
+        } else {
+            if(navigator.platform === 'BlackBerry'){
+                document.getElementById(checkBoxItem.getId()).addEventListener("click",function(){
+                    if(checkBoxItem.isChecked()){
+                        checkBoxItem.uncheck();
+                    } else {
+                        checkBoxItem.check();
+                    }
+                });
+            }
         }
     },
 
