@@ -21,10 +21,11 @@ Ext.define('ACMobileClient.store.SharedGlobalFoldersStore', {
     ],
 
     config: {
-        groupField: 'category',
+        groupField: 'sharedowner',
         model: 'ACMobileClient.model.SharedGlobalFolders',
         pageSize: 50,
-        remoteSort: true,
-        storeId: 'SharedFolderStore'
+        //remoteSort: true,
+        storeId: 'SharedFolderStore',
+        sorters: 'name'
     }
 });

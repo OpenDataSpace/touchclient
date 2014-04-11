@@ -21,7 +21,7 @@ Ext.define('ACMobileClient.store.PrivateGlobalFoldersStore', {
     ],
 
     config: {
-        groupField: 'category',
+        groupField: 'name',
         model: 'ACMobileClient.model.PrivateGlobalFolders',
         pageSize: 50,
         remoteSort: true,

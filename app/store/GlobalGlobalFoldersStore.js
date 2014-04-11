@@ -6,7 +6,7 @@ Ext.define('ACMobileClient.store.GlobalGlobalFoldersStore', {
     ],
 
     config: {
-        groupField: 'category',
+        groupField: 'name',
         model: 'ACMobileClient.model.GlobalGlobalFolders',
         pageSize: 50,
         remoteSort: true,

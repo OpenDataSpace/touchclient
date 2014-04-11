@@ -182,9 +182,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     store = Ext.create("ACMobileClient.store.GlobalGlobalFoldersStore", {});
                     fId = MyGlobals.globalId;//'agorum/roi/files/dataspace'
                 } else {
-                    store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {
-                        groupField:'sharedowner'
-                    });  
+                    store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
                     foldC.down('#documentList').setGrouped(true);
                     fId = MyGlobals.sharedId;//'shared';
                     // Shared root folder can't create folder

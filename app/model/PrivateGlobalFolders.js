@@ -64,8 +64,8 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
                 ],
                 filter: [
                     Ext.encode({
-                        property: 'class',
-                        value: 'folder'
+                        property: 'isfolder',
+                        value: true
                     })
                 ]
             },
