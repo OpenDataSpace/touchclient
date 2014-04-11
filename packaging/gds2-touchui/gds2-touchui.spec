@@ -1,4 +1,4 @@
-%global ver 1.6.155
+%global ver 1.6.156
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,11 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Fri Apr 11 2014 bob-chen <562336543@qq.com> - 1.6.156-1
+- gitrev: 96c033fc89d7d686ffdc19f9973fe2c2d0b819bf
+  Fix issue 3841
+- gitrev: 41459b8bb94714d608a42519b51df47a583c35f8
+  Fix issue 3844
 * Thu Apr 10 2014 bob-chen <562336543@qq.com> - 1.6.155-1
 - gitrev: d584e2ef1c706aec82ec241576b9fb949b51e866
   Fix issue 3835: Not easy to choose "Remember me"
