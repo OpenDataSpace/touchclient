@@ -167,7 +167,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 xtype: 'textfield',
                                                 itemId: 'lastModifyDate',
                                                 clearIcon: false,
-                                                label: 'Last Modification',
+                                                label: 'Last Modify',
                                                 labelWidth: 100,
                                                 value: '12.06.2012 17:52',
                                                 readOnly: true
