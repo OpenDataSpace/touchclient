@@ -18,7 +18,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
     alias: 'widget.infoPanel',
 
     config: {
-        style: 'font-size:1.25em',
+        //style: 'font-size:1.25em',
         layout: {
             type: 'card'
         },

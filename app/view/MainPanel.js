@@ -41,7 +41,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
             {
                 xtype: 'container',
                 itemId: 'contentContainer',
-                style: 'font-size:1.25em',
+                //style: 'font-size:1.25em',
                 ui: 'light',
                 layout: {
                     type: 'fit'
@@ -208,8 +208,10 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         if (MyGlobals.isNarrow()) {             //Ext.Viewport.getOrientation() === 'portrait'
             this.setStyle("font-size:1.25em");
+            this.down("#contentContainer").setStyle("font-size:1.0em");
         } else {
             this.setStyle("font-size:1.0em");
+            this.down("#contentContainer").setStyle("font-size:1.25em");
         }      
 
         ACUtils.utils.checkConnectionWithFunction(function() {
