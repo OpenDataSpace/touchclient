@@ -1,4 +1,4 @@
-%global ver 1.6.158
+%global ver 1.6.159
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Tue Apr 15 2014 bob-chen <562336543@qq.com> - 1.6.159-1
+- gitrev: 196ce007989b918994be9e3e0aba7c3eccd1e614
+  Adapt preview image back button.
 * Tue Apr 15 2014 bob-chen <562336543@qq.com> - 1.6.158-1
 - gitrev: 41058e9d4bdeba6f7e2aeef949ea86c1520812dc
   Issue 3844 change 'Last Modify' to 'Modify Date'

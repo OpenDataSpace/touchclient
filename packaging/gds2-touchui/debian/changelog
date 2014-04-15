@@ -1,3 +1,10 @@
+gds2-touchui (1.6.159) unstable; urgency=low
+
+  * gitrev: 196ce007989b918994be9e3e0aba7c3eccd1e614
+    Adapt preview image back button.
+
+ -- bob-chen <562336543@qq.com>  Tue, 15 Apr 2014 11:57:30 +0800
+
 gds2-touchui (1.6.158) unstable; urgency=low
 
   * gitrev: 41058e9d4bdeba6f7e2aeef949ea86c1520812dc
