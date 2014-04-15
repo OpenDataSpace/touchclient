@@ -1,4 +1,4 @@
-%global ver 1.6.159
+%global ver 1.6.160
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Tue Apr 15 2014 bob-chen <562336543@qq.com> - 1.6.160-1
+- gitrev: 7e7a0e2b095c0250479d0ec5c3bc9757995eb749
+  Add Logout button
 * Tue Apr 15 2014 bob-chen <562336543@qq.com> - 1.6.159-1
 - gitrev: 196ce007989b918994be9e3e0aba7c3eccd1e614
   Adapt preview image back button.
