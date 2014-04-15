@@ -54,8 +54,25 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
                 xtype: 'spacer'
             },
             {
+                xtype: 'button',
+                text: 'Logout',
+                //docked: 'bottom',
+                ui: 'decline',
+                width: '94%',
+                margin: '20px auto',
+                itemId: 'btnLogout',
+                handler: function(){
+                    this.up().onLogoutTap();
+                }
+            },
+            {
+                xtype: 'spacer'
+            },
+            {
                 xtype: 'label',
-                docked: 'bottom',
+                //docked: 'bottom',
+                width: '94%',
+                margin: '0px auto',
                 html: 'x',
                 itemId: 'Version',
                 styleHtmlCls: 'x-html appversion',
@@ -140,6 +157,26 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
             this.down('#autoStartUpload').uncheck();
         }
         this.initMode = false;
+    },
+
+    onLogoutTap: function(btn, e, eOpts){
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Loging out...'
+        });
+
+        Ext.Ajax.request({
+            method:'POST',
+            url:"/api/rest/session/logout.json",
+            timeout: 5000,
+            callback:function(options, success, response){
+                ACUtils.utils.setConfigValue('ACMobile.config.autoLogin', 'false');
+                window.location.reload();
+            }
+        });
+
+        // ACUtils.utils.setConfigValue('ACMobile.config.autoLogin', 'false');
+        // window.location.reload();
     }
 
 });

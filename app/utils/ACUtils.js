@@ -106,7 +106,9 @@ Ext.define('ACMobileClient.utils.ACUtils', {
     reconnect: function(callBack) {
         //not connected anymore, so reconnect
         this.login(this.storedUser, this.storedPassWord, callBack, function() {
-            Ext.Msg.alert('Error', 'Could not reconnect, jumping back to login...', Ext.emptyFn);
+            Ext.Msg.alert('Error', 'Could not reconnect, jumping back to login...', function(){
+                window.location.reload();
+            });
         });
     },
 

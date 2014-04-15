@@ -46,6 +46,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         xtype: 'fieldset',
                         itemId: 'loginFieldSet',
                         width: 250,
+                        margin: '0.5em auto 1.5em',
                         items: [
                             {
                                 xtype: 'textfield',
@@ -78,7 +79,8 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         itemId: 'loginButton',
                         ui: 'action-round',
                         width: 150,
-                        text: 'Login'
+                        text: 'Login',
+                        margin: '0 auto'
                     }
                 ]
             },
