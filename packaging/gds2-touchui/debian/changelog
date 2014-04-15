@@ -1,3 +1,10 @@
+gds2-touchui (1.6.158) unstable; urgency=low
+
+  * gitrev: 41058e9d4bdeba6f7e2aeef949ea86c1520812dc
+    Issue 3844 change 'Last Modify' to 'Modify Date'
+
+ -- bob-chen <562336543@qq.com>  Tue, 15 Apr 2014 10:08:31 +0800
+
 gds2-touchui (1.6.157) unstable; urgency=low
 
   * gitrev: 2fd2db2c5e0df85f0c53086c42774f6cbcace65b
