@@ -67,19 +67,27 @@ Ext.define('ACMobileClient.controller.UploadController', {
     },
 
     initUploader: function(container) {
-        //console.log("In initUploader")
-        //console.log("browse_button: "+container.down('#uploadButton').getId())
+        // console.log("In initUploader")
+        // console.log("browse_button: "+container.down('#uploadButton').getId())
+
         var me = this,
             folderStore = container.down('#documentList').getStore(),
             folderId = folderStore.folderId,
             qStore = Ext.getStore('UploadQueue'),
-            uploader = new plupload.Uploader({
-                'runtimes': 'html5',
-                'browse_button': container.down('#uploadButton').getId(),
-                'max_file_size': '100gb',
-                'chunk_size': '256kb',
-                'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
-            });
+            chunkSize = '256kb',
+            uploader;
+
+        if(navigator.platform === 'BlackBerry'){
+            chunkSize = '0';
+        }
+
+        uploader = new plupload.Uploader({
+            'runtimes': 'html5',
+            'browse_button': container.down('#uploadButton').getId(),
+            'max_file_size': '100gb',
+            'chunk_size': chunkSize, //256kb
+            'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
+        });
 
         me.uploaders.push(uploader);
 
@@ -88,6 +96,9 @@ Ext.define('ACMobileClient.controller.UploadController', {
         uploader.bind('FilesAdded', function(up, files) {
             //console.log("In File Added")
             //console.log(me.uploaders)
+            // console.log(navigator.userAgent)
+            // console.log(files)
+            // console.log(uploader)
             var autoStart = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');
             if (!me.uploadQueue) {
                 me.uploadQueue = MyGlobals.menuPanel.getComponent('tabPanel').add({
@@ -126,6 +137,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
         });
         uploader.bind('UploadProgress', function(up, file) {
             var rec;
+            //console.log("percent: " + file.percent);
             if (Ext.isNumber(file.percent)) {
                 rec = qStore.findRecord('id', file.id);
                 if (rec) {
