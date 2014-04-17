@@ -1,4 +1,4 @@
-%global ver 1.6.160
+%global ver 1.6.161
 %global rel     1
 
 Name:           gds2-touchui
@@ -40,6 +40,9 @@ service httpd condrestart || true
 service httpd condrestart || true
 
 %changelog
+* Thu Apr 17 2014 bob-chen <562336543@qq.com> - 1.6.161-1
+- gitrev: a3a2b7334019d5967e1e1dd3d9f96ed1a30b56b2
+  fix issue 3828
 * Tue Apr 15 2014 bob-chen <562336543@qq.com> - 1.6.160-1
 - gitrev: 7e7a0e2b095c0250479d0ec5c3bc9757995eb749
   Add Logout button
