@@ -47,7 +47,8 @@ Ext.define('ACMobileClient.model.ObjectInfoModel', {
             },
             {
                 name: 'description',
-                type: 'string'
+                type: 'string',
+                mapping: '~dataspace_comment'
             },
             {
                 mapping: '["creator.fullname"]',

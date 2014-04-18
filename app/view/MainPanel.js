@@ -465,7 +465,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         }
     },
 
-    showInfoPanelSlided: function(objectId, noteId, className) {
+    showInfoPanelSlided: function(objectId, noteId, className, isFolder) {
         var me = this,
             iPanel;
 
@@ -487,6 +487,12 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
         iPanel.loadCallback = function() {
             var height, width;
+
+            if(isFolder){
+                iPanel.down("#description").hide();
+            } else {
+                iPanel.down("#description").show();
+            }
 
             if (MyGlobals.isNarrow()) {
                 me.getLayout().setAnimation({

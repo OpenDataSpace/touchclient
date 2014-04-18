@@ -182,7 +182,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         handler: function(){
                             console.log("handle show info");
 
-                            MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'));
+                            MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'), null, null, record.get('isfolder'));
 
                             setTimeout(function(){
                                 actionSheet.hide();

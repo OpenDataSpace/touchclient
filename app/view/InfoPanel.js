@@ -33,33 +33,35 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                     {
                         xtype: 'toolbar',
                         docked: 'top',
+                        title: 'Info',
                         itemId: 'objectInfoToolbar',
                         items: [
                             {
                                 xtype: 'button',
                                 itemId: 'closeButtonLeft',
                                 iconCls: 'arrow_left'
-                            },
-                            {
-                                xtype: 'segmentedbutton',
-                                itemId: 'buttonSegment',
-                                items: [
-                                    {
-                                        xtype: 'button',
-                                        pressed: true,
-                                        itemId: 'infoButton',
-                                        iconCls: 'info',
-                                        text: 'Info'
-                                    },
-                                    {
-                                        xtype: 'button',
-                                        itemId: 'notesButton',
-                                        iconCls: 'chat',
-                                        hidden: true,
-                                        text: 'Notes'
-                                    }
-                                ]
-                            },
+                            },            
+                            // {
+                            //     xtype: 'segmentedbutton',
+                            //     itemId: 'buttonSegment',
+                            //     items: [
+                            //         {
+                            //             xtype: 'label', //button
+                            //             pressed: true,
+                            //             itemId: 'infoButton',
+                            //             iconCls: 'info',
+                            //             hidden:true,
+                            //             html: 'Info'
+                            //         },
+                            //         {
+                            //             xtype: 'button',
+                            //             itemId: 'notesButton',
+                            //             iconCls: 'chat',
+                            //             hidden: true,
+                            //             text: 'Notes'
+                            //         }
+                            //     ]
+                            // },
                             {
                                 xtype: 'spacer'
                             },
@@ -100,9 +102,9 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 cls: 'myTextArea',
                                                 itemId: 'description',
                                                 clearIcon: false,
-                                                label: 'Description',
+                                                label: 'Comment',
                                                 labelWidth: 100,
-                                                value: 'Eine kleine schöne Beschreibung der Datei ...ere ger goherger uiew rhg ieuhr guiehr wuigwhe iurgh weiruhg ehr',
+                                                value: '',
                                                 readOnly: true
                                             },
                                             {
@@ -137,7 +139,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 clearIcon: false,
                                                 label: 'Creator',
                                                 labelWidth: 100,
-                                                value: 'Oliver Schulze',
+                                                value: '',
                                                 readOnly: true
                                             },
                                             {
@@ -146,7 +148,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 clearIcon: false,
                                                 label: 'Owner',
                                                 labelWidth: 100,
-                                                value: 'Rolf Lang',
+                                                value: '',
                                                 readOnly: true
                                             }
                                         ]
@@ -160,7 +162,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 clearIcon: false,
                                                 label: 'Creation Time',
                                                 labelWidth: 100,
-                                                value: '17.09.1978 13:52',
+                                                value: '',
                                                 readOnly: true
                                             },
                                             {
@@ -169,7 +171,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 clearIcon: false,
                                                 label: 'Modify Date',
                                                 labelWidth: 100,
-                                                value: '12.06.2012 17:52',
+                                                value: '',
                                                 readOnly: true
                                             },
                                             {
@@ -178,7 +180,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                 clearIcon: false,
                                                 label: 'Last Access',
                                                 labelWidth: 100,
-                                                value: '12.06.2012 18:00',
+                                                value: '',
                                                 readOnly: true
                                             }
                                         ]
@@ -236,7 +238,7 @@ Ext.define('ACMobileClient.view.InfoPanel', {
                                                     {
                                                         xtype: 'textareafield',
                                                         required: true,
-                                                        value: 'uirwe uhg weiohg weuiroh gouiwehr guiowehr\nwer uighwreoigh weruiohg werouihg\nwe uigwehr giouehr\n\nuirwe uhg weiohg weuiroh gouiwehr guiowehr\nwer uighwreoigh weruiohg werouihg\nwe uigwehr giouehr\n\nuirwe uhg weiohg weuiroh gouiwehr guiowehr\nwer uighwreoigh weruiohg werouihg\nwe uigwehr giouehr\n\nuirwe uhg weiohg weuiroh gouiwehr guiowehr\nwer uighwreoigh weruiohg werouihg\nwe uigwehr giouehr\n\nuirwe uhg weiohg weuiroh gouiwehr guiowehr\nwer uighwreoigh weruiohg werouihg\nwe uigwehr giouehr\n\nuirwe uhg weiohg weuiroh gouiwehr guiowehr\nwer uighwreoigh weruiohg werouihg\nwe uigwehr giouehr'
+                                                        value: ''
                                                     }
                                                 ]
                                             },
