@@ -1,3 +1,10 @@
+gds2-touchui (1.6.163) unstable; urgency=low
+
+  * gitrev: 5825ba80dd94dba3a87632021f58e7be65ee6b16
+    Added SLES support
+
+ -- Fritz Elfert <fritz@fritz-elfert.de>  Sun, 20 Apr 2014 09:30:14 +0200
+
 gds2-touchui (1.6.162) unstable; urgency=low
 
   * gitrev: 28828e6756cb86ec22666558d5b78ca42a35cfde

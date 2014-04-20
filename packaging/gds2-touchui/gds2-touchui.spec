@@ -1,4 +1,4 @@
-%global ver 1.6.162
+%global ver 1.6.163
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Sun Apr 20 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.163-1
+- gitrev: 5825ba80dd94dba3a87632021f58e7be65ee6b16
+  Added SLES support
 * Fri Apr 18 2014 bob-chen <562336543@qq.com> - 1.6.162-1
 - gitrev: 28828e6756cb86ec22666558d5b78ca42a35cfde
   Fix issue 3851, 3849
