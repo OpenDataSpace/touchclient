@@ -1,9 +1,19 @@
 %global ver 1.6.162
 %global rel     1
 
+%if 0%{?suse_version}
+%global _docroot /srv/www/htdocs
+%global _apache apache2
+%global _condrestart try-restart
+%else
+%global _docroot /var/www/html
+%global _apache httpd
+%global _condrestart condrestart
+%endif
+
 Name:           gds2-touchui
 Version:        %{ver}
-Release:        %{rel}
+Release:        %{rel}%{?dist}
 Summary:        TouchGUI for GDS2
 
 Group:          Server Platform
@@ -26,18 +36,18 @@ make -C %{gds2root} clean
 
 %install
 rm -rf %{buildroot}
-make -C %{gds2root} TARGET_SYS=rpm DESTDIR=%{buildroot} install
+make -C %{gds2root} TARGET_SYS=rpm DOCROOT=%{_docroot} APACHE=%{_apache} DESTDIR=%{buildroot} install
 
 %files
 %defattr(-, root, root)
-%config %{_sysconfdir}/httpd/conf.d/*
-/var/www/html/*
+%config %{_sysconfdir}/%{_apache}/conf.d/*
+%{_docroot}/*
 
 %postun
-service httpd condrestart || true
+service %{_apache} %{_condrestart} || true
 
 %post
-service httpd condrestart || true
+service %{_apache} %{_condrestart} || true
 
 %changelog
 * Fri Apr 18 2014 bob-chen <562336543@qq.com> - 1.6.162-1

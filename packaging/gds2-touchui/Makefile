@@ -1,3 +1,6 @@
+DOCROOT=/var/www
+APACHE=apache2
+
 all:
 
 buildnumber:
@@ -8,8 +11,8 @@ clean:
 	rm -f $(TGZ)
 
 install:
-	test $(TARGET_SYS) = "rpm" || $(MAKE) ETCAPACHE=/etc/apache2 DOCROOT=/var/www install-real
-	test $(TARGET_SYS) = "deb" || $(MAKE) ETCAPACHE=/etc/httpd DOCROOT=/var/www/html install-real
+	test $(TARGET_SYS) = "rpm" || $(MAKE) ETCAPACHE=/etc/apache2 DOCROOT=$(DOCROOT) install-real
+	test $(TARGET_SYS) = "deb" || $(MAKE) ETCAPACHE=/etc/$(APACHE) DOCROOT=$(DOCROOT) install-real
 
 install-real:
 	install -d $(DESTDIR)$(DOCROOT)
