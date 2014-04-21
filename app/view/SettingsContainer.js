@@ -18,7 +18,8 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
     alias: 'widget.SettingsContainer',
 
     requires: [
-        'generated.AppVersion'
+        'generated.AppVersion',
+        'ACMobileClient.view.DeviceInfoPanel'
     ],
 
     config: {
@@ -55,6 +56,21 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
             },
             {
                 xtype: 'button',
+                text: 'Device Info',
+                //docked: 'bottom',
+                ui: 'normal',
+                width: '94%',
+                margin: '20px auto',
+                itemId: 'btnDeviceInfo',
+                handler: function(){
+                    this.up().showDeviceInfo();
+                }
+            },
+            {
+                xtype: 'spacer'
+            },
+            {
+                xtype: 'button',
                 text: 'Logout',
                 //docked: 'bottom',
                 ui: 'decline',
@@ -73,6 +89,7 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
                 //docked: 'bottom',
                 width: '94%',
                 margin: '0px auto',
+                padding: '0',
                 html: 'x',
                 itemId: 'Version',
                 styleHtmlCls: 'x-html appversion',
@@ -177,6 +194,44 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
 
         // ACUtils.utils.setConfigValue('ACMobile.config.autoLogin', 'false');
         // window.location.reload();
+    },
+
+    showDeviceInfo: function(btn, e, eOpts){
+        if (MyGlobals.deviceInfoPanel) {
+            MyGlobals.mainPanel.remove(MyGlobals.deviceInfoPanel, true);
+            MyGlobals.deviceInfoPanel = null;
+        }
+
+
+        var deviceInfoPanel = Ext.create('ACMobileClient.view.DeviceInfoPanel', {}),
+            height, width;
+            
+        MyGlobals.mainPanel.add(deviceInfoPanel);
+        if (MyGlobals.isNarrow()) {
+            MyGlobals.mainPanel.getLayout().setAnimation({
+                type: 'slide',
+                direction: 'left'
+            });
+            MyGlobals.mainPanel.setActiveItem(deviceInfoPanel);    
+        } else {
+            height = MyGlobals.mainPanel.element.getHeight();
+            width = MyGlobals.mainPanel.down('#contentContainer').element.getWidth();
+            deviceInfoPanel.setDocked(null);
+            deviceInfoPanel.setShowAnimation("slideIn");
+            deviceInfoPanel.setHideAnimation({
+                type: 'slideOut',
+                direction: 'right'
+            });
+            deviceInfoPanel.setTop(0);
+            deviceInfoPanel.setLeft(width-320);
+            deviceInfoPanel.setHeight(height);
+            deviceInfoPanel.setWidth(320);
+            deviceInfoPanel.addCls('shadowPanel');
+
+            deviceInfoPanel.show();
+        }
+
+        MyGlobals.deviceInfoPanel = deviceInfoPanel;
     }
 
 });
