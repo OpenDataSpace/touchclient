@@ -1,3 +1,10 @@
+gds2-touchui (1.6.164) unstable; urgency=low
+
+  * gitrev: f20742f28adf29491cd0ffcbe5420f29e83f5c26
+    Add device info in setting tab
+
+ -- bob-chen <562336543@qq.com>  Mon, 21 Apr 2014 17:17:41 +0800
+
 gds2-touchui (1.6.163) unstable; urgency=low
 
   * gitrev: 5825ba80dd94dba3a87632021f58e7be65ee6b16

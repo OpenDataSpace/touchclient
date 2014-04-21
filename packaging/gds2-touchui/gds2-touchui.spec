@@ -1,4 +1,4 @@
-%global ver 1.6.163
+%global ver 1.6.164
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Apr 21 2014 bob-chen <562336543@qq.com> - 1.6.164-1
+- gitrev: f20742f28adf29491cd0ffcbe5420f29e83f5c26
+  Add device info in setting tab
 * Sun Apr 20 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.163-1
 - gitrev: 5825ba80dd94dba3a87632021f58e7be65ee6b16
   Added SLES support
