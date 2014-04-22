@@ -1,4 +1,4 @@
-%global ver 1.6.164
+%global ver 1.6.165
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue Apr 22 2014 bob-chen <562336543@qq.com> - 1.6.165-1
+- gitrev: 0369304645ca8603bc1997d52a0dca6ae6a718ee
+  Add screensize and st version in device info
 * Mon Apr 21 2014 bob-chen <562336543@qq.com> - 1.6.164-1
 - gitrev: f20742f28adf29491cd0ffcbe5420f29e83f5c26
   Add device info in setting tab
