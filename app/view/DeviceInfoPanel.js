@@ -109,6 +109,22 @@ Ext.define('ACMobileClient.view.DeviceInfoPanel', {
                                                 readOnly: true
                                             },
                                             {
+                                                xtype: 'textfield',
+                                                itemId: 'screenSize',
+                                                clearIcon: false,
+                                                label: 'Screen Size',
+                                                labelWidth: 110,
+                                                readOnly: true
+                                            },
+                                            {
+                                                xtype: 'textfield',
+                                                itemId: 'stVersion',
+                                                clearIcon: false,
+                                                label: 'ST Version',
+                                                labelWidth: 110,
+                                                readOnly: true
+                                            },
+                                            {
                                                 xtype: 'textareafield',
                                                 cls: 'myTextArea',
                                                 itemId: 'userAgent',
@@ -177,6 +193,8 @@ Ext.define('ACMobileClient.view.DeviceInfoPanel', {
         this.down('#browserEngine').setValue(Ext.browser.engineName);
         this.down('#deviceType').setValue(Ext.os.deviceType);
         this.down('#osName').setValue(Ext.os.name);
+        this.down('#screenSize').setValue(window.screen.availHeight + "*" + window.screen.availWidth);
+        this.down('#stVersion').setValue(Ext.version);
     }
 
 });

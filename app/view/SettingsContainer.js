@@ -27,6 +27,7 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
         // layout: {
         //     type: 'vbox'
         // },
+        scrollable: true,
         items: [
             {
                 xtype: 'toolbar',
@@ -205,7 +206,7 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
 
         var deviceInfoPanel = Ext.create('ACMobileClient.view.DeviceInfoPanel', {}),
             height, width;
-            
+
         MyGlobals.mainPanel.add(deviceInfoPanel);
         if (MyGlobals.isNarrow()) {
             MyGlobals.mainPanel.getLayout().setAnimation({
