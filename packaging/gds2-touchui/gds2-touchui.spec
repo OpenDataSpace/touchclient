@@ -1,4 +1,4 @@
-%global ver 1.6.165
+%global ver 1.6.166
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,11 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed Apr 23 2014 bob-chen <562336543@qq.com> - 1.6.166-1
+- gitrev: 34586861b517edc534e520653e6efde9f27d44ec
+  Fix issue 3882, 3883
+- gitrev: e0f8645fc86a76c5fe0ecc49a6bab9eafda09df4
+  Fix issue 3881
 * Tue Apr 22 2014 bob-chen <562336543@qq.com> - 1.6.165-1
 - gitrev: 0369304645ca8603bc1997d52a0dca6ae6a718ee
   Add screensize and st version in device info
