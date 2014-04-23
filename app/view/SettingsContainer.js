@@ -23,7 +23,7 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
     ],
 
     config: {
-        padding: 10,
+        //padding: 10,
         // layout: {
         //     type: 'vbox'
         // },
