@@ -131,7 +131,7 @@ Ext.define('ACMobileClient.view.DeviceInfoPanel', {
                                                 clearIcon: false,
                                                 label: 'User Agent',
                                                 labelWidth: 110,
-                                                height: 120,
+                                                height: 140,
                                                 value: '',
                                                 readOnly: true
                                             }
@@ -165,11 +165,20 @@ Ext.define('ACMobileClient.view.DeviceInfoPanel', {
     onCloseButtonLeftTap: function(button, e, eOpts) {
         var devicePanel = MyGlobals.deviceInfoPanel;
         if (devicePanel) {
-            MyGlobals.mainPanel.remove(devicePanel, true);
-            MyGlobals.deviceInfoPanel = null;
-        }
-        if (MyGlobals.isNarrow()) {
-            MyGlobals.mainPanel.setActiveItem(MyGlobals.menuPanel);
+            if (MyGlobals.isNarrow()) {
+                setTimeout(function() {
+                    MyGlobals.mainPanel.remove(devicePanel, true);
+                    MyGlobals.deviceInfoPanel = null;
+                }, 1000);
+                MyGlobals.mainPanel.getLayout().setAnimation({
+                    type: 'slide',
+                    direction: 'right'
+                });
+                MyGlobals.mainPanel.setActiveItem(MyGlobals.menuPanel);
+            } else {
+                MyGlobals.mainPanel.remove(devicePanel, true);
+                MyGlobals.deviceInfoPanel = null;
+            }
         }
     },
 
