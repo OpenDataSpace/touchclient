@@ -1,3 +1,10 @@
+gds2-touchui (1.6.167) unstable; urgency=low
+
+  * gitrev: f3d78f9fd653dd60bf687ec822af21f151026599
+    Upload list enhancement.
+
+ -- bob-chen <562336543@qq.com>  Mon, 28 Apr 2014 16:55:58 +0800
+
 gds2-touchui (1.6.166) unstable; urgency=low
 
   * gitrev: 34586861b517edc534e520653e6efde9f27d44ec

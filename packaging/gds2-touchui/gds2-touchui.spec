@@ -1,4 +1,4 @@
-%global ver 1.6.166
+%global ver 1.6.167
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Apr 28 2014 bob-chen <562336543@qq.com> - 1.6.167-1
+- gitrev: f3d78f9fd653dd60bf687ec822af21f151026599
+  Upload list enhancement.
 * Wed Apr 23 2014 bob-chen <562336543@qq.com> - 1.6.166-1
 - gitrev: 34586861b517edc534e520653e6efde9f27d44ec
   Fix issue 3882, 3883
