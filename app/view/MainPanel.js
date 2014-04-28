@@ -699,7 +699,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
             parmeter;
 
             Ext.Msg.prompt(
-                "Rename", 
+                "", 
                 "Please input new name: ", 
                 function(buttonId, value){
                     if(buttonId === 'ok'){

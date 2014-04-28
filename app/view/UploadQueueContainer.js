@@ -67,18 +67,18 @@ Ext.define('ACMobileClient.view.UploadQueueContainer', {
                 ]
             },
             {
-                xtype: 'list',
+                xtype: 'uploadlist',
                 itemId: 'Queue',
-                mode: 'SIMPLE',
-                itemTpl: [
-                    '<div class="list_style">',
-                    '    <div class="list_icons">',
-                    '        <div class="list_icon upload_status{status}"></div>',
-                    '    </div>',
-                    '    <div class="list_entry">{name}</div>',
-                    '    <div class="list_entry">{percent}%<span class="msg">{message}</span></div>',
-                    '</div>'
-                ],
+                //mode: 'SIMPLE',
+                // itemTpl: [
+                //     '<div class="list_style">',
+                //     '    <div class="list_icons">',
+                //     '        <div class="list_icon upload_status{status}"></div>',
+                //     '    </div>',
+                //     '    <div class="list_entry">{name}</div>',
+                //     '    <div class="list_entry">{percent}%<span class="msg">{message}</span></div>',
+                //     '</div>'
+                // ],
                 store: 'UploadQueue'
             }
         ]

@@ -12,7 +12,6 @@
  *
  * Do NOT hand edit this file.
  */
-
 Ext.define('ACMobileClient.controller.UploadController', {
     extend: 'Ext.app.Controller',
 
@@ -119,14 +118,32 @@ Ext.define('ACMobileClient.controller.UploadController', {
                     }
                 });
             }
+
+            if(Ext.os.name === 'iOS'){
+                if(typeof MyGlobals.uploadPointer[folderId] === 'undefined'){ 
+                    MyGlobals.uploadPointer[folderId] = 0;
+                }
+            }
+
             files.forEach(function(el) {
                 var record = Ext.create('ACMobileClient.model.UploadQueueElement');
+                    filePath = MyGlobals.folderStructure[folderId];
+                    //filePath.push(el.name);
+                    filePath = filePath.join('/');
+
+                if(Ext.os.name === 'iOS' && el.name === 'image.jpg'){
+                    MyGlobals.uploadPointer[folderId] += 1;
+                    el.name = 'image'+MyGlobals.uploadPointer[folderId] + '.jpg';
+                }
+
+                MyGlobals.uploadItems[el.id] = el;
                 record.setData({
                     'id': el.id,
                     'name': el.name,
                     'status': el.status,
                     'percent': el.percent,
-                    'target': folderId
+                    'target': folderId,
+                    'path': filePath
                 });
                 qStore.add(record);
             });
@@ -134,6 +151,10 @@ Ext.define('ACMobileClient.controller.UploadController', {
             if (autoStart && autoStart.get('value') === 'true') {
                 me.onQueueStartTapped();
             }
+            //console.log(MyGlobals.uploadItems);
+        });
+        uploader.bind('UploadFile', function(up, file){
+            delete MyGlobals.uploadItems[file.id];
         });
         uploader.bind('UploadProgress', function(up, file) {
             var rec;
@@ -206,48 +227,64 @@ Ext.define('ACMobileClient.controller.UploadController', {
             tp = MyGlobals.menuPanel.getComponent('tabPanel'),
             wasRunning = false;
 
+        MyGlobals.uploadItems = {};
+        // Remove all uploads and the queue
         me.uploaders.forEach(function(up) {
-            if (up.state === plupload.RUNNING) {
-                up.stop();
-                wasRunning = true;
-            }
+            up.splice(0);
+            //up.destroy();
         });
-        if (0 < qView.getSelectionCount()) {
-            // Remove selected files
-            qView.getSelection().forEach(function(rec) {
-                if (rec.get('status') < 4) {
-                    me.uploaders.forEach(function(up) {
-                        var f = up.getFile(rec.get('id'));
-                        if (f) {
-                            up.removeFile(f);
-                        }
-                    });
-                }
-                qStore.remove(rec);
-            });
-            qStore.sync();
-            if (wasRunning) {
-                me.uploaders.forEach(function(up) {
-                    up.start();
-                });
-            }
-        } else {
-            // Remove all uploads and the queue
-            me.uploaders.forEach(function(up) {
-                up.splice(0);
-                //up.destroy();
-            });
-            //me.uploaders = [];
-            qStore.removeAll(true);
-            tp.remove(me.uploadQueue, true);
-            me.uploadQueue = null;
-        }
+        //me.uploaders = [];
+        qStore.removeAll(true);
+        tp.remove(me.uploadQueue, true);
+        me.uploadQueue = null;
+
+        // me.uploaders.forEach(function(up) {
+        //     if (up.state === plupload.RUNNING) {
+        //         up.stop();
+        //         wasRunning = true;
+        //     }
+        // });
+        // if (0 < qView.getSelectionCount()) {
+        //     // Remove selected files
+        //     qView.getSelection().forEach(function(rec) {
+        //         if (rec.get('status') < 4) {
+        //             me.uploaders.forEach(function(up) {
+        //                 var f = up.getFile(rec.get('id'));
+        //                 if (f) {
+        //                     up.removeFile(f);
+        //                     if(typeof MyGlobals.uploadItems[rec.get('id')] !== 'undefined'){
+        //                         delete MyGlobals.uploadItems[rec.get('id')];
+        //                     }
+        //                 }
+        //             });
+        //         }
+        //         qStore.remove(rec);
+        //     });
+        //     qStore.sync();
+        //     if (wasRunning) {
+        //         me.uploaders.forEach(function(up) {
+        //             up.start();
+        //         });
+        //     }
+        // } else {
+        //     MyGlobals.uploadItems = {};
+        //     // Remove all uploads and the queue
+        //     me.uploaders.forEach(function(up) {
+        //         up.splice(0);
+        //         //up.destroy();
+        //     });
+        //     //me.uploaders = [];
+        //     qStore.removeAll(true);
+        //     tp.remove(me.uploadQueue, true);
+        //     me.uploadQueue = null;
+        // }
     },
 
     onQueueStartTapped: function() {
         var me = this,
             toolbar = me.uploadQueue.down('toolbar');
 
+        MyGlobals.uploadItems = {};
         toolbar.getComponent('Start').hide();
         toolbar.getComponent('Stop').show();
         me.uploaders.forEach(function(up) {

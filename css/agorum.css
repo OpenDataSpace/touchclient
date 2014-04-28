@@ -644,3 +644,9 @@
 .x-form.x-floating.login_panel > div.x-dock.x-sized{
 	margin:0;
 }
+.path_info
+{
+    padding-left: 26px;
+    font-size: 12px;
+    color:#AAA;
+}

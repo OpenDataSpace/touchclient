@@ -164,6 +164,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
         ACUtils.utils.checkConnectionWithFunction(function() {
 
             var parentName = '',
+                parentId = '',
             // create a new FolderList view
                 foldC = Ext.create("ACMobileClient.view.FolderListContainer", {}),  // #documentList
                 store = null;
@@ -172,28 +173,42 @@ Ext.define('ACMobileClient.view.MenuPanel', {
             if (navigator.userAgent.match(/IEMobile/)){
                 foldC.down("#uploadButton").hide();
             }
+            //console.log(area.getItemId())
 
             if (isRoot)  {
                 // If root, load the areas
                 if (area.getItemId() === 'documentsBar') {
                     store = Ext.create("ACMobileClient.store.PrivateGlobalFoldersStore", {});
                     fId = MyGlobals.myId;//'parvate'
+                    parentName = "My";
                 } else if (area.getItemId() === 'globalFolders') {
                     store = Ext.create("ACMobileClient.store.GlobalGlobalFoldersStore", {});
                     fId = MyGlobals.globalId;//'agorum/roi/files/dataspace'
+                    parentName = "Global";
                 } else {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
                     foldC.down('#documentList').setGrouped(true);
                     fId = MyGlobals.sharedId;//'shared';
                     // Shared root folder can't create folder
-                    foldC.down("#CreateFoldBtn").disable();           
+                    foldC.down("#CreateFoldBtn").disable();
+                    parentName = "Shared";   
                 }
             } else {
                 parentName = area.getActiveItem().titleName;
+                parentId = area.getActiveItem().down('#CreateFoldBtn').parentFolderId;
                 // if not root load a normal folder structure
                 store = Ext.create("ACMobileClient.store.FolderObjectDataStore", {});
                 foldC.down("#CreateFoldBtn").disable();
             }
+
+            //Collect folder structure
+            if(parentId !== ''){
+                MyGlobals.folderStructure[fId] = MyGlobals.folderStructure[parentId].concat();
+                MyGlobals.folderStructure[fId].push(name);
+            } else {
+                MyGlobals.folderStructure[fId] = [parentName];
+            }
+            console.log(MyGlobals.folderStructure);
 
             foldC.down('#documentList').setStore(store);
 

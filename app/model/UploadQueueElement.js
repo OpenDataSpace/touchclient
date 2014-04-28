@@ -43,6 +43,10 @@ Ext.define('ACMobileClient.model.UploadQueueElement', {
                 type: 'string'
             },
             {
+                name: 'path',
+                type: 'string'
+            },
+            {
                 defaultValue: '',
                 name: 'message',
                 type: 'string'

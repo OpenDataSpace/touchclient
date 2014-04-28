@@ -29,13 +29,13 @@ Ext.define('ACMobileClient.view.FolderListList', {
         '<div class="list_icons">',
         '<div class="list_icon list_icon_{classname}"></div>',
         '</div>',
-        '<div class="list_entry">{[this.testing(name)]}{name}</div>',
+        '<div class="list_entry">{[this.testing(values.name)]}{name}</div>',
         '</div>',
             {
                 // XTemplate configuration:
                 'disableFormats': true,
                 // just a sample
-                'testing': function(){
+                'testing': function(name){
                     return '';
                 }
             }

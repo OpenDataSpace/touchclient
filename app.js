@@ -88,7 +88,8 @@ Ext.application({
         'TextViewContainer',
         'SettingsContainer',
         'SearchContainer',
-        'UploadQueueContainer'
+        'UploadQueueContainer',
+        'UploadList'
     ],
     controllers: [
         'MyController',
