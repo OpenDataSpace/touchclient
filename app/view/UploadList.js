@@ -22,7 +22,7 @@ Ext.define('ACMobileClient.view.UploadList', {
                 compiled:true,
                 disableFormats: true,
                 getPath:function(path){
-                    console.log(path)
+                    //console.log(path);
                     return path;
                 }
             }
@@ -48,7 +48,7 @@ Ext.define('ACMobileClient.view.UploadList', {
     },
 
     onDocumentListSelect: function(dataview, index, target, record, e, eOpts) {
-        console.log(record)
+        //console.log(record);
 
         var id, orgName,
             previewAble;
@@ -67,7 +67,7 @@ Ext.define('ACMobileClient.view.UploadList', {
 
         id = record.get("id");
         orgName = record.get("name");
-        console.log(MyGlobals.uploadItems)
+        //console.log(MyGlobals.uploadItems);
         if(typeof MyGlobals.uploadItems[id] !== 'undefined'){
             Ext.Msg.prompt(
                 "", 
