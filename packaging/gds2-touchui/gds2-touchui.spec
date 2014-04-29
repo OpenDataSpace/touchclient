@@ -1,4 +1,4 @@
-%global ver 1.6.167
+%global ver 1.6.168
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue Apr 29 2014 bob-chen <562336543@qq.com> - 1.6.168-1
+- gitrev: b94adc00bab61b4321e2af964c9c33bc2f661ad5
+  fix jslint issue
 * Mon Apr 28 2014 bob-chen <562336543@qq.com> - 1.6.167-1
 - gitrev: f3d78f9fd653dd60bf687ec822af21f151026599
   Upload list enhancement.
