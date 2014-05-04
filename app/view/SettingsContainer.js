@@ -74,7 +74,7 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
                 xtype: 'button',
                 text: 'Logout',
                 //docked: 'bottom',
-                ui: 'decline',
+                ui: 'action',
                 width: '94%',
                 margin: '20px auto',
                 itemId: 'btnLogout',
