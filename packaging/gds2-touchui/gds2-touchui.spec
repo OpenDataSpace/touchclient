@@ -1,4 +1,4 @@
-%global ver 1.6.168
+%global ver 1.6.169
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Sun May  4 2014 bob-chen <562336543@qq.com> - 1.6.169-1
+- gitrev: 58a90726bd55dd8c66806a282195e08fb4b196ce
+  Fix issue 3898
 * Tue Apr 29 2014 bob-chen <562336543@qq.com> - 1.6.168-1
 - gitrev: b94adc00bab61b4321e2af964c9c33bc2f661ad5
   fix jslint issue
