@@ -127,7 +127,8 @@ Ext.define('ACMobileClient.view.LoginPanel', {
     },
 
     onPanelPainted: function(element, eOpts) {
-        var checkBoxItem = this.down('#rememberLogin');
+        var checkBoxItem = this.down('#rememberLogin'),
+            deviceEvent = 'click';
         if (ACUtils.utils.isAutoLogin()) {
             this.down('#userName').setValue(ACUtils.utils.getUserName());
             this.down('#passWord').setValue(ACUtils.utils.getPassWord());
@@ -135,7 +136,10 @@ Ext.define('ACMobileClient.view.LoginPanel', {
             this.doLogin();
         } else {
             if(navigator.platform === 'BlackBerry'){
-                document.getElementById(checkBoxItem.getId()).addEventListener("click",function(){
+                if(Ext.os.deviceType === 'Phone'){
+                    deviceEvent = 'touchup'
+                }
+                document.getElementById(checkBoxItem.getId()).addEventListener(deviceEvent,function(){
                     if(checkBoxItem.isChecked()){
                         checkBoxItem.uncheck();
                     } else {
