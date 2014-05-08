@@ -188,11 +188,15 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
             url:"/api/rest/session/logout.json",
             timeout: 5000,
             callback:function(options, success, response){
-                ACUtils.utils.setConfigValue('ACMobile.config.autoLogin', 'false');
-                window.location.reload();
+                // ACUtils.utils.setConfigValue('ACMobile.config.autoLogin', 'false');
+                // window.location.reload();
             }
         });
 
+        setTimeout(function(){
+            ACUtils.utils.setConfigValue('ACMobile.config.autoLogin', 'false');
+            window.location.reload();
+        }, 500);
         // ACUtils.utils.setConfigValue('ACMobile.config.autoLogin', 'false');
         // window.location.reload();
     },

@@ -85,6 +85,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
             'browse_button': container.down('#uploadButton').getId(),
             'max_file_size': '100gb',
             'chunk_size': chunkSize, //256kb
+            //'multi_selection': false,
             'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
         });
 
@@ -195,6 +196,8 @@ Ext.define('ACMobileClient.controller.UploadController', {
         });
         uploader.bind('Error', function(up, err) {
             var rec, msg = '';
+            // console.log("========================");
+            // console.log(err);
             if (err.file) {
                 rec = qStore.findRecord('id', err.file.id);
                 if (rec) {
@@ -282,12 +285,28 @@ Ext.define('ACMobileClient.controller.UploadController', {
 
     onQueueStartTapped: function() {
         var me = this,
+            qStore = Ext.getStore('UploadQueue'),
             toolbar = me.uploadQueue.down('toolbar');
 
         MyGlobals.uploadItems = {};
         toolbar.getComponent('Start').hide();
         toolbar.getComponent('Stop').show();
         me.uploaders.forEach(function(up) {
+            up.files.forEach(function(file){
+                var rec;
+                if(file.status === 4){
+                    console.log(file);
+                    file.status = 1;
+
+                    rec = qStore.findRecord('id', file.id);
+                    if (rec) {
+                        rec.set('status', file.status);
+                        rec.set('message', "");
+                        qStore.sync();
+                    }
+
+                }
+            });
             up.start();
         });
     },
