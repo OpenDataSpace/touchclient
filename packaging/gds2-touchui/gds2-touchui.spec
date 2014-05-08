@@ -1,4 +1,4 @@
-%global ver 1.6.170
+%global ver 1.6.171
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Thu May  8 2014 bob-chen <562336543@qq.com> - 1.6.171-1
+- gitrev: c57c7613ec5bf351e2b4da4ec5a60d93486ebae2
+  Fix issue 3889
 * Mon May  5 2014 bob-chen <562336543@qq.com> - 1.6.170-1
 - gitrev: 1b0ea750d5be09fc6281f63523ac03ef1d554945
   Login panel blackberry enhancement.

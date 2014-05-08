@@ -1,3 +1,10 @@
+gds2-touchui (1.6.171) unstable; urgency=low
+
+  * gitrev: c57c7613ec5bf351e2b4da4ec5a60d93486ebae2
+    Fix issue 3889
+
+ -- bob-chen <562336543@qq.com>  Thu, 8 May 2014 16:14:36 +0800
+
 gds2-touchui (1.6.170) unstable; urgency=low
 
   * gitrev: 1b0ea750d5be09fc6281f63523ac03ef1d554945
