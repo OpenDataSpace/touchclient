@@ -1,4 +1,4 @@
-%global ver 1.6.171
+%global ver 1.6.172
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed May 14 2014 bob-chen <562336543@qq.com> - 1.6.172-1
+- gitrev: b57d299880996426ef2871bbdb77a3a2a7283182
+  Fix issue 3933
 * Thu May  8 2014 bob-chen <562336543@qq.com> - 1.6.171-1
 - gitrev: c57c7613ec5bf351e2b4da4ec5a60d93486ebae2
   Fix issue 3889
