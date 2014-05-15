@@ -537,7 +537,8 @@ Ext.define('ACMobileClient.view.MainPanel', {
         linkPanel.objId = objectId;
 
         if(!isFolder){
-            linkPanel.down("#uploadLinkContainer").setDisabled(true);
+            //linkPanel.down("#uploadLinkContainer").setDisabled(true);
+            linkPanel.down("#cardContainer").remove(linkPanel.down("#uploadLinkContainer"), true);
         } else {
             MyGlobals.mainPanel.toCheckAccessLevel(objectId, "upload", linkPanel, true);
         }
