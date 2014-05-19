@@ -27,7 +27,8 @@ Ext.define('ACMobileClient.model.GlobalGlobalFolders', {
             },
             {
                 convert: function(v, rec) {
-                    return 'folderobject';
+                    return v.toLowerCase();
+                    //return 'folderobject';
                 },
                 name: 'classname'
             }

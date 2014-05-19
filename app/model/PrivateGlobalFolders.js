@@ -42,7 +42,8 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
             },
             {
                 convert: function(v, rec) {
-                    return 'folderobject';
+                    return v.toLowerCase();
+                    //return 'folderobject';
                 },
                 name: 'classname'
             }
@@ -60,14 +61,16 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
                     'isfolder',
                     'shared',
                     'ownobject',
-                    'sharedowner'
-                ],
-                filter: [
-                    Ext.encode({
-                        property: 'isfolder',
-                        value: true
-                    })
+                    'sharedowner',
+                    'classname'
                 ]
+                // ,
+                // filter: [
+                //     Ext.encode({
+                //         property: 'isfolder',
+                //         value: true
+                //     })
+                // ]
             },
             url: '/api/rest/object',
             reader: {

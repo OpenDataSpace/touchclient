@@ -99,6 +99,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
             // console.log(navigator.userAgent)
             // console.log(files)
             // console.log(uploader)
+            //MyGlobals.mainPanel.handleOrientationChange()
             var autoStart = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');
             if (!me.uploadQueue) {
                 me.uploadQueue = MyGlobals.menuPanel.getComponent('tabPanel').add({

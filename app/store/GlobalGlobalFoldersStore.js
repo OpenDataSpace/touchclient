@@ -26,17 +26,18 @@ Ext.define('ACMobileClient.store.GlobalGlobalFoldersStore', {
                     'shared',
                     'ownobject',
                     'sharedowner',
-
+                    'classname',
                     'uuid',
                     'owner.fullname',
                     'creator.fullname'
-                ],
-                filter: [
-                    Ext.encode({
-                        property: 'isfolder',
-                        value: true
-                    })
                 ]
+                // ,
+                // filter: [
+                //     Ext.encode({
+                //         property: 'isfolder',
+                //         value: true
+                //     })
+                // ]
             },
             url: '/api/rest/object',
             reader: {
