@@ -194,8 +194,11 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     parentName = "Shared";   
                 }
             } else {
-                parentName = area.getActiveItem().titleName;
-                parentId = area.getActiveItem().down('#CreateFoldBtn').parentFolderId;
+                parentName = area.getActiveItem().titleName;                
+                if(area.getActiveItem().down('#CreateFoldBtn')){
+                    parentId = area.getActiveItem().down('#CreateFoldBtn').parentFolderId;
+                }
+         
                 // if not root load a normal folder structure
                 store = Ext.create("ACMobileClient.store.FolderObjectDataStore", {});
                 foldC.down("#CreateFoldBtn").disable();
