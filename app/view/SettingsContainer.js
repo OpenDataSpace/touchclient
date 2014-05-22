@@ -159,22 +159,48 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
     },
 
     onSettingsContainerShow: function(component, eOpts) {
-        var autoStartUpload = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload');
+        var autoStartUpload = ACUtils.utils.getConfigValue('ACMobile.config.autoStartUpload'),
+            deviceEvent = 'click',
+            autoLoginItem = this.down('#autoLogin'),
+            autoStartItem = this.down('#autoStartUpload');
 
         this.initMode = true;
         if (ACUtils.utils.isAutoLogin()) {
-            this.down('#autoLogin').check();
+            autoLoginItem.check();
         }
         else {
-            this.down('#autoLogin').uncheck();
+            autoLoginItem.uncheck();
         }
         if (autoStartUpload &&  autoStartUpload.get('value') === 'true') {
-            this.down('#autoStartUpload').check();
+            autoStartItem.check();
         }
         else {
-            this.down('#autoStartUpload').uncheck();
+            autoStartItem.uncheck();
         }
         this.initMode = false;
+
+        if(navigator.platform === 'BlackBerry'){
+            if(Ext.os.deviceType === 'Phone'){
+                deviceEvent = 'touchup'
+            }
+            document.getElementById(autoLoginItem.getId()).addEventListener(deviceEvent,function(){
+                if(autoLoginItem.isChecked()){
+                    autoLoginItem.uncheck();
+                } else {
+                    autoLoginItem.check();
+                }
+            });
+
+            document.getElementById(autoStartItem.getId()).addEventListener(deviceEvent,function(){
+                if(autoStartItem.isChecked()){
+                    autoStartItem.uncheck();
+                } else {
+                    autoStartItem.check();
+                }
+            });
+        }
+
+
     },
 
     onLogoutTap: function(btn, e, eOpts){
