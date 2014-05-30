@@ -196,7 +196,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 MyGlobals.menuPanel.navigateToFolder(objectId, name, false, tab);
             }
             else {
-                Ext.Msg.alert('Error', 'Preview not available for this file type.', Ext.emptyFn);
+                Ext.Msg.alert('Information', 'Preview not supported for this file type.', Ext.emptyFn);
             }
 
         });
