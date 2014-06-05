@@ -517,7 +517,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
                 iPanel.show();
             }
         };
-
+        if(MyGlobals.downloadLinkPanel){
+            this.hideDownloadLinkPanel();
+        }
         MyGlobals.infoPanel = iPanel;
 
     },
@@ -572,6 +574,10 @@ Ext.define('ACMobileClient.view.MainPanel', {
         } else {
             linkPanel.show();
         }     
+
+        if(MyGlobals.infoPanel){
+            this.hideInfoPanel();
+        }
 
         MyGlobals.downloadLinkPanel = linkPanel;
 
