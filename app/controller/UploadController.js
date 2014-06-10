@@ -74,7 +74,9 @@ Ext.define('ACMobileClient.controller.UploadController', {
             folderId = folderStore.folderId,
             qStore = Ext.getStore('UploadQueue'),
             chunkSize = '256kb',
-            uploader;
+            uploader,
+            buttonId = container.down('#uploadButton').getId();
+            //tmp, i, fileElement;
 
         if(navigator.platform === 'BlackBerry'){
             chunkSize = '0';
@@ -82,16 +84,20 @@ Ext.define('ACMobileClient.controller.UploadController', {
 
         uploader = new plupload.Uploader({
             'runtimes': 'html5',
-            'browse_button': container.down('#uploadButton').getId(),
+            'browse_button': buttonId, //container.down('#uploadButton').getId(),
             'max_file_size': '100gb',
             'chunk_size': chunkSize, //256kb
             //'multi_selection': false,
             'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
         });
 
+
+        console.log(document.getElementById(buttonId).parentNode.id)
+
         me.uploaders.push(uploader);
 
         uploader.init();
+
 
         uploader.bind('FilesAdded', function(up, files) {
             //console.log("In File Added")
@@ -197,7 +203,6 @@ Ext.define('ACMobileClient.controller.UploadController', {
         });
         uploader.bind('Error', function(up, err) {
             var rec, msg = '';
-            // console.log("========================");
             // console.log(err);
             if (err.file) {
                 rec = qStore.findRecord('id', err.file.id);
@@ -217,6 +222,44 @@ Ext.define('ACMobileClient.controller.UploadController', {
             }
             up.refresh();
         });
+
+        // setTimeout(function(){
+        //     console.log(document.getElementById(buttonId).parentNode.id)
+        //     tmp = document.getElementById(document.getElementById(buttonId).parentNode.id).getElementsByTagName('input');
+        //     console.log(tmp)
+        //     for(i = 0; i<tmp.length; i+=1){
+        //         //console.log(tmp[i])
+        //         if(tmp[i].type === 'file'){
+        //             //tmp[i].click();
+        //             fileElement = tmp[i];
+        //             break;
+        //         }
+        //     }
+        //     console.log(fileElement)
+        //     fileElement.addEventListener("change", function(evt){
+        //         var files = evt.target.files,   // FileList object
+        //             hasNoneSize = false;
+        //         // files is a FileList of File objects. List some properties.
+        //         //alert("123")
+               
+        //          console.log(files);
+        //          console.log(files[0].size);
+        //         for(i=0; i<files.length; i+=1){
+        //             if(files[i].size === 0){
+        //                 hasNoneSize = true;
+        //                 break;
+        //             }
+        //         }
+        //         console.log(hasNoneSize)
+        //         if(hasNoneSize){
+        //             alert("nimei")
+        //         }
+
+
+        //         }, false);
+        // }, 500);
+
+
     },
 
     launch: function() {

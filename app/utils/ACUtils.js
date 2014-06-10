@@ -190,5 +190,11 @@ Ext.define('ACMobileClient.utils.ACUtils', {
     test: function() {
         this.instanceCount+=1;
         return this.instanceCount;
+    },
+
+    checkFile: function(files){
+        if(files.length == 0){
+            Ext.Msg.alert('Info', 'Could not upload this file.', Ext.emptyFn);
+        }
     }
 });
