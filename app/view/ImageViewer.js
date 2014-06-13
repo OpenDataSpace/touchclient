@@ -22,6 +22,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
     'loadNext': false,
     'isLoading': false,
     'mustInitialize': true,
+    'doScroll': false,
 
     'config': {
         'cls': 'imageBox',
@@ -96,6 +97,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
     'onScrollEnd': function(scroller, x, y, eOpts) {
         console.log("onScrollEnd");
+        this.doScroll = true;
         //this.doScrolling(true);
     },
 
@@ -132,16 +134,31 @@ Ext.define('ACMobileClient.view.ImageViewer', {
 
 
     'onSwipe': function(ev, node, options, eOpts) {
-        if (this.lastScrollBoundWidth !== null && Math.abs(this.lastScrollBoundWidth) > 30) {
-           if (ev.direction === 'left') {
-               //this.caller.loadNextPage();
-               this.caller.next();
-           }
-           if (ev.direction === 'right') {
-               //this.caller.loadPrevPage();
-               this.caller.previous();
-           }
+        console.log(ev.distance);
+
+        var swipeDistance = 100;
+        if(this.doScroll){
+            swipeDistance = 200;
         }
+
+        if(ev.distance > swipeDistance){
+            if(ev.direction === 'left'){
+                this.caller.next();
+            } else if(ev.direction === 'right'){
+                this.caller.previous();
+            }
+        }
+
+        // if (this.lastScrollBoundWidth !== null && Math.abs(this.lastScrollBoundWidth) > 30) {
+        //    if (ev.direction === 'left') {
+        //        //this.caller.loadNextPage();
+        //        this.caller.next();
+        //    }
+        //    if (ev.direction === 'right') {
+        //        //this.caller.loadPrevPage();
+        //        this.caller.previous();
+        //    }
+        // }
     },
 
     'reloadViewer': function() {
@@ -216,6 +233,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         this.maxScale = 1;
         this.scale = Ext.Number.constrain(ev.scale * this.startScale, this.baseScale, this.maxScale);
         //alert(thisscale);
+
         this.applyTransform();
     },
 
