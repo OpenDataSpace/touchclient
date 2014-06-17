@@ -1,3 +1,10 @@
+gds2-touchui (1.6.181) unstable; urgency=low
+
+  * gitrev: abd6ea55b6405b354acc5ee7ee522fd8704ca12b
+    remove metadata and *.xds
+
+ -- bob-chen <562336543@qq.com>  Tue, 17 Jun 2014 13:52:54 +0800
+
 gds2-touchui (1.6.180) unstable; urgency=low
 
   * gitrev: ff3037946d4206c4dce8ad822b448e3b4187d3b1
