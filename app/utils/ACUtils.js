@@ -194,7 +194,7 @@ Ext.define('ACMobileClient.utils.ACUtils', {
 
     checkFile: function(files){
         if(files.length == 0){
-            Ext.Msg.alert('Info', "Can't upload this file.", Ext.emptyFn);
+            Ext.Msg.alert('Info', "File type not supported.", Ext.emptyFn);
         }
     }
 });
