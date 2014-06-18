@@ -1,4 +1,4 @@
-%global ver 1.6.182
+%global ver 1.6.183
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed Jun 18 2014 bob-chen <562336543@qq.com> - 1.6.183-1
+- gitrev: cd8a978e0b7fb2ea9178401e97c451a085061087
+  Change alert msg.
 * Wed Jun 18 2014 bob-chen <562336543@qq.com> - 1.6.182-1
 - gitrev: 0e031751569bed9e3352ad6e1396533fdafd5567
   fix issue 3768
