@@ -1,4 +1,4 @@
-%global ver 1.6.181
+%global ver 1.6.182
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed Jun 18 2014 bob-chen <562336543@qq.com> - 1.6.182-1
+- gitrev: 0e031751569bed9e3352ad6e1396533fdafd5567
+  fix issue 3768
 * Tue Jun 17 2014 bob-chen <562336543@qq.com> - 1.6.181-1
 - gitrev: abd6ea55b6405b354acc5ee7ee522fd8704ca12b
   remove metadata and *.xds
