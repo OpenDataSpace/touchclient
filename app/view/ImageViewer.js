@@ -390,7 +390,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         });
 
         // update scroller to new content size
-        this.getScrollable().refresh();
+        //this.getScrollable().refresh();
 
         // apply scroll
         if(typeof this.scrollX === 'undefined'){
@@ -406,7 +406,7 @@ Ext.define('ACMobileClient.view.ImageViewer', {
         );
 
         // update scroller to new content size
-        this.getScrollable().refresh();
+        //this.getScrollable().refresh();
     }
 
 });
