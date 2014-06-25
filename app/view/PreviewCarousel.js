@@ -23,6 +23,7 @@ Ext.define('ACMobileClient.view.PreviewCarousel', {
 
     config: {
         itemId: 'mycarousel', //#previewCarousel
+        indicator:false,
         listeners: [
             {
                 fn: 'onMycarouselActiveItemChange',
