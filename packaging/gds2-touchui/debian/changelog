@@ -1,3 +1,10 @@
+gds2-touchui (1.6.186) unstable; urgency=low
+
+  * gitrev: 8bd02ee0fa492a4ba06f05855bf46f9fac627b98
+    Fix issue 4037
+
+ -- bob-chen <562336543@qq.com>  Mon, 30 Jun 2014 18:11:37 +0800
+
 gds2-touchui (1.6.185) unstable; urgency=low
 
   * gitrev: c0daf732f4f5d1f86a294ae2ab793740f7d47e46
