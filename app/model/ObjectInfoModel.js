@@ -80,6 +80,10 @@ Ext.define('ACMobileClient.model.ObjectInfoModel', {
             {
                 name: 'size',
                 type: 'int'
+            },
+            {
+                name: 'folderinfo',
+                type: 'auto-generated'
             }
         ]
     }

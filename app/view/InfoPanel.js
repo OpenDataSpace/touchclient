@@ -407,6 +407,8 @@ Ext.define('ACMobileClient.view.InfoPanel', {
             if(rec.get('size') !== null) {
                 //me.down('#size').setValue(rec.get('size') + ' KB');
                 me.down('#size').setValue(formatSize(rec.get('size')));
+            }else if (rec.get('folderinfo') !== null) {               
+                me.down('#size').setValue(formatSize(rec.get('folderinfo').filesize));
             }
 
             //show after load
