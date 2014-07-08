@@ -70,7 +70,7 @@ function getCookies(c_name) {
 }
 
 function formatDate(d) {
-    return Ext.util.Format.date(d, 'd.m.y H:i');
+    return Ext.util.Format.date(d, 'm/d/Y g:i A');
 }
 
 function addSessionIdToParams(operations) {
