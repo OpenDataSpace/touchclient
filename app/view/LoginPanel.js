@@ -29,14 +29,21 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                 centered: true,
                 height: 10,
                 itemId: 'loginForm',
-                minHeight: 290,
+                minHeight: 330,
                 padding: 7,
                 showAnimation: 'slideIn',
                 cls: 'login_panel',
-                style: '',
+                style: 'background-color:transparent;box-shadow:none;',
                 width: 300,
                 url: '/api/rest/session/login',
                 items: [
+                    {
+                        xtype: 'image',
+                        cls: 'dslogo',
+                        height: 41,
+                        docked:'top',
+                        src: 'images/gds2-logo.png'
+                    },
                     {
                         xtype: 'toolbar',
                         docked: 'top',
@@ -83,13 +90,14 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         margin: '0 auto'
                     }
                 ]
-            },
-            {
-                xtype: 'image',
-                cls: 'dslogo',
-                height: 150,
-                src: 'images/logo.png'
             }
+            // ,
+            // {
+            //     xtype: 'image',
+            //     cls: 'dslogo',
+            //     height: 150,
+            //     src: 'images/gds2-logo.png'
+            // }
         ],
         listeners: [
             {
