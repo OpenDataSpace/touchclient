@@ -1,4 +1,4 @@
-%global ver 1.6.188
+%global ver 1.6.190
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,11 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Jul 14 2014 bob-chen <562336543@qq.com> - 1.6.190-1
+- gitrev: 629bcefc5a91e2f5375310547a4f038f90bbe022
+  add desktop image
+- gitrev: 3987d029d3af6d16473c5aabe1f0b4348a89beec
+  fix 3856
 * Tue Jul  8 2014 bob-chen <562336543@qq.com> - 1.6.188-1
 - gitrev: f32b41212ff9e7c9239a5c8c83a0d5a5f0221eb9
   fix issue 4068

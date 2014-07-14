@@ -1,3 +1,12 @@
+gds2-touchui (1.6.190) unstable; urgency=low
+
+  * gitrev: 629bcefc5a91e2f5375310547a4f038f90bbe022
+    add desktop image
+  * gitrev: 3987d029d3af6d16473c5aabe1f0b4348a89beec
+    fix 3856
+
+ -- bob-chen <562336543@qq.com>  Mon, 14 Jul 2014 17:37:38 +0800
+
 gds2-touchui (1.6.188) unstable; urgency=low
 
   * gitrev: f32b41212ff9e7c9239a5c8c83a0d5a5f0221eb9
