@@ -83,6 +83,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         plugin.up().getStore().loadPage(1);
                     });
                 },
+                cls:'pulldown',
                 loadingText: 'Loading...',
                 pullText: 'Pull down to refresh',
                 releaseRefreshText: 'Release to refresh...',

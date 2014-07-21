@@ -650,3 +650,14 @@
     font-size: 12px;
     color:#AAA;
 }
+.pulldown .x-list-pullrefresh-arrow {
+    background-size:1em 1.5em;
+}
+.pulldown .x-loading-spinner {
+    font-size: 150%;
+}
+.pulldown .x-list-pullrefresh-message,
+.pulldown .x-list-pullrefresh-updated {
+    font-size:0.8em;
+    color:#AAA;
+}
