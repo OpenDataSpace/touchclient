@@ -1,4 +1,4 @@
-%global ver 1.6.190
+%global ver 1.6.191
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Jul 21 2014 bob-chen <562336543@qq.com> - 1.6.191-1
+- gitrev: 6d3be6dddd1c1fdb580f1bf7c97a0f6c9bb3bbed
+  fix 3840
 * Mon Jul 14 2014 bob-chen <562336543@qq.com> - 1.6.190-1
 - gitrev: 629bcefc5a91e2f5375310547a4f038f90bbe022
   add desktop image
