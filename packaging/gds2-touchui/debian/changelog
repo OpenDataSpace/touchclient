@@ -1,3 +1,10 @@
+gds2-touchui (1.6.192) unstable; urgency=low
+
+  * gitrev: 85d6ef807dd9dfa46263f0de75245700e45e5564
+    fix info panel not display issue
+
+ -- bob-chen <562336543@qq.com>  Fri, 25 Jul 2014 15:26:20 +0800
+
 gds2-touchui (1.6.191) unstable; urgency=low
 
   * gitrev: 6d3be6dddd1c1fdb580f1bf7c97a0f6c9bb3bbed

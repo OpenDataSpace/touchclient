@@ -1,4 +1,4 @@
-%global ver 1.6.191
+%global ver 1.6.192
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Fri Jul 25 2014 bob-chen <562336543@qq.com> - 1.6.192-1
+- gitrev: 85d6ef807dd9dfa46263f0de75245700e45e5564
+  fix info panel not display issue
 * Mon Jul 21 2014 bob-chen <562336543@qq.com> - 1.6.191-1
 - gitrev: 6d3be6dddd1c1fdb580f1bf7c97a0f6c9bb3bbed
   fix 3840
