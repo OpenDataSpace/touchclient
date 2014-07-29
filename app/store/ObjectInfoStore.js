@@ -41,6 +41,7 @@ Ext.define('ACMobileClient.store.ObjectInfoStore', {
                     'createdate',
                     'lastmodifydate',
                     'updatedate',
+                    'folderinfo',
                     'size'
                 ]
             },
