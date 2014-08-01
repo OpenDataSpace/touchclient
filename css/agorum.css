@@ -237,53 +237,53 @@
 /* default icon in all lists */
 .list_icon {
 	width:25px;
-	height:24px;
+	height:20px;
 	background-image:	url(../images/icons/unknown.png);
 	background-repeat: no-repeat;
 	background-size: 20px auto;
 }
 
 /* icons for different object types */
-.list_icon_fileobject {
+.list-icon-type-fileobject {
 	background-image:	url(../images/icons/doc2.png) !important;
 	background-repeat: no-repeat !important;
 }
 
-.list_icon_maildocumentobject {
+.list-icon-type-maildocumentobject {
 	background-image:	url(../images/icons/doc2.png) !important;
 	background-repeat: no-repeat !important;
 }
 
-.list_icon_folderobject {
+.list-icon-type-folderobject {
 	background-image:	url(../images/icons/folder2.png) !important;
 	background-repeat: no-repeat !important;
 }
 
-.list_icon_mailobjectin {
+.list-icon-type-mailobjectin {
 	background-image:	url(../images/icons/mail_received.png) !important;
 	background-repeat: no-repeat !important;
 }
 
-.list_icon_mailobject {
+.list-icon-type-mailobject {
 	background-image:	url(../images/icons/mail_received.png) !important;
 	background-repeat: no-repeat !important;
 }
 
-.list_icon_mailobjectout {
+.list-icon-type-mailobjectout {
 	background-image:	url(../images/icons/mail_send.png) !important;
 	background-repeat: no-repeat !important;
 }
 
-.list_icon_workflowinstance {
+.list-icon-type-workflowinstance {
 	background-image:	url(../images/icons/workflow.png) !important;
 	background-repeat: no-repeat !important;
 }
-.list_icon_d4waddressbook {
+.list-icon-type-d4waddressbook {
 	background-image:	url(../images/icons/address_books.png) !important;
 	background-repeat: no-repeat !important;
 }
 
-.list_icon_noteobject {
+.list-icon-type-noteobject {
 	width:25px;
 	height:24px;
 	background-image:	url(../images/icons/note.png) !important;
@@ -660,4 +660,247 @@
 .pulldown .x-list-pullrefresh-updated {
     font-size:0.8em;
     color:#AAA;
+}
+
+
+.list-icon-type-aac {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -0px!important
+}
+.list-icon-type-ai {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -20px!important
+}
+.list-icon-type-aiff {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -40px!important
+}
+.list-icon-type-asp {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -60px!important
+}
+.list-icon-type-avi {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -80px!important
+}
+.list-icon-type-blanc {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -100px!important
+}
+.list-icon-type-bmp {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -120px!important
+}
+.list-icon-type-c {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -140px!important
+}
+.list-icon-type-cpp {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -160px!important
+}
+.list-icon-type-css {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -180px!important
+}
+.list-icon-type-dat {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -200px!important
+}
+.list-icon-type-dmg {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -220px!important
+}
+.list-icon-type-doc {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -240px!important
+}
+.list-icon-type-docx {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -260px!important
+}
+.list-icon-type-dot {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -280px!important
+}
+.list-icon-type-dotx {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -300px!important
+}
+.list-icon-type-eps {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -320px!important
+}
+.list-icon-type-exe {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -340px!important
+}
+.list-icon-type-flv {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -360px!important
+}
+.list-icon-type-gif {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -380px!important
+}
+.list-icon-type-h {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -400px!important
+}
+.list-icon-type-html {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -420px!important
+}
+.list-icon-type-ics {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -440px!important
+}
+.list-icon-type-ico {
+    background-image: url(../images/icons/file.gif)!important
+}
+.list-icon-type-java {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -460px!important
+}
+.list-icon-type-jpg {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -480px!important
+}
+.list-icon-type-key {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -500px!important
+}
+.list-icon-type-m4v {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -520px!important
+}
+.list-icon-type-mid {
+    background-image: url(../images/icons/mid_20x20.png)!important
+}
+.list-icon-type-mov {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -540px!important
+}
+.list-icon-type-mp3 {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -560px!important
+}
+.list-icon-type-mp4 {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -580px!important
+}
+.list-icon-type-mpg {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -600px!important
+}
+.list-icon-type-odp {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -620px!important
+}
+.list-icon-type-ods {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -640px!important
+}
+.list-icon-type-odt {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -660px!important
+}
+.list-icon-type-ogg {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -680px!important
+}
+.list-icon-type-otp {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -700px!important
+}
+.list-icon-type-ots {
+    background-image: url(../images/icons/ots_20x20.png)!important
+}
+.list-icon-type-ott {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -720px!important
+}
+.list-icon-type-pdf {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -740px!important
+}
+.list-icon-type-php {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -760px!important
+}
+.list-icon-type-png {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -780px!important
+}
+.list-icon-type-pps {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -800px!important
+}
+.list-icon-type-ppt {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -820px!important
+}
+.list-icon-type-psd {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -840px!important
+}
+.list-icon-type-py {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -860px!important
+}
+.list-icon-type-qt {
+    background-image: url(../images/icons/qt_20x20.png)!important
+}
+.list-icon-type-rar {
+    background-image: url(../images/icons/rar_20x20.png)!important
+}
+.list-icon-type-rb {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -880px!important
+}
+.list-icon-type-rtf {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -900px!important
+}
+.list-icon-type-sql {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -920px!important
+}
+.list-icon-type-tga {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -940px!important
+}
+.list-icon-type-tgz {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -960px!important
+}
+.list-icon-type-tiff {
+    background-image: url(../images/icons/tiff_20x20.png)!important
+}
+.list-icon-type-txt {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -980px!important
+}
+.list-icon-type-wav {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -1000px!important
+}
+.list-icon-type-xls {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -1020px!important
+}
+.list-icon-type-xlsx {
+    background-image: url(../images/icons/xlsx_20x20.png)!important
+}
+.list-icon-type-xml {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -1040px!important
+}
+.list-icon-type-yml {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -1060px!important
+}
+.list-icon-type-zip {
+    background-image: url('../images/icons/gds2icons.png')!important;
+    background-position: left -1080px!important
 }

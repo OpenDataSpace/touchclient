@@ -37,7 +37,8 @@ Ext.define('ACMobileClient.store.FolderObjectDataStore', {
                     'previewable',
                     'textavailable',
                     'isfolder',
-                    'objecttextkey'
+                    'objecttextkey',
+                    'nameextension'
                 ]
             },
             url: '/api/rest/object',

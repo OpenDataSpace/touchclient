@@ -52,6 +52,9 @@ Ext.define('ACMobileClient.model.SearchDataModel', {
             {
                 name: 'isfolder',
                 type: 'boolean'
+            },
+            {
+                name: 'nameextension'
             }
         ]
     }

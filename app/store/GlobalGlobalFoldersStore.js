@@ -29,7 +29,8 @@ Ext.define('ACMobileClient.store.GlobalGlobalFoldersStore', {
                     'classname',
                     'uuid',
                     'owner.fullname',
-                    'creator.fullname'
+                    'creator.fullname',
+                    'nameextension'
                 ]
                 // ,
                 // filter: [

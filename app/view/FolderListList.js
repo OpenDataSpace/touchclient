@@ -27,16 +27,25 @@ Ext.define('ACMobileClient.view.FolderListList', {
         itemTpl: new Ext.XTemplate(
         '<div class="list_style">',
         '<div class="list_icons">',
-        '<div class="list_icon list_icon_{classname}"></div>',
+        '<div class="list_icon list-icon-type-{[this.convertSuffix(values)]}"></div>',
         '</div>',
-        '<div class="list_entry">{[this.testing(values.name)]}{name}</div>',
+        '<div class="list_entry">{[this.testing(values)]}{name}</div>',
         '</div>',
             {
                 // XTemplate configuration:
                 'disableFormats': true,
                 // just a sample
                 'testing': function(name){
+                    //console.log(name)
                     return '';
+                },
+                convertSuffix : function(value){
+                    var suffix = "folderobject";
+                    if(!value.isfolder){
+                        suffix = value.nameextension;
+                    }
+                    //console.log(suffix)
+                    return suffix;
                 }
             }
         ),

@@ -38,7 +38,8 @@ Ext.define('ACMobileClient.store.SearchDataStore', {
                     'read',
                     'previewable',
                     'textavailable',
-                    'isfolder'
+                    'isfolder',
+                    'nameextension'
                 ]
             },
             url: '/api/rest/object',

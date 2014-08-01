@@ -46,6 +46,9 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
                     //return 'folderobject';
                 },
                 name: 'classname'
+            },
+            {
+                name: 'nameextension',
             }
         ],
         proxy: {
@@ -62,7 +65,8 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
                     'shared',
                     'ownobject',
                     'sharedowner',
-                    'classname'
+                    'classname',
+                    'nameextension'
                 ]
                 // ,
                 // filter: [

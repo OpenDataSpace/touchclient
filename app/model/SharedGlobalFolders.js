@@ -45,6 +45,9 @@ Ext.define('ACMobileClient.model.SharedGlobalFolders', {
                     return 'folderobject';
                 },
                 name: 'classname'
+            },
+            {
+                name: 'nameextension'
             }
         ],
         proxy: {
@@ -60,7 +63,8 @@ Ext.define('ACMobileClient.model.SharedGlobalFolders', {
                     'isfolder',
                     'shared',
                     'ownobject',
-                    'sharedowner'
+                    'sharedowner',
+                    'nameextension'
                 ],
                 filter: [
                     Ext.encode({

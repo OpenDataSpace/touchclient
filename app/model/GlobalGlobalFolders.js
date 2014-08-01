@@ -31,6 +31,9 @@ Ext.define('ACMobileClient.model.GlobalGlobalFolders', {
                     //return 'folderobject';
                 },
                 name: 'classname'
+            },
+            {
+                name: 'nameextension'
             }
         ]
     //     ,

@@ -68,6 +68,9 @@ Ext.define('ACMobileClient.model.FolderObjectDataModel', {
             {
                 name: 'isfolder',
                 type: 'boolean'
+            },
+            {
+                name: 'nameextension'
             }
         ]
     }
