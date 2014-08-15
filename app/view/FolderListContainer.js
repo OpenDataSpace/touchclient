@@ -87,6 +87,10 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                 fn: 'onCreateFoldButtonTap',
                 event: 'tap',
                 delegate: '#CreateFoldBtn'
+            },
+            {
+                fn: 'onContainerPainted',
+                event: 'painted'
             }
         ]
     },
@@ -137,6 +141,46 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
         });
         this.getComponent('accordionContainer').add(list);
     },
+
+    onContainerPainted: function(element, eOpts){
+        console.log(this.getComponent('accordionContainer').getId())
+
+        if(!navigator.userAgent.match(/Trident\/7\.0/)){
+            return true;
+        }
+
+        var me = this,
+            timeout;
+
+        document.getElementById( this.getComponent('accordionContainer').getId()).addEventListener('mouseover', function(e){
+            //console.log(e.target.getAttribute('class'))
+            // console.log(e.target.parentNode)
+            // e.target.parentNode.click()
+
+            console.log(e.target.getAttribute("itemid"))
+            var itemId = e.target.getAttribute("itemid"),
+                itemName = e.target.getAttribute("itemname"),
+                itemIsFolder = e.target.getAttribute("itemisfolder") == 'true' ? true:false;
+
+            if(!itemId){
+                return;
+            }
+
+            //console.log({id:itemId, name:itemName, isfolder:itemIsFolder})
+            timeout = setTimeout(function(){
+                //document.getElementById("test").innerText = document.getElementById("test").innerText + "a";
+                me.down("#documentList").onListItemTaphold(null, null, null, {id:itemId, name:itemName, isfolder:itemIsFolder}, null, null, true);
+            }, 500);
+            return false;
+            e.stopPropagation();
+        }, false);
+
+        document.getElementById( this.getComponent('accordionContainer').getId()).addEventListener('mouseout', function(e){
+            clearTimeout(timeout);
+        }, false);
+
+    },
+
     onUploadButtonTap: function(button, e, eOpts){
         //console.log("uploadButton click")
         //console.log(button.getId())

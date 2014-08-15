@@ -25,11 +25,11 @@ Ext.define('ACMobileClient.view.FolderListList', {
         //onItemDisclosure: true,
 
         itemTpl: new Ext.XTemplate(
-        '<div class="list_style">',
+        '<div class="list_style" itemname="{name}" itemid="{id}" itemisfolder="{isfolder}">',
         '<div class="list_icons">',
         '<div class="list_icon list-icon-type-{[this.convertSuffix(values)]}"></div>',
         '</div>',
-        '<div class="list_entry">{[this.testing(values)]}{name}</div>',
+        '<div class="list_entry" itemname="{name}" itemid="{id}" itemisfolder="{isfolder}">{[this.testing(values)]}{name}</div>',
         '</div>',
             {
                 // XTemplate configuration:
@@ -147,10 +147,35 @@ Ext.define('ACMobileClient.view.FolderListList', {
 
     // },
 
+    // wp81 use in wp 8.1, if the os is wp8.1 wp81=true, else wp81 is a object
+    onListItemTaphold: function(dataview, index, target, record, e, eOpts, wp81) {
+        
+        console.log(wp81)
 
-    onListItemTaphold: function(dataview, index, target, record, e, eOpts) {
+        var recordId = null,
+            recordIsFolder = null,
+            recordName = null,
+            me = this;
+        if(wp81 === true){
+            this.lastAction = Date.now();
+            recordId = record.id,
+            recordIsFolder = record.isfolder,
+            recordName = record.name;
+        } else {
+            recordId = record.get("id"),
+            recordIsFolder =  record.get('isfolder'),
+            recordName = record.get('name');
+
+            console.log(recordId)
+        }
+        if (this.lastTaphold && this.lastTaphold > Date.now() - 2000) {
+            //this.deselectAll();
+            return;
+        }
+        this.lastTaphold = Date.now();
         var disableDownload = false,
             disableRename = false,
+            folderStore = this.getStore(),
 
             actionSheet = Ext.create('Ext.ActionSheet', {
             items:[
@@ -160,7 +185,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         ui: 'action',
                         handler: function(){
                             console.log("download taphold");
-                            objectId = record.get("id");
+                            objectId = recordId;
                             ifr = document.createElement('iframe');
                             url = '/api/rest/object/download/' + objectId;
                             ifr.style.display = 'none';
@@ -181,7 +206,29 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         handler: function(){
                             console.log("handle rename");
 
-                            MyGlobals.mainPanel.renameItem(record);
+                            var newName;
+                            if(wp81 === true){
+                                newName = window.prompt("Please input new name: ", recordName);
+                                if(newName != null && newName != recordName){
+                                    MyGlobals.mainPanel.renameItem(recordId, newName, folderStore, wp81);
+                                }
+                            } else {
+                                Ext.Msg.prompt(
+                                    "", 
+                                    "Please input new name: ", 
+                                    function(buttonId, value){
+                                        if(buttonId === 'ok'){
+                                            newName = Ext.String.trim(value);
+                                            if(newName !== "" && newName !== recordName){
+                                                MyGlobals.mainPanel.renameItem(recordId, newName, folderStore, wp81);
+                                            }
+                                        }
+                                    },
+                                    this,
+                                    false,
+                                    recordName
+                                );
+                            }
 
                             actionSheet.hide();
                             actionSheet.destroy();
@@ -192,7 +239,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         handler: function(){
                             console.log("handle show info");
 
-                            MyGlobals.mainPanel.showInfoPanelSlided(record.get('id'), null, null, record.get('isfolder'));
+                            MyGlobals.mainPanel.showInfoPanelSlided(recordId, null, null, recordIsFolder);
 
                             setTimeout(function(){
                                 actionSheet.hide();
@@ -206,30 +253,41 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         ui: 'action',
                         handler: function(){
                             console.log("handle download link");
-                            MyGlobals.mainPanel.showDownloadLinkPanelSlided(record.get('id'), record.get('isfolder'));
+                            MyGlobals.mainPanel.showDownloadLinkPanelSlided(recordId, recordIsFolder);
 
                             actionSheet.hide();
                             actionSheet.destroy();
                         }
-                    },{
+                    }, {
                         text: 'Delete',
                         id: 'btnDelete',
                         ui: 'decline',
                         disabled: true,
                         handler: function(){
                             console.log(record);
+                            //console.log(record.get("name"))
                             //objectId = record.get("id");
-                            var displayName = record.raw.displayname || record.raw.name;
-                            Ext.Msg.confirm("Delete", "Are you sure to delete " + displayName + " ?", function(button){
-                                if(button === 'yes' || button === 'ok'){
-                                    MyGlobals.mainPanel.deleteItem(record.get("id"), dataview);
+                           // var displayName = record.raw.displayname || record.raw.name;
+                            var displayName = recordName;
 
-                                    actionSheet.hide();
-                                    actionSheet.destroy();
+                            if(wp81 === true){
+                                if(window.confirm("Are you sure to delete " + displayName + "?")){
+                                    MyGlobals.mainPanel.deleteItem(recordId, me.getStore());
                                 }
-                            });
+                                actionSheet.hide();
+                                actionSheet.destroy();
+                            } else {
+                                Ext.Msg.confirm("Delete", "Are you sure to delete " + displayName + " ?", function(button){
+                                    if(button === 'yes' || button === 'ok'){
+                                        MyGlobals.mainPanel.deleteItem(recordId, me.getStore());
+
+                                        actionSheet.hide();
+                                        actionSheet.destroy();
+                                    }
+                                });
+                            }
                         }
-                    },{
+                    }, {
                         text: 'Cancel',
                         ui: 'normal',
                         handler: function(){
@@ -241,9 +299,9 @@ Ext.define('ACMobileClient.view.FolderListList', {
                 ]
             });
 
-        MyGlobals.mainPanel.checkObjectAccessLevel(record, actionSheet);
+        MyGlobals.mainPanel.checkObjectAccessLevel(record, actionSheet, wp81);
 
-        if (record.get('isfolder')) {
+        if (recordIsFolder) {
             disableDownload = true;
         }
         actionSheet.down("#btnDownload").setDisabled(disableDownload);

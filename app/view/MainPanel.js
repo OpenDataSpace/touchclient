@@ -652,7 +652,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
 
     },
 
-    deleteItem: function(objectId, dataview){
+    deleteItem: function(objectId, dataStore){
         console.log("To delete Item: " + objectId);
 
         Ext.Viewport.setMasked({
@@ -666,7 +666,8 @@ Ext.define('ACMobileClient.view.MainPanel', {
             params: {},
             success:function(response, success){
                 Ext.Viewport.setMasked(false);
-                dataview.getStore().loadPage(1);
+                dataStore.loadPage(1);
+                //dataview.getStore().loadPage(1);
             },
             failure:function(response){
                 Ext.Viewport.setMasked(false);
@@ -698,54 +699,44 @@ Ext.define('ACMobileClient.view.MainPanel', {
         });
     },
 
-    renameItem: function(record){
-        var objectId = record.get('id'),
-            orgName = record.get('name'),
-            newName = "",
-            parmeter;
-
-            Ext.Msg.prompt(
-                "", 
-                "Please input new name: ", 
-                function(buttonId, value){
-                    if(buttonId === 'ok'){
-                        newName = Ext.String.trim(value);
-
-                        if(newName !== "" && newName !== orgName){
-                            parmeter = Ext.String.format('{"name":"{0}"}', newName.replace('"', '\\"') );
-                            console.log(parmeter);
-                            //Ext.Viewport.setMasked(true);
-
-                            ACUtils.utils.checkConnectionWithFunction(function() {
-                                Ext.Ajax.request({
-                                    method:'PUT',
-                                    url:"/api/rest/object/"+ objectId +".json",
-                                    params: {
-                                        "data":parmeter
-                                    },
-                                    success:function(response, success){
-                                        //Ext.Viewport.setMasked(false);
-                                        record.set('name', newName);
-                                    },
-                                    failure:function(response){
-                                        //Ext.Viewport.setMasked(false);
-                                        Ext.Msg.alert("Failed", "Rename failed.", Ext.emptyFn);
-                                    }
-                                });
-                            }); 
-                        }
-                    }
+    renameItem: function(recordId, newName, folderStore, wp81){
+        var parmeter = Ext.String.format('{"name":"{0}"}', newName.replace('"', '\\"') );
+        ACUtils.utils.checkConnectionWithFunction(function() {
+            Ext.Ajax.request({
+                method:'PUT',
+                url:"/api/rest/object/"+ recordId +".json",
+                params: {
+                    "data":parmeter
                 },
-                this,
-                false,
-                orgName
-            );
+                success:function(response, success){
+                    //Ext.Viewport.setMasked(false);
+                    //record.set('name', newName);
+                    folderStore.loadPage(1);
+
+                },
+                failure:function(response){
+                    //Ext.Viewport.setMasked(false);
+                    if(wp81 === true){
+                        window.alert("Rename failed.");
+                    } else {
+                        Ext.Msg.alert("Failed", "Rename failed.", Ext.emptyFn);
+                    }
+                    
+                }
+            });
+        }); 
     },
 
-    checkObjectAccessLevel: function(record, actionSheet){
-        var objectId = record.get("id"),
+    checkObjectAccessLevel: function(record, actionSheet, noTap){
+        var objectId = null,
             accessLevelArry = ["write", "rename"],
             i, hasAccessLevel, rs;
+
+        if(noTap === true){
+            objectId = record.id;
+        } else {
+            objectId = record.get("id");
+        }
 
         ACUtils.utils.checkConnectionWithFunction(function() {
             for(i=0; i<accessLevelArry.length; i+=1){
