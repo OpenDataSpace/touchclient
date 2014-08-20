@@ -149,9 +149,6 @@ Ext.define('ACMobileClient.view.FolderListList', {
 
     // wp81 use in wp 8.1, if the os is wp8.1 wp81=true, else wp81 is a object
     onListItemTaphold: function(dataview, index, target, record, e, eOpts, wp81) {
-        
-        console.log(wp81)
-
         var recordId = null,
             recordIsFolder = null,
             recordName = null,
