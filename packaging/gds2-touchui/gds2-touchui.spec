@@ -1,4 +1,4 @@
-%global ver 1.6.195
+%global ver 1.6.196
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed Aug 20 2014 bob-chen <562336543@qq.com> - 1.6.196-1
+- gitrev: 11c8557d9df6a75e988ff14d9b4681382ad3dec0
+  adapt create folder with wp8.1
 * Fri Aug 15 2014 bob-chen <562336543@qq.com> - 1.6.195-1
 - gitrev: 25d6d2df91a31d9695609661b8552a13e2159704
   fix issue  3871

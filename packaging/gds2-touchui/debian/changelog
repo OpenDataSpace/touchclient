@@ -1,3 +1,10 @@
+gds2-touchui (1.6.196) unstable; urgency=low
+
+  * gitrev: 11c8557d9df6a75e988ff14d9b4681382ad3dec0
+    adapt create folder with wp8.1
+
+ -- bob-chen <562336543@qq.com>  Wed, 20 Aug 2014 11:16:35 +0800
+
 gds2-touchui (1.6.195) unstable; urgency=low
 
   * gitrev: 25d6d2df91a31d9695609661b8552a13e2159704
