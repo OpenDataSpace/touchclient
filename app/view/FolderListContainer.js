@@ -105,12 +105,6 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
         var dataview = button.up().up().up().down("#documentList"),
             folderName = "";
 
-        if(navigator.userAgent.match(/Trident\/7\.0/)){
-            folderName = window.prompt("Please input new folder name: ", "");
-            if(Ext.String.trim(folderName) !== ""){
-                 MyGlobals.mainPanel.createFolder(button.parentFolderId, folderName, dataview);
-            }
-        } else {
             Ext.Msg.prompt("New Folder", "Please input new folder name: ", function(buttonId, value){
                 if(buttonId === 'ok'){
                     folderName = Ext.String.trim(value);
@@ -121,7 +115,24 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                     }
                 }
             });
-        }
+
+        // if(navigator.userAgent.match(/Trident\/7\.0/)){
+        //     folderName = window.prompt("Please input new folder name: ", "");
+        //     if(Ext.String.trim(folderName) !== ""){
+        //          MyGlobals.mainPanel.createFolder(button.parentFolderId, folderName, dataview);
+        //     }
+        // } else {
+        //     Ext.Msg.prompt("New Folder", "Please input new folder name: ", function(buttonId, value){
+        //         if(buttonId === 'ok'){
+        //             folderName = Ext.String.trim(value);
+
+        //             if(folderName !== ""){
+        //                 console.log(folderName);
+        //                 MyGlobals.mainPanel.createFolder(button.parentFolderId, folderName, dataview);
+        //             }
+        //         }
+        //     });
+        // }
     },
 
     onContainerActivate: function(newActiveItem, container, oldActiveItem, eOpts) {

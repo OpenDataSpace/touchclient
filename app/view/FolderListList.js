@@ -204,28 +204,46 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             console.log("handle rename");
 
                             var newName;
-                            if(wp81 === true){
-                                newName = window.prompt("Please input new name: ", recordName);
-                                if(newName != null && newName != recordName){
-                                    MyGlobals.mainPanel.renameItem(recordId, newName, folderStore, wp81);
-                                }
-                            } else {
-                                Ext.Msg.prompt(
-                                    "", 
-                                    "Please input new name: ", 
-                                    function(buttonId, value){
-                                        if(buttonId === 'ok'){
-                                            newName = Ext.String.trim(value);
-                                            if(newName !== "" && newName !== recordName){
-                                                MyGlobals.mainPanel.renameItem(recordId, newName, folderStore, wp81);
-                                            }
+
+                            Ext.Msg.prompt(
+                                "", 
+                                "Please input new name: ", 
+                                function(buttonId, value){
+                                    if(buttonId === 'ok'){
+                                        newName = Ext.String.trim(value);
+                                        if(newName !== "" && newName !== recordName){
+                                            MyGlobals.mainPanel.renameItem(recordId, newName, folderStore, wp81);
                                         }
-                                    },
-                                    this,
-                                    false,
-                                    recordName
-                                );
-                            }
+                                    }
+                                },
+                                this,
+                                false,
+                                recordName
+                            );
+
+
+                            // if(wp81 === true){
+                            //     newName = window.prompt("Please input new name: ", recordName);
+                            //     if(newName != null && newName != recordName){
+                            //         MyGlobals.mainPanel.renameItem(recordId, newName, folderStore, wp81);
+                            //     }
+                            // } else {
+                            //     Ext.Msg.prompt(
+                            //         "", 
+                            //         "Please input new name: ", 
+                            //         function(buttonId, value){
+                            //             if(buttonId === 'ok'){
+                            //                 newName = Ext.String.trim(value);
+                            //                 if(newName !== "" && newName !== recordName){
+                            //                     MyGlobals.mainPanel.renameItem(recordId, newName, folderStore, wp81);
+                            //                 }
+                            //             }
+                            //         },
+                            //         this,
+                            //         false,
+                            //         recordName
+                            //     );
+                            // }
 
                             actionSheet.hide();
                             actionSheet.destroy();
@@ -267,22 +285,31 @@ Ext.define('ACMobileClient.view.FolderListList', {
                            // var displayName = record.raw.displayname || record.raw.name;
                             var displayName = recordName;
 
-                            if(wp81 === true){
-                                if(window.confirm("Are you sure to delete " + displayName + "?")){
+                            Ext.Msg.confirm("Delete", "Are you sure to delete " + displayName + " ?", function(button){
+                                if(button === 'yes' || button === 'ok'){
                                     MyGlobals.mainPanel.deleteItem(recordId, me.getStore());
-                                }
-                                actionSheet.hide();
-                                actionSheet.destroy();
-                            } else {
-                                Ext.Msg.confirm("Delete", "Are you sure to delete " + displayName + " ?", function(button){
-                                    if(button === 'yes' || button === 'ok'){
-                                        MyGlobals.mainPanel.deleteItem(recordId, me.getStore());
 
-                                        actionSheet.hide();
-                                        actionSheet.destroy();
-                                    }
-                                });
-                            }
+                                    actionSheet.hide();
+                                    actionSheet.destroy();
+                                }
+                            });
+
+                            // if(wp81 === true){
+                            //     if(window.confirm("Are you sure to delete " + displayName + "?")){
+                            //         MyGlobals.mainPanel.deleteItem(recordId, me.getStore());
+                            //     }
+                            //     actionSheet.hide();
+                            //     actionSheet.destroy();
+                            // } else {
+                            //     Ext.Msg.confirm("Delete", "Are you sure to delete " + displayName + " ?", function(button){
+                            //         if(button === 'yes' || button === 'ok'){
+                            //             MyGlobals.mainPanel.deleteItem(recordId, me.getStore());
+
+                            //             actionSheet.hide();
+                            //             actionSheet.destroy();
+                            //         }
+                            //     });
+                            // }
                         }
                     }, {
                         text: 'Cancel',

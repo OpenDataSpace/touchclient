@@ -103,6 +103,53 @@ Ext.define('ACMobileClient.controller.MyController', {
         globalViewPort = Ext.create("ACMobileClient.view.ViewportLogin", {});
         globalViewPort.show();
 
+        (function(){
+            var _MsgAlert = Ext.Msg.alert,
+                _MsgPrompt = Ext.Msg.prompt,
+                _MsgConfirm = Ext.Msg.confirm,
+                wp81 = navigator.userAgent.match(/Trident\/7\.0/); //wp8.1
+
+            Ext.Msg.alert = function(title, message, fn){
+                if(wp81){
+                    window.alert(message);
+                    if(typeof fn === "function"){
+                        fn();
+                    }
+                } else {
+                    _MsgAlert.apply(this, arguments);
+                }
+            }
+
+            Ext.Msg.confirm = function(title, message, fn, scope){
+                if(wp81){
+                    if(window.confirm(message)){
+                        if(typeof fn === "function"){
+                            fn("ok");
+                        }
+                    }
+
+                } else {
+                    _MsgConfirm.apply(this, arguments);
+                }
+            }
+
+            Ext.Msg.prompt = function(title, message, fn, scope, multiLine, value, prompt){
+                if(wp81){ 
+                    var folderName = window.prompt(message, (value ? value:"") ),
+                        buttonId = "ok";
+                    if(Ext.String.trim(folderName) === "" ){
+                        buttonId = "";
+                    }
+                    if(typeof fn === "function"){
+                        fn(buttonId, folderName);
+                    }
+                } else {
+                    _MsgPrompt.apply(this, arguments);
+                }
+            }
+
+        })();
+
     }
 
 });

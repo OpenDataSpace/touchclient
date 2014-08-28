@@ -260,8 +260,13 @@ Ext.define('ACMobileClient.view.LoginPanel', {
         }, 
         function() {
             Ext.Viewport.setMasked(false);
-            Ext.Msg.alert('Error', 'Login failed,<br /> Username/password incorrect?', Ext.emptyFn);
 
+            Ext.Msg.alert('Error', 'Login failed, Username/password incorrect?', Ext.emptyFn);
+            // if(navigator.userAgent.match(/Trident\/7\.0/)){
+            //     window.alert('Login failed, Username/password incorrect?');
+            // } else {
+            //     Ext.Msg.alert('Error', 'Login failed,<br /> Username/password incorrect?', Ext.emptyFn);
+            // }
         }
         );
     }
