@@ -1,3 +1,10 @@
+gds2-touchui (1.6.197) unstable; urgency=low
+
+  * gitrev: c343b0b8b5d61e16249d412cd954efb4ef74741a
+    refactor msg dialog to adapt wp8.1
+
+ -- bob-chen <562336543@qq.com>  Thu, 28 Aug 2014 16:53:10 +0800
+
 gds2-touchui (1.6.196) unstable; urgency=low
 
   * gitrev: 11c8557d9df6a75e988ff14d9b4681382ad3dec0

@@ -1,4 +1,4 @@
-%global ver 1.6.196
+%global ver 1.6.197
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Thu Aug 28 2014 bob-chen <562336543@qq.com> - 1.6.197-1
+- gitrev: c343b0b8b5d61e16249d412cd954efb4ef74741a
+  refactor msg dialog to adapt wp8.1
 * Wed Aug 20 2014 bob-chen <562336543@qq.com> - 1.6.196-1
 - gitrev: 11c8557d9df6a75e988ff14d9b4681382ad3dec0
   adapt create folder with wp8.1
