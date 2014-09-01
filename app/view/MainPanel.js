@@ -316,6 +316,9 @@ Ext.define('ACMobileClient.view.MainPanel', {
             MyGlobals.linkPanel = null;
         }
         if (MyGlobals.isNarrow()) {
+            if(navigator.userAgent.match(/Trident\/7\.0/)){
+                me.setActiveItem(0);
+            }
             me.setActiveItem(MyGlobals.menuPanel);
         } 
     },
