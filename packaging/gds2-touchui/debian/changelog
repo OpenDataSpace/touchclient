@@ -1,3 +1,10 @@
+gds2-touchui (1.6.198) unstable; urgency=low
+
+  * gitrev: a2828ff7e9f7425a18c821d9cf0fa7060e03f884
+    fix create link panel can't hide in wp8.1
+
+ -- bob-chen <562336543@qq.com>  Mon, 1 Sep 2014 16:27:45 +0800
+
 gds2-touchui (1.6.197) unstable; urgency=low
 
   * gitrev: c343b0b8b5d61e16249d412cd954efb4ef74741a

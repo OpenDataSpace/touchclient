@@ -1,4 +1,4 @@
-%global ver 1.6.197
+%global ver 1.6.198
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Sep  1 2014 bob-chen <562336543@qq.com> - 1.6.198-1
+- gitrev: a2828ff7e9f7425a18c821d9cf0fa7060e03f884
+  fix create link panel can't hide in wp8.1
 * Thu Aug 28 2014 bob-chen <562336543@qq.com> - 1.6.197-1
 - gitrev: c343b0b8b5d61e16249d412cd954efb4ef74741a
   refactor msg dialog to adapt wp8.1
