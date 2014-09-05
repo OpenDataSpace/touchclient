@@ -1,4 +1,4 @@
-%global ver 1.6.198
+%global ver 1.6.199
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Fri Sep  5 2014 bob-chen <562336543@qq.com> - 1.6.199-1
+- gitrev: 8e02755bb8eb3124c529f5b444a45ad138e5e224
+  use auth gw to login
 * Mon Sep  1 2014 bob-chen <562336543@qq.com> - 1.6.198-1
 - gitrev: a2828ff7e9f7425a18c821d9cf0fa7060e03f884
   fix create link panel can't hide in wp8.1
