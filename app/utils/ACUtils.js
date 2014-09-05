@@ -113,37 +113,88 @@ Ext.define('ACMobileClient.utils.ACUtils', {
     },
 
     login: function(userName, passWord, successFn, failureFn) {
-        //not connected anymore, so reconnect
+        var json
         Ext.Ajax.request({
-            url: '/api/rest/session/login.json',
-            method: 'post',
-            params: { 
-                username: userName,
-                password: passWord,
-                noCache: new Date().getTime()
+            method: 'POST',
+            headers: {
+                "Content-Type":"application/json",
+                "Accept":"application/json"
             },
+            url: '/authgw/getToken',
+            params: Ext.encode({
+                'username':userName,
+                'password':passWord
+            }),
             success: function(response) {
-                var jsonResp = Ext.decode(response.responseText);
+                var json = Ext.decode(response.responseText)
+                if(json.token){
+                    Ext.Ajax.request({
+                        url: '/api/rest/session/login.json',
+                        method: 'post',
+                        params: { 
+                            'token':json.token,
+                            'username': userName
+                        },
+                        success: function(response) {
+                            var jsonResp = Ext.decode(response.responseText);
 
-                if (!jsonResp.sessionId) {
-                    if (failureFn) {
-                        failureFn();
-                    }
-                }
-                else {
-                    MyGlobals.sessionId = jsonResp.sessionId;
-                    if (successFn) {
-                        successFn(jsonResp.sessionId);
-                    }
-                }
-            },
-            failure: function() {
-                if (failureFn) {
+                            if (!jsonResp.sessionId) {
+                                if (failureFn) {
+                                    failureFn();
+                                }
+                            }
+                            else {
+                                MyGlobals.sessionId = jsonResp.sessionId;
+                                if (successFn) {
+                                    successFn(jsonResp.sessionId);
+                                }
+                            }
+                        },
+                        failure: function() {
+                            failureFn();
+                        },
+                        scope: this
+                    });
+                } else {
                     failureFn();
                 }
             },
-            scope: this
+            failure: function(){
+                failureFn();
+            }
         });
+
+        //not connected anymore, so reconnect
+        // Ext.Ajax.request({
+        //     url: '/api/rest/session/login.json',
+        //     method: 'post',
+        //     params: { 
+        //         username: userName,
+        //         password: passWord,
+        //         noCache: new Date().getTime()
+        //     },
+        //     success: function(response) {
+        //         var jsonResp = Ext.decode(response.responseText);
+
+        //         if (!jsonResp.sessionId) {
+        //             if (failureFn) {
+        //                 failureFn();
+        //             }
+        //         }
+        //         else {
+        //             MyGlobals.sessionId = jsonResp.sessionId;
+        //             if (successFn) {
+        //                 successFn(jsonResp.sessionId);
+        //             }
+        //         }
+        //     },
+        //     failure: function() {
+        //         if (failureFn) {
+        //             failureFn();
+        //         }
+        //     },
+        //     scope: this
+        // });
     },
 
     checkConnectionWithFunction: function(callBack) {
