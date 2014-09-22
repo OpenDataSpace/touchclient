@@ -1,4 +1,4 @@
-%global ver 1.6.199
+%global ver 1.6.200
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Sep 22 2014 bob-chen <562336543@qq.com> - 1.6.200-1
+- gitrev: 492cc1a4af4add7faed18ebab9f5171e7599c4ae
+  fix issue 4040
 * Fri Sep  5 2014 bob-chen <562336543@qq.com> - 1.6.199-1
 - gitrev: 8e02755bb8eb3124c529f5b444a45ad138e5e224
   use auth gw to login
