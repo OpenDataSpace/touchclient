@@ -93,7 +93,6 @@ Ext.define('ACMobileClient.controller.PreviewController', {
 
     setPageLabel: function(page, pageCount) {
         this.currentPreviewContainer.down('#pageLabel').setHtml(page+"/"+pageCount);
-
     },
 
     loadContentContainer: function(container, persistent, hasPrevious, navTitle) {

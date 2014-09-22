@@ -31,12 +31,12 @@ Ext.define('ACMobileClient.view.PreviewContainer', {
         items: [
             {
                 xtype: 'container',
-                height: 40,
+                height: 20,
                 itemId: 'labeFrame',
-                left: 14,
+                left: 0,
                 style: 'background:#ddd;opacity:0.5;',
-                top: 20,
-                width: 60,
+                top: 0,
+                width: 30,
                 layout: {
                     type: 'fit'
                 },
@@ -44,9 +44,10 @@ Ext.define('ACMobileClient.view.PreviewContainer', {
                     {
                         xtype: 'label',
                         centered: true,
-                        html: '1/2',
+                        html: '',
                         itemId: 'pageLabel',
-                        ui: 'dark'
+                        ui: 'dark',
+                        style: 'font-size:0.5em;'
                     }
                 ]
             },
