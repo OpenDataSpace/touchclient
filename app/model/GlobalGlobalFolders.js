@@ -33,6 +33,9 @@ Ext.define('ACMobileClient.model.GlobalGlobalFolders', {
                 name: 'classname'
             },
             {
+                name: 'previewable',
+            },
+            {
                 name: 'nameextension'
             }
         ]

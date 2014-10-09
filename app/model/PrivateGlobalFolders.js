@@ -48,6 +48,9 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
                 name: 'classname'
             },
             {
+                name: 'previewable'
+            },
+            {
                 name: 'nameextension',
             }
         ],
@@ -66,6 +69,7 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
                     'ownobject',
                     'sharedowner',
                     'classname',
+                    'previewable',
                     'nameextension'
                 ]
                 // ,

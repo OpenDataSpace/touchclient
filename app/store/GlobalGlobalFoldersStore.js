@@ -30,6 +30,7 @@ Ext.define('ACMobileClient.store.GlobalGlobalFoldersStore', {
                     'uuid',
                     'owner.fullname',
                     'creator.fullname',
+                    'previewable',
                     'nameextension'
                 ]
                 // ,
