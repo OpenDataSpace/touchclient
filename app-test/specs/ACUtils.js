@@ -10,7 +10,7 @@ describe("ACUtils library", function () {
 
         waitsFor(function () {
             return goodSpy.wasCalled || badSpy.wasCalled;
-        }, "One spy should have been called", 10000);
+        }, "One spy should have been called", 40000);
 
         runs(function () {
             expect(badSpy).not.toHaveBeenCalled();
