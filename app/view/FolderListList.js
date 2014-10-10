@@ -155,8 +155,8 @@ Ext.define('ACMobileClient.view.FolderListList', {
             me = this;
         if(wp81 === true){
             this.lastAction = Date.now();
-            recordId = record.id,
-            recordIsFolder = record.isfolder,
+            recordId = record.id;
+            recordIsFolder = record.isfolder;
             recordName = record.name;
         } else {
             recordId = record.get("id"),

@@ -113,7 +113,6 @@ Ext.define('ACMobileClient.utils.ACUtils', {
     },
 
     login: function(userName, passWord, successFn, failureFn) {
-        var json
         Ext.Ajax.request({
             method: 'POST',
             headers: {
@@ -126,7 +125,7 @@ Ext.define('ACMobileClient.utils.ACUtils', {
                 'password':passWord
             }),
             success: function(response) {
-                var json = Ext.decode(response.responseText)
+                var json = Ext.decode(response.responseText);
                 if(json.token){
                     Ext.Ajax.request({
                         url: '/api/rest/session/login.json',
@@ -140,7 +139,7 @@ Ext.define('ACMobileClient.utils.ACUtils', {
 
                             if (!jsonResp.sessionId) {
                                 if (failureFn) {
-                                    failureFn();
+                                    failureFn(response);
                                 }
                             }
                             else {
@@ -151,16 +150,16 @@ Ext.define('ACMobileClient.utils.ACUtils', {
                             }
                         },
                         failure: function() {
-                            failureFn();
+                            failureFn(response);
                         },
                         scope: this
                     });
                 } else {
-                    failureFn();
+                    failureFn(response);
                 }
             },
-            failure: function(){
-                failureFn();
+            failure: function(response){
+                failureFn(response);
             }
         });
 
@@ -244,7 +243,7 @@ Ext.define('ACMobileClient.utils.ACUtils', {
     },
 
     checkFile: function(files){
-        if(files.length == 0){
+        if(files.length === 0){
             Ext.Msg.alert('Info', "File type not supported.", Ext.emptyFn);
         }
     }

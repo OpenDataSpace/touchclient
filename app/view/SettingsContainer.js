@@ -181,7 +181,7 @@ Ext.define('ACMobileClient.view.SettingsContainer', {
 
         if(navigator.platform === 'BlackBerry'){
             if(Ext.os.deviceType === 'Phone'){
-                deviceEvent = 'touchup'
+                deviceEvent = 'touchup';
             }
             document.getElementById(autoLoginItem.getId()).addEventListener(deviceEvent,function(){
                 if(autoLoginItem.isChecked()){

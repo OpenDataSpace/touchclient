@@ -145,7 +145,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
         } else {
             if(navigator.platform === 'BlackBerry'){
                 if(Ext.os.deviceType === 'Phone'){
-                    deviceEvent = 'touchup'
+                    deviceEvent = 'touchup';
                 }
                 document.getElementById(checkBoxItem.getId()).addEventListener(deviceEvent,function(){
                     if(checkBoxItem.isChecked()){
@@ -258,10 +258,15 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                 scope: me
             });
         }, 
-        function() {
+        function(response) {
+            var responseText = response.responseText || "",
+                json = Ext.decode(responseText),
+                msg = "Login failed, Username/password incorrect?";
+            if(json.message === "LOCKED"){
+                msg = "The login attempts are currently locked until the " + new Date(json.lockedUntil).toLocaleString();
+            }
             Ext.Viewport.setMasked(false);
-
-            Ext.Msg.alert('Error', 'Login failed, Username/password incorrect?', Ext.emptyFn);
+            Ext.Msg.alert('Error', msg, Ext.emptyFn);
             // if(navigator.userAgent.match(/Trident\/7\.0/)){
             //     window.alert('Login failed, Username/password incorrect?');
             // } else {

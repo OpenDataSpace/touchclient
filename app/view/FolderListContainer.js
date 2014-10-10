@@ -163,7 +163,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
     },
 
     onContainerPainted: function(element, eOpts){
-        console.log(this.getComponent('accordionContainer').getId())
+        //console.log(this.getComponent('accordionContainer').getId());
 
         if(!navigator.userAgent.match(/Trident\/7\.0/)){
             return true;
@@ -178,10 +178,10 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
             // console.log(e.target.parentNode)
             // e.target.parentNode.click()
 
-            console.log(e.target.getAttribute("itemid"))
+            //console.log(e.target.getAttribute("itemid"));
             var itemId = e.target.getAttribute("itemid"),
                 itemName = e.target.getAttribute("itemname"),
-                itemIsFolder = e.target.getAttribute("itemisfolder") == 'true' ? true:false;
+                itemIsFolder = e.target.getAttribute("itemisfolder") === 'true' ? true:false;
 
             if(!itemId){
                 return;
@@ -193,7 +193,6 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                 me.down("#documentList").onListItemTaphold(null, null, null, {id:itemId, name:itemName, isfolder:itemIsFolder}, null, null, true);
             }, 500);
             return false;
-            e.stopPropagation();
         }, false);
 
         document.getElementById( this.getComponent('accordionContainer').getId()).addEventListener('mouseout', function(e){

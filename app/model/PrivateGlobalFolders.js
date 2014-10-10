@@ -51,7 +51,7 @@ Ext.define('ACMobileClient.model.PrivateGlobalFolders', {
                 name: 'previewable'
             },
             {
-                name: 'nameextension',
+                name: 'nameextension'
             }
         ],
         proxy: {

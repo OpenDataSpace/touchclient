@@ -91,8 +91,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
             'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
         });
 
-
-        console.log(document.getElementById(buttonId).parentNode.id)
+        //console.log(document.getElementById(buttonId).parentNode.id);
 
         me.uploaders.push(uploader);
 
