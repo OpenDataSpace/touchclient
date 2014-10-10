@@ -1,4 +1,4 @@
-%global ver 1.6.201
+%global ver 1.6.203
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,11 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Fri Oct 10 2014 bob-chen <562336543@qq.com> - 1.6.203-1
+- gitrev: ac2ac160e391a96f4d099fd4707e14fe17e9db84
+  revert st script path in run-tests.html
+- gitrev: 77288d4a6f507133ed12c84b26c2eb7d5c8b9d40
+  change account locked msg
 * Fri Oct 10 2014 bob-chen <562336543@qq.com> - 1.6.201-1
 - gitrev: 0ecc0230d183041ff7d84d5d2bbad98bbd33fafa
   extend test case waiting time

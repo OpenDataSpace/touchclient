@@ -1,3 +1,12 @@
+gds2-touchui (1.6.203) unstable; urgency=low
+
+  * gitrev: ac2ac160e391a96f4d099fd4707e14fe17e9db84
+    revert st script path in run-tests.html
+  * gitrev: 77288d4a6f507133ed12c84b26c2eb7d5c8b9d40
+    change account locked msg
+
+ -- bob-chen <562336543@qq.com>  Fri, 10 Oct 2014 17:47:14 +0800
+
 gds2-touchui (1.6.201) unstable; urgency=low
 
   * gitrev: 0ecc0230d183041ff7d84d5d2bbad98bbd33fafa
