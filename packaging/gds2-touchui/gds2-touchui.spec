@@ -1,4 +1,4 @@
-%global ver 1.6.200
+%global ver 1.6.201
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,11 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Fri Oct 10 2014 bob-chen <562336543@qq.com> - 1.6.201-1
+- gitrev: 0ecc0230d183041ff7d84d5d2bbad98bbd33fafa
+  extend test case waiting time
+- gitrev: 0178038fc44205214326dc7eaaf6991761e5deba
+  fix issue 4212
 * Mon Sep 22 2014 bob-chen <562336543@qq.com> - 1.6.200-1
 - gitrev: 492cc1a4af4add7faed18ebab9f5171e7599c4ae
   fix issue 4040
