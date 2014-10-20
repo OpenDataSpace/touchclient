@@ -159,8 +159,8 @@ Ext.define('ACMobileClient.view.FolderListList', {
             recordIsFolder = record.isfolder;
             recordName = record.name;
         } else {
-            recordId = record.get("id"),
-            recordIsFolder =  record.get('isfolder'),
+            recordId = record.get("id");
+            recordIsFolder =  record.get('isfolder');
             recordName = record.get('name');
 
             console.log(recordId)
@@ -182,16 +182,23 @@ Ext.define('ACMobileClient.view.FolderListList', {
                         ui: 'action',
                         handler: function(){
                             console.log("download taphold");
-                            objectId = recordId;
-                            ifr = document.createElement('iframe');
+                            objectId = recordId,
                             url = '/api/rest/object/download/' + objectId;
-                            ifr.style.display = 'none';
-                            document.body.appendChild(ifr);
-                            ifr.src = url;
-                            ifr.onload = function(e) {
-                                document.body.removeChild(ifr);
-                                ifr = null;
-                            };
+
+                            if(Ext.os.is.iOS){
+                                //window.location.href = url;                                
+                                window.open(url);
+                            } else {
+                                ifr = document.createElement('iframe');
+                                ifr.style.display = 'none';
+                                document.body.appendChild(ifr);
+                                ifr.src = url;
+                                ifr.onload = function(e) {
+                                    document.body.removeChild(ifr);
+                                    ifr = null;
+                                };
+                            }
+
                             actionSheet.hide();
                             actionSheet.destroy();
                         }
