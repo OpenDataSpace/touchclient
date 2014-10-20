@@ -1,4 +1,4 @@
-%global ver 1.6.203
+%global ver 1.6.204
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Oct 20 2014 bob-chen <562336543@qq.com> - 1.6.204-1
+- gitrev: e1f055dd045991d442efc0b35906c4d783186331
+  fix  issue 4209
 * Fri Oct 10 2014 bob-chen <562336543@qq.com> - 1.6.203-1
 - gitrev: ac2ac160e391a96f4d099fd4707e14fe17e9db84
   revert st script path in run-tests.html
