@@ -1,4 +1,4 @@
-%global ver 1.6.204
+%global ver 1.6.205
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Fri Oct 24 2014 bob-chen <562336543@qq.com> - 1.6.205-1
+- gitrev: 1c75c294fe1f2a4951dbb012813d90b4dc29a37b
+  fix issue 4213
 * Mon Oct 20 2014 bob-chen <562336543@qq.com> - 1.6.204-1
 - gitrev: e1f055dd045991d442efc0b35906c4d783186331
   fix  issue 4209
