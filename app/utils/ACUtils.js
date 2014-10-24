@@ -144,9 +144,21 @@ Ext.define('ACMobileClient.utils.ACUtils', {
                             }
                             else {
                                 MyGlobals.sessionId = jsonResp.sessionId;
-                                if (successFn) {
-                                    successFn(jsonResp.sessionId);
-                                }
+                                MyGlobals.currentUser = userName;
+
+                                Ext.Ajax.request({
+                                    url: '/api/rest/dataspace/isdataspaceadmin',
+                                    method: 'get',
+                                    success: function(response) {
+                                        MyGlobals.isDataSpaceAdmin = Ext.decode(response.responseText).isDataSpaceAdmin;
+                                        if (successFn) {
+                                            successFn(jsonResp.sessionId);
+                                        }
+                                    },
+                                    failure: function(){
+                                        failureFn(response);
+                                    }
+                                })
                             }
                         },
                         failure: function() {

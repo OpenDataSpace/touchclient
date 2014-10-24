@@ -161,6 +161,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
     },
 
     navigateToFolder: function(fId, name, isRoot, area) {
+        var me = this;
         ACUtils.utils.checkConnectionWithFunction(function() {
 
             var parentName = '',
@@ -185,6 +186,9 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     store = Ext.create("ACMobileClient.store.GlobalGlobalFoldersStore", {});
                     fId = MyGlobals.globalId;//'agorum/roi/files/dataspace'
                     parentName = "Global";
+                    if( !MyGlobals.isDataSpaceAdmin){
+                        foldC.down("#CreateFoldBtn").disable(true);
+                    }
                 } else {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
                     foldC.down('#documentList').setGrouped(true);
@@ -237,7 +241,11 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 fId, 'protected',
                 function() { // onGranted
                     foldC.down('#uploadButton').enable();
-                    foldC.down("#CreateFoldBtn").enable(); 
+                    if( !MyGlobals.isDataSpaceAdmin && me.down('#tabPanel').getActiveItem().getItemId() === "globalFolders"){
+                        foldC.down("#CreateFoldBtn").disable();
+                    } else {
+                        foldC.down("#CreateFoldBtn").enable();
+                    }
                     MyGlobals.uploadController.initUploader(foldC);
                 },
                 function() { // onDenied

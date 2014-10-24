@@ -68,6 +68,8 @@ Ext.define('ACMobileClient.controller.MyController', {
             'myId':'',
             'sharedId':'',
             'globalId':'',
+            'currentUser':'',
+            'isDataspaceAdmin' : false,
             'isNarrow': function() {
                 if (navigator.userAgent.match(/IEMobile/) || navigator.userAgent.match(/Trident\/7\.0/)){ //wp8 & wp8.1
                     if(Ext.Viewport.getWindowHeight()+200 >= Ext.Viewport.getWindowWidth()){
