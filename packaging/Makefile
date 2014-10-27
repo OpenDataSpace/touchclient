@@ -2,6 +2,7 @@ TOPDIR = $(shell pwd)
 SUBDIRS = gds2-touchui
 CHGFILES = $(addsuffix _$(VERSION)_amd64.changes,$(SUBDIRS))
 RPMRFILES = $(addprefix noarch/,$(addsuffix -$(VERSION)*.el6*.rpm,$(SUBDIRS)))
+RPM7FILES = $(addprefix noarch/,$(addsuffix -$(VERSION)*.el7*.rpm,$(SUBDIRS)))
 RPMSFILES = $(addprefix noarch/,$(addsuffix -$(VERSION)*.sles*.rpm,$(SUBDIRS)))
 RD = $(if $(shell cat /etc/debian_version),--nodeps)
 DD = $(if $(shell cat /etc/redhat-release),-d)
@@ -19,6 +20,10 @@ upload:
 		set -e; test -f $$r || (echo Missing $$r; exit 1) ; \
 		(set -e; echo "Uploading $$r" && rput -c rput.cf $$r) ; \
 	done
+	@set -e; for r in $(RPM7FILES) ; do \
+		set -e; test -f $$r || (echo Missing $$r; exit 1) ; \
+		(set -e; echo "Uploading $$r" && rput -c r7put.cf $$r) ; \
+	done
 	@set -e; for r in $(RPMSFILES) ; do \
 		set -e; test -f $$r || (echo Missing $$r; exit 1) ; \
 		(set -e; echo "Uploading $$r" && rput -c sput.cf $$r) ; \
@@ -29,6 +34,7 @@ build:
 		$(MAKE) -C $$d buildnumber ; \
 		cd $$d && dpkg-buildpackage $(DD) -b -tc -us -uc && \
 		rpmbuild -bb $(RD) --define "dist .el6" --define "gds2root `pwd`" --define "_rpmdir $(TOPDIR)" $$d.spec && \
+		rpmbuild -bb $(RD) --define "dist .el7" --define "gds2root `pwd`" --define "_rpmdir $(TOPDIR)" $$d.spec && \
 		rpmbuild -bb $(RD) --define "dist .sles" --define "suse_version 1103" --define "gds2root `pwd`" --define "_rpmdir $(TOPDIR)" $$d.spec ; \
 	done
 

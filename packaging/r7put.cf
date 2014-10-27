@@ -1,0 +1,2 @@
+dest = repo@rpmrepo.dataspace.cc:rhel7/incoming/
+post_upload_command = ssh repo@rpmrepo.dataspace.cc bin/repoupdate
