@@ -1,3 +1,10 @@
+gds2-touchui (1.6.206) unstable; urgency=low
+
+  * gitrev: 170f72d8b1e980177e96087576c1ccbb1931475d
+    Support CentOS7
+
+ -- Fritz Elfert <fritz@fritz-elfert.de>  Mon, 27 Oct 2014 11:06:24 +0100
+
 gds2-touchui (1.6.205) unstable; urgency=low
 
   * gitrev: 1c75c294fe1f2a4951dbb012813d90b4dc29a37b
