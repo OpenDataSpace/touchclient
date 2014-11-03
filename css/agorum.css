@@ -663,6 +663,14 @@
 }
 
 
+.x-blackberry-10 .x-mask {
+    background-color: rgba(0,0,0,0);
+}
+.x-blackberry-10 .x-mask-inner {
+    background-color: rgba(0,0,0,0.4);
+}
+
+
 .list-icon-type-aac {
     background-image: url('../images/icons/gds2icons.png')!important;
     background-position: left -0px!important
