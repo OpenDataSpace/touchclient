@@ -1,4 +1,4 @@
-%global ver 1.6.206
+%global ver 1.6.207
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Nov  3 2014 bob-chen <562336543@qq.com> - 1.6.207-1
+- gitrev: 4f9213ed7c2c9fb182697362d4ac047e5ca28b20
+  Fix issue 2460
 * Mon Oct 27 2014 Fritz Elfert <fritz@fritz-elfert.de> - 1.6.206-1
 - gitrev: 170f72d8b1e980177e96087576c1ccbb1931475d
   Support CentOS7
