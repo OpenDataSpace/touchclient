@@ -1,3 +1,10 @@
+gds2-touchui (1.6.208) unstable; urgency=low
+
+  * gitrev: ad0b600501e4fd5b5dc06566148bdff43cea2370
+    add forgot pwd function
+
+ -- bob-chen <562336543@qq.com>  Tue, 11 Nov 2014 09:57:12 +0800
+
 gds2-touchui (1.6.207) unstable; urgency=low
 
   * gitrev: 4f9213ed7c2c9fb182697362d4ac047e5ca28b20

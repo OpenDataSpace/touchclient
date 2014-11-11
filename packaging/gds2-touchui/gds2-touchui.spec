@@ -1,4 +1,4 @@
-%global ver 1.6.207
+%global ver 1.6.208
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue Nov 11 2014 bob-chen <562336543@qq.com> - 1.6.208-1
+- gitrev: ad0b600501e4fd5b5dc06566148bdff43cea2370
+  add forgot pwd function
 * Mon Nov  3 2014 bob-chen <562336543@qq.com> - 1.6.207-1
 - gitrev: 4f9213ed7c2c9fb182697362d4ac047e5ca28b20
   Fix issue 2460
