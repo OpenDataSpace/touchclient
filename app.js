@@ -94,7 +94,8 @@ Ext.application({
     controllers: [
         'MyController',
         'PreviewController',
-        'UploadController'
+        'UploadController',
+        'LoginController'
     ],
     name: 'ACMobileClient'
 });

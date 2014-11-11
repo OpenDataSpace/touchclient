@@ -671,6 +671,25 @@
 }
 
 
+.btn-forgot-pwd, .btn-forgot-pwd.x-button-pressing {
+    margin: 0 auto;
+
+    color: #AAA;
+    background-color: transparent;
+    background-image: none;
+    border-width: 0;
+    
+    margin-top:10px;
+}
+.btn-forgot-pwd.x-button-pressing {
+    text-decoration: underline;
+}
+.btn-forgot-pwd .x-button-label {
+    font-style: italic;
+    font-size: 80%;
+    font-weight: normal;
+}
+
 .list-icon-type-aac {
     background-image: url('../images/icons/gds2icons.png')!important;
     background-position: left -0px!important
