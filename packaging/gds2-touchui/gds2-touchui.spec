@@ -1,4 +1,4 @@
-%global ver 1.6.208
+%global ver 1.6.209
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue Nov 18 2014 bob-chen <562336543@qq.com> - 1.6.209-1
+- gitrev: 012270121ae0b7d073576c1ac7a8bbbb25d90160
+  Add LoginController.js
 * Tue Nov 11 2014 bob-chen <562336543@qq.com> - 1.6.208-1
 - gitrev: ad0b600501e4fd5b5dc06566148bdff43cea2370
   add forgot pwd function

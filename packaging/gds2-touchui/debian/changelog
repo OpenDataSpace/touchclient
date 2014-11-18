@@ -1,3 +1,10 @@
+gds2-touchui (1.6.209) unstable; urgency=low
+
+  * gitrev: 012270121ae0b7d073576c1ac7a8bbbb25d90160
+    Add LoginController.js
+
+ -- bob-chen <562336543@qq.com>  Tue, 18 Nov 2014 14:03:50 +0800
+
 gds2-touchui (1.6.208) unstable; urgency=low
 
   * gitrev: ad0b600501e4fd5b5dc06566148bdff43cea2370
