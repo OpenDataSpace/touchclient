@@ -21,6 +21,10 @@ Ext.define('ACMobileClient.controller.MyController', {
     ],
 
     launch: function() {
+
+        Ext.Msg.defaultAllowedConfig.showAnimation = false;
+        Ext.Msg.defaultAllowedConfig.hideAnimation = false;
+
         Ext.define('ACMobileClient.view.ViewportLogin', {
             extend: 'ACMobileClient.view.LoginPanel',
             config: {
