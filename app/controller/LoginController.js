@@ -23,6 +23,9 @@ Ext.define('ACMobileClient.controller.LoginController', {
             },
             forgotPwdBtn : {
                 tap : 'showForgotPwd'
+            },
+            loginPanel : {
+                autoLogin : 'doLogin'
             }
         }
     },

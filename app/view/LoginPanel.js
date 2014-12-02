@@ -131,7 +131,8 @@ Ext.define('ACMobileClient.view.LoginPanel', {
             this.down('#userName').setValue(ACUtils.utils.getUserName());
             this.down('#passWord').setValue(ACUtils.utils.getPassWord());
             this.down('#rememberLogin').check();
-            this.doLogin();
+            //this.doLogin();
+            this.fireEvent('autoLogin');
         } else {
             if(navigator.platform === 'BlackBerry'){
                 if(Ext.os.deviceType === 'Phone'){
