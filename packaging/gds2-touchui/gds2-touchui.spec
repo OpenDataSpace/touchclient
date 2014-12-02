@@ -1,4 +1,4 @@
-%global ver 1.6.210
+%global ver 1.6.211
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue Dec  2 2014 bob-chen <562336543@qq.com> - 1.6.211-1
+- gitrev: 53898eed64a060ee69a17433f64414380c9f1963
+  fix issue  4311
 * Tue Nov 25 2014 bob-chen <562336543@qq.com> - 1.6.210-1
 - gitrev: 31b289e3bf34b7b66b99a990828b87baf04b6b9a
   fix issue 4214
