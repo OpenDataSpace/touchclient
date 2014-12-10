@@ -44,6 +44,7 @@ Ext.define('ACMobileClient.view.FolderListContainer', {
                         align: 'right',
 
                         itemId: 'CreateFoldBtn',
+                        cls: 'btn-create-folder',
                         //text: 'New Folder'
                         iconCls: 'folder'
                     },

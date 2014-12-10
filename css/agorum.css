@@ -690,6 +690,14 @@
     font-weight: normal;
 }
 
+.x-ie .x-toolbar .btn-create-folder .x-button-icon {
+    margin-top: 15px;
+    line-height: 45px;
+    height:45px;
+    width:45px;
+    font-size: 45px;
+}
+
 .list-icon-type-aac {
     background-image: url('../images/icons/gds2icons.png')!important;
     background-position: left -0px!important
