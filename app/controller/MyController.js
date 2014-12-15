@@ -76,10 +76,11 @@ Ext.define('ACMobileClient.controller.MyController', {
             'isDataspaceAdmin' : false,
             'isNarrow': function() {
                 if (navigator.userAgent.match(/IEMobile/) || navigator.userAgent.match(/Trident\/7\.0/)){ //wp8 & wp8.1
-                    if(Ext.Viewport.getWindowHeight()+200 >= Ext.Viewport.getWindowWidth()){
-                        return true;
-                    }
-                    return false;
+                    return true;
+                    // if(Ext.Viewport.getWindowHeight()+200 >= Ext.Viewport.getWindowWidth()){
+                    //     return true;
+                    // }
+                    // return false;
                 }
                 return Ext.Viewport.getOrientation() === 'portrait'; //this.isPhone || 
             }
