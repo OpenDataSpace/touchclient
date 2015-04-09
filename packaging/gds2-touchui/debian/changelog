@@ -1,3 +1,10 @@
+gds2-touchui (1.6.214) unstable; urgency=low
+
+  * gitrev: a98d163e87e5f0e8eae6ddd0a37e24f8bcf7a06f
+    4544: Upload button is missing on Windows Phone
+
+ -- Philip Shurpik <Philip.Shurpik@KruscheCompany.com>  Thu, 9 Apr 2015 17:08:18 +0300
+
 gds2-touchui (1.6.213) unstable; urgency=low
 
   * gitrev: 92932ac6e86cdf52ca703c32e1fdaa27591d11d2
