@@ -171,7 +171,7 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                 store = null;
 
             // WP IE not support upload so hide the upload button
-            if (navigator.userAgent.match(/IEMobile/)){
+            if (navigator.userAgent.match(/IEMobile\/10\.0/)){
                 foldC.down("#uploadButton").hide();
             }
             //console.log(area.getItemId())
