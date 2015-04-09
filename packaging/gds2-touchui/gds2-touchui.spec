@@ -1,4 +1,4 @@
-%global ver 1.6.214
+%global ver 1.6.215
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,11 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Thu Apr  9 2015 Philip Shurpik <Philip.Shurpik@KruscheCompany.com> - 1.6.215-1
+- gitrev: f75e73c07bc9d1b193f68523383497ea9c7facaf
+  Merge branch 'master' of https://github.com/OpenDataSpace/touchclient
+- gitrev: 61246d6795c66bcdc064c550f7a22790358be775
+  4544: PlUploadFix
 * Thu Apr  9 2015 Philip Shurpik <Philip.Shurpik@KruscheCompany.com> - 1.6.214-1
 - gitrev: a98d163e87e5f0e8eae6ddd0a37e24f8bcf7a06f
   4544: Upload button is missing on Windows Phone

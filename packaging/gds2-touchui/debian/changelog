@@ -1,3 +1,12 @@
+gds2-touchui (1.6.215) unstable; urgency=low
+
+  * gitrev: f75e73c07bc9d1b193f68523383497ea9c7facaf
+    Merge branch 'master' of https://github.com/OpenDataSpace/touchclient
+  * gitrev: 61246d6795c66bcdc064c550f7a22790358be775
+    4544: PlUploadFix
+
+ -- Philip Shurpik <Philip.Shurpik@KruscheCompany.com>  Thu, 9 Apr 2015 17:37:13 +0300
+
 gds2-touchui (1.6.214) unstable; urgency=low
 
   * gitrev: a98d163e87e5f0e8eae6ddd0a37e24f8bcf7a06f
