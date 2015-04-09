@@ -1,4 +1,4 @@
-%global ver 1.6.213
+%global ver 1.6.214
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Thu Apr  9 2015 Philip Shurpik <Philip.Shurpik@KruscheCompany.com> - 1.6.214-1
+- gitrev: a98d163e87e5f0e8eae6ddd0a37e24f8bcf7a06f
+  4544: Upload button is missing on Windows Phone
 * Mon Dec 15 2014 bob-chen <562336543@qq.com> - 1.6.213-1
 - gitrev: 92932ac6e86cdf52ca703c32e1fdaa27591d11d2
   fix issue 4300
