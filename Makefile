@@ -7,13 +7,13 @@ BUILD = local@$(shell hostname) $(shell date)
 GITREV = $(shell git show-ref --heads --hash)
 DSTDIR = build/$(PROJECT)
 #SDK = /home/felfert/Projects/GRAU/sencha/touch-2.2.0
-SDK = ../touch-2.2.1
+SDK = /home/awagner/bin/Sencha/Complete/1.0.5.1/touch-2.3.1
 YUIJAR = tools/yuicompressor-2.4.7.jar
 SENCHA_CDN = https://extjs.cachefly.net/touch/sencha-touch-2.2.1/
 LINK_SDK = ln -s $(SDK) touch
 UNLINK_SDK = rm -f touch
 PHANTOMJS = phantomjs
-BASEURL = http://localhost/~froth/touchclientgpl/
+BASEURL = http://localhost/gds2/touchclient
 
 SOURCES=$(shell find app 3rdparty -name "*.js") generated/AppVersion.js agorum.js app.js
 
