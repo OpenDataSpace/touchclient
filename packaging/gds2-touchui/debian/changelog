@@ -1,3 +1,12 @@
+gds2-touchui (1.6.216) unstable; urgency=low
+
+  * gitrev: 97af79efe3dc18216916b520b014f3ea16bf0d1a
+    4777: New Link Concept, implement in touchui, creation of links via mobile browser.
+  * gitrev: f69a9b94fd1ee791de7377d0f7c62c0559044cc4
+    remove metadata
+
+ -- Alexander Wagner <alexander.wagner@medneo.de>  Tue, 6 Oct 2015 16:43:48 +0200
+
 gds2-touchui (1.6.215) unstable; urgency=low
 
   * gitrev: f75e73c07bc9d1b193f68523383497ea9c7facaf

@@ -1,4 +1,4 @@
-%global ver 1.6.215
+%global ver 1.6.216
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,11 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue Oct  6 2015 Alexander Wagner <alexander.wagner@medneo.de> - 1.6.216-1
+- gitrev: 97af79efe3dc18216916b520b014f3ea16bf0d1a
+  4777: New Link Concept, implement in touchui, creation of links via mobile browser.
+- gitrev: f69a9b94fd1ee791de7377d0f7c62c0559044cc4
+  remove metadata
 * Thu Apr  9 2015 Philip Shurpik <Philip.Shurpik@KruscheCompany.com> - 1.6.215-1
 - gitrev: f75e73c07bc9d1b193f68523383497ea9c7facaf
   Merge branch 'master' of https://github.com/OpenDataSpace/touchclient
