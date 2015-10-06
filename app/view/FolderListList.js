@@ -270,7 +270,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             // actionSheet.hide();
                             // actionSheet.destroy();
                         }
-                    }, {
+                    }, /*{
                         text: 'Create Link',
                         ui: 'action',
                         handler: function(){
@@ -280,7 +280,7 @@ Ext.define('ACMobileClient.view.FolderListList', {
                             actionSheet.hide();
                             actionSheet.destroy();
                         }
-                    }, {
+                    },*/ {
                         text: 'Delete',
                         id: 'btnDelete',
                         ui: 'decline',
