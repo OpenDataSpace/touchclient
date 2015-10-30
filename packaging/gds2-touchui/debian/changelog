@@ -1,3 +1,10 @@
+gds2-touchui (1.6.217) unstable; urgency=low
+
+  * gitrev: fba973795b3fa422c8cac8fdaef72a0d569785b8
+    4820: Add upload via cal in touchui to allow for virus checking
+
+ -- Alexander Wagner <alexander.wagner@medneo.de>  Fri, 30 Oct 2015 14:40:46 +0100
+
 gds2-touchui (1.6.216) unstable; urgency=low
 
   * gitrev: 97af79efe3dc18216916b520b014f3ea16bf0d1a

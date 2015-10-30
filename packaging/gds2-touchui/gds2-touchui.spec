@@ -1,4 +1,4 @@
-%global ver 1.6.216
+%global ver 1.6.217
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Fri Oct 30 2015 Alexander Wagner <alexander.wagner@medneo.de> - 1.6.217-1
+- gitrev: fba973795b3fa422c8cac8fdaef72a0d569785b8
+  4820: Add upload via cal in touchui to allow for virus checking
 * Tue Oct  6 2015 Alexander Wagner <alexander.wagner@medneo.de> - 1.6.216-1
 - gitrev: 97af79efe3dc18216916b520b014f3ea16bf0d1a
   4777: New Link Concept, implement in touchui, creation of links via mobile browser.
