@@ -72,6 +72,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
         var me = this,
             folderStore = container.down('#documentList').getStore(),
             folderId = folderStore.folderId,
+	    sessionId = MyGlobals.sessionId,
             qStore = Ext.getStore('UploadQueue'),
             chunkSize = '256kb',
             uploader,
@@ -88,7 +89,7 @@ Ext.define('ACMobileClient.controller.UploadController', {
             'max_file_size': '100gb',
             'chunk_size': chunkSize, //256kb
             //'multi_selection': false,
-            'url': '/api/rest/object/upload?renameifrequired=true&target=' + folderId
+            'url': '/cal/file?renameifrequired=true&target=' + folderId + '&sessionId=' + sessionId
         });
 
         //console.log(document.getElementById(buttonId).parentNode.id);
@@ -177,9 +178,11 @@ Ext.define('ACMobileClient.controller.UploadController', {
                 }
             }
         });
-        uploader.bind('FileUploaded', function(up, file) {
+        uploader.bind('FileUploaded', function(up, file, response){
             var rec = qStore.findRecord('id', file.id),
                 tp = MyGlobals.menuPanel.getComponent('tabPanel');
+
+	    me.checkRespone(response, up, file);
             if (rec) {
                 qStore.remove(rec);
                 qStore.sync();
@@ -363,6 +366,18 @@ Ext.define('ACMobileClient.controller.UploadController', {
         me.uploaders.forEach(function(up) {
             up.stop();
         });
-    }
+    },
+
+    checkRespone: function(response, uploader, file) {
+        var me = this,
+            json = Ext.decode(response.response),
+            success = json.success;
+        
+        if (!success) {
+            Ext.Msg.alert("Error", file.name + " is infected");
+        }
+        
+        return success;
+    },
 
 });
