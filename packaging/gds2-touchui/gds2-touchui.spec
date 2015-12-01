@@ -1,4 +1,4 @@
-%global ver 1.6.217
+%global ver 1.6.218
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,8 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue Dec  1 2015 Build System <gds2dev@dataspace.cc> - 1.6.218-1
+- Automated rebuild
 * Fri Oct 30 2015 Alexander Wagner <alexander.wagner@medneo.de> - 1.6.217-1
 - gitrev: fba973795b3fa422c8cac8fdaef72a0d569785b8
   4820: Add upload via cal in touchui to allow for virus checking
