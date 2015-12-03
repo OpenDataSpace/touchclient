@@ -1,3 +1,10 @@
+gds2-touchui (1.7.223) unstable; urgency=low
+
+  * gitrev: 7388b55dabbede640df8779fcc1d76f7ad9336f5
+    increments minor version number to 1.7
+
+ -- Achim Derigs <achim.derigs@graudata.com>  Thu, 3 Dec 2015 16:19:04 +0100
+
 gds2-touchui (1.6.220) unstable; urgency=low
 
   * gitrev: ece11d0322ca7714de07cbea4bae8c83d6fb7cc3

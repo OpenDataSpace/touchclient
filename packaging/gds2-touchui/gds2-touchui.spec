@@ -1,4 +1,4 @@
-%global ver 1.6.220
+%global ver 1.7.223
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Thu Dec  3 2015 Achim Derigs <achim.derigs@graudata.com> - 1.7.223-1
+- gitrev: 7388b55dabbede640df8779fcc1d76f7ad9336f5
+  increments minor version number to 1.7
 * Thu Dec  3 2015 Achim Derigs <achim.derigs@graudata.com> - 1.6.220-1
 - gitrev: ece11d0322ca7714de07cbea4bae8c83d6fb7cc3
   creates new target nodistupload
