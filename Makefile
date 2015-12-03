@@ -27,7 +27,7 @@ YUI = java -jar $(YUIJAR) --type js -o
 DBGSUFFIX=
 endif
 
-all: jslint dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
+all: jasmine jslint dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
 
 $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js: $(SDK)/sencha-touch-all$(DBGSUFFIX).js
 	cp $^ $@
@@ -53,6 +53,10 @@ dist: clean all package
 package:
 	echo VERSION=$(VERSION) > version.properties
 	$(MAKE) VERSION=$(VERSION) -C packaging dist
+
+distnoupload: clean jslint dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
+	echo VERSION=$(VERSION) > version.properties
+	$(MAKE) VERSION=$(VERSION) -C packaging clean build
 
 missing: generated/AppVersion.js
 
