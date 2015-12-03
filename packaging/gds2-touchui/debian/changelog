@@ -1,3 +1,12 @@
+gds2-touchui (1.6.220) unstable; urgency=low
+
+  * gitrev: ece11d0322ca7714de07cbea4bae8c83d6fb7cc3
+    creates new target nodistupload
+  * gitrev: 29e7eb678561951f1738077ecf339f238f198933
+    excludes jasmine from making all
+
+ -- Achim Derigs <achim.derigs@graudata.com>  Thu, 3 Dec 2015 14:53:56 +0100
+
 gds2-touchui (1.6.219) unstable; urgency=low
 
   * Automated rebuild
