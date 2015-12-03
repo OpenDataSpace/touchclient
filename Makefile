@@ -27,7 +27,7 @@ YUI = java -jar $(YUIJAR) --type js -o
 DBGSUFFIX=
 endif
 
-all: jslint jasmine dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
+all: jslint dstdir resources $(TARGETS) $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js
 
 $(DSTDIR)/sencha-touch-all$(DBGSUFFIX).js: $(SDK)/sencha-touch-all$(DBGSUFFIX).js
 	cp $^ $@
