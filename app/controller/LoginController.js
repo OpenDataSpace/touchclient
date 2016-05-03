@@ -99,12 +99,15 @@ Ext.define('ACMobileClient.controller.LoginController', {
                                         MyGlobals.sharedId = data[i].id;
                                     } else if(repoName === 'global'){
                                         MyGlobals.globalId = data[i].id;
+                                    } else if(repoName === 'projects'){
+                                        MyGlobals.projectsId = data[i].id;
                                     }
                                 }
 
                                 console.log("myId: " + MyGlobals.myId);
                                 console.log("sharedId: " + MyGlobals.sharedId);
                                 console.log("globalId: " + MyGlobals.globalId);
+                                console.log("projectsId: " + MyGlobals.projectsId);
 
                                 // Init viewport main
                                 Ext.Viewport.setMasked(false);
