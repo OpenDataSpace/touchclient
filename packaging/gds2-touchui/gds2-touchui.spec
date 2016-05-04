@@ -1,4 +1,4 @@
-%global ver 1.7.223
+%global ver 1.7.227
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,11 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed May  4 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.227-1
+- gitrev: 282a0eeb4ea8e3053ac1ac811412bcd77d434b8e
+  fix build
+- gitrev: 69256e98b2b3339136cf02aa25dbc64d293acea6
+  5022: Project Rooms should be availlable via Touch UI
 * Thu Dec  3 2015 Achim Derigs <achim.derigs@graudata.com> - 1.7.223-1
 - gitrev: 7388b55dabbede640df8779fcc1d76f7ad9336f5
   increments minor version number to 1.7

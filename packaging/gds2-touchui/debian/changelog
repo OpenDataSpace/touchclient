@@ -1,3 +1,12 @@
+gds2-touchui (1.7.227) unstable; urgency=low
+
+  * gitrev: 282a0eeb4ea8e3053ac1ac811412bcd77d434b8e
+    fix build
+  * gitrev: 69256e98b2b3339136cf02aa25dbc64d293acea6
+    5022: Project Rooms should be availlable via Touch UI
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Wed, 4 May 2016 11:50:26 +0200
+
 gds2-touchui (1.7.223) unstable; urgency=low
 
   * gitrev: 7388b55dabbede640df8779fcc1d76f7ad9336f5
