@@ -31,9 +31,8 @@ Ext.define('ACMobileClient.controller.LoginController', {
     },
 
     doLogin: function() {
-        var loginPanel = this.getLoginPanel();
-
-        var userName = this.getUserName(),
+        var loginPanel = this.getLoginPanel(),
+            userName = this.getUserName(),
             passWord = this.getPassWord();
 
         userName.blur();
@@ -76,7 +75,9 @@ Ext.define('ACMobileClient.controller.LoginController', {
                     * Language definition class which is the reason
                     * for the eval here.
                     */
+                    /*jsl:ignore*/
                     eval(response.responseText);
+                    /*jsl:end*/
 
                     var rootFolderStore = Ext.create('ACMobileClient.store.RootFolderStore', {
                         storeId: 'rootFolderStore'

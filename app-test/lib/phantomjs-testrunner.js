@@ -1,5 +1,23 @@
 // Verify arguments
-if (phantom.args.length === 0) {
+
+// We use phantomjs 2.1 in our buildenv now.
+// phantom.args was replaced by system.args. See http://phantomjs.org/api/phantom/property/args.html
+var args;
+if (typeof phantom.args !== 'undefined') {
+    args = phantom.args;
+} else {
+    var system = require('system');
+    // Unlike phantom.args, system.args include the script itself at index 0,
+    // so create a copy of the array, starting at index 1
+    args = new Array();
+    system.args.forEach(function(arg, i) {
+        if (i > 0) {
+            args.push(arg);
+        }
+    });
+}
+
+if (args.length === 0) {
     console.log("Simple JasmineBDD test runner for phantom.js");
     console.log("Usage: phantomjs-testrunner.js url_to_runner.html");
     console.log("Accepts http:// and file:// urls");
@@ -8,7 +26,6 @@ if (phantom.args.length === 0) {
     phantom.exit(2);
 }
 else {
-    var args = phantom.args;
     var fs = require("fs"),
         pages = [],
         page, address, resultsKey, i, l;
@@ -116,7 +133,7 @@ function overloadPageEvaluate(page) {
 function setupWriteFileFunction(page, key, path_separator) {
     page.evaluate(function(){
         window["%resultsObj%"] = {};
-        window.fs_path_separator = "%fs_path_separator%";
+        window.fs_path_separator = '';//"%fs_path_separator%";
         window.__phantom_writeFile = function(filename, text) {
             window["%resultsObj%"][filename] = text;
         };
@@ -152,8 +169,7 @@ function processPage(status, page, resultsKey) {
     if (status !== "success") {
         console.error("Unable to load resource: " + address);
         page.__exit_code = 2;
-    }
-    else {
+    } else {
         var isFinished = function() {
             return page.evaluate(function(){
                 // if there's a JUnitXmlReporter, return a boolean indicating if it is finished
@@ -165,11 +181,24 @@ function processPage(status, page, resultsKey) {
                        document.getElementsByClassName("finished-at")[0].innerHTML.length > 0;
             });
         };
-        var getResults = function() {
+        var getTotals = function() {
             return page.evaluate(function(){
-                return document.getElementsByClassName("description").length &&
-                       document.getElementsByClassName("description")[0].innerHTML.match(/(\d+) spec.* (\d+) failure.*/) ||
-                       ["Unable to determine success or failure."];
+                var r = document.getElementsByClassName("results");
+                if (r.length > 0) {
+                    var s = r[0].innerHTML;
+                    return (s.match(/specSummary (failed|passed)/g) || []).length;
+                }
+                return "Unable to determine success or failure.";
+            });
+        };
+        var getFailures = function() {
+            return page.evaluate(function(){
+                var r = document.getElementsByClassName("results");
+                if (r.length > 0) {
+                    var s = r[0].innerHTML;
+                    return (s.match(/specSummary failed/g) || []).length;
+                }
+                return "Unable to determine success or failure.";
             });
         };
         var ival = setInterval(function(){
@@ -185,13 +214,13 @@ function processPage(status, page, resultsKey) {
                 }
 
                 // print out a success / failure message of the results
-                var results = getResults();
-                var failures = Number(results[2]);
+                var totals = getTotals();
+                var failures = getFailures();
+                console.debug("Tests run: ", totals, " failed: ", failures); 
                 if (failures > 0) {
                     page.__exit_code = 1;
                     clearInterval(ival);
-                }
-                else {
+                } else {
                     page.__exit_code = 0;
                     clearInterval(ival);
                 }

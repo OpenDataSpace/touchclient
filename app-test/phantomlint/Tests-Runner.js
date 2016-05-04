@@ -8,10 +8,11 @@ phantom.injectJs('Config.js');
  */
 phantom.injectJs(UTBConfig.baseFolders.resources + 'phantomlint/PhantomLint.js');
 PhantomLint.init({
+    numErrors: 0,
     filepaths: UTBConfig.getAppsPaths(),
     exclusions: UTBConfig.getExclusions(),
     getLogFileName: UTBConfig.getLogFileName,
     getAppNameByPath: UTBConfig.getAppNameByPath,
     jsLint: UTBConfig.baseFolders.resources + 'phantomlint/assets/jslint.js'
 });
-phantom.exit();
+phantom.exit(0);
