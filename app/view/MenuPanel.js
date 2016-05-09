@@ -68,21 +68,21 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     },
                     {
                         xtype: 'DocumentListContainer',
-                        itemId: 'globalFolders',
-                        layout: {
-                            type: 'card'
-                        },
-                        title: 'Global',
-                        iconCls: 'global'
-                    },
-                    {
-                        xtype: 'DocumentListContainer',
                         itemId: 'projectsFolders',
                         layout: {
                             type: 'card'
                         },
                         title: 'Projects',
                         iconCls: 'compose'
+                    },
+                    {
+                        xtype: 'DocumentListContainer',
+                        itemId: 'globalFolders',
+                        layout: {
+                            type: 'card'
+                        },
+                        title: 'Global',
+                        iconCls: 'global'
                     },
                     {
                         xtype: 'searchcontainer',
