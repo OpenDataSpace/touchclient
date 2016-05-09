@@ -1,3 +1,10 @@
+gds2-touchui (1.7.228) unstable; urgency=low
+
+  * gitrev: df94f0e0c8e3c6c47a01d9da269790cd110feef1
+    change repo order
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Mon, 9 May 2016 09:26:45 +0200
+
 gds2-touchui (1.7.227) unstable; urgency=low
 
   * gitrev: 282a0eeb4ea8e3053ac1ac811412bcd77d434b8e
