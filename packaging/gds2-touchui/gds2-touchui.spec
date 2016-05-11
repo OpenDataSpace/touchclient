@@ -1,4 +1,4 @@
-%global ver 1.7.228
+%global ver 1.7.229
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed May 11 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.229-1
+- gitrev: 48502068dee1f56152ca9e8b2ab7e52261351240
+  5032: Promote iOS App in Safari via meta tag
 * Mon May  9 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.228-1
 - gitrev: df94f0e0c8e3c6c47a01d9da269790cd110feef1
   change repo order

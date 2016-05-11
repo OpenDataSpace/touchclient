@@ -1,3 +1,10 @@
+gds2-touchui (1.7.229) unstable; urgency=low
+
+  * gitrev: 48502068dee1f56152ca9e8b2ab7e52261351240
+    5032: Promote iOS App in Safari via meta tag
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Wed, 11 May 2016 16:18:19 +0200
+
 gds2-touchui (1.7.228) unstable; urgency=low
 
   * gitrev: df94f0e0c8e3c6c47a01d9da269790cd110feef1
