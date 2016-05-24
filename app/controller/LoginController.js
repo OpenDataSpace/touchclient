@@ -11,6 +11,7 @@ Ext.define('ACMobileClient.controller.LoginController', {
             passWord : "#passWord",
             loginBtn : "#loginButton",
             forgotPwdBtn : '#forgotPwdBtn',
+            desktopBtn : '#desktopBtn',
             loginForm : '#loginForm',
             loginPanel : '#loginPanel'
         },
@@ -23,6 +24,9 @@ Ext.define('ACMobileClient.controller.LoginController', {
             },
             forgotPwdBtn : {
                 tap : 'showForgotPwd'
+            },
+            desktopBtn : {
+                tap : 'desktopVersion'
             },
             loginPanel : {
                 autoLogin : 'doLogin'
@@ -173,6 +177,10 @@ Ext.define('ACMobileClient.controller.LoginController', {
                 });
             }
         });
+    },
+
+    desktopVersion: function(){
+        window.location.href = "/1.1/index.html";
     }
 
 });
