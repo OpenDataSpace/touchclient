@@ -1,4 +1,4 @@
-%global ver 1.7.229
+%global ver 1.7.230
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Tue May 24 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.230-1
+- gitrev: 3dc1372cdba6e5d49c9b6f78e981e6203caf0c30
+  4610: Switching to touchui or desktop ui on login screen
 * Wed May 11 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.229-1
 - gitrev: 48502068dee1f56152ca9e8b2ab7e52261351240
   5032: Promote iOS App in Safari via meta tag

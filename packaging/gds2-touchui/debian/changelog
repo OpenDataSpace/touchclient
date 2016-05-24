@@ -1,3 +1,10 @@
+gds2-touchui (1.7.230) unstable; urgency=low
+
+  * gitrev: 3dc1372cdba6e5d49c9b6f78e981e6203caf0c30
+    4610: Switching to touchui or desktop ui on login screen
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Tue, 24 May 2016 10:29:12 +0200
+
 gds2-touchui (1.7.229) unstable; urgency=low
 
   * gitrev: 48502068dee1f56152ca9e8b2ab7e52261351240
