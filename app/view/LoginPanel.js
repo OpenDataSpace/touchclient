@@ -29,7 +29,7 @@ Ext.define('ACMobileClient.view.LoginPanel', {
             {
                 xtype: 'formpanel',
                 centered: true,
-                height: 360,
+                height: 400,
                 itemId: 'loginForm',
                 id: 'loginForm',
                 minHeight: 330,
@@ -101,6 +101,16 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         //ui: 'action-round',
                         //width: 150,
                         text: 'Forgot Password',
+                        cls: 'btn-forgot-pwd'
+                        //margin: '0 auto'
+                    },
+                    {
+                        xtype: 'button',
+                        itemId: 'desktopBtn',
+                        id: 'desktopBtn',
+                        //ui: 'action-round',
+                        //width: 150,
+                        text: 'Desktop Version',
                         cls: 'btn-forgot-pwd'
                         //margin: '0 auto'
                     }

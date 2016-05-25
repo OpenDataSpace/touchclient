@@ -88,6 +88,7 @@ Ext.define('ACMobileClient.view.MainPanel', {
         men.navigateToFolder('', "My", true, this.down('#documentsBar'));
         men.navigateToFolder('', "Shared", true, this.down('#sharedFolders'));
         men.navigateToFolder('', "Global", true, this.down('#globalFolders'));
+        men.navigateToFolder('', "Projects", true, this.down('#projectsFolders'));
 
         // men.navigateToFolder('', "Start", true, this.down('#documentsBar'));
         // men.navigateToFolder('', "Start", true, this.down('#sharedFolders'));

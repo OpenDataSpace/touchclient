@@ -1,5 +1,5 @@
 PROJECT = touchui
-VERSION_MAJOR = 1.6
+VERSION_MAJOR = 1.7
 # The following is set in jenkins, for local builds, we get version 1.6.x while on jenkins we get e.g: 1.6.99
 BUILDNUMBER=x
 VERSION=$(VERSION_MAJOR).$(BUILDNUMBER)
@@ -83,10 +83,11 @@ jslint: $(SOURCES)
 	$(PHANTOMJS) app-test/phantomlint/Tests-Runner.js
 
 jasmine: $(SOURCES)
-	$(UNLINK_SDK)
 	$(LINK_SDK)
-	$(PHANTOMJS) app-test/lib/phantomjs-testrunner.js $(BASEURL)/run-tests.html 
+	rm -f jasmine_success
+	$(PHANTOMJS) app-test/lib/phantomjs-testrunner.js $(BASEURL)/run-tests.html && touch jasmine_success || true 
 	$(UNLINK_SDK)
+	test -f jasmine_success && rm -f jasmine_success || exit 1
 
 clean:
 	rm -rf build generated $(PROJECT)*.tar.gz

@@ -113,6 +113,8 @@ Ext.define('ACMobileClient.utils.ACUtils', {
     },
 
     login: function(userName, passWord, successFn, failureFn) {
+        var me = this;
+
         Ext.Ajax.request({
             method: 'POST',
             headers: {
@@ -152,7 +154,9 @@ Ext.define('ACMobileClient.utils.ACUtils', {
                                     success: function(response) {
                                         MyGlobals.isDataSpaceAdmin = Ext.decode(response.responseText).isDataSpaceAdmin;
                                         if (successFn) {
-                                            successFn(jsonResp.sessionId);
+                                            me.checkProjectRooms(function() {
+                                                successFn(jsonResp.sessionId);
+                                            });
                                         }
                                     },
                                     failure: function(){
@@ -174,38 +178,24 @@ Ext.define('ACMobileClient.utils.ACUtils', {
                 failureFn(response);
             }
         });
+    },
 
-        //not connected anymore, so reconnect
-        // Ext.Ajax.request({
-        //     url: '/api/rest/session/login.json',
-        //     method: 'post',
-        //     params: { 
-        //         username: userName,
-        //         password: passWord,
-        //         noCache: new Date().getTime()
-        //     },
-        //     success: function(response) {
-        //         var jsonResp = Ext.decode(response.responseText);
+    checkProjectRooms: function(callback) {
+        Ext.Ajax.request({
+            url: '/cal/projectroom/enabled',
+            method: 'GET',
+            success: function(response) {
+                var jsonResp = Ext.decode(response.responseText);
 
-        //         if (!jsonResp.sessionId) {
-        //             if (failureFn) {
-        //                 failureFn();
-        //             }
-        //         }
-        //         else {
-        //             MyGlobals.sessionId = jsonResp.sessionId;
-        //             if (successFn) {
-        //                 successFn(jsonResp.sessionId);
-        //             }
-        //         }
-        //     },
-        //     failure: function() {
-        //         if (failureFn) {
-        //             failureFn();
-        //         }
-        //     },
-        //     scope: this
-        // });
+                MyGlobals.isProjectRooms = jsonResp.enabled;
+                callback();
+            },
+            failure: function() {
+                MyGlobals.isProjectRooms = false;
+                callback();
+            },
+            scope: this
+        });
     },
 
     checkConnectionWithFunction: function(callBack) {

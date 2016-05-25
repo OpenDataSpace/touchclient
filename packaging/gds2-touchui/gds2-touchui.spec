@@ -1,4 +1,4 @@
-%global ver 1.6.221
+%global ver 1.7.230
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,8 +50,23 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
-* Thu Dec  3 2015 Build System <gds2dev@dataspace.cc> - 1.6.221-1
-- Automated rebuild
+* Tue May 24 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.230-1
+- gitrev: 3dc1372cdba6e5d49c9b6f78e981e6203caf0c30
+  4610: Switching to touchui or desktop ui on login screen
+* Wed May 11 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.229-1
+- gitrev: 48502068dee1f56152ca9e8b2ab7e52261351240
+  5032: Promote iOS App in Safari via meta tag
+* Mon May  9 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.228-1
+- gitrev: df94f0e0c8e3c6c47a01d9da269790cd110feef1
+  change repo order
+* Wed May  4 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.227-1
+- gitrev: 282a0eeb4ea8e3053ac1ac811412bcd77d434b8e
+  fix build
+- gitrev: 69256e98b2b3339136cf02aa25dbc64d293acea6
+  5022: Project Rooms should be availlable via Touch UI
+* Thu Dec  3 2015 Achim Derigs <achim.derigs@graudata.com> - 1.7.223-1
+- gitrev: 7388b55dabbede640df8779fcc1d76f7ad9336f5
+  increments minor version number to 1.7
 * Thu Dec  3 2015 Achim Derigs <achim.derigs@graudata.com> - 1.6.220-1
 - gitrev: ece11d0322ca7714de07cbea4bae8c83d6fb7cc3
   creates new target nodistupload

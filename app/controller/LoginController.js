@@ -11,6 +11,7 @@ Ext.define('ACMobileClient.controller.LoginController', {
             passWord : "#passWord",
             loginBtn : "#loginButton",
             forgotPwdBtn : '#forgotPwdBtn',
+            desktopBtn : '#desktopBtn',
             loginForm : '#loginForm',
             loginPanel : '#loginPanel'
         },
@@ -24,6 +25,9 @@ Ext.define('ACMobileClient.controller.LoginController', {
             forgotPwdBtn : {
                 tap : 'showForgotPwd'
             },
+            desktopBtn : {
+                tap : 'desktopVersion'
+            },
             loginPanel : {
                 autoLogin : 'doLogin'
             }
@@ -31,9 +35,8 @@ Ext.define('ACMobileClient.controller.LoginController', {
     },
 
     doLogin: function() {
-        var loginPanel = this.getLoginPanel();
-
-        var userName = this.getUserName(),
+        var loginPanel = this.getLoginPanel(),
+            userName = this.getUserName(),
             passWord = this.getPassWord();
 
         userName.blur();
@@ -76,7 +79,9 @@ Ext.define('ACMobileClient.controller.LoginController', {
                     * Language definition class which is the reason
                     * for the eval here.
                     */
+                    /*jsl:ignore*/
                     eval(response.responseText);
+                    /*jsl:end*/
 
                     var rootFolderStore = Ext.create('ACMobileClient.store.RootFolderStore', {
                         storeId: 'rootFolderStore'
@@ -99,12 +104,15 @@ Ext.define('ACMobileClient.controller.LoginController', {
                                         MyGlobals.sharedId = data[i].id;
                                     } else if(repoName === 'global'){
                                         MyGlobals.globalId = data[i].id;
+                                    } else if(repoName === 'projects'){
+                                        MyGlobals.projectsId = data[i].id;
                                     }
                                 }
 
                                 console.log("myId: " + MyGlobals.myId);
                                 console.log("sharedId: " + MyGlobals.sharedId);
                                 console.log("globalId: " + MyGlobals.globalId);
+                                console.log("projectsId: " + MyGlobals.projectsId);
 
                                 // Init viewport main
                                 Ext.Viewport.setMasked(false);
@@ -169,6 +177,10 @@ Ext.define('ACMobileClient.controller.LoginController', {
                 });
             }
         });
+    },
+
+    desktopVersion: function(){
+        window.location.href = "/1.1/index.html";
     }
 
 });

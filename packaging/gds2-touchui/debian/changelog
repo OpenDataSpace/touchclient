@@ -1,8 +1,39 @@
-gds2-touchui (1.6.221) unstable; urgency=low
+gds2-touchui (1.7.230) unstable; urgency=low
 
-  * Automated rebuild
+  * gitrev: 3dc1372cdba6e5d49c9b6f78e981e6203caf0c30
+    4610: Switching to touchui or desktop ui on login screen
 
- -- Achim Derigs <achim.derigs@graudata.com>  Thu, 03 Dec 2015 15:28:18 +0100
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Tue, 24 May 2016 10:29:12 +0200
+
+gds2-touchui (1.7.229) unstable; urgency=low
+
+  * gitrev: 48502068dee1f56152ca9e8b2ab7e52261351240
+    5032: Promote iOS App in Safari via meta tag
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Wed, 11 May 2016 16:18:19 +0200
+
+gds2-touchui (1.7.228) unstable; urgency=low
+
+  * gitrev: df94f0e0c8e3c6c47a01d9da269790cd110feef1
+    change repo order
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Mon, 9 May 2016 09:26:45 +0200
+
+gds2-touchui (1.7.227) unstable; urgency=low
+
+  * gitrev: 282a0eeb4ea8e3053ac1ac811412bcd77d434b8e
+    fix build
+  * gitrev: 69256e98b2b3339136cf02aa25dbc64d293acea6
+    5022: Project Rooms should be availlable via Touch UI
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Wed, 4 May 2016 11:50:26 +0200
+
+gds2-touchui (1.7.223) unstable; urgency=low
+
+  * gitrev: 7388b55dabbede640df8779fcc1d76f7ad9336f5
+    increments minor version number to 1.7
+
+ -- Achim Derigs <achim.derigs@graudata.com>  Thu, 3 Dec 2015 16:19:04 +0100
 
 gds2-touchui (1.6.220) unstable; urgency=low
 

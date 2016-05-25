@@ -59,8 +59,8 @@ PhantomLint = {
      * @property
      */
     lintOptions : {
-        nomen    : false, //if names may have dangling _
-        plusplus : false, //if increment/decrement should be allowed
+        nomen    : true, //if names may have dangling _
+        plusplus : true, //if increment/decrement should be allowed
         sloppy   : true, //if the 'use strict'; pragma is optional
         vars     : false, //if multiple var statements per function should be allowed
         white    : true, //if sloppy whitespace is tolerated
@@ -118,10 +118,16 @@ PhantomLint = {
     },
 
     /**
+     * @property
+     */
+    numErrors: 0,
+
+    /**
      * @method
      */
     announceErrors: function(errorList, appName) {
         this.log('\nFix Your Errors! Check the log file for more information.\n\n', true);
+        this.numErrors++;
 //        phantom.exit(1);
     },
 

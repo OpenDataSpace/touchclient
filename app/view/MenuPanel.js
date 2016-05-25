@@ -68,6 +68,15 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     },
                     {
                         xtype: 'DocumentListContainer',
+                        itemId: 'projectsFolders',
+                        layout: {
+                            type: 'card'
+                        },
+                        title: 'Projects',
+                        iconCls: 'compose'
+                    },
+                    {
+                        xtype: 'DocumentListContainer',
                         itemId: 'globalFolders',
                         layout: {
                             type: 'card'
@@ -174,8 +183,8 @@ Ext.define('ACMobileClient.view.MenuPanel', {
             if (navigator.userAgent.match(/IEMobile\/10\.0/)){
                 foldC.down("#uploadButton").hide();
             }
-            //console.log(area.getItemId())
-
+            console.log("AREA: ", area.getItemId());
+            console.log("ROOT?:" + isRoot);
             if (isRoot)  {
                 // If root, load the areas
                 if (area.getItemId() === 'documentsBar') {
@@ -188,6 +197,14 @@ Ext.define('ACMobileClient.view.MenuPanel', {
                     parentName = "Global";
                     if( !MyGlobals.isDataSpaceAdmin){
                         foldC.down("#CreateFoldBtn").disable(true);
+                    }
+                } else if (area.getItemId() === 'projectsFolders') {
+                    store = Ext.create("ACMobileClient.store.ProjectsGlobalFoldersStore", {});
+                    fId = MyGlobals.projectsId;//'agorum/roi/files/dataspace'
+                    parentName = "Projects";
+                    foldC.down("#CreateFoldBtn").hide();
+                    if (!MyGlobals.isProjectRooms) {
+                        me.down('#projectsFolders').destroy();
                     }
                 } else {
                     store = Ext.create("ACMobileClient.store.SharedGlobalFoldersStore", {});
