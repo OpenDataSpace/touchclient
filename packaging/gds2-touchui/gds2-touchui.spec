@@ -1,4 +1,4 @@
-%global ver 1.7.231
+%global ver 1.7.233
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,8 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed May 25 2016 Build System <gds2dev@dataspace.cc> - 1.7.233-1
+- Automated rebuild
 * Wed May 25 2016 Frederick Roth <f-roth@megaera.de> - 1.7.231-1
 - gitrev: 5c36ae05d801fb3587b2a28564fffc77edfd69fa
   Merge branch 'devel' into testing
