@@ -1,5 +1,5 @@
 PROJECT = touchui
-VERSION_MAJOR = 1.7
+VERSION_MAJOR = 1.8
 # The following is set in jenkins, for local builds, we get version 1.6.x while on jenkins we get e.g: 1.6.99
 BUILDNUMBER=x
 VERSION=$(VERSION_MAJOR).$(BUILDNUMBER)
