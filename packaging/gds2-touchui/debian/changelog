@@ -1,3 +1,10 @@
+gds2-touchui (1.8.232) unstable; urgency=low
+
+  * gitrev: bb54791b7d775533aeac0f482b15c4fc602448d7
+    Version Bump
+
+ -- Frederick Roth <f-roth@megaera.de>  Wed, 25 May 2016 14:04:54 +0200
+
 gds2-touchui (1.7.230) unstable; urgency=low
 
   * gitrev: 3dc1372cdba6e5d49c9b6f78e981e6203caf0c30
