@@ -1,4 +1,4 @@
-%global ver 1.7.230
+%global ver 1.7.231
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Wed May 25 2016 Frederick Roth <f-roth@megaera.de> - 1.7.231-1
+- gitrev: 5c36ae05d801fb3587b2a28564fffc77edfd69fa
+  Merge branch 'devel' into testing
 * Tue May 24 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.230-1
 - gitrev: 3dc1372cdba6e5d49c9b6f78e981e6203caf0c30
   4610: Switching to touchui or desktop ui on login screen
