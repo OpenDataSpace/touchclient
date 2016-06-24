@@ -1,4 +1,4 @@
-%global ver 1.8.232
+%global ver 1.8.234
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,9 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Fri Jun 24 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.8.234-1
+- gitrev: a551028ad21439eb5924578f6a5898b9bd01c5ed
+  make switch to desktop button more visible
 * Wed May 25 2016 Frederick Roth <f-roth@megaera.de> - 1.8.232-1
 - gitrev: bb54791b7d775533aeac0f482b15c4fc602448d7
   Version Bump
