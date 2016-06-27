@@ -96,6 +96,15 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                     },
                     {
                         xtype: 'button',
+                        itemId: 'desktopBtn',
+                        id: 'desktopBtn',
+                        ui: 'action-round',
+                        width: 250,
+                        text: 'Switch to Desktop Version',
+                        margin: '10 auto'
+                    },
+                    {
+                        xtype: 'button',
                         itemId: 'forgotPwdBtn',
                         id: 'forgotPwdBtn',
                         //ui: 'action-round',
@@ -103,17 +112,8 @@ Ext.define('ACMobileClient.view.LoginPanel', {
                         text: 'Forgot Password',
                         cls: 'btn-forgot-pwd'
                         //margin: '0 auto'
-                    },
-                    {
-                        xtype: 'button',
-                        itemId: 'desktopBtn',
-                        id: 'desktopBtn',
-                        //ui: 'action-round',
-                        //width: 150,
-                        text: 'Desktop Version',
-                        cls: 'btn-forgot-pwd'
-                        //margin: '0 auto'
                     }
+
                 ]
             }
         ],
