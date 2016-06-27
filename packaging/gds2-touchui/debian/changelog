@@ -1,3 +1,14 @@
+gds2-touchui (1.7.235) unstable; urgency=low
+
+  * gitrev: 44367c6df114eb04e9a3b1087380a9268a2befa6
+    merge devel into testing
+  * gitrev: a551028ad21439eb5924578f6a5898b9bd01c5ed
+    make switch to desktop button more visible
+  * gitrev: bb54791b7d775533aeac0f482b15c4fc602448d7
+    Version Bump
+
+ -- Alexander Wagner <alexander.wagner@graudata.com>  Mon, 27 Jun 2016 15:45:39 +0200
+
 gds2-touchui (1.7.233) unstable; urgency=low
 
   * Automated rebuild

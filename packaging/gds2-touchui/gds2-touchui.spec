@@ -1,4 +1,4 @@
-%global ver 1.7.233
+%global ver 1.7.235
 %global rel     1
 
 %if 0%{?suse_version}
@@ -50,6 +50,13 @@ service %{_apache} %{_condrestart} || true
 service %{_apache} %{_condrestart} || true
 
 %changelog
+* Mon Jun 27 2016 Alexander Wagner <alexander.wagner@graudata.com> - 1.7.235-1
+- gitrev: 44367c6df114eb04e9a3b1087380a9268a2befa6
+  merge devel into testing
+- gitrev: a551028ad21439eb5924578f6a5898b9bd01c5ed
+  make switch to desktop button more visible
+- gitrev: bb54791b7d775533aeac0f482b15c4fc602448d7
+  Version Bump
 * Wed May 25 2016 Build System <gds2dev@dataspace.cc> - 1.7.233-1
 - Automated rebuild
 * Wed May 25 2016 Frederick Roth <f-roth@megaera.de> - 1.7.231-1
